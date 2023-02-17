@@ -3,6 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PrivateModule } from './pages/private/private.module';
+import { PublicModule } from './pages/public/public.module';
+import { PrivateSharedModule } from './shared/private-shared/private-shared.module';
+import { PublicSharedModule } from './shared/public-shared/public-shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatCardModule} from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -10,7 +18,13 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PublicModule,
+    PrivateModule,
+    PrivateSharedModule,
+    PublicSharedModule,
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
