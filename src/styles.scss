@@ -8,8 +8,16 @@ $font-logo: "04B_30__.TTF";
 $background-color_dark: black;
 $background-color_transparent: transparent;
 $background-color_grey: #536162;
+$background-color_dark-grey: #292F33;
 $border-color_green: #57E309;
 $border-color_transparent: transparent;
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 
 @font-face {
 	font-family: "Rokkit-Light.ttf";
@@ -42,25 +50,19 @@ $border-color_transparent: transparent;
 .dark-background {
 	background-color: $background-color_dark;
 }
+.dark-gray-background {
+	background-color: $background-color_dark-grey;
+}
 .btn-green {
+	border: 3px dashed $border-color_green;
 	background-color: $background-color_transparent;
-	border-color: $border-color_green;
-	border-style: dashed;
-	padding-top: 20px;
-	border-width: 4px;
+	padding: 20px 10px;
 	display: flex;
 	align-items: start;
-	&:hover {
-		box-shadow: 5px 10px 20px #57e309;
-		background-color: $background-color_transparent;
-	}
-	&:focus {
-		box-shadow: 5px 10px 20px #57e309;
-		background-color: $background-color_transparent;
-	}
-	&:active {
-		box-shadow: 5px 10px 20px #57e309;
-		background-color: $background-color_transparent;
+	cursor: pointer;
+	&:hover
+	 {
+		box-shadow: 0 0 5px #57e309;
 	}
 }
 .btn-grey {

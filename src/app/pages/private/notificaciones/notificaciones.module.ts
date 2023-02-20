@@ -5,6 +5,7 @@ import { NotificationsPanelComponent } from './componentes/notifications-panel/n
 import { MessagesPanelComponent } from './componentes/messages-panel/messages-panel.component';
 
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {MatTabsModule} from '@angular/material/tabs';
   ],
   imports: [
     CommonModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule
   ],
   exports: [
     NotificationPageComponent

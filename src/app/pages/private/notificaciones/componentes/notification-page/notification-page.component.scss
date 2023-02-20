@@ -1,19 +1,30 @@
+$color_green: #57e309;
 
 .notif-container{
-    background-color: bisque;
     width: 100%;
-    height: 90vh; /* Modificar luego por 100% */
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
 }
 
+/* tarjeta */
 mat-tab-group{
-    border: 1px solid black;
+    border-radius: 25px;
     width: 90%;
     height: 100%;
-
-
 }
 
+.notif-title{
+    padding: 20px;
+}
+
+.mat-tab-label-container, .mat-tab-link {
+    color: rgb(206, 206, 206) !important;
+    border: 1px solid red;
+    background-color: #57e309 !important;
+}
+.mat-divider {
+    border: 1pc solid blue; /* no funciona */
+}

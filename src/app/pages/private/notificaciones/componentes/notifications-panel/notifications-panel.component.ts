@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NotificationData } from '../../model/notification-data';
 
 @Component({
   selector: 'app-notifications-panel',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificationsPanelComponent implements OnInit {
 
+  @Input() notification: NotificationData;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  
+  markNotificationAsRead(){
+    
+    console.log("funciona el boton")
+  }
+
 }
+
