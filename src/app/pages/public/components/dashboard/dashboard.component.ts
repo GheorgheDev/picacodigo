@@ -10,7 +10,7 @@ export class DashboardComponent implements OnInit {
   products: ProductData[]=[
     {
       title: 'Prince of Persia',
-      stars: 5,
+      stars: 1,
       price: 13.59
     },
     {

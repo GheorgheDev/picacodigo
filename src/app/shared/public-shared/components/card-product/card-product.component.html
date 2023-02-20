@@ -3,6 +3,6 @@
     <mat-card-title>
         <a mat-raised-button href="#" target="_blank" class="white-text title-xs card__title">{{product?.title}}</a>
     </mat-card-title>
-    <mat-card-subtitle class="white-text text-light-s">{{product?.stars}}</mat-card-subtitle>
+    <mat-card-subtitle class="green-text title-s">{{showStars(product?.stars)}}</mat-card-subtitle>
     <button mat-button class="btn-green white-text title-xs card__price">{{product?.price}} €</button>
 </mat-card>
