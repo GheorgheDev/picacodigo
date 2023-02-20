@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardProductComponent } from './components/card-product/card-product.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import { MatCardModule } from '@angular/material/card';
    ],
   imports: [
     CommonModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ],
   exports: [
     CardProductComponent

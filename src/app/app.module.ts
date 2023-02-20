@@ -9,7 +9,8 @@ import { PrivateSharedModule } from './shared/private-shared/private-shared.modu
 import { PublicSharedModule } from './shared/public-shared/public-shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {MatCardModule} from '@angular/material/card';
     PrivateSharedModule,
     PublicSharedModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
