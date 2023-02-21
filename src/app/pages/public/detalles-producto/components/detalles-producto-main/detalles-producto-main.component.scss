@@ -1,7 +1,6 @@
 .container {
   display: grid;
   grid-template-rows: auto auto auto;
-  background-color: black;
   color: #fff;
 }
 
@@ -13,7 +12,8 @@ footer {
 .main {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+  gap: 3rem;
   padding: 1rem 0.8rem;
 }
 
@@ -28,7 +28,7 @@ footer {
     gap: 1rem;
   }
 
-  &__imgagen-principal {
+  &__imagen-principal {
     width: 100%;
     border-radius: 0.3rem;
   }
@@ -64,6 +64,82 @@ footer {
   }
 }
 
+.resenias {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__resenia {
+    background-color: #536162;
+    border-radius: 0.3rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__cabecera {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  &__contenedor-logo-usuario {
+    max-width: 78.71px;
+  }
+
+  &__logo-usuario {
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+  }
+
+  &__contenedor-imagen-producto {
+    width: 55%;
+    max-width: 144.31px;
+  }
+
+  &__imagen-producto {
+    border-radius: 0.3rem;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media (min-width: 500px) {
+  .resenias {
+    align-items: center;
+  }
+
+  .resenias__resenia {
+    flex-direction: row;
+    max-width: 528px;
+  }
+
+  .resenias__contenido {
+    width: 100%;
+  }
+
+  .resenias__cabecera {
+    width: 100%;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .resenias__imagen {
+    width: 41%;
+  }
+}
+
 @media (min-width: 768px) {
   .container {
     height: 100vh;
@@ -71,5 +147,26 @@ footer {
 
   .producto {
     flex-direction: row;
+    max-width: 1232.4px;
+  }
+
+  .producto__imagenes {
+    width: 45%;
+  }
+
+  .producto__detalles {
+    width: 55%;
+  }
+
+  .resenias {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1142.4px;
+  }
+
+  .resenias__resenia {
+    width: 44%;
   }
 }
