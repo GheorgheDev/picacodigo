@@ -227,3 +227,6 @@ $border-color_transparent: transparent;
 	background-color: $background-color_dark;
 	border-color: $border-color_transparent;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
