@@ -1,0 +1,88 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: grey;
+  box-sizing: border-box;
+  padding: 1px;
+  width: 100%;
+  height: 50%;
+}
+
+div.menu-desktop {
+  width: 100%;
+}
+
+div.menu-hamburguer {
+  justify-content: end;
+  /* background-color: red; */
+  width: 20%;
+}
+
+/* color del menu hamburguesa */
+div.menu-hamburguer > button {
+  background-color: grey;
+}
+
+::ng-deep .menu_burguer_desp {
+  background-color: grey;
+  right: 0;
+  width: 38%;
+  position: absolute;
+  top: 9%;
+}
+::ng-deep .menu_burguer_desp button {
+  background-color: grey;
+}
+
+::ng-deep .menu_burguer_desp button > a {
+  text-decoration: none;
+  /* color: white; */
+}
+
+::ng-deep .menu_esc_noLogin {
+  display: none;
+}
+
+::ng-deep .menu_esc_public_desp {
+  background-color: grey;
+  display: none;
+}
+
+/* media query escritorio */
+/* -------------------------------------------------------------------------------------- */
+@media screen and (min-width: 600px) {
+  div.menu-hamburguer {
+    display: none;
+  }
+
+  div.menu-desktop > a:nth-child(2),
+  div.menu-desktop > a:nth-child(3) {
+    display: flex;
+  }
+
+  ::ng-deep .menu_esc_noLogin {
+    display: flex;
+    background-color: grey;
+  }
+
+  ::ng-deep .menu_esc_noLogin button {
+    background-color: grey;
+  }
+
+  ::ng-deep .menu_esc_public_desp {
+    display: flex;
+    right: 0;
+    width: 38%;
+    position: absolute;
+    top: 9%;
+  }
+  ::ng-deep .menu_esc_public_desp button {
+    background-color: grey;
+  }
+  ::ng-deep .menu_esc_public_desp button > a {
+    text-decoration: none;
+
+    /* color: white; */
+  }
+}
