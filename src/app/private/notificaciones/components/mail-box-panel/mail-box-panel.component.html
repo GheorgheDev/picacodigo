@@ -1,0 +1,18 @@
+<mat-card class="notif-card" >
+    <mat-card-header>
+  
+      <mat-card-title>
+        <a mat-raised-button href="#" target="_blank" class="white-text title-m card__title">{{mailboxMessage.fromID}}</a>  te envió un mensaje:
+      </mat-card-title>
+  
+      <mat-card-subtitle class="text-regular-m">
+        {{mailboxMessage.content}}
+      </mat-card-subtitle>
+  
+    </mat-card-header>
+    <mat-card-content>
+        {{mailboxMessage.date}}
+    </mat-card-content>
+
+  </mat-card>
+  <br />

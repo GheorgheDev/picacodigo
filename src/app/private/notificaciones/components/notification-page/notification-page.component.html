@@ -9,7 +9,11 @@
         </mat-tab>
 
         <mat-tab label="Buzon de entrada" class="white-text">
-            <app-mail-box-panel></app-mail-box-panel>
+            <div *ngFor="let mailboxMessage of mailboxMessages">
+                <app-mail-box-panel [mailboxMessage] = "mailboxMessage"></app-mail-box-panel>
+
+            </div>
+            
         </mat-tab>
         <mat-tab label="Enviar nuevo mensaje" class="white-text">
             <app-send-mail-panel></app-send-mail-panel>

@@ -20,4 +20,3 @@ export class NotificationsPanelComponent implements OnInit {
 
  
 }
-
