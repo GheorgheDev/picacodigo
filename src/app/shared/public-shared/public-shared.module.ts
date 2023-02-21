@@ -1,19 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CardProductComponent } from './components/card-product/card-product.component';
-import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
-  declarations: [ 
-    CardProductComponent,
-   ],
+  declarations: [],
   imports: [
-    CommonModule,
-    MatCardModule
+    CommonModule
   ],
-  exports: [
-    CardProductComponent
-  ]
+  exports: []
 })
 export class PublicSharedModule { }
