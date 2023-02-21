@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductData } from 'src/app/shared/public-shared/model/product-data';
+import { ProductData } from 'src/app/shared/models/product-data';
 
 @Component({
   selector: 'app-dashboard',
@@ -42,8 +42,6 @@ export class DashboardComponent implements OnInit {
 
   constructor() {};
 
-  ngOnInit(): void {
-    console.log(this.products)
-  };
+  ngOnInit(): void {};
 
 }

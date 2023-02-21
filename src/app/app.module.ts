@@ -3,27 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrivateModule } from './private/private.module';
 import { PublicModule } from './public/public.module';
-import { PrivateSharedModule } from './shared/private-shared/private-shared.module';
-import { PublicSharedModule } from './shared/public-shared/public-shared.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardComponent } from './public/components/dashboard/dashboard.component';
+import { SharedModule } from './shared/shared.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { DashboardComponent } from './pages/public/components/dashboard/dashboard.component';
-
 
 @NgModule({
   declarations: [
     AppComponent,
-    
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     PublicModule,
     PrivateModule,
-    PrivateSharedModule,
+    SharedModule,
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
