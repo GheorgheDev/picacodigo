@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NotificationData } from '../../model/notification-data';
 import { MailBoxData } from '../../model/mailbox-data';
 
+
 @Component({
   selector: 'app-notification-page',
   templateUrl: './notification-page.component.html',
