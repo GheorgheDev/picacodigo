@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DetallesProductoMainComponent } from './components/detalles-producto-main/detalles-producto-main.component';
+import { DetallesProductoRoutingModule } from './detalles-producto-routing.module';
+
+import { DetallesProductoMainComponent } from './pages/detalles-producto-main/detalles-producto-main.component';
 
 @NgModule({
   declarations: [
@@ -10,7 +12,8 @@ import { DetallesProductoMainComponent } from './components/detalles-producto-ma
     DetallesProductoMainComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    DetallesProductoRoutingModule
   ]
 })
 export class DetallesProductoModule { }
