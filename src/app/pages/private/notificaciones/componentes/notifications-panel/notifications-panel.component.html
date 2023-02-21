@@ -1,4 +1,4 @@
-<mat-card class="notif-card" *ngClass="{read: notification.read}">
+<mat-card class="notif-card" [ngClass]="{'read': notification.read}">
   <mat-card-header>
 
     <mat-card-title>
@@ -11,7 +11,7 @@
 
   </mat-card-header>
   <mat-card-actions>
-    <button mat-button (click)="markNotificationAsRead()" class="btn-green text-regular-s white-text btn-read">Marcar como leido</button>
+    <button  *ngIf="!notification.read" mat-button (click)="markNotificationAsRead(notification.id)" class="btn-green text-regular-s white-text btn-read">Marcar como leido</button>
 
   </mat-card-actions>
 </mat-card>

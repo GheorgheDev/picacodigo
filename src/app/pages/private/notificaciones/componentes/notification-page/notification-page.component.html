@@ -4,12 +4,15 @@
     <mat-tab-group class="dark-gray-background">
         <mat-tab label="Notificaciones" class="white-text">
             <div *ngFor="let notification of notifications">
-                <app-notifications-panel [notification] = "notification"></app-notifications-panel>
+                <app-notifications-panel [notification] = "notification" (markAsRead)="changeReadStatus($event)"></app-notifications-panel>
             </div>
         </mat-tab>
 
-        <mat-tab label="Mensajes" class="white-text">
-            <app-messages-panel></app-messages-panel>
+        <mat-tab label="Buzon de entrada" class="white-text">
+            <app-mail-box-panel></app-mail-box-panel>
+        </mat-tab>
+        <mat-tab label="Enviar nuevo mensaje" class="white-text">
+            <app-send-mail-panel></app-send-mail-panel>
         </mat-tab>
     </mat-tab-group>
 </div>

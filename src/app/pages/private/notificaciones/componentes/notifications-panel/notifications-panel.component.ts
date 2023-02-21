@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { NotificationData } from '../../model/notification-data';
 
 @Component({
@@ -9,16 +9,15 @@ import { NotificationData } from '../../model/notification-data';
 export class NotificationsPanelComponent implements OnInit {
 
   @Input() notification: NotificationData;
+  @Output() markAsRead = new EventEmitter<number>();
+  markNotificationAsRead(value:number){
+    this.markAsRead.emit(value);
+  }
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  
-  markNotificationAsRead(){
-    
-    console.log("funciona el boton")
-  }
-
+ 
 }
 

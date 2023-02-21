@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MessagesPanelComponent } from './messages-panel.component';
+import { MailBoxPanelComponent } from './mail-box-panel.component';
 
-describe('MessagesPanelComponent', () => {
-  let component: MessagesPanelComponent;
-  let fixture: ComponentFixture<MessagesPanelComponent>;
+describe('MailBoxPanelComponent', () => {
+  let component: MailBoxPanelComponent;
+  let fixture: ComponentFixture<MailBoxPanelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MessagesPanelComponent ]
+      declarations: [ MailBoxPanelComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MessagesPanelComponent);
+    fixture = TestBed.createComponent(MailBoxPanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
