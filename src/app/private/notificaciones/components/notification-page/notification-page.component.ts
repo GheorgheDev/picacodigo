@@ -63,62 +63,76 @@ export class NotificationPageComponent implements OnInit {
   mailboxMessages: MailBoxData[] = [
     {
       id: 1,
-      fromID: 5,
-      toID: 4,
-      content: "Hola Gheorge necesito ayuda",
-      date: "05/01/2023"
+      from: "Barbara",
+      to: "Gheorghe",
+      content: "Hola Gheorghe necesito ayuda",
+      date: "05-01-2023",
+      read: false
     },
     {
       id: 2,
-      fromID: 4,
-      toID: 5,
+      from: "Gheorghe",
+      to: "Bárbara",
       content: "no",
-      date: "05/01/2023"
+      date: "05-01-2023",
+      read: true
     },
     {
       id: 3,
-      fromID: 1,
-      toID: 4,
+      from: "Andrea",
+      to: "Gheorghe",
       content: "Hola Gheorghe yo tambien",
-      date: "05/01/2023"
+      date: "05-01-2023",
+      read: false
     },
     {
       id: 4,
-      fromID: 4,
-      toID: 1,
-      content: "no tampoco",
-      date: "05/01/2023"
+      from: "Gheorghe",
+      to: "Andrea",
+      content: "no tampoco no tampoco no tampoco no tampoco no tampoco no tampoco no tampoco no tampoco no tampoco ",
+      date: "05-01-2023",
+      read: false
     },
     {
       id: 5,
-      fromID: 2,
-      toID: 4,
+      from: "Juanjo",
+      to: "Gheorghe",
       content: "Hola yo tambien",
-      date: "05/01/2023"
+      date: "05-01-2023",
+      read: false
     },
     {
       id: 6,
-      fromID: 4,
-      toID: 2,
+      from: "Gheorghe",
+      to: "Juanjo",
       content: "bueno ok",
-      date: "05/01/2023"
+      date: "05-01-2023",
+      read: false
     },
     {
       id: 7,
-      fromID: 3,
-      toID: 4,
+      from: "Salvador",
+      to: "Gheorghe",
       content: "Hola como estas, soy un bombero",
-      date: "05/01/2023"
+      date: "05-01-2023",
+      read: false
     },
     {
       id: 8,
-      fromID: 4,
-      toID: 3,
+      from: "Gheorghe",
+      to: "Salvador",
       content: "Hola pos ok bien x ti",
-      date: "05/01/2023"
+      date: "05-01-2023",
+      read: false
     },
     
   ]
+
+  changeMailsReadStatus(index: number) {
+    let foundMail = this.mailboxMessages.find(elem=> elem.id == index)
+    if(!!foundMail)
+    foundMail.read=true;
+  }
 
   constructor() { }
 

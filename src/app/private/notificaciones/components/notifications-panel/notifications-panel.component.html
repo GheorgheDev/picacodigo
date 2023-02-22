@@ -1,18 +1,39 @@
-<mat-card class="notif-card" [ngClass]="{'read': notification.read}">
-  <mat-card-header>
+<mat-card class="notif-card" [ngClass]="{ read: notification.read }">
+  <mat-card-title>
+    <a
+      mat-raised-button
+      href="#"
+      target="_blank"
+      class="white-text title-m card__title"
+      >{{ notification.from }}</a
+    >
+  </mat-card-title>
 
-    <mat-card-title>
-      <a mat-raised-button href="#" target="_blank" class="white-text title-m card__title">{{notification.from}}</a>
-    </mat-card-title>
+  <mat-card-content class="text-regular-m matcard-content__message">
+    {{ notification.content }} {{ notification.where }}:
+    <a
+      mat-raised-button
+      href="#"
+      target="_blank"
+      class="white-text title-xs card__title"
+      >{{ notification.link }}</a
+    >
+  </mat-card-content>
 
-    <mat-card-subtitle class="text-regular-m">
-      {{notification.content}} {{notification.where}}: <a mat-raised-button href="#" target="_blank" class="white-text title-xs card__title">{{notification.link}}</a>
-    </mat-card-subtitle>
-
-  </mat-card-header>
   <mat-card-actions>
-    <button  *ngIf="!notification.read" mat-button (click)="markNotificationAsRead(notification.id)" class="btn-green text-regular-s white-text btn-read">Marcar como leido</button>
-
+    <button
+      class="btn-green text-regular-s white-text btn-delete"
+    >
+      Eliminar
+    </button>
+    <button
+      *ngIf="!notification.read"
+      mat-button
+      (click)="markNotificationAsRead(notification.id)"
+      class="btn-green text-regular-s white-text btn-read"
+    >
+      Marcar como leido
+    </button>
   </mat-card-actions>
 </mat-card>
 <br />

@@ -1,5 +1,5 @@
 import { MailBoxData } from './../../model/mailbox-data';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-mail-box-panel',
@@ -9,6 +9,10 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MailBoxPanelComponent implements OnInit {
 
   @Input() mailboxMessage: MailBoxData;
+  @Output() markMailsAsRead = new EventEmitter<number>();
+  markMailAsRead(value:number){
+    this.markMailsAsRead.emit(value);
+  }
   constructor() { }
 
   ngOnInit(): void {
