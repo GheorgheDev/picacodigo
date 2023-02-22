@@ -17,6 +17,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { PublicHeaderComponent } from './shared/public-shared/header/public-header/public-header.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { PublicHeaderComponent } from './shared/public-shared/header/public-head
     SearchBarComponent,
     PrivateHeaderComponent,
     PublicHeaderComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
