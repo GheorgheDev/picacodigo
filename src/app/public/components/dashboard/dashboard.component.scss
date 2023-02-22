@@ -4,3 +4,14 @@
     grid-gap: 30px;
     justify-items: center;
 }
+
+.distribution__dashboard {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btn__page__pass {
+    background-color: transparent;
+    color: #57e309;
+}

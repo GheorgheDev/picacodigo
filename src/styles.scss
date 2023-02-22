@@ -11,6 +11,8 @@ $background-color_grey: #536162;
 $border-color_green: #57E309;
 $border-color_transparent: transparent;
 
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
 @font-face {
 	font-family: "Rokkit-Light.ttf";
 	src: url(./assets/fonts/Rokkitt-Light.ttf);
