@@ -17,8 +17,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { PublicHeaderComponent } from './shared/public-shared/header/public-header/public-header.component';
-import { MyProfileComponent } from './private/my-profile/my-profile.component';
 import { MatCardModule } from '@angular/material/card';
+import { MyProfilePrivComponent } from './private/my-profile-priv/my-profile-priv.component';
+import { MyProfilePublComponent } from './public/my-profile-publ/my-profile-publ.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MatCardModule } from '@angular/material/card';
     SearchBarComponent,
     PrivateHeaderComponent,
     PublicHeaderComponent,
-    MyProfileComponent
+    MyProfilePrivComponent,
+    MyProfilePublComponent
   ],
   imports: [
     BrowserModule,
