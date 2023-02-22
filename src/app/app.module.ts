@@ -17,6 +17,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { PublicHeaderComponent } from './shared/public-shared/header/public-header/public-header.component';
+import { MyProfileComponent } from './private/my-profile/my-profile.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { PublicHeaderComponent } from './shared/public-shared/header/public-head
     SearchBarComponent,
     PrivateHeaderComponent,
     PublicHeaderComponent,
+    MyProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,8 @@ import { PublicHeaderComponent } from './shared/public-shared/header/public-head
     MatButtonModule,
     MatMenuModule,
     MatInputModule,
+    MatCardModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

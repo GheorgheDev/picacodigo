@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+}
+
+.wellcome_message {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2%;
+  /* border: 1px solid red; */
+}
+
+.cards_desk {
+  display: none;
+}
+
+.cards_movil {
+  width: 50%;
+  border-radius: 10px;
+
+  margin: 0 auto;
+}
+
+.card_picture,
+.card_info_usuer {
+  border-radius: 10px;
+  padding: 3%;
+  margin: 3%;
+}
+
+@media screen and (min-width: 600px) {
+  .cards_desk {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    /* border: 4px solid red; */
+    /* background-color: blue; */
+    width: 78%;
+    max-width: 680px;
+
+  }
+
+  .card_info_usuer {
+    display: flex;
+    flex-flow: column;
+   /*  background-color: green; */
+    max-width: 340px;
+
+  }
+
+  .cards_movil {
+    display: none;
+  }
+
+  .card_picture_info {
+  }
+}
