@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,8 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { PublicHeaderComponent } from './shared/public-shared/header/public-header/public-header.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -26,9 +25,8 @@ import { RegisterComponent } from './auth/register/register.component';
     CommonHeaderComponent,
     SearchBarComponent,
     PrivateHeaderComponent,
-    PublicHeaderComponent,
-    LoginComponent,
-    RegisterComponent
+    PublicHeaderComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -43,6 +41,7 @@ import { RegisterComponent } from './auth/register/register.component';
     MatButtonModule,
     MatMenuModule,
     MatInputModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent],
