@@ -13,6 +13,11 @@ export class NotificationsPanelComponent implements OnInit {
   markNotificationAsRead(value:number){
     this.markAsRead.emit(value);
   }
+
+  @Output() deleteNotif = new EventEmitter<number>();
+  deleteNotification(value:number){
+    this.deleteNotif.emit(value);
+  }
   constructor() { }
 
   ngOnInit(): void {

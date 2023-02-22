@@ -1,22 +1,45 @@
 <div class="notif-container dark-background white-text">
-    <h1 class="notif-title title-l">Notificaciones</h1>
+  <h1 class="notif-title title-l">Notificaciones</h1>
 
-    <mat-tab-group class="dark-gray-background">
-        <mat-tab label="Notificaciones" class="white-text">
-            <div *ngFor="let notification of notifications">
-                <app-notifications-panel [notification] = "notification" (markAsRead)="changeReadStatus($event)"></app-notifications-panel>
-            </div>
-        </mat-tab>
+  <mat-tab-group class="dark-gray-background">
+    <mat-tab label="Notificaciones" class="white-text">
 
-        <mat-tab label="Buzon de entrada" class="white-text">
+      <div *ngIf="notifications.length>0; then FoundBlock; else notFoundBlock"></div>
+
+      <ng-template #FoundBlock>
+        <div #FoundBlock *ngFor="let notification of notifications">
+          <app-notifications-panel
+            [notification]="notification"
+            (markAsRead)="changeReadStatus($event)" (deleteNotif)="deleteNotifi($event)"
+          ></app-notifications-panel>
+        </div>
+      </ng-template>
+
+      <ng-template #notFoundBlock>
+        <app-not-found #notFoundBlock></app-not-found>
+      </ng-template>
+
+    </mat-tab>
+
+    <mat-tab label="Buzon de entrada" class="white-text">
+
+        <div *ngIf="mailboxMessages.length>0; then FoundMeBlock; else notFoundMeBlock"></div>
+
+        <ng-template #FoundMeBlock>
             <div *ngFor="let mailboxMessage of mailboxMessages">
-                <app-mail-box-panel [mailboxMessage] = "mailboxMessage" (markMailsAsRead)="changeMailsReadStatus($event)"></app-mail-box-panel>
+                <app-mail-box-panel
+                  [mailboxMessage]="mailboxMessage"
+                  (markMailsAsRead)="changeMailsReadStatus($event)"
+                ></app-mail-box-panel>
+              </div>
+        </ng-template>
 
-            </div>
-            
-        </mat-tab>
-        <mat-tab label="Enviar nuevo mensaje" class="white-text text-regular-xs">
-            <app-send-mail-panel></app-send-mail-panel>
-        </mat-tab>
-    </mat-tab-group>
+        <ng-template #notFoundMeBlock>
+            <app-not-found #notFoundBlock></app-not-found>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Enviar nuevo mensaje" class="white-text text-regular-xs">
+      <app-send-mail-panel></app-send-mail-panel>
+    </mat-tab>
+  </mat-tab-group>
 </div>

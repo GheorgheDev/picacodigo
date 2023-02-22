@@ -49,7 +49,7 @@ export class NotificationPageComponent implements OnInit {
       where: "en tu publicacion sobre",
       link: "matamarcianos",
       read: false
-    },
+    }
   ]
 
   changeReadStatus(index: number) {
@@ -57,6 +57,15 @@ export class NotificationPageComponent implements OnInit {
     if(!!foundNotification)
       foundNotification.read=true;
   }
+
+  deleteNotifi(notifID: number) {
+    let foundNotificationIndex = this.notifications.findIndex(elem=> elem.id == notifID)
+    console.log(foundNotificationIndex)
+    if(!!foundNotificationIndex){
+      this.notifications.splice(foundNotificationIndex, 1)
+    } 
+  }
+
 
   /* Mailbox */
 
@@ -124,7 +133,7 @@ export class NotificationPageComponent implements OnInit {
       content: "Hola pos ok bien x ti",
       date: "05-01-2023",
       read: false
-    },
+    }
     
   ]
 
