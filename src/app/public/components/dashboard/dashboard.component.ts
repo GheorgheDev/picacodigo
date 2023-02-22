@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ProductData } from 'src/app/shared/models/product-data';
 
@@ -120,7 +121,11 @@ export class DashboardComponent implements OnInit {
   showNext: boolean = true;
   showPrevious: boolean = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
+
+  dashboard() {
+    this.router.navigateByUrl('/dashboard')
+  }
 
   ngOnInit() {
     while (this.products.length > 0) {
