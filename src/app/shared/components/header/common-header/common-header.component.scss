@@ -1,0 +1,79 @@
+.menu-desktop {
+  width: 100%;
+
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  /* background-color: red; */
+}
+
+div.menu-desktop > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div > div:nth-child(1) {
+  /* background-color: green; */
+  width: 20%;
+}
+
+div > div:nth-child(1) > a:nth-child(1) {
+  /* background-color: green; */
+  display: flex;
+  margin-right: 8%;
+}
+
+div > div:nth-child(1) > a {
+  /* color: white; */
+  text-decoration: none;
+}
+
+img.logo {
+  width: 58px;
+}
+
+div.menu-desktop > div:nth-child(1) > a:nth-child(2),
+div.menu-desktop > div:nth-child(1) > a:nth-child(3) {
+  display: none;
+}
+
+.search-bar {
+  /*background-color: orange; */
+  margin-left: 18%;
+}
+
+.notifications button {
+  background-color: grey;
+  border: none;
+}
+
+@media screen and (min-width: 600px) {
+  div.menu-desktop {
+    width: 100%;
+    /* background-color: yellow; */
+    margin-right: 1rem;
+  }
+
+  div > div:nth-child(1) {
+    /* background-color: blue; */
+    width: 28%;
+    margin-right: 8%;
+  }
+
+  div.menu-desktop > div:nth-child(1) > a:nth-child(2),
+  div.menu-desktop > div:nth-child(1) > a:nth-child(3) {
+    display: flex;
+    margin-right: 8%;
+    /* border: 1px solid black; */
+  }
+
+  div.menu-hamburguer > button,
+  ::ng-deep .menu_burguer_desp {
+    display: none;
+  }
+
+  /* fin media query */
+}
+/* Fin del Header */
+/* -------------------------------------------------------------------- */

@@ -1,0 +1,120 @@
+$font-size-base: 16px;
+
+body {
+  background-color: transparent;
+  color: white;
+  font-size: $font-size-base;
+}
+
+.container {
+  height: 100vh;
+  width: 40%;
+  float: right;
+}
+
+@media only screen and (max-width:600px) {
+	.container {
+		width: 100%;
+	}
+}
+
+
+.card-body--fullheight {
+  height: 100%;
+}
+
+.form-input {
+  width: 100%;
+  max-width: 400px;
+  margin: 10px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.btn-success {
+  margin-top: 2vh;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  font-size: 1rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.form-foto {
+  position: absolute;
+  background-image: url(./img/Captura.PNG);
+  width: 100%;
+  height: 100%;
+}
+
+.card--black {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
+  background: -moz-linear-gradient(left,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=1 ); /* IE6-9 */
+}
+
+.card {
+  border: none;
+  display: flex;
+  justify-content: center;
+}
+
+.contras-subray {
+  text-decoration: none;
+  color: #57E309;
+  display: flex;
+  justify-content: center;
+}
+
+.align-login {
+  margin-bottom: 10px;
+
+  &:nth-of-type(2) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.box-title {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: $font-size-base * 1.1;
+  }
+
+  .form-input {
+    width: 50%;
+    max-width: 300px;
+    font-size: 0.9rem;
+  }
+
+  .btn-success {
+    width: 50%;
+  }
+}
+
+.form-group {
+  display: flex;
+  justify-content: center;
+}
+
+.text-muted{
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+
