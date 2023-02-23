@@ -1,0 +1,57 @@
+<mat-toolbar class="navbar" style="width: 100%">
+  <!-- public component -->
+  <div class="menu-desktop">
+    <app-common-header></app-common-header>
+  </div>
+
+  <!-- public component escritorio-->
+  <div class="menu_esc_noLogin">
+    <button mat-button [matMenuTriggerFor]="menu_esc_noLogin">
+      <img
+        src=".././../../../assets/images/img-perfil.png"
+        width="48px"
+        alt="button init sesion"
+      />
+    </button>
+    <div class="matMenu">
+      <mat-menu #menu_esc_noLogin="matMenu" class="menu_esc_public_desp">
+        <button mat-menu-item>
+          <a href="#" class="white-text text-light-s">Iniciar sesión</a>
+        </button>
+        <button mat-menu-item>
+          <a href="#" class="white-text text-light-s">registrarse</a>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+
+  <!-- menu hamburguer -->
+  <div class="menu-hamburguer">
+    <button mat-button [matMenuTriggerFor]="IconHamburguer">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="38"
+        height="38"
+        fill="white"
+        class="bi bi-list"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+        />
+      </svg>
+    </button>
+
+    <div class="matMenu">
+      <mat-menu #IconHamburguer="matMenu" class="menu_burguer_desp">
+        <button mat-menu-item>
+          <a href="#" class="white-text text-light-s">Iniciar sesión</a>
+        </button>
+        <button mat-menu-item>
+          <a href="#" class="white-text text-light-s">registrarse</a>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>
