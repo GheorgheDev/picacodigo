@@ -1,0 +1,50 @@
+.distribution__footer__elements {
+    padding: 24px 0 24px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.distribution__footer__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.distribution__footer__icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.distribution__footer__icon span {
+    padding: 0;
+}
+
+.distribution__footer__rights {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.contact__text div {
+    left: 10%;
+}
+
+.distribution__footer__rrss {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__list__item text {
+    display: flex;
+    justify-content: center;
+}
+
+::ng-deep.mat-list-item-content {
+    justify-content: center;
+}
