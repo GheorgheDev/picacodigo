@@ -59,11 +59,8 @@ export class NotificationPageComponent implements OnInit {
   }
 
   deleteNotifi(notifID: number) {
-    let foundNotificationIndex = this.notifications.findIndex(elem=> elem.id == notifID)
-    console.log(foundNotificationIndex)
-    if(!!foundNotificationIndex){
-      this.notifications.splice(foundNotificationIndex, 1)
-    } 
+    let foundNotificationIndex = this.notifications.findIndex(elem=> elem.id === notifID)
+    this.notifications.splice(foundNotificationIndex, 1)
   }
 
 
@@ -141,6 +138,12 @@ export class NotificationPageComponent implements OnInit {
     let foundMail = this.mailboxMessages.find(elem=> elem.id == index)
     if(!!foundMail)
     foundMail.read=true;
+  }
+
+  deleteMBMessage(mesID: number) {
+    let foundMessageIndex = this.mailboxMessages.findIndex(elem=> elem.id === mesID)
+    this.mailboxMessages.splice(foundMessageIndex, 1)
+    console.log(foundMessageIndex)
   }
 
   constructor() { }

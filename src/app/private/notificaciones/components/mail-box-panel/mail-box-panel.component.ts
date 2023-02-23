@@ -13,6 +13,10 @@ export class MailBoxPanelComponent implements OnInit {
   markMailAsRead(value:number){
     this.markMailsAsRead.emit(value);
   }
+  @Output() deleteMessage = new EventEmitter<number>();
+  deleteMailBoxMessage(value:number){
+    this.deleteMessage.emit(value);
+  }
   constructor() { }
 
   ngOnInit(): void {

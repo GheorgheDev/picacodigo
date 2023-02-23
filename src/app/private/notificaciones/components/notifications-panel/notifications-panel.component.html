@@ -21,14 +21,14 @@
   </mat-card-content>
 
   <mat-card-actions>
-    <button (click)="deleteNotification(notification.id)"
+    <button
+      (click)="deleteNotification(notification.id)"
       class="btn-green text-regular-s white-text btn-delete"
     >
       Eliminar
     </button>
     <button
       *ngIf="!notification.read"
-      mat-button
       (click)="markNotificationAsRead(notification.id)"
       class="btn-green text-regular-s white-text btn-read"
     >

@@ -29,7 +29,7 @@
             <div *ngFor="let mailboxMessage of mailboxMessages">
                 <app-mail-box-panel
                   [mailboxMessage]="mailboxMessage"
-                  (markMailsAsRead)="changeMailsReadStatus($event)"
+                  (markMailsAsRead)="changeMailsReadStatus($event)" (deleteMessage)="deleteMBMessage($event)"
                 ></app-mail-box-panel>
               </div>
         </ng-template>

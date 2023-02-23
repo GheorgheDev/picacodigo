@@ -5,6 +5,8 @@ import { NotificationsPanelComponent } from './components/notifications-panel/no
 
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MailBoxPanelComponent } from './components/mail-box-panel/mail-box-panel.component';
 import { SendMailPanelComponent } from './components/send-mail-panel/send-mail-panel.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -20,10 +22,13 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   imports: [
     CommonModule,
     MatTabsModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [
-    NotificationPageComponent
+    NotificationPageComponent,
+    MatInputModule
   ]
 })
 export class NotificacionesModule { }
