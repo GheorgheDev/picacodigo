@@ -10,6 +10,8 @@ import { DashboardComponent } from './public/components/dashboard/dashboard.comp
 import { SharedModule } from './shared/shared.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { MatButtonModule } from '@angular/material/button';
     SharedModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
