@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'picaCodigo';
-  stateUser = true;
+  stateUser = false;
+  ;
 
 }
