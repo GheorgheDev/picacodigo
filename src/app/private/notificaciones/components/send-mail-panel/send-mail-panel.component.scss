@@ -3,7 +3,7 @@ $background-color_grey: #536162;
 .form-container{
     background-color: $background-color_grey;
     width: 100%;
-    min-height: 150px;
+    min-height: 400px;
 }
 
 mat-form-field{
@@ -11,16 +11,20 @@ mat-form-field{
 }
 
 .form-to{
-    width: 100%;
+    width: 90%;
     display: flex;
     align-items: center;
 }
 
 mat-label{
-   min-width: 200px;
+   min-width: 130px;
 }
 
-::ng-deep.mat-input-element{
+.mat-input-element-to{
     font-family: "Minecraftia-Regular.ttf" !important;
+    background-color: #3d4445b1;
+    border-radius: 5px;
+    padding: 5px 15px;
+    text-align: center;
 }
 

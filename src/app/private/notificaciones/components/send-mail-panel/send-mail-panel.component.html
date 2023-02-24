@@ -2,9 +2,13 @@
   <mat-form-field appearance="fill">
     <div class="form-to">
       <mat-label class="text-regular-s">Enviar mensaje a:</mat-label>
-      <input class="title-m" matInput placeholder="pat@example.com">
+      <input class="title-m mat-input-element-to" matInput placeholder="pat@example.com">
     </div>
-    
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label class="text-regular-s">Textarea</mat-label>
+    <textarea matInput #textarea maxlength="10"></textarea>
+    <mat-hint align="end">{{textarea.value.length}}/10</mat-hint>
   </mat-form-field>
 </div>
 

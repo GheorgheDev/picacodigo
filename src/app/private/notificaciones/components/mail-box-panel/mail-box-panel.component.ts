@@ -17,6 +17,7 @@ export class MailBoxPanelComponent implements OnInit {
   deleteMailBoxMessage(value:number){
     this.deleteMessage.emit(value);
   }
+
   constructor() { }
 
   ngOnInit(): void {
