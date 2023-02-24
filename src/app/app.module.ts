@@ -1,3 +1,4 @@
+import { DetallesProductoMainComponent } from './public/components/detalles-producto-main/detalles-producto-main.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -28,6 +29,7 @@ import { MatMenuModule } from '@angular/material/menu';
     LoginComponent,
     RegisterComponent,
     DashboardComponent
+    
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-detalles-producto-main',
   templateUrl: './detalles-producto-main.component.html',
   styleUrls: ['./detalles-producto-main.component.scss']
 })
-export class DetallesProductoMainComponent implements OnInit {
+export class DetallesProductoMainComponent {
+  
 
-  constructor() { }
-
-  ngOnInit(): void {
+  mostrarCarrusel() {
+    console.log('Hecho');
   }
-
 }

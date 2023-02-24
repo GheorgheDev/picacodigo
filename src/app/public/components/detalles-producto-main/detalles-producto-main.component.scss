@@ -1,6 +1,39 @@
 .contenedor {
   display: grid;
   grid-template-rows: auto auto auto;
+  position: relative;
+}
+
+.fondo-gris {
+  background-color: #536162;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.7;
+  display: none;
+
+  .show {
+    display: block;
+  }
+}
+
+.carrusel {
+  background-color: #fff;
+  height: 200px;
+  z-index: 10;
+  padding: 0.4rem;
+  display: none;
+
+  &__imagenes {
+    background-color: black;
+    height: 200px;
+  }
+
+  .show {
+    display: block;
+  }
 }
 
 .main {
@@ -22,9 +55,13 @@
     gap: 1rem;
   }
 
-  &__imagen-principal {
-    width: 100%;
+  &__imagen {
     border-radius: 0.3rem;
+    cursor: pointer;
+  }
+
+  &__imagen--principal {
+    width: 100%;
   }
 
   &__contenedor-imagenes-secundarias {
@@ -32,9 +69,8 @@
     justify-content: space-between;
   }
 
-  &__imagen-secundaria {
+  &__imagen--secundaria {
     width: 30%;
-    border-radius: 0.3rem;
   }
 
   &__detalles {
@@ -61,6 +97,7 @@
 }
 
 .resenias {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 1rem;
