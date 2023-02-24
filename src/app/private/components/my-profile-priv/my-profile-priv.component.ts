@@ -12,4 +12,6 @@ export class MyProfilePrivComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  stateUser=true
+
 }
