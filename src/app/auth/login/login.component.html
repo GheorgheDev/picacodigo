@@ -23,36 +23,41 @@
   <div class="container">
 
     <div class="card card-body card-body--fullheight card--black">
-      <h3 class="box-title m-b-0">PICK A GAME</h3>
+      <h3 class="box-title logo-l">PICK A GAME</h3>
       <p class="text-muted m-b-30 font-13"> Regístrate ahora y disfruta </p>
       <div class="row">
         <div class="col-sm-12 col-xs-12">
-          <form>
-            <!-- <div class="form-group">
-              <label for="exampleInputEmail1"></label>
-              <input type="text" class="form-control form-input" id="exampleInputEmail1" placeholder="Nombre">
-            </div> -->
+          <form class="form-horizontal"
+          autocomplete="off"
+          [formGroup]="loginForm"
+          (ngSubmit)="login()"
+          id="loginform">
+
             <div class="form-group align-login2">
               <label for="exampleInputEmail1"></label>
-              <input type="email" class="form-control form-input" id="exampleInputEmail1" placeholder="Email">
+              <input class="title-xs form-input"
+              type="email"  
+              placeholder="Email"
+              formControlName="email">
             </div>
+
             <div class="form-group align-login2">
               <label for="exampleInputPassword1"></label>
-              <input type="password" class="form-control form-input" id="exampleInputPassword1" placeholder="Contraseña">
+              <input class="title-xs form-input"
+              type="password" 
+              placeholder="Contraseña"
+              formControlName="password">
             </div>
+            
             <!-- <div class="form-group">
-              <label for="exampleInputPassword1"></label>
-              <input type="password" class="form-control form-input" id="exampleInputPassword1" placeholder="Confirmar contraseña">
-            </div> -->
-            <div class="form-group">
               <div class="checkbox checkbox-success">
-                <a class="contras-subray" href="#">¿Olvidastes la contraseña?</a>
+                <a class="green-text contras-subray" href="#">¿Olvidastes la contraseña?</a>
               </div>
+            </div> -->
+            <div class="btn-login">
+              <button type="submit" class="btn1 btn-green white-text title-xs">Login</button>
             </div>
-            <div>
-              <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Login</button>
-            </div>
-            <p class="contras-subray">¿No tienes una cuenta? <a routerLink="/register"class="contras-subray">Regístrate</a></p>
+            <p class="contras-subray white-text title-xs">¿No tienes una cuenta? <a routerLink="/register"class=" green-text register-padding">Regístrate</a></p>
           </form>
         </div>
       </div>

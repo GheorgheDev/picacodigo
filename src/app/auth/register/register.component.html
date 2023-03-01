@@ -23,7 +23,7 @@
   <div class="container">
 
     <div class="card card-body card-body--fullheight card--black">
-      <h3 class="box-title m-b-0">PICK A GAME</h3>
+      <h3 class="logo-l center-title">PICK A GAME</h3>
       <p class="text-muted m-b-30 font-13"> Regístrate ahora y disfruta </p>
       <div class="row">
         <div class="col-sm-12 col-xs-12">
@@ -34,43 +34,43 @@
           (ngSubmit)="crearUsuario()">
             <div class="form-group">
               <label for="exampleInputEmail1"></label>
-              <input type="text" class="form-control form-input" 
+              <input type="text" class="title-xs form-input" 
               id="exampleInputEmail1" 
               placeholder="Nombre"
               formControlName="nombre">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1"></label>
-              <input type="email" class="form-control form-input" 
+              <input type="email" class="title-xs form-input" 
               id="exampleInputEmail1" 
               placeholder="Email"
               formControlName="email">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1"></label>
-              <input type="password" class="form-control form-input" 
+              <input type="password" class="form-input" 
               id="exampleInputPassword1" 
               placeholder="Contraseña"
               formControlName="password">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1"></label>
-              <input type="password" class="form-control form-input" 
+              <input type="password" class="form-input" 
               id="exampleInputPassword1" 
               placeholder="Confirmar contraseña"
               formControlName="password2">
             </div>
             <div class="form-group">
-              <div class="checkbox checkbox-success">
-                <input id="checkbox1" 
+              <div class="check-conditions">
+                <input class="check-green" id="checkbox1" 
                 type="checkbox"
                 formControlName="terminos">
 
-                <label for="checkbox1"> Acepta las condiciones </label>
+                <label for="checkbox1" class="title-xs"> Acepta las condiciones </label>
               </div>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Regístrate</button>
+              <button type="submit" class="btn-green white-text title-xs btn-register">Regístrate</button>
             </div>
 
             <div class="row">
