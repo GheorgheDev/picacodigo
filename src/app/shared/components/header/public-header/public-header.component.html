@@ -1,4 +1,4 @@
-<mat-toolbar class="navbar" style="width: 100%">
+<mat-toolbar class="navbar grey-background" style="width: 100%">
   <!-- public component -->
   <div class="menu-desktop">
     <app-common-header></app-common-header>
@@ -6,34 +6,46 @@
 
   <!-- public component escritorio-->
   <div class="menu_esc_noLogin">
-    <button mat-button [matMenuTriggerFor]="menu_esc_noLogin">
+    <button
+      mat-button
+      [matMenuTriggerFor]="menu_esc_noLogin"
+      class="grey-background"
+    >
       <img
+        class="logo-s"
         src=".././../../../assets/images/img-perfil.png"
-        width="48px"
+        width="38px"
         alt="button init sesion"
       />
     </button>
     <div class="matMenu">
-      <mat-menu #menu_esc_noLogin="matMenu" class="menu_esc_public_desp">
-        <button mat-menu-item>
-          <a href="#" class="white-text text-light-s">Iniciar sesión</a>
+      <mat-menu
+        #menu_esc_noLogin="matMenu"
+        class="menu_esc_public_desp grey-background"
+      >
+        <button mat-menu-item class="grey-background">
+          <a href="#" class="white-text title-xs">Iniciar sesión</a>
         </button>
-        <button mat-menu-item>
-          <a href="#" class="white-text text-light-s">registrarse</a>
+        <button mat-menu-item class="grey-background">
+          <a href="#" class="white-text title-xs">registrarse</a>
         </button>
       </mat-menu>
     </div>
   </div>
 
   <!-- menu hamburguer -->
-  <div class="menu-hamburguer">
-    <button mat-button [matMenuTriggerFor]="IconHamburguer">
+  <div class="menu-hamburguer grey-background">
+    <button
+      mat-button
+      [matMenuTriggerFor]="IconHamburguer"
+      class="grey-background"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="38"
         height="38"
         fill="white"
-        class="bi bi-list"
+        class="bi bi-list grey-background"
         viewBox="0 0 16 16"
       >
         <path
@@ -44,12 +56,15 @@
     </button>
 
     <div class="matMenu">
-      <mat-menu #IconHamburguer="matMenu" class="menu_burguer_desp">
-        <button mat-menu-item>
-          <a href="#" class="white-text text-light-s">Iniciar sesión</a>
+      <mat-menu
+        #IconHamburguer="matMenu"
+        class="menu_burguer_desp grey-background"
+      >
+        <button mat-menu-item class="grey-background">
+          <a href="#" class="white-text title-xs">Iniciar sesión</a>
         </button>
-        <button mat-menu-item>
-          <a href="#" class="white-text text-light-s">registrarse</a>
+        <button mat-menu-item class="grey-background">
+          <a href="#" class="white-text title-xs">registrarse</a>
         </button>
       </mat-menu>
     </div>

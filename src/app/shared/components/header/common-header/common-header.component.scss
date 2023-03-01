@@ -4,6 +4,7 @@
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
+  margin-left: 1%;
   /* background-color: red; */
 }
 
@@ -11,6 +12,8 @@ div.menu-desktop > div {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  /* border: 1px solid black; */
 }
 
 div > div:nth-child(1) {
@@ -27,11 +30,17 @@ div > div:nth-child(1) > a:nth-child(1) {
 div > div:nth-child(1) > a {
   /* color: white; */
   text-decoration: none;
+  cursor: pointer;
 }
 
-img.logo {
-  width: 58px;
+ p.logoPick{
+  /* background-color: blue; */
+margin: auto;
 }
+
+/* img.logo {
+  width: 58px;
+} */
 
 div.menu-desktop > div:nth-child(1) > a:nth-child(2),
 div.menu-desktop > div:nth-child(1) > a:nth-child(3) {
@@ -40,17 +49,19 @@ div.menu-desktop > div:nth-child(1) > a:nth-child(3) {
 
 .search-bar {
   /*background-color: orange; */
-  margin-left: 18%;
+  margin-left: 5%;
 }
 
 .notifications button {
-  background-color: grey;
-  border: none;
+  /* background-color: grey; */
+  border: 0;
+  cursor: pointer;
+
 }
 
 @media screen and (min-width: 600px) {
   div.menu-desktop {
-    width: 100%;
+    width: 95%;
     /* background-color: yellow; */
     margin-right: 1rem;
   }
@@ -65,7 +76,10 @@ div.menu-desktop > div:nth-child(1) > a:nth-child(3) {
   div.menu-desktop > div:nth-child(1) > a:nth-child(3) {
     display: flex;
     margin-right: 8%;
-    /* border: 1px solid black; */
+    align-items: center;
+    height: 100%;
+    padding-top: 7px;
+    /* background-color: green; */
   }
 
   div.menu-hamburguer > button,

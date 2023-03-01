@@ -1,3 +1,4 @@
+import { HeaderModule } from './../shared/components/header/header.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -17,7 +18,8 @@ import { MyProfilePublComponent } from './components/my-profile-publ/my-profile-
     PublicRoutingModule,
     SharedModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    HeaderModule
   ],
   exports: [
     DashboardComponent,
