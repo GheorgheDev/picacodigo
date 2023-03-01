@@ -1,37 +1,45 @@
-<mat-toolbar class="navbar" style="width: 100%">
+<mat-toolbar class="navbar grey-background" style="width: 100%">
   <!-- public component -->
   <div class="menu-desktop">
     <app-common-header></app-common-header>
   </div>
 
   <!-- private component escritorio-->
-
-  <div class="menu_esc_noLogin">
-    <button mat-button [matMenuTriggerFor]="menu_esc_noLogin">
+  <div class="menu_esc_Login grey-background">
+    <button
+      mat-button
+      [matMenuTriggerFor]="menu_esc_Login"
+      class="grey-background"
+    >
       <img
         src=".././../../../assets/images/img-perfil.png"
-        width="48px"
+        width="38px"
         alt="button init sesion"
       />
     </button>
-    <div class="matMenu">
-      <mat-menu #menu_esc_noLogin="matMenu" class="menu_esc_priv_desp">
-        <button mat-menu-item>
-          <a class="white-text" href="#">Mi perfil</a>
-        </button>
-        <button mat-menu-item>
-          <a class="white-text" href="#">Mis productos</a>
-        </button>
-        <button mat-menu-item>
-          <a class="white-text" href="#">Cerrar sesión</a>
-        </button>
-      </mat-menu>
-    </div>
+    <mat-menu
+      #menu_esc_Login="matMenu"
+      class="menu_esc_priv_desp grey-background"
+    >
+      <button mat-menu-item class="grey-background">
+        <a class="white-text title-xs" href="#">Mi perfil</a>
+      </button>
+      <button mat-menu-item class="grey-background">
+        <a class="white-text title-xs" href="#">Mis productos</a>
+      </button>
+      <button mat-menu-item class="grey-background">
+        <a class="white-text title-xs" href="#">Cerrar sesión</a>
+      </button>
+    </mat-menu>
   </div>
 
   <!-- menu hamburguer -->
   <div class="menu-hamburguer">
-    <button mat-button [matMenuTriggerFor]="IconHamburguer">
+    <button
+      mat-button
+      [matMenuTriggerFor]="IconHamburguer"
+      class="grey-background"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="38"
@@ -47,19 +55,20 @@
       </svg>
     </button>
 
-    <div class="matMenu">
-      <mat-menu #IconHamburguer="matMenu" class="menu_burguer_desp">
-        <button mat-menu-item>
-          <a href="#" class="white-text">Mi perfil</a>
-        </button>
-        <button mat-menu-item>
-          <a href="#" class="white-text">Mis productos</a>
-        </button>
-        <button mat-menu-item>
-          <a href="#" class="white-text">Cerrar sesión</a>
-        </button>
-      </mat-menu>
-    </div>
+    <mat-menu
+      #IconHamburguer="matMenu"
+      class="menu_burguer_desp grey-background"
+    >
+      <button mat-menu-item class="grey-background">
+        <a href="#" class="white-text title-xs">Mi perfil</a>
+      </button>
+      <button mat-menu-item class="grey-background">
+        <a href="#" class="white-text title-xs">Mis productos</a>
+      </button>
+      <button mat-menu-item class="grey-background">
+        <a href="#" class="white-text title-xs">Cerrar sesión</a>
+      </button>
+    </mat-menu>
   </div>
 </mat-toolbar>
 <div></div>
