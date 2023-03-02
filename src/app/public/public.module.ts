@@ -1,5 +1,4 @@
 import { MatMenuModule } from '@angular/material/menu';
-import { MatCardModule } from '@angular/material/card';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SharedModule } from './../shared/shared.module';
 import { PublicRoutingModule } from './public.routing';
@@ -16,8 +15,7 @@ import { MyProfilePublComponent } from './components/my-profile-publ/my-profile-
     CommonModule,
     PublicRoutingModule,
     SharedModule,
-    MatCardModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   exports: [
     DashboardComponent,

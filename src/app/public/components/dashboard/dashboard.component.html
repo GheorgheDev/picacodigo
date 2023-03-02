@@ -1,4 +1,14 @@
-<div class="dark-background distribution__dashboard">
+<div class=" distribution__dashboard">
+
+    <div>
+        <app-filters (filterGenre)="addNewOptions($event)"></app-filters>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <div class="distribution__dashboard__cards">
         <button mat-button type="button" (click)="previousPage()" *ngIf="showPrevious" class="btn__page__pass icon__color">

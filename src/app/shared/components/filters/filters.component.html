@@ -1,0 +1,9 @@
+<form [formGroup]="filterForm">
+    <mat-form-field appareance="fill" class="btn-green filter__style">
+        <mat-label class="title-xs white-text">Géneros</mat-label>
+        <mat-select formControlName="genre" multiple (ngModelChange)="filterGenreElement($event)">
+            <mat-option *ngFor="let genre of genreList" [value]="genre.id"
+                class="btn-green title-xs">{{genre.name}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>

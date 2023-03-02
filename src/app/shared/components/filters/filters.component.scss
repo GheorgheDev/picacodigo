@@ -1,0 +1,64 @@
+.filter__style {
+    width: 110px;
+    border: none;
+    line-height: 2.5;
+    padding-top: 0px !important;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+    height: 0px !important;
+}
+
+::ng-deep .mat-form-field-wrapper {
+    padding: 0px !important;
+    background-color: #0f130c;
+}
+
+::ng-deep .mat-form-label-wrapper {
+    left: 8 !important;
+}
+
+::ng-deep .mat-select-arrow {
+    color: #57e309 !important;
+    margin-bottom: 12px !important;
+    margin-right: 12px !important;
+}
+
+::ng-deep .mat-form-field-infix {
+    width: 110px !important;
+    margin-left: 8px !important;
+}
+
+::ng-deep .mat-form-field-hide-placeholder .mat-select-placeholder {
+    width: 70px !important;
+    margin-right: 0px !important;
+}
+
+::ng-deep .mat-select-value {
+    padding-left: 12px !important;
+}
+
+::ng-deep .mat-select-panel {
+    min-width: unset !important;
+    background-color: #0f130c !important;
+}
+
+::ng-deep .mat-option {
+    border-width: 2px !important;
+}
+
+::ng-deep .mat-option-text {
+    color: #f9f9f9 !important;
+}
+
+::ng-deep .mat-pseudo-checkbox {
+    border-color: #57e309 !important;
+    margin-bottom: 12px !important;
+    background: #0f130c !important;
+}
+
+::ng-deep .mat-select-value {
+    color: #f9f9f9;
+    font-family: "Minecraftia-Regular.ttf";
+    font-size: 12px;
+}
