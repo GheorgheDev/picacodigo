@@ -7,6 +7,7 @@ import { RegisterComponent } from './auth/register/register.component';
 //Modulos
 import { AuthRoutingModule } from './auth/auth.routing';
 import { LoginComponent } from './auth/login/login.component';
+import { PrivateRoutingModule } from './private/private.routing';
 
 
 
@@ -20,7 +21,8 @@ const routes: Routes = [
   declarations: [],
   imports: [
     RouterModule.forRoot(routes),
-    AuthRoutingModule 
+    AuthRoutingModule,
+    PrivateRoutingModule 
   ],
   exports: [ RouterModule ]
 })
