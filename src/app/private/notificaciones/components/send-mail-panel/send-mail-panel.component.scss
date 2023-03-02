@@ -1,30 +1,63 @@
 $background-color_grey: #536162;
+$border-color_green: #57e309;
 
-.form-container{
-    background-color: $background-color_grey;
-    width: 100%;
-    min-height: 400px;
+.form-container {
+  background-color: $background-color_grey;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-mat-form-field{
-    width: 100%;
+.mat-form-field {
+  width: 80%;
+  border-radius: 10px;
+  margin: 10px 20px;
 }
 
-.form-to{
-    width: 90%;
-    display: flex;
-    align-items: center;
+::ng-deep .mat-form-field-label {
+  color: $border-color_green !important;
 }
 
-mat-label{
-   min-width: 130px;
+::ng-deep .mat-focused .mat-form-field-label {
+  color: $border-color_green !important;
 }
 
-.mat-input-element-to{
-    font-family: "Minecraftia-Regular.ttf" !important;
-    background-color: #3d4445b1;
-    border-radius: 5px;
-    padding: 5px 15px;
-    text-align: center;
+::ng-deep.mat-form-field-ripple {
+  background-color: $border-color_green !important;
 }
 
+.mat-hint {
+  color: $border-color_green;
+}
+
+.mat-input-element.message-mailto {
+  font-family: "Minecraftia-Regular.ttf" !important;
+  width: 100%;
+  border-radius: 5px;
+  padding-top: 0.5rem;
+  height: 1rem;
+  color: #fff;
+}
+.mat-input-element.message-text {
+  color: #fff;
+}
+
+button {
+  width: 150px;
+  text-align: center;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 5px 2px;
+}
+
+/* tablet */
+@media (max-width: 768px) {
+
+}
+
+/* movil */
+@media (max-width: 480px) {
+
+}

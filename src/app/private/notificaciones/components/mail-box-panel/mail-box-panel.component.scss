@@ -1,36 +1,43 @@
 $background-color_grey: #536162;
+$border-color_green: #57e309;
+
+.green-text{
+    color: $border-color_green;
+  }
 
 .card__title{
     text-decoration: none;
 }
 
-mat-card{
+.mat-card{
     background-color: $background-color_grey;
     border-radius: 0;
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto;
+    padding: 20px 10px;
 }
 
-mat-card-title{
+.mat-card-title{
     display: flex;
     align-items: center;
-    margin: 0 15px;
+    margin: 15px;
 }
 
-mat-card-content{
+.mat-card-content{
     background-color: #3d4445b1;
     border-radius: 5px;
     grid-column: 1 / 2;
     grid-row: 2/3;
     margin: 0 13px;
+    margin-top: 6px;
     padding: 5px 15px;
     span{
         text-align: justify; /* no funciona */
     }
 }
 
-mat-card-actions{
+.mat-card-actions{
     grid-row: 1/3;
     grid-column: 2/3;
     justify-self: end;
@@ -49,7 +56,7 @@ mat-card-actions{
 }
 
 button{
-    margin-left: 20px;
+    margin: 0 20px;
     width: 150px;
     text-align: center;
     margin-bottom: 10px;
@@ -59,7 +66,7 @@ button{
 /* tablet */
 @media (max-width: 768px) {
 
-    mat-card-actions{
+    .mat-card-actions{
         display: block;
     }
     button{
@@ -69,21 +76,19 @@ button{
 
 @media (max-width: 480px) {
 
-    mat-card{
+    .mat-card{
         grid-template-columns: 100%;
         grid-template-rows: repeat(3,auto);
     }
     
-    mat-card-actions{
+    .mat-card-actions{
+        display: flex;
+        width: 100%;
         grid-row: 3/4;
         grid-column: 1/2;
         margin-left: 1px;
         justify-self: start;
-    }
-    mat-card-actions{
-        display: flex;
-        width: 100%;
-    }
+    } 
     button{
         margin: 0 5px;
         width: 50%;

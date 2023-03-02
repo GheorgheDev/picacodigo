@@ -10,6 +10,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MailBoxPanelComponent } from './components/mail-box-panel/mail-box-panel.component';
 import { SendMailPanelComponent } from './components/send-mail-panel/send-mail-panel.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {TextFieldModule} from '@angular/cdk/text-field';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     MatTabsModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    TextFieldModule,
+    FormsModule
   ],
   exports: [
     NotificationPageComponent,

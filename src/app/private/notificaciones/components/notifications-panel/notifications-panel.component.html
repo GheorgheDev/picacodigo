@@ -9,15 +9,12 @@
     >
   </mat-card-title>
 
-  <mat-card-content class="text-regular-m matcard-content__message">
+  <mat-card-content class="text-regular-m matcard-content__message white-text">
     {{ notification.content }} {{ notification.where }}:
-    <a
+    <span
       mat-raised-button
-      href="#"
-      target="_blank"
-      class="white-text title-xs card__title"
-      >{{ notification.link }}</a
-    >
+      class="green-text title-xs card__title"
+      >{{ notification.link }}</span>
   </mat-card-content>
 
   <mat-card-actions>

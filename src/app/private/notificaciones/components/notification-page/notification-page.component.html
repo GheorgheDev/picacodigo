@@ -1,8 +1,8 @@
-<div class="notif-container dark-background white-text">
+<div class="notif-container dark-background white-text-notif">
   <h1 class="notif-title title-l">Notificaciones</h1>
 
   <mat-tab-group class="dark-gray-background">
-    <mat-tab label="Notificaciones" class="white-text">
+    <mat-tab label="Notificaciones" >
 
       <div *ngIf="notifications.length>0; then FoundBlock; else notFoundBlock"></div>
 
@@ -21,7 +21,7 @@
 
     </mat-tab>
 
-    <mat-tab label="Buzon de entrada" class="white-text">
+    <mat-tab label="Buzon de entrada" class="white-text-notif">
 
         <div *ngIf="mailboxMessages.length>0; then FoundMeBlock; else notFoundMeBlock"></div>
 
@@ -38,7 +38,7 @@
             <app-not-found #notFoundBlock></app-not-found>
         </ng-template>
     </mat-tab>
-    <mat-tab label="Enviar nuevo mensaje" class="white-text text-regular-xs">
+    <mat-tab label="Enviar nuevo mensaje" class="white-text-notif text-regular-xs">
       <app-send-mail-panel></app-send-mail-panel>
     </mat-tab>
   </mat-tab-group>

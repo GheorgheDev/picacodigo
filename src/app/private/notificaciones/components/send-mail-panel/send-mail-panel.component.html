@@ -1,15 +1,39 @@
-<div class="form-container">
+<form class="form-container" #sendMessageForm="ngForm">
   <mat-form-field appearance="fill">
-    <div class="form-to">
-      <mat-label class="text-regular-s">Enviar mensaje a:</mat-label>
-      <input class="title-m mat-input-element-to" matInput placeholder="pat@example.com">
-    </div>
+    <mat-label class="text-regular-s">Enviar mensaje a:</mat-label>
+    <input
+      class="title-m message-mailto"
+      type="text"
+      matInput
+      [formControl]="mailToControl"
+      [matAutocomplete]="auto" [(ngModel)]="mail_to" name="mail_to" required
+    />
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option
+        *ngFor="let usersOption of filteredUsersOptions | async"
+        [value]="usersOption"
+      >
+        {{ usersOption.userUsername }}
+      </mat-option>
+    </mat-autocomplete>
   </mat-form-field>
+
   <mat-form-field appearance="fill">
-    <mat-label class="text-regular-s">Textarea</mat-label>
-    <textarea matInput #textarea maxlength="10"></textarea>
-    <mat-hint align="end">{{textarea.value.length}}/10</mat-hint>
+    <mat-label class="text-regular-s">Tu mensaje:</mat-label>
+    <textarea
+      class="message-text"
+      #message
+      matInput
+      cdkTextareaAutosize
+      #autosize="cdkTextareaAutosize"
+      cdkAutosizeMinRows="3"
+      cdkAutosizeMaxRows="20"
+      maxlength="300" [(ngModel)]="message_text" name="message_text" required
+    ></textarea>
+    <mat-hint align="end" class="text-regular-xs"
+      >{{ message.value.length }} / 300</mat-hint
+    >
   </mat-form-field>
-</div>
 
-
+  <button class="btn-green text-regular-s white-text" (click)="sendMessage(sendMessageForm)" [ngDisabled]="!sendMessageForm.valid">Enviar</button>
+</form>
