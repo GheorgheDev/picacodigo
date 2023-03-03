@@ -182,8 +182,8 @@ export class DashboardComponent implements OnInit {
 
   private paginarResultados(sobreescribirOriginales: boolean, finalList: ProductData[]) {
     while (finalList.length > 0) {
-      var page = finalList.slice(0, 10);
-      finalList.splice(0, 10);
+      var page = finalList.slice(0, 8);
+      finalList.splice(0, 8);
       this.pages.push(page);
       if (sobreescribirOriginales)
         page.forEach(product => this.originalProducts.push(product));
@@ -210,17 +210,16 @@ export class DashboardComponent implements OnInit {
       }
     }
 
-    /* LA PAGINACIÓN LA TENEMOS QUE METER TAMBIÉN EN EL IF DE LOS FILTROS SELECCIONADOS */
-
-    this.showPrevious = false;
-    if (this.filteredGames.length < 10)
-      this.showNext = false;
-    else
+    if (this.filteredGames.length > 8)
       this.showNext = true;
-
+    else
+      this.showNext = false;
 
     if (selectedFilters.length > 0) {
       this.paginarResultados(false, this.filteredGames)
+
+      this.showPrevious = false;
+
     } else {
       for (var x = 0; x < this.originalProducts.length; x++) {
         this.products.push(this.originalProducts[x])
