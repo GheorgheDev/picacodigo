@@ -1,40 +1,59 @@
 body {
-	background-color: transparent;
+	background-color: black;
 	color: white;
 }
 .container {
 	height: 100vh;
 	width: 40%;
 	float: right;
+	display: flex;
+	justify-content: center;
+	background-color: black;
 }
 
 @media only screen and (max-width:600px) {
 	.container {
 		width: 100%;
 	}
+
+	.logo-l {
+		font-size: 31px;
+	}
 }
 
 .card-body--fullheight {
 	height: 100%;
 }
+
 .form-input {
-	/* width: 50%; */
-	margin: 10px;
+	width: 80%;
+	height: 27px;
+	display: flex;
+	padding-top: 7px;
 }
+
 .form-container {
 	display: flex;
 	justify-content: center;
 	width: 50%;
 }
-.btn-success {
-	margin-top: 5vh;
+/* .btn-success {
+	border:  4px dashed;
+	border-color: green;
+	background-color: transparent;
+	padding-top: 8px;
+	display: flex;
+	text-align: center;
+	align-items: start;
+	&:hover,
+	&:focus,
+	&:active {
+		box-shadow: 0 0 5px #57E309;
+	}
 	width: 100%;
-	/* left: 15%; */
-	position: relative;
 }
-.form-foto {
+ */.form-foto {
 	position: absolute;
-	background-image: url(./img/Foto.png);
 	width: 100%;
 	height: 100%;
 }
@@ -52,10 +71,9 @@ body {
 	justify-content: center;
 }
 .contras-subray {
-	text-decoration: none;
-	color: #57E309;
 	display: flex;
 	justify-content: center;
+
 }
 .align-login {
 	margin-bottom: 10px;
@@ -67,4 +85,36 @@ body {
 .box-title {
 	display: flex;
 	justify-content: center;
+}
+
+.text-muted {
+	display: flex;
+	justify-content: center;
+	color: white;
+}
+
+.btn1 {
+	display: flex;
+	text-align: center;
+	width: 60%;
+	color: white;
+	text-align: center;
+	justify-content: center;
+}
+
+.btn-login {
+	display: flex;
+	justify-content: center;
+
+}
+
+.form-horizontal {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+
+.register-padding {
+	padding-left: 7px;
+	text-decoration: none;
 }

@@ -1,5 +1,5 @@
-import { SelectedFilter } from './../../../shared/models/filter-element';
-import { FiltersComponent } from './../../../shared/components/filters/filters.component';
+import { SelectedFilter } from '../../../shared/models/filter-element';
+import { FiltersComponent } from '../../../shared/components/filters/filters.component';
 import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { ProductData } from 'src/app/shared/models/product-data';
