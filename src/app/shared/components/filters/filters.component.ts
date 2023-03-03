@@ -15,7 +15,8 @@ export class FiltersComponent implements OnInit {
   }
 
   filterForm: FormGroup = this.fb.group({
-    genre: [[]]
+    genre: [[]],
+    mode: [[]]
   })
 
   genreList: FilterElement[] = [
@@ -69,9 +70,24 @@ export class FiltersComponent implements OnInit {
     }
   ];
 
+  modeList: FilterElement[] = [
+    {
+      id: 30,
+      name: 'Individual'
+    },
+    {
+      id: 31,
+      name: 'Multijugador'
+    }
+  ];
+
   @Output() filterGenre = new EventEmitter<number>();
   filterGenreElement(id: number) {
     this.filterGenre.emit(id);
   }
 
+  @Output() filterMode = new EventEmitter<number>();
+  filterModeElement(id: number) {
+    this.filterMode.emit(id);
+  }
 }

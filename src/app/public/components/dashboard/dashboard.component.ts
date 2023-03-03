@@ -155,7 +155,7 @@ export class DashboardComponent implements OnInit {
       stars: 4,
       price: 6.69,
       genreId: 20,
-      modeId: 33
+      modeId: 30
     }
   ]
 
@@ -185,6 +185,11 @@ export class DashboardComponent implements OnInit {
       var page = finalList.slice(0, 8);
       finalList.splice(0, 8);
       this.pages.push(page);
+      if (this.pages.length > 1)
+        this.showNext = true;
+      else
+        this.showNext = false;
+
       if (sobreescribirOriginales)
         page.forEach(product => this.originalProducts.push(product));
     };
@@ -210,16 +215,14 @@ export class DashboardComponent implements OnInit {
       }
     }
 
-    if (this.filteredGames.length > 8)
-      this.showNext = true;
-    else
-      this.showNext = false;
+    // if (this.filteredGames.length > 8)
+    //   this.showNext = true;
+    // else
+    //   this.showNext = false;
 
     if (selectedFilters.length > 0) {
       this.paginarResultados(false, this.filteredGames)
-
       this.showPrevious = false;
-
     } else {
       for (var x = 0; x < this.originalProducts.length; x++) {
         this.products.push(this.originalProducts[x])
