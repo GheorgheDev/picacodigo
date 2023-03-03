@@ -1,3 +1,4 @@
+import { SelectedFilter } from './../../../shared/models/filter-element';
 import { FiltersComponent } from './../../../shared/components/filters/filters.component';
 import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
@@ -177,7 +178,8 @@ export class DashboardComponent implements OnInit {
   }
 
   @Input() filterInfo: FiltersComponent;
-  chosenFilters: number[];
+  chosenGenreFilters: number[];
+  chosenModeFilters: number[];
   newOptions: number;
 
   private paginarResultados(sobreescribirOriginales: boolean, finalList: ProductData[]) {
@@ -193,41 +195,47 @@ export class DashboardComponent implements OnInit {
       if (sobreescribirOriginales)
         page.forEach(product => this.originalProducts.push(product));
     };
+
+    /* AQUI PROVISIONALMENTE IRIA LA PAGINACION DE RESULTADOS */
   }
 
-  addNewOptions(newOptions: number[] | number) {
-    if (typeof newOptions == 'number') {
-      this.chosenFilters.push(newOptions)
-    } else {
-      this.chosenFilters = newOptions;
-    }
-    this.filterCards(this.chosenFilters)
+  addNewOptions(newOptions: SelectedFilter) {
+    this.chosenGenreFilters = newOptions.genres;
+    this.chosenModeFilters = newOptions.modes;
+
+    this.filterCards();
   }
 
-  filterCards(selectedFilters: number[]) {
+  filterCards() {
     this.pages = [];
+    this.filteredGames = [];
     this.selectedPage = 0;
 
-    for (var i = 0; i < selectedFilters.length; i++) {
-      var generateFilterArray = this.originalProducts.filter(element => element.genreId === selectedFilters[i])
-      for (var z = 0; z < generateFilterArray.length; z++) {
-        this.filteredGames.push(generateFilterArray[z])
+    for (var i = 0; i < this.chosenGenreFilters.length; i++) {
+      var generateGenreFilterArray = this.originalProducts.filter(element => element.genreId === this.chosenGenreFilters[i])
+      for (var z = 0; z < generateGenreFilterArray.length; z++) {
+        if (this.filteredGames.indexOf(generateGenreFilterArray[z]) == -1)
+          this.filteredGames.push(generateGenreFilterArray[z])
       }
     }
 
-    // if (this.filteredGames.length > 8)
-    //   this.showNext = true;
-    // else
-    //   this.showNext = false;
+    for (var i = 0; i < this.chosenModeFilters.length; i++) {
+      var generateModeFilterArray = this.originalProducts.filter(element => element.modeId === this.chosenModeFilters[i])
+      for (var z = 0; z < generateModeFilterArray.length; z++) {
+        if (this.filteredGames.indexOf(generateModeFilterArray[z]) == -1)
+          this.filteredGames.push(generateModeFilterArray[z])
+      }
+    }
 
-    if (selectedFilters.length > 0) {
+    this.showPrevious = false;
+
+    if (this.chosenGenreFilters.length > 0 || this.chosenModeFilters.length > 0) {
       this.paginarResultados(false, this.filteredGames)
-      this.showPrevious = false;
     } else {
       for (var x = 0; x < this.originalProducts.length; x++) {
         this.products.push(this.originalProducts[x])
       }
-      this.paginarResultados(false, this.originalProducts)
+      this.paginarResultados(false, this.products)
     }
   }
 

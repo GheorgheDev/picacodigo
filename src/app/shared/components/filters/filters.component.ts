@@ -1,4 +1,4 @@
-import { FilterElement } from './../../models/filter-element';
+import { FilterElement, SelectedFilter } from './../../models/filter-element';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -18,6 +18,11 @@ export class FiltersComponent implements OnInit {
     genre: [[]],
     mode: [[]]
   })
+
+  filterList: SelectedFilter = {
+    genres: [],
+    modes: []
+  };
 
   genreList: FilterElement[] = [
     {
@@ -68,7 +73,7 @@ export class FiltersComponent implements OnInit {
       id: 21,
       name: 'Terror'
     }
-  ];
+  ]
 
   modeList: FilterElement[] = [
     {
@@ -81,13 +86,18 @@ export class FiltersComponent implements OnInit {
     }
   ];
 
-  @Output() filterGenre = new EventEmitter<number>();
-  filterGenreElement(id: number) {
-    this.filterGenre.emit(id);
+  filterGenreElement(id: number[]) {
+    this.filterList.genres = id;
+    this.filterElement();
   }
 
-  @Output() filterMode = new EventEmitter<number>();
-  filterModeElement(id: number) {
-    this.filterMode.emit(id);
+  filterModeElement(id: number[]) {
+    this.filterList.modes = id;
+    this.filterElement();
+  }
+
+  @Output() filterIdList = new EventEmitter<SelectedFilter>();
+  filterElement() {
+    this.filterIdList.emit(this.filterList);
   }
 }
