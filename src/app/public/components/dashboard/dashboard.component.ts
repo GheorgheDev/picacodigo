@@ -1,3 +1,4 @@
+import { OrdinationComponent } from './../../../shared/components/ordination/ordination.component';
 import { SelectedFilter } from '../../../shared/models/filter-element';
 import { FiltersComponent } from '../../../shared/components/filters/filters.component';
 import { Router } from '@angular/router';
@@ -182,6 +183,9 @@ export class DashboardComponent implements OnInit {
   chosenModeFilters: number[];
   newOptions: number;
 
+  @Input() orderInfo: OrdinationComponent;
+  chosenOrder: number;
+
   private paginarResultados(sobreescribirOriginales: boolean, finalList: ProductData[]) {
     while (finalList.length > 0) {
       var page = finalList.slice(0, 8);
@@ -194,9 +198,11 @@ export class DashboardComponent implements OnInit {
 
       if (sobreescribirOriginales)
         page.forEach(product => this.originalProducts.push(product));
+
+
     };
 
-    /* AQUI PROVISIONALMENTE IRIA LA PAGINACION DE RESULTADOS */
+
   }
 
   addNewOptions(newOptions: SelectedFilter) {
@@ -205,6 +211,14 @@ export class DashboardComponent implements OnInit {
 
     this.filterCards();
   }
+
+  orderCardsElements(finalList: ProductData[]) {
+    if (this.chosenOrder === 40) {
+      console.log("es 40", this.chosenOrder)
+    }
+    this.paginarResultados(false, this.products);
+  }
+
 
   filterCards() {
     this.pages = [];

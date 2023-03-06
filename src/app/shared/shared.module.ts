@@ -1,3 +1,4 @@
+import { OrdinationComponent } from './components/ordination/ordination.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HeaderModule } from './components/header/header.module';
@@ -19,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     CardProductComponent,
     FooterComponent,
-    FiltersComponent
+    FiltersComponent,
+    OrdinationComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +45,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    OrdinationComponent
   ]
 })
 export class SharedModule { }
