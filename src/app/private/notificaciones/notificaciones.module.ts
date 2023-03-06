@@ -17,6 +17,7 @@ import {TextFieldModule} from '@angular/cdk/text-field';
 import { InvalidFormDialogComponent } from './components/invalid-form-dialog/invalid-form-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ValidMessageformDialogComponent } from './components/valid-messageform-dialog/valid-messageform-dialog.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ValidMessageformDialogComponent } from './components/valid-messageform-
     MatAutocompleteModule,
     TextFieldModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    SharedModule
   ],
   exports: [
     NotificationPageComponent,

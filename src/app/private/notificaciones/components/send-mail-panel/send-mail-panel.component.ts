@@ -46,6 +46,16 @@ export class SendMailPanelComponent implements OnInit {
       userUsername: 'BarbaraR',
       name: 'Barbara Rodriguez',
     },
+    {
+      userID: 6,
+      userUsername: 'MichelleM',
+      name: 'Michelle Masias',
+    },
+    {
+      userID: 6,
+      userUsername: 'MichelleM',
+      name: 'Michelle Masias',
+    },
   ];
 
   filteredUsersOptions: Observable<UserData[]>;

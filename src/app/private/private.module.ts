@@ -22,7 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatCardModule,
     HeaderModule,
-    NotificacionesModule
+    NotificacionesModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule
