@@ -8,11 +8,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { MyProfilePrivComponent } from './components/my-profile-priv/my-profile-priv.component';
 import { MatCardModule } from '@angular/material/card';
+import { CambioPasswordComponent } from './components/cambio-password/cambio-password.component';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    MyProfilePrivComponent
-  ],
+  declarations: [MyProfilePrivComponent, CambioPasswordComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -22,6 +23,10 @@ import { MatCardModule } from '@angular/material/card';
     MatCardModule,
     HeaderModule,
     NotificacionesModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
+    
   ],
   exports: [MyProfilePrivComponent],
 })

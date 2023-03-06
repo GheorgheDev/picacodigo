@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: grey;
+  /* background-color: grey; */
   box-sizing: border-box;
   padding: 1px;
   width: 100%;
@@ -14,26 +14,19 @@ div.menu-desktop {
 }
 
 div.menu-hamburguer {
-  justify-content: end;
+  display: flex;
+  justify-content: flex-end;
   /* background-color: red; */
   width: 20%;
 }
 
-/* color del menu hamburguesa */
 div.menu-hamburguer > button {
-  background-color: grey;
-}
-
-::ng-deep .menu_burguer_desp {
-  background-color: grey;
-  right: 0;
-  width: 38%;
-  position: absolute;
-  top: 9%;
+  /* background-color: grey; */
+  border: 0;
 }
 
 ::ng-deep .menu_burguer_desp button {
-  background-color: grey;
+  /* background-color: grey; */
 
   width: 18%;
 }
@@ -43,12 +36,12 @@ div.menu-hamburguer > button {
   /* color: white; */
 }
 
-::ng-deep .menu_esc_noLogin {
+::ng-deep .menu_esc_Login {
   display: none;
 }
 
 ::ng-deep .menu_esc_priv_desp {
-  background-color: grey;
+  /* background-color: grey; */
   display: none;
 }
 
@@ -64,25 +57,20 @@ div.menu-hamburguer > button {
     display: flex;
   }
 
-  ::ng-deep .menu_esc_noLogin {
+  ::ng-deep .menu_esc_Login {
     display: flex;
-    background-color: grey;
+    /* background-color: red; */
   }
 
-  ::ng-deep .menu_esc_noLogin button {
-    background-color: grey;
+  ::ng-deep .menu_esc_Login button {
+    border: 0;
+    /* background-color: grey; */
   }
 
   ::ng-deep .menu_esc_priv_desp {
     display: flex;
-    right: 0;
-    width: 38%;
-    position: absolute;
-    top: 9%;
   }
-  ::ng-deep .menu_esc_priv_desp button {
-    background-color: grey;
-  }
+
   ::ng-deep .menu_esc_priv_desp button > a {
     text-decoration: none;
     /* color: white; */

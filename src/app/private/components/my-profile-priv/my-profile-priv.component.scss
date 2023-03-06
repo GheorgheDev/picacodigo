@@ -1,14 +1,12 @@
 .container {
   display: flex;
   flex-flow: column;
-  /* height: 100vh; */
 }
 
 .wellcome_message {
   width: 100%;
   text-align: center;
   margin-bottom: 2%;
-  /* border: 1px solid red; */
 }
 
 .cards_desk {
@@ -22,10 +20,11 @@
   margin-bottom: 5%;
 }
 
-img.img_user {
+div > div.cards_movil > mat-card > img.img_user {
+  /* border: 1px solid red; */
   margin: auto;
   margin-bottom: 3rem;
-  /* border: 1px solid red; */
+  width: 300px;
 }
 
 .card_picture,
@@ -35,17 +34,15 @@ img.img_user {
   margin: 3%;
 }
 
-.change_config_dates,
 .change_config_dates {
   display: flex;
   justify-content: start;
-  align-items: center;
+  align-items: end;
   margin-top: 5%;
   width: 112%;
-  /* background-color: red; */
 }
 
-div.change_config_dates > a {
+div.change_config_dates>a {
   text-decoration: none;
   margin-left: 3%;
 }
@@ -55,23 +52,18 @@ div.change_config_dates > a {
     display: flex;
     justify-content: space-around;
     margin: 0 auto;
-    /* border: 4px solid red; */
-    /* background-color: blue; */
     width: 85%;
-    max-width: 680px;
+    max-width: 850px;
     margin-bottom: 5%;
-
   }
 
   .card_info_usuer {
     display: flex;
     flex-flow: column;
-    /*  background-color: green; */
     max-width: 380px;
   }
 
   .cards_movil {
     display: none;
   }
-
 }

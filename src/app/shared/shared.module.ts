@@ -1,3 +1,5 @@
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { HeaderModule } from './components/header/header.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -7,13 +9,17 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { FiltersComponent } from './components/filters/filters.component';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
     CardProductComponent,
-    FooterComponent
+    FooterComponent,
+    FiltersComponent
   ],
   imports: [
     CommonModule,
@@ -22,10 +28,22 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatListModule,
     MatToolbarModule,
     HeaderModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     CardProductComponent,
     FooterComponent,
+    FiltersComponent,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

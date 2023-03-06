@@ -14,12 +14,13 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-top: 36px;
 }
 
 .btn__page__pass {
     background-color: transparent;
 }
 
-.distribution__dashboard__footer {
+.distribution__dashboard__footer, .distribution__dashboard__filters {
     margin: 32px 0 0 0;
 }

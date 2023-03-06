@@ -2,21 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: [ './register.component.scss']
+  selector: 'app-cambio-password',
+  templateUrl: './cambio-password.component.html',
+  styleUrls: [ './cambio-password.component.scss']
 })
 
-export class RegisterComponent {
+export class CambioPasswordComponent {
 
   public formSubmitted = false;
 
-  public registerForm = this.fb.group({
-    nombre: ['Juanjo', [ Validators.required, Validators.minLength(3) ]],
-    email: ['test100@hotmail.com', [Validators.required, Validators.email ]],
+  public cambioPasswordForm = this.fb.group({
+    contrasena: ['12345', Validators.required ],
     password: ['123456', Validators.required ],
     password2: ['123456', Validators.required ],
-    terminos: [true, Validators.required ],
 
   },{
     validators: this.passwordsIguales('password', 'password2')
@@ -24,11 +22,11 @@ export class RegisterComponent {
 
   constructor( private fb: FormBuilder) { }
 
-  crearUsuario() {
+  crearPassword() {
     this.formSubmitted = true;
-    console.log( this.registerForm.value );
+    console.log( this.cambioPasswordForm.value );
 
-    if ( this.registerForm.valid ) {
+    if ( this.cambioPasswordForm.valid ) {
       console.log('posteando formulario')
     } else {
       console.log ('Formulario no es correcto...');
@@ -36,7 +34,7 @@ export class RegisterComponent {
   }
 
   campoNoValido( campo:string ): boolean {
-    if (this.registerForm.get(campo)?.invalid && this.formSubmitted ) {
+    if (this.cambioPasswordForm.get(campo)?.invalid && this.formSubmitted ) {
       return true;
     } else {
       return false;
@@ -45,8 +43,8 @@ export class RegisterComponent {
   }
 
   contrasenasNoValidas() {
-    const pass1 = this.registerForm.get('password')?.value;
-    const pass2 = this.registerForm.get('password2')?.value;
+    const pass1 = this.cambioPasswordForm.get('password')?.value;
+    const pass2 = this.cambioPasswordForm.get('password2')?.value;
 
     if ( (pass1 !== pass2) && this.formSubmitted ) {
       return true;
@@ -59,7 +57,7 @@ export class RegisterComponent {
 
 
   aceptaTerminos() {
-    return!this.registerForm.get('terminos')?.value && this.formSubmitted;
+    return!this.cambioPasswordForm.get('terminos')?.value && this.formSubmitted;
   }
 
 
