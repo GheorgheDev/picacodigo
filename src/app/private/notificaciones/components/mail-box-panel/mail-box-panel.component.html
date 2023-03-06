@@ -21,10 +21,10 @@
   </mat-card-content>
 
   <mat-card-actions>
-    <button (click)="deleteMailBoxMessage(mailboxMessage.id)" class="btn-green text-regular-s white-text btn-delete">
+    <button (click)="deleteMailBoxMessage(mailboxMessage.id)" class="btn-green title-xs white-text btn-delete">
       Eliminar
     </button>
-    <button *ngIf="!mailboxMessage.read" class="btn-green text-regular-s white-text btn-read"
+    <button *ngIf="!mailboxMessage.read" class="btn-green title-xs white-text btn-read"
      (click)="markMailAsRead(mailboxMessage.id)">
       Marcar como leido
     </button>

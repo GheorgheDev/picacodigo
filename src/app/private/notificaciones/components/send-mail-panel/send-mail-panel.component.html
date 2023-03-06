@@ -1,12 +1,11 @@
-<form class="form-container" #sendMessageForm="ngForm">
+<form class="form-container" [formGroup]="messageForm">
   <mat-form-field appearance="fill">
     <mat-label class="text-regular-s">Enviar mensaje a:</mat-label>
     <input
       class="title-m message-mailto"
       type="text"
       matInput
-      [formControl]="mailToControl"
-      [matAutocomplete]="auto" [(ngModel)]="mail_to" name="mail_to" required
+      [matAutocomplete]="auto" formControlName="mail_to" name="mail_to" required
     />
     <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
       <mat-option
@@ -28,12 +27,12 @@
       #autosize="cdkTextareaAutosize"
       cdkAutosizeMinRows="3"
       cdkAutosizeMaxRows="20"
-      maxlength="300" [(ngModel)]="message_text" name="message_text" required
+      maxlength="300" formControlName="message_text" name="message_text" required
     ></textarea>
     <mat-hint align="end" class="text-regular-xs"
       >{{ message.value.length }} / 300</mat-hint
     >
   </mat-form-field>
 
-  <button class="btn-green text-regular-s white-text" (click)="sendMessage(sendMessageForm)" [ngDisabled]="!sendMessageForm.valid">Enviar</button>
+  <button type="submit" class="btn-green title-xs white-text"  (click)="sendMessage()">Enviar</button>
 </form>

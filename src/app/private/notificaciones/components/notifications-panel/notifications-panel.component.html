@@ -20,14 +20,14 @@
   <mat-card-actions>
     <button
       (click)="deleteNotification(notification.id)"
-      class="btn-green text-regular-s white-text btn-delete"
+      class="btn-green title-xs white-text btn-delete"
     >
       Eliminar
     </button>
     <button
       *ngIf="!notification.read"
       (click)="markNotificationAsRead(notification.id)"
-      class="btn-green text-regular-s white-text btn-read"
+      class="btn-green title-xs white-text btn-read"
     >
       Marcar como leido
     </button>

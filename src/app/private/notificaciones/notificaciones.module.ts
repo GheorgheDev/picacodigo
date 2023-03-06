@@ -14,6 +14,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {TextFieldModule} from '@angular/cdk/text-field';
+import { InvalidFormDialogComponent } from './components/invalid-form-dialog/invalid-form-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ValidMessageformDialogComponent } from './components/valid-messageform-dialog/valid-messageform-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import {TextFieldModule} from '@angular/cdk/text-field';
     NotificationsPanelComponent,
     MailBoxPanelComponent,
     SendMailPanelComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    InvalidFormDialogComponent,
+    ValidMessageformDialogComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +37,8 @@ import {TextFieldModule} from '@angular/cdk/text-field';
     ReactiveFormsModule,
     MatAutocompleteModule,
     TextFieldModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   exports: [
     NotificationPageComponent,

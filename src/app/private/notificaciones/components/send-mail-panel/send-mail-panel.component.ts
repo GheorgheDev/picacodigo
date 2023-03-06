@@ -1,10 +1,15 @@
 import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
 import { UserData } from 'src/app/shared/models/user-data';
-import { FormControl, NgForm } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 import { take } from 'rxjs/operators';
+import { Message } from '../../model/message-data';
+import {MatDialog} from '@angular/material/dialog';
+import { InvalidFormDialogComponent } from '../invalid-form-dialog/invalid-form-dialog.component';
+import { ValidMessageformDialogComponent } from '../valid-messageform-dialog/valid-messageform-dialog.component';
+
 
 @Component({
   selector: 'app-send-mail-panel',
@@ -12,7 +17,8 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./send-mail-panel.component.scss'],
 })
 export class SendMailPanelComponent implements OnInit {
-  mailToControl = new FormControl();
+
+  constructor(private _ngZone: NgZone, private _fb: FormBuilder, public dialog: MatDialog) {}
 
   users: UserData[] = [
     {
@@ -44,8 +50,19 @@ export class SendMailPanelComponent implements OnInit {
 
   filteredUsersOptions: Observable<UserData[]>;
 
+
+  messageForm: FormGroup = this._fb.group({
+    mail_to: ['', [Validators.required]],
+    message_text: ['', [Validators.required]]
+  })
+
+  fData: FormData = new FormData();
+  message: Message = {} as Message;
+
   ngOnInit() {
-    this.filteredUsersOptions = this.mailToControl.valueChanges.pipe(
+
+    /* autocomplete de usuarios */
+    this.filteredUsersOptions = this.messageForm.valueChanges.pipe(
       startWith(''),
       map((value) => {
         const userUsername =
@@ -69,7 +86,7 @@ export class SendMailPanelComponent implements OnInit {
     );
   }
 
-  constructor(private _ngZone: NgZone) {}
+  
 
   @ViewChild('autosize') autosize: CdkTextareaAutosize;
 
@@ -80,15 +97,34 @@ export class SendMailPanelComponent implements OnInit {
       .subscribe(() => this.autosize.resizeToFitContent(true));
   }
 
-  mail_to: UserData;
-  message_text: string = '';
-
-  sendMessage(sendMessageForm: NgForm) {
-    if(sendMessageForm.validator){
-      sendMessageForm
+ 
+  verifyValidUser(){
+    for(let i=0; i<this.users.length; i++){
+      if(this.messageForm.value.mail_to == this.users[i])
+        return true; 
+      else
+       return false;  
+      }
+      return false
     }
-      console.log(this.mail_to, ' - ', this.message_text);
-      sendMessageForm.reset();
+
+  sendMessage() {
+    
+    if (this.messageForm.invalid || this.verifyValidUser() == false) {
+      this.messageForm.markAllAsTouched();
+      this.dialog.open(InvalidFormDialogComponent);
+    } else {
+      //console.log(this.messageForm.value.mail_to, ' - ', this.messageForm.value.message_text);
+      this.messageForm.reset();
+      this.dialog.open(ValidMessageformDialogComponent);
+      };
+
+    }
+
+
 
   }
-}
+  
+  
+  
+
