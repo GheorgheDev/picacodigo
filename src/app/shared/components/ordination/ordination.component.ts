@@ -42,8 +42,8 @@ export class OrdinationComponent implements OnInit {
     this.orderCardElement(id);
   }
 
-  @Output() orderSelectList = new EventEmitter<number>();
+  @Output() orderInfo = new EventEmitter<number>();
   orderCardElement(id: number){
-    this.orderSelectList.emit(id);
+    this.orderInfo.emit(id);
   }
 }

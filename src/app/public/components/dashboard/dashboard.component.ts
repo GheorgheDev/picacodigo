@@ -167,6 +167,7 @@ export class DashboardComponent implements OnInit {
   showNext: boolean = true;
   showPrevious: boolean = false;
   filteredGames: ProductData[] = [];
+  toSortList: ProductData[] = [];
 
   constructor(private router: Router) { }
 
@@ -186,7 +187,49 @@ export class DashboardComponent implements OnInit {
   @Input() orderInfo: OrdinationComponent;
   chosenOrder: number;
 
+
+  orderCardsElements(chosenOrder: number) {
+    this.toSortList = [];
+    this.pages = [];
+    this.originalProducts.forEach(product => this.toSortList.push(product));
+
+    if (chosenOrder == 40) {
+      this.toSortList.sort(function (a, b) {
+        if (a.stars > b.stars) {
+          return -1
+        } else if (a.stars < b.stars) {
+          return 1
+        } else {
+          return 0
+        }
+      });
+    } else if (chosenOrder == 41) {
+      this.toSortList.sort(function (a, b) {
+        if (a.price > b.price) {
+          return 1
+        } else if (a.price < b.price) {
+          return -1
+        } else {
+          return 0
+        }
+      })
+    } else if (chosenOrder == 42) {
+      this.toSortList.sort(function (a, b) {
+        if (a.price > b.price) {
+          return -1
+        } else if (a.price < b.price) {
+          return 1
+        } else {
+          return 0
+        }
+      })
+    }
+    this.paginarResultados(false, this.toSortList);
+  }
+
   private paginarResultados(sobreescribirOriginales: boolean, finalList: ProductData[]) {
+    console.log("esto es finallist", finalList)
+
     while (finalList.length > 0) {
       var page = finalList.slice(0, 8);
       finalList.splice(0, 8);
@@ -198,11 +241,7 @@ export class DashboardComponent implements OnInit {
 
       if (sobreescribirOriginales)
         page.forEach(product => this.originalProducts.push(product));
-
-
     };
-
-
   }
 
   addNewOptions(newOptions: SelectedFilter) {
@@ -211,14 +250,6 @@ export class DashboardComponent implements OnInit {
 
     this.filterCards();
   }
-
-  orderCardsElements(finalList: ProductData[]) {
-    if (this.chosenOrder === 40) {
-      console.log("es 40", this.chosenOrder)
-    }
-    this.paginarResultados(false, this.products);
-  }
-
 
   filterCards() {
     this.pages = [];
