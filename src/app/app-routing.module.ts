@@ -1,3 +1,4 @@
+import { UserManagementPageComponent } from './private/gestion-usuarios/componentes/user-management-page/user-management-page.component';
 import { NotificationPageComponent } from './private/notificaciones/components/notification-page/notification-page.component';
 import { DashboardComponent } from './public/components/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'notification', component: NotificationPageComponent }
+  { path: 'notification', component: NotificationPageComponent },
+  { path: 'user-management', component: UserManagementPageComponent }
 ];
 
 @NgModule({

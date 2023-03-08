@@ -1,0 +1,29 @@
+$color_green: #57e309;
+$font-title: "Minecraftia-Regular.ttf";
+
+
+.user-management-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 25px;
+}
+.user-management-title{
+    padding: 20px 0 10px 0;
+    font-family: $font-title;
+    margin: 0;
+}
+
+.user-management-table-container{
+    width: 95%;
+}
+
+.mat-table {
+    width: 95%; 
+}
+
+td, th {
+    width: 35%;
+  }

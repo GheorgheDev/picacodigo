@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CambioPasswordComponent } from './components/cambio-password/cambio-password.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GestionUsuariosModule } from './gestion-usuarios/gestion-usuarios.module';
 
 @NgModule({
   declarations: [MyProfilePrivComponent, CambioPasswordComponent],
@@ -25,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NotificacionesModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GestionUsuariosModule
     
   ],
   exports: [MyProfilePrivComponent],

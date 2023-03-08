@@ -1,0 +1,52 @@
+<div class="user-management__header">
+  <app-private-header></app-private-header>
+</div>
+
+<div class="user-management-container">
+  <h1 class="user-management-title title-l">Gestion de usuarios</h1>
+
+  <div class="user-management-table-container">
+    <mat-form-field appearance="standard">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+      </mat-form-field>
+      <div class="table-paginator-container mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" >
+      
+            <!-- Position Column -->
+            <ng-container matColumnDef="userID">
+              <th mat-header-cell *matHeaderCellDef> ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Nombre </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef> Acciones </th>
+              <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+            </ng-container>
+          
+
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            </tr>
+          </table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+      </div>
+      
+  </div>
+</div>
+
+<div class="user-management__footer">
+  <app-footer></app-footer>
+</div>
