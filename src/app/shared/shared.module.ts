@@ -13,15 +13,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FiltersComponent } from './components/filters/filters.component';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
-
 @NgModule({
   declarations: [
     CardProductComponent,
     FooterComponent,
     FiltersComponent,
-    OrdinationComponent
+    OrdinationComponent,
   ],
   imports: [
     CommonModule,
@@ -34,19 +31,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    // MatCardModule,
+    MatInputModule,
+    FormsModule,
   ],
   exports: [
     CardProductComponent,
     FooterComponent,
     FiltersComponent,
-    MatSelectModule,
-    MatFormFieldModule,
+    OrdinationComponent,
     MatCardModule,
-    MatInputModule,
-    FormsModule,
-    ReactiveFormsModule,
-    OrdinationComponent
   ]
 })
 export class SharedModule { }

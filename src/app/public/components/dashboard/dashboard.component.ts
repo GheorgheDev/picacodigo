@@ -187,23 +187,12 @@ export class DashboardComponent implements OnInit {
   @Input() orderInfo: OrdinationComponent;
   chosenOrder: number;
 
-
   orderCardsElements(chosenOrder: number) {
     this.toSortList = [];
     this.pages = [];
     this.originalProducts.forEach(product => this.toSortList.push(product));
 
-    if (chosenOrder == 40) {
-      this.toSortList.sort(function (a, b) {
-        if (a.stars > b.stars) {
-          return -1
-        } else if (a.stars < b.stars) {
-          return 1
-        } else {
-          return 0
-        }
-      });
-    } else if (chosenOrder == 41) {
+    if (chosenOrder == 41) {
       this.toSortList.sort(function (a, b) {
         if (a.price > b.price) {
           return 1
@@ -223,16 +212,33 @@ export class DashboardComponent implements OnInit {
           return 0
         }
       })
+    } else {
+      this.toSortList.sort(function (a, b) {
+        if (a.stars > b.stars) {
+          return -1
+        } else if (a.stars < b.stars) {
+          return 1
+        } else {
+          return 0
+        }
+      });
     }
     this.paginarResultados(false, this.toSortList);
   }
 
   private paginarResultados(sobreescribirOriginales: boolean, finalList: ProductData[]) {
-    console.log("esto es finallist", finalList)
-
     while (finalList.length > 0) {
-      var page = finalList.slice(0, 8);
-      finalList.splice(0, 8);
+      finalList.sort(function (a, b) {
+        if (a.stars > b.stars) {
+          return -1
+        } else if (a.stars < b.stars) {
+          return 1
+        } else {
+          return 0
+        }
+      });
+      var page = finalList.slice(0, 12);
+      finalList.splice(0, 12);
       this.pages.push(page);
       if (this.pages.length > 1)
         this.showNext = true;

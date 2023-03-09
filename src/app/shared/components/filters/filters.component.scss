@@ -3,6 +3,7 @@
     border: none;
     line-height: 2.5;
     padding-top: 0px !important;
+    height: 61px;
 }
 
 ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
@@ -65,5 +66,5 @@
 
 .filter__distribution {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-evenly !important;
 }

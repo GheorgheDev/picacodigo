@@ -4,8 +4,6 @@ import { MatCardModule } from '@angular/material/card';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
-
 @NgModule({
   declarations: [
     DashboardComponent
@@ -13,7 +11,7 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     MatCardModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class DashboardModule { }

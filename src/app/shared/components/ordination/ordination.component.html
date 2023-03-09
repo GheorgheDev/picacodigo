@@ -1,5 +1,5 @@
 <form [formGroup]="orderForm">
-    <mat-form-field appearance="fill" class="btn-green">
+    <mat-form-field appearance="fill" class="btn-green ordination__style">
         <mat-label class="title-xs white-text">Ordenar por</mat-label>
         <mat-select formControlName="orderId" (ngModelChange)="orderCard()">
             <mat-option *ngFor="let order of orders" [value]="order.id" class="btn-green title-xs">

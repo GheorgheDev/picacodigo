@@ -1,17 +1,19 @@
-<form [formGroup]="filterForm" class="filter__distribution">
-    <mat-form-field appareance="fill" class="btn-green filter__style">
-        <mat-label class="title-xs white-text">Géneros</mat-label>
-        <mat-select formControlName="genre" multiple (ngModelChange)="filterGenreElement($event)">
-            <mat-option *ngFor="let genre of genreList" [value]="genre.id"
-                class="btn-green title-xs">{{genre.name}}</mat-option>
-        </mat-select>
-    </mat-form-field>
+<form [formGroup]="filterForm">
+    <div class="filter__distribution">
+        <mat-form-field appareance="fill" class="btn-green filter__style">
+            <mat-label class="title-xs white-text">Géneros</mat-label>
+            <mat-select formControlName="genre" multiple (ngModelChange)="filterGenreElement($event)">
+                <mat-option *ngFor="let genre of genreList" [value]="genre.id"
+                    class="btn-green title-xs">{{genre.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
 
-    <mat-form-field appareance="fill" class="btn-green filter__style">
-        <mat-label class="title-xs white-text">Modo</mat-label>
-        <mat-select formControlName="mode" multiple (ngModelChange)="filterModeElement($event)">
-            <mat-option *ngFor="let mode of modeList" [value]="mode.id"
-                class="btn-green title-xs">{{mode.name}}</mat-option>
-        </mat-select>
-    </mat-form-field>
+        <mat-form-field appareance="fill" class="btn-green filter__style">
+            <mat-label class="title-xs white-text">Modo</mat-label>
+            <mat-select formControlName="mode" multiple (ngModelChange)="filterModeElement($event)">
+                <mat-option *ngFor="let mode of modeList" [value]="mode.id"
+                    class="btn-green title-xs">{{mode.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
 </form>

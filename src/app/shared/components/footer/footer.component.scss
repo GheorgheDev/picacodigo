@@ -44,3 +44,13 @@
 ::ng-deep.mat-list-item-content {
     justify-content: center;
 }
+
+::ng-deep .footer-text {
+    color: #f9f9f9 !important;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .distribution__footer__list {
+        flex-direction: column !important;
+    }
+}
