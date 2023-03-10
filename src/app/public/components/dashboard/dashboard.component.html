@@ -1,13 +1,14 @@
 <div class="dark-background distribution__dashboard">
-
     <!-- <div class="distribution__dashboard__filters">
         <app-filters (filterIdList)="addNewOptions($event)"></app-filters>
         <app-ordination (orderInfo)="orderCardsElements($event)"></app-ordination>
-    </div>
+    </div> -->
+
+
 
     <div class="distribution__dashboard__cards">
         <button mat-button type="button" (click)="previousPage()" *ngIf="showPrevious"
-            class="btn__page__pass icon__color">
+            class="btn__page__pass__left icon__color">
             <span class="fa fa-chevron-left"></span>
         </button>
 
@@ -17,10 +18,14 @@
             </div>
         </div>
 
-        <button mat-button type="button" (click)="nextPage()" *ngIf="showNext" class="btn__page__pass icon__color">
+        <button mat-button type="button" (click)="nextPage()" *ngIf="showNext"
+            class="btn__page__pass__right icon__color">
             <span class="fa fa-chevron-right"></span>
         </button>
-    </div> -->
+
+    </div>
+
+
 
     <div class="distribution__dashboard__footer">
         <app-footer></app-footer>

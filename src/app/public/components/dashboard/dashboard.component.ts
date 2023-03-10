@@ -2,7 +2,7 @@ import { OrdinationComponent } from './../../../shared/components/ordination/ord
 import { SelectedFilter } from '../../../shared/models/filter-element';
 import { FiltersComponent } from '../../../shared/components/filters/filters.component';
 import { Router } from '@angular/router';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { ProductData } from 'src/app/shared/models/product-data';
 
 @Component({
@@ -168,6 +168,9 @@ export class DashboardComponent implements OnInit {
   showPrevious: boolean = false;
   filteredGames: ProductData[] = [];
   toSortList: ProductData[] = [];
+  getScreenWidth: number;
+  gamesPerPage: number = 12;
+  updatedGamesPage: ProductData[] = []
 
   constructor(private router: Router) { }
 
@@ -177,6 +180,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.paginarResultados(true, this.products);
+    this.onWindowResize();
   }
 
   @Input() filterInfo: FiltersComponent;
@@ -237,8 +241,10 @@ export class DashboardComponent implements OnInit {
           return 0
         }
       });
-      var page = finalList.slice(0, 12);
-      finalList.splice(0, 12);
+
+      var page = finalList.slice(0, this.gamesPerPage);
+      finalList.splice(0, this.gamesPerPage);
+      
       this.pages.push(page);
       if (this.pages.length > 1)
         this.showNext = true;
@@ -248,6 +254,25 @@ export class DashboardComponent implements OnInit {
       if (sobreescribirOriginales)
         page.forEach(product => this.originalProducts.push(product));
     };
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    this.getScreenWidth = window.innerWidth;
+
+    if (this.getScreenWidth < 481) {
+      this.gamesPerPage = 3;
+    } else if (this.getScreenWidth < 1024) {
+      this.gamesPerPage = 6;
+    } else {
+      this.gamesPerPage = 12;
+    }
+
+    let temporaryGames: ProductData[] = [];
+    this.originalProducts.forEach(product => temporaryGames.push(product));
+
+    this.pages = [];
+    this.paginarResultados(false, temporaryGames);
   }
 
   addNewOptions(newOptions: SelectedFilter) {
