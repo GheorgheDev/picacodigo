@@ -1,10 +1,8 @@
 <div class="dark-background distribution__dashboard">
-    <!-- <div class="distribution__dashboard__filters">
-        <app-filters (filterIdList)="addNewOptions($event)"></app-filters>
+    <div class="distribution__dashboard__filters">
+        <app-filters (filterIdList)="addNewOptions($event)" class="distribution__dashboard__filters__btn"></app-filters>
         <app-ordination (orderInfo)="orderCardsElements($event)"></app-ordination>
-    </div> -->
-
-
+    </div>
 
     <div class="distribution__dashboard__cards">
         <button mat-button type="button" (click)="previousPage()" *ngIf="showPrevious"
@@ -22,10 +20,7 @@
             class="btn__page__pass__right icon__color">
             <span class="fa fa-chevron-right"></span>
         </button>
-
     </div>
-
-
 
     <div class="distribution__dashboard__footer">
         <app-footer></app-footer>

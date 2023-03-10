@@ -1,6 +1,6 @@
 <form [formGroup]="filterForm">
     <div class="filter__distribution">
-        <mat-form-field appareance="fill" class="btn-green filter__style">
+        <mat-form-field appareance="fill" class="btn-green filter__style filter__style__genre">
             <mat-label class="title-xs white-text">Géneros</mat-label>
             <mat-select formControlName="genre" multiple (ngModelChange)="filterGenreElement($event)">
                 <mat-option *ngFor="let genre of genreList" [value]="genre.id"
@@ -8,7 +8,7 @@
             </mat-select>
         </mat-form-field>
 
-        <mat-form-field appareance="fill" class="btn-green filter__style">
+        <mat-form-field appareance="fill" class="btn-green filter__style filter__style__mode">
             <mat-label class="title-xs white-text">Modo</mat-label>
             <mat-select formControlName="mode" multiple (ngModelChange)="filterModeElement($event)">
                 <mat-option *ngFor="let mode of modeList" [value]="mode.id"

@@ -108,4 +108,14 @@
     .btn__page__pass__right {
         left: 84%;
     }
+
+    .distribution__dashboard__filters {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .distribution__dashboard__filters__btn {
+        margin-bottom: 48px;
+    }
 }
