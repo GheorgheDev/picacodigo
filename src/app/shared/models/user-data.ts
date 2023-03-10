@@ -5,7 +5,8 @@ export interface UserData {
   email?: string,
   password?: string,
   img?: string,
+  status?: 'active' | 'inactive',
   google?: boolean,
-  role?: 'ADMIN ROLE' | 'USER_ROLE',
+  role?: 'admin' | 'user'
 }
 

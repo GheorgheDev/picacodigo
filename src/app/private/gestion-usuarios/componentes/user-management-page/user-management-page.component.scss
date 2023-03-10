@@ -17,13 +17,34 @@ $font-title: "Minecraftia-Regular.ttf";
 }
 
 .user-management-table-container{
-    width: 95%;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .mat-table {
-    width: 95%; 
+    width: 100%; 
 }
 
-td, th {
-    width: 35%;
-  }
+.table-paginator-container{
+    width: 98%;
+    margin: 25px;
+}
+
+.admins-box, .users-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mat-cell{
+    padding: 0 5px;
+}
+
+th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+    padding-left: 10px;
+}
+
+th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
+    padding-right: 10px;
+}
+

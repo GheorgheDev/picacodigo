@@ -8,11 +8,14 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
+import {MatTabsModule} from '@angular/material/tabs';
+import { UserManagementTableComponent } from './componentes/user-management-table/user-management-table.component';
 
 
 @NgModule({
   declarations: [
-    UserManagementPageComponent
+    UserManagementPageComponent,
+    UserManagementTableComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +24,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatTableModule,
     MatPaginatorModule,
     MatExpansionModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule
   ]
 })
 export class GestionUsuariosModule { }

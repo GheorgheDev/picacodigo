@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { UserData } from 'src/app/shared/models/user-data';
 
 export interface PeriodicElement {
   name: string;
@@ -9,17 +10,104 @@ export interface PeriodicElement {
   symbol: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
+const USER_DATA: UserData[] = [
+  {
+    userID: 1,
+    userUsername: "AndreaC",
+    name: "Andrea Cebrian",
+    email: "string",
+    status: 'active',
+    role: 'admin'
+  },
+  {
+    userID: 2,
+    userUsername: "JuanJo",
+    name: "Juan Sevilla",
+    email: "string",
+    status: 'active',
+    role: 'admin'
+  },
+  {
+    userID: 3,
+    userUsername: "SalvadorS",
+    name: "Salvador Santo",
+    email: "string",
+    status: 'active',
+    role: 'admin'
+  },
+  {
+    userID: 4,
+    userUsername: "GheorgheB",
+    name: "Gheorghe Bucurici",
+    email: "string",
+    status: 'active',
+    role: 'admin'
+  },
+  {
+    userID: 5,
+    userUsername: "BarbaraR",
+    name: "Barbara Rodriguez",
+    email: "string",
+    status: 'active',
+    role: 'admin'
+  },
+  {
+    userID: 6,
+    userUsername: 'MichelleM',
+    name: 'Michelle Masias',
+    email: "string",
+    status: 'active',
+    role: 'user'
+  },
+  {
+    userID: 7,
+    userUsername: 'Gabi',
+    name: 'José Gabriel',
+    email: "string",
+    status: 'active',
+    role: 'user'
+  },
+  {
+    userID: 8,
+    userUsername: 'Tomy',
+    name: 'Tomas Algo',
+    email: "string",
+    status: 'active',
+    role: 'user'
+  },
+  {
+    userID: 9,
+    userUsername: 'Paco',
+    name: 'Francisco Jose',
+    email: "string",
+    status: 'active',
+    role: 'user'
+  },
+  {
+    userID: 10,
+    userUsername: 'SergioP',
+    name: 'Sergio Piedas',
+    email: "string",
+    status: 'inactive',
+    role: 'user'
+  },
+  {
+    userID: 11,
+    userUsername: 'JuanJe',
+    name: 'Juan Jesús',
+    email: "string",
+    status: 'inactive',
+    role: 'user'
+  },
+  {
+    userID: 12,
+    userUsername: 'Mario',
+    name: 'Mario Bros',
+    email: "string",
+    status: 'active',
+    role: 'admin'
+  },
+
 ];
 
 @Component({
@@ -28,21 +116,43 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./user-management-page.component.scss'],
 })
 export class UserManagementPageComponent implements OnInit {
-  displayedColumns: string[] = ['userID', 'name', 'actions'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  displayedColumns: string[] = ['userID', 'username','name', 'actions'];
+  
+  /* user */
+  filteredUsers = USER_DATA.filter(user => user.role ==='user');
+  dataSourceUser = new MatTableDataSource(this.filteredUsers);
+  @ViewChild('userPaginator') paginatorUser: MatPaginator;
 
-  applyFilter(event: Event) {
+  /* admin */
+  filteredAdmin = USER_DATA.filter(user => user.role ==='admin');
+  dataSourceAdmin = new MatTableDataSource(this.filteredAdmin);
+  @ViewChild('adminPaginator') paginatorAdmin: MatPaginator;
+
+  dataparaelfiltro: MatTableDataSource<UserData>;
+
+ngOnInit(): void {}
+
+  ngAfterViewInit() {
+    this.dataSourceUser.paginator = this.paginatorUser;
+    this.dataSourceUser.paginator._intl.itemsPerPageLabel = 'Usuarios por página';
+    this.dataSourceAdmin.paginator = this.paginatorAdmin;
+    this.dataSourceAdmin.paginator._intl.itemsPerPageLabel = 'Usuarios por página';
+
+  }
+  
+  applyFilter(event: Event, datasourse:string) {
+    if(datasourse == 'user')
+      this.dataparaelfiltro = this.dataSourceUser
+    else
+      this.dataparaelfiltro = this.dataSourceAdmin
+
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+    this.dataparaelfiltro.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataparaelfiltro.paginator) {
+      this.dataparaelfiltro.paginator.firstPage();
     }
   }
 
-  ngOnInit(): void {}
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
+  
 }
