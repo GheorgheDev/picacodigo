@@ -159,45 +159,69 @@ export class DashboardComponent implements OnInit {
       genreId: 20,
       modeId: 30
     }
-  ]
+  ];
 
   originalProducts: ProductData[] = [];
   pages: ProductData[][] = [];
   selectedPage: number = 0;
   showNext: boolean = true;
   showPrevious: boolean = false;
-  filteredGames: ProductData[] = [];
+  filteredGames: ProductData[];
   toSortList: ProductData[] = [];
   getScreenWidth: number;
   gamesPerPage: number = 12;
-  updatedGamesPage: ProductData[] = []
+  cardsOrder: number;
 
-  constructor(private router: Router) { }
+
+  constructor(private router: Router) {
+    this.filteredGames = [];
+  }
 
   dashboard() {
     this.router.navigateByUrl('/dashboard')
   }
 
   ngOnInit() {
-    this.paginarResultados(true, this.products);
+    // this.products.forEach(product => this.originalProducts.push(product));
+    this.paginarResultados(true);
     this.onWindowResize();
   }
 
   @Input() filterInfo: FiltersComponent;
-  chosenGenreFilters: number[];
-  chosenModeFilters: number[];
+  chosenGenreFilters: number[] = [];
+  chosenModeFilters: number[] = [];
   newOptions: number;
 
   @Input() orderInfo: OrdinationComponent;
   chosenOrder: number;
 
-  orderCardsElements(chosenOrder: number) {
-    this.toSortList = [];
+  filterCards() {
     this.pages = [];
-    this.originalProducts.forEach(product => this.toSortList.push(product));
+    this.filteredGames = [];
+    this.selectedPage = 0;
+    this.showPrevious = false;
+  }
 
-    if (chosenOrder == 41) {
-      this.toSortList.sort(function (a, b) {
+  orderCardsElements(chosenOrder: number) {
+    this.cardsOrder = chosenOrder;
+    this.paginarResultados(false)
+  }
+
+  private paginarResultados(sobreescribirOriginales: boolean) {
+    let finalList: ProductData[] = [];
+    this.products.forEach(element => finalList.push(element))
+
+    this.pages = [];
+
+
+    console.log("3 originals", this.originalProducts)
+    console.log("3 final", finalList)
+
+
+
+
+    if (this.chosenOrder == 41) {
+      finalList.sort(function (a, b) {
         if (a.price > b.price) {
           return 1
         } else if (a.price < b.price) {
@@ -206,8 +230,8 @@ export class DashboardComponent implements OnInit {
           return 0
         }
       })
-    } else if (chosenOrder == 42) {
-      this.toSortList.sort(function (a, b) {
+    } else if (this.chosenOrder == 42) {
+      finalList.sort(function (a, b) {
         if (a.price > b.price) {
           return -1
         } else if (a.price < b.price) {
@@ -217,21 +241,6 @@ export class DashboardComponent implements OnInit {
         }
       })
     } else {
-      this.toSortList.sort(function (a, b) {
-        if (a.stars > b.stars) {
-          return -1
-        } else if (a.stars < b.stars) {
-          return 1
-        } else {
-          return 0
-        }
-      });
-    }
-    this.paginarResultados(false, this.toSortList);
-  }
-
-  private paginarResultados(sobreescribirOriginales: boolean, finalList: ProductData[]) {
-    while (finalList.length > 0) {
       finalList.sort(function (a, b) {
         if (a.stars > b.stars) {
           return -1
@@ -241,10 +250,44 @@ export class DashboardComponent implements OnInit {
           return 0
         }
       });
+    }
 
+    // console.log("2", finalList)
+
+    if (this.chosenGenreFilters.length > 0 || this.chosenModeFilters.length > 0) {
+      for (var i = 0; i < this.chosenGenreFilters.length; i++) {
+        var generateGenreFilterArray = finalList.filter(element => element.genreId === this.chosenGenreFilters[i])
+        for (var z = 0; z < generateGenreFilterArray.length; z++) {
+          if (this.filteredGames.indexOf(generateGenreFilterArray[z]) == -1)
+            this.filteredGames.push(generateGenreFilterArray[z])
+        }
+      }
+
+      console.log("3 filteredGamesGenre", this.filteredGames)
+
+
+      for (var i = 0; i < this.chosenModeFilters.length; i++) {
+        var generateModeFilterArray = finalList.filter(element => element.modeId === this.chosenModeFilters[i])
+        for (var z = 0; z < generateModeFilterArray.length; z++) {
+          if (this.filteredGames.indexOf(generateModeFilterArray[z]) == -1)
+            this.filteredGames.push(generateModeFilterArray[z])
+        }
+      }
+
+      console.log("4 filteredGamesGenre", this.filteredGames)
+
+
+      finalList = this.filteredGames;
+
+      console.log("5", finalList)
+    }
+
+    // console.log("6", finalList)
+
+    while (finalList.length > 0) {
       var page = finalList.slice(0, this.gamesPerPage);
       finalList.splice(0, this.gamesPerPage);
-      
+
       this.pages.push(page);
       if (this.pages.length > 1)
         this.showNext = true;
@@ -268,52 +311,19 @@ export class DashboardComponent implements OnInit {
       this.gamesPerPage = 12;
     }
 
-    let temporaryGames: ProductData[] = [];
-    this.originalProducts.forEach(product => temporaryGames.push(product));
-
     this.pages = [];
-    this.paginarResultados(false, temporaryGames);
+    this.paginarResultados(false);
   }
 
   addNewOptions(newOptions: SelectedFilter) {
-    this.chosenGenreFilters = newOptions.genres;
-    this.chosenModeFilters = newOptions.modes;
+    if (newOptions.genres.length > 0 || newOptions.modes.length > 0) {
+      this.chosenGenreFilters = newOptions.genres;
+      this.chosenModeFilters = newOptions.modes;
+    }
 
-    this.filterCards();
+    this.paginarResultados(false)
   }
 
-  filterCards() {
-    this.pages = [];
-    this.filteredGames = [];
-    this.selectedPage = 0;
-
-    for (var i = 0; i < this.chosenGenreFilters.length; i++) {
-      var generateGenreFilterArray = this.originalProducts.filter(element => element.genreId === this.chosenGenreFilters[i])
-      for (var z = 0; z < generateGenreFilterArray.length; z++) {
-        if (this.filteredGames.indexOf(generateGenreFilterArray[z]) == -1)
-          this.filteredGames.push(generateGenreFilterArray[z])
-      }
-    }
-
-    for (var i = 0; i < this.chosenModeFilters.length; i++) {
-      var generateModeFilterArray = this.originalProducts.filter(element => element.modeId === this.chosenModeFilters[i])
-      for (var z = 0; z < generateModeFilterArray.length; z++) {
-        if (this.filteredGames.indexOf(generateModeFilterArray[z]) == -1)
-          this.filteredGames.push(generateModeFilterArray[z])
-      }
-    }
-
-    this.showPrevious = false;
-
-    if (this.chosenGenreFilters.length > 0 || this.chosenModeFilters.length > 0) {
-      this.paginarResultados(false, this.filteredGames)
-    } else {
-      for (var x = 0; x < this.originalProducts.length; x++) {
-        this.products.push(this.originalProducts[x])
-      }
-      this.paginarResultados(false, this.products)
-    }
-  }
 
   previousPage() {
     this.selectedPage--
