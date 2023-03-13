@@ -208,6 +208,11 @@ a {
 	font-size: 12px;
 }
 
+.title-xxs {
+	font-family: $font-title;
+	font-size: 10px;
+}
+
 .logo-l {
 	font-family: $font-logo;
 	font-size: 36px;
@@ -276,3 +281,9 @@ a {
 	background-color: $background-color_dark;
 	border-color: $border-color_transparent;
 }
+
+/* tablet */
+@media (max-width: 768px) {
+
+}
+

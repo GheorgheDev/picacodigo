@@ -1,5 +1,7 @@
 $background-color_grey: #536162;
 $border-color_green: #57e309;
+$font-regular: "Rokkit-Regular.ttf";
+$background-color_dark-grey: #292f33;
 
 .mat-table {
   width: 100%;
@@ -13,44 +15,60 @@ $border-color_green: #57e309;
   background-color: $background-color_grey;
 }
 
+.mat-paginator {
+  background-color: $background-color_grey;
+}
+
+::ng-deep .mat-select-value-text {
+  color: white;
+  font-family: $font-regular;
+}
+
 div.table-paginator-container {
   width: 99%;
 }
 
-.mat-cell,
-.mat-header-cell {
-  padding: 0 5px;
-  width: 25%;
-  text-align: center;
-}
-
 .mat-cell-actions {
-  padding: 5px;
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
-th.mat-header-cell:first-of-type,
-td.mat-cell:first-of-type,
-td.mat-footer-cell:first-of-type {
-  padding-left: 10px;
+::ng-deep.mat-header-cell:first-of-type,
+::ng-deep.mat-cell:first-of-type,
+::ng-deep.mat-footer-cell:first-of-type {
+  padding-right: 0px;
 }
 
-th.mat-header-cell:last-of-type,
-td.mat-cell:last-of-type,
-td.mat-footer-cell:last-of-type {
-  padding-right: 10px;
+.mat-header-cell:last-of-type,
+.mat-cell:last-of-type,
+.mat-footer-cell:last-of-type {
+  padding-right: 0px;
 }
 
 .mat-form-field {
-  width: 250px; /* camnbiar en responsive */
+  width: 250px;
 }
 
-.banToggle-btn{
-    color:$border-color_green
+.banToggle-btn:hover {
+  filter: brightness(90%);
+  cursor: pointer;
 }
 
+.mat-header-cell,
+.mat-cell {
+  justify-content: center;
+  padding: 0 5px;
+  width: 25%;
+  border-bottom: 1px solid $border-color_green;
+  color: #fff; /* preguntar si lo arreglo mejor por class="white-text" */
+}
+
+.mat-header-id {
+  flex-shrink: 2;
+}
+
+/* filtro */
 ::ng-deep .mat-form-field-label {
   color: $border-color_green !important;
 }
@@ -72,13 +90,39 @@ td.mat-footer-cell:last-of-type {
   color: #fff;
 }
 
-th,
-td {
-  color: #fff;
+/* paginador y su select */
+::ng-deep.mat-select-arrow {
+  color: $border-color_green;
 }
-/* preguntar si lo arreglo mejor por class="white-text" */
+::ng-deep.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: $border-color_green;
+}
 
-table tr th,
-table tr td {
-    border-bottom: 1px solid $border-color_green;
-   }
+::ng-deep.mat-select-panel {
+  background: $background-color_dark-grey;
+}
+::ng-deep.mat-primary .mat-option {
+  color: white;
+  font-family: $font-regular;
+}
+::ng-deep.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: $border-color_green;
+}
+
+/* tablet */
+@media (max-width: 768px) {
+}
+
+/* movil */
+@media (max-width: 480px) {
+  .mat-form-field {
+    width: 180px; /* camnbiar en responsive */
+  }
+
+  ::ng-deep.mat-header-cell:first-of-type,
+  ::ng-deep.mat-cell:first-of-type,
+  ::ng-deep.mat-footer-cell:first-of-type {
+    padding-right: 0px;
+    max-width: 50px !important;
+  }
+}
