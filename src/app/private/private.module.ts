@@ -12,6 +12,7 @@ import { CambioPasswordComponent } from './components/cambio-password/cambio-pas
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GestionUsuariosModule } from './gestion-usuarios/gestion-usuarios.module';
+import { UserProductsModule } from './components/user-products/user-products.module';
 
 @NgModule({
   declarations: [MyProfilePrivComponent, CambioPasswordComponent],
@@ -27,8 +28,8 @@ import { GestionUsuariosModule } from './gestion-usuarios/gestion-usuarios.modul
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    GestionUsuariosModule
-    
+    GestionUsuariosModule,
+    UserProductsModule
   ],
   exports: [MyProfilePrivComponent],
 })

@@ -1,15 +1,6 @@
 $color_green: #57e309;
 $font-title: "Minecraftia-Regular.ttf";
 
-.notif-container{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-bottom: 25px;
-}
-
 /* tarjeta */
 .mat-tab-group{
     border-radius: 25px;
@@ -18,7 +9,6 @@ $font-title: "Minecraftia-Regular.ttf";
     height: 100%;
     padding-bottom: 20px;
 }
-
 
 .notif-title{
     padding: 20px 0 10px 0;

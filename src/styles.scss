@@ -286,8 +286,11 @@ a {
 	border-color: $border-color_transparent;
 }
 
-/* tablet */
-@media (max-width: 768px) {
-
+.notif-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 25px;
 }
-

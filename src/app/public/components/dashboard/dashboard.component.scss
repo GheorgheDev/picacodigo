@@ -55,6 +55,8 @@
 
 @media (min-width: 769px) {
     .distribution__dashboard__product {
+        display: flex;
+        flex-direction: column;
         grid-template-columns: repeat(2, 1fr);
     }
 
