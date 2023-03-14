@@ -1,3 +1,4 @@
+import { OrdinationComponent } from './components/ordination/ordination.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HeaderModule } from './components/header/header.module';
@@ -12,14 +13,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FiltersComponent } from './components/filters/filters.component';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
-
 @NgModule({
   declarations: [
     CardProductComponent,
     FooterComponent,
-    FiltersComponent
+    FiltersComponent,
+    OrdinationComponent,
   ],
   imports: [
     CommonModule,
@@ -32,14 +31,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    // MatCardModule,
+    MatInputModule,
+    FormsModule,
   ],
   exports: [
     CardProductComponent,
     FooterComponent,
     FiltersComponent,
-    MatSelectModule,
-    MatFormFieldModule,
+    OrdinationComponent,
     MatCardModule,
     MatInputModule,
     FormsModule,

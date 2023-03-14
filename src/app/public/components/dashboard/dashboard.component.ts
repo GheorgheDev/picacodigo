@@ -1,7 +1,8 @@
+import { OrdinationComponent } from './../../../shared/components/ordination/ordination.component';
 import { SelectedFilter } from '../../../shared/models/filter-element';
 import { FiltersComponent } from '../../../shared/components/filters/filters.component';
 import { Router } from '@angular/router';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { ProductData } from 'src/app/shared/models/product-data';
 
 @Component({
@@ -158,34 +159,104 @@ export class DashboardComponent implements OnInit {
       genreId: 20,
       modeId: 30
     }
-  ]
+  ];
 
   originalProducts: ProductData[] = [];
   pages: ProductData[][] = [];
   selectedPage: number = 0;
   showNext: boolean = true;
   showPrevious: boolean = false;
-  filteredGames: ProductData[] = [];
+  filteredGames: ProductData[];
+  toSortList: ProductData[] = [];
+  getScreenWidth: number;
+  gamesPerPage: number = 12;
+  cardsOrder: number;
 
-  constructor(private router: Router) { }
+
+  constructor(private router: Router) {
+    this.filteredGames = [];
+  }
 
   dashboard() {
     this.router.navigateByUrl('/dashboard')
   }
 
   ngOnInit() {
-    this.paginarResultados(true, this.products);
+    this.paginarResultados(true);
+    this.onWindowResize();
   }
 
   @Input() filterInfo: FiltersComponent;
-  chosenGenreFilters: number[];
-  chosenModeFilters: number[];
+  chosenGenreFilters: number[] = [];
+  chosenModeFilters: number[] = [];
   newOptions: number;
 
-  private paginarResultados(sobreescribirOriginales: boolean, finalList: ProductData[]) {
+  @Input() orderInfo: OrdinationComponent;
+  chosenOrder: number;
+
+  filterCards() {
+    this.pages = [];
+    this.filteredGames = [];
+    this.selectedPage = 0;
+    this.showPrevious = false;
+  }
+
+  orderCardsElements(chosenOrder: number) {
+    this.cardsOrder = chosenOrder;
+
+    console.log("0", this.cardsOrder)
+
+    this.paginarResultados(false)
+  }
+
+  private paginarResultados(sobreescribirOriginales: boolean) {
+    let finalList: ProductData[] = [];
+    this.products.forEach(element => finalList.push(element))
+
+    this.pages = [];
+
+    if (this.chosenGenreFilters.length > 0 || this.chosenModeFilters.length > 0) {
+      var generateGenreFilterArray: ProductData[] = [];
+      var generateModeFilterArray: ProductData[] = [];
+
+      for (var i = 0; i < this.chosenGenreFilters.length; i++) {
+        generateGenreFilterArray = finalList.filter(element => element.genreId === this.chosenGenreFilters[i]);
+        for (var z = 0; z < generateGenreFilterArray.length; z++) {
+          if (this.filteredGames.indexOf(generateGenreFilterArray[z]) == -1)
+            this.filteredGames.push(generateGenreFilterArray[z])
+        }
+      }
+
+      for (var i = 0; i < this.chosenModeFilters.length; i++) {
+        if (generateGenreFilterArray.length > 0) {
+          generateModeFilterArray = generateGenreFilterArray.filter(element => element.modeId === this.chosenModeFilters[i])
+
+          this.filteredGames = [];
+          generateModeFilterArray.forEach(element => this.filteredGames.push(element))
+        } else {
+          this.filteredGames = finalList;
+        }
+      }
+
+      finalList = this.filteredGames;
+    } else {
+      finalList;
+    }
+
+    if (this.cardsOrder == 41) {
+      finalList.sort((a, b) => a.price - b.price);
+
+    } else if (this.cardsOrder == 42) {
+      finalList.sort((a, b) => b.price - a.price);
+
+    } else {
+      finalList.sort((a, b) => b.stars - a.stars);
+    }
+
     while (finalList.length > 0) {
-      var page = finalList.slice(0, 8);
-      finalList.splice(0, 8);
+      var page = finalList.slice(0, this.gamesPerPage);
+      finalList.splice(0, this.gamesPerPage);
+
       this.pages.push(page);
       if (this.pages.length > 1)
         this.showNext = true;
@@ -195,49 +266,33 @@ export class DashboardComponent implements OnInit {
       if (sobreescribirOriginales)
         page.forEach(product => this.originalProducts.push(product));
     };
+  }
 
-    /* AQUI PROVISIONALMENTE IRIA LA PAGINACION DE RESULTADOS */
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    this.getScreenWidth = window.innerWidth;
+
+    if (this.getScreenWidth < 481) {
+      this.gamesPerPage = 3;
+    } else if (this.getScreenWidth < 1024) {
+      this.gamesPerPage = 6;
+    } else {
+      this.gamesPerPage = 12;
+    }
+
+    this.pages = [];
+    this.paginarResultados(false);
   }
 
   addNewOptions(newOptions: SelectedFilter) {
-    this.chosenGenreFilters = newOptions.genres;
-    this.chosenModeFilters = newOptions.modes;
+    if (newOptions.genres.length > 0 || newOptions.modes.length > 0) {
+      this.chosenGenreFilters = newOptions.genres;
+      this.chosenModeFilters = newOptions.modes;
+    }
 
-    this.filterCards();
+    this.paginarResultados(false)
   }
 
-  filterCards() {
-    this.pages = [];
-    this.filteredGames = [];
-    this.selectedPage = 0;
-
-    for (var i = 0; i < this.chosenGenreFilters.length; i++) {
-      var generateGenreFilterArray = this.originalProducts.filter(element => element.genreId === this.chosenGenreFilters[i])
-      for (var z = 0; z < generateGenreFilterArray.length; z++) {
-        if (this.filteredGames.indexOf(generateGenreFilterArray[z]) == -1)
-          this.filteredGames.push(generateGenreFilterArray[z])
-      }
-    }
-
-    for (var i = 0; i < this.chosenModeFilters.length; i++) {
-      var generateModeFilterArray = this.originalProducts.filter(element => element.modeId === this.chosenModeFilters[i])
-      for (var z = 0; z < generateModeFilterArray.length; z++) {
-        if (this.filteredGames.indexOf(generateModeFilterArray[z]) == -1)
-          this.filteredGames.push(generateModeFilterArray[z])
-      }
-    }
-
-    this.showPrevious = false;
-
-    if (this.chosenGenreFilters.length > 0 || this.chosenModeFilters.length > 0) {
-      this.paginarResultados(false, this.filteredGames)
-    } else {
-      for (var x = 0; x < this.originalProducts.length; x++) {
-        this.products.push(this.originalProducts[x])
-      }
-      this.paginarResultados(false, this.products)
-    }
-  }
 
   previousPage() {
     this.selectedPage--
