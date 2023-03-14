@@ -182,7 +182,6 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.products.forEach(product => this.originalProducts.push(product));
     this.paginarResultados(true);
     this.onWindowResize();
   }
@@ -204,6 +203,9 @@ export class DashboardComponent implements OnInit {
 
   orderCardsElements(chosenOrder: number) {
     this.cardsOrder = chosenOrder;
+
+    console.log("0", this.cardsOrder)
+
     this.paginarResultados(false)
   }
 
@@ -213,76 +215,43 @@ export class DashboardComponent implements OnInit {
 
     this.pages = [];
 
-
-    console.log("3 originals", this.originalProducts)
-    console.log("3 final", finalList)
-
-
-
-
-    if (this.chosenOrder == 41) {
-      finalList.sort(function (a, b) {
-        if (a.price > b.price) {
-          return 1
-        } else if (a.price < b.price) {
-          return -1
-        } else {
-          return 0
-        }
-      })
-    } else if (this.chosenOrder == 42) {
-      finalList.sort(function (a, b) {
-        if (a.price > b.price) {
-          return -1
-        } else if (a.price < b.price) {
-          return 1
-        } else {
-          return 0
-        }
-      })
-    } else {
-      finalList.sort(function (a, b) {
-        if (a.stars > b.stars) {
-          return -1
-        } else if (a.stars < b.stars) {
-          return 1
-        } else {
-          return 0
-        }
-      });
-    }
-
-    // console.log("2", finalList)
-
     if (this.chosenGenreFilters.length > 0 || this.chosenModeFilters.length > 0) {
+      var generateGenreFilterArray: ProductData[] = [];
+      var generateModeFilterArray: ProductData[] = [];
+
       for (var i = 0; i < this.chosenGenreFilters.length; i++) {
-        var generateGenreFilterArray = finalList.filter(element => element.genreId === this.chosenGenreFilters[i])
+        generateGenreFilterArray = finalList.filter(element => element.genreId === this.chosenGenreFilters[i]);
         for (var z = 0; z < generateGenreFilterArray.length; z++) {
           if (this.filteredGames.indexOf(generateGenreFilterArray[z]) == -1)
             this.filteredGames.push(generateGenreFilterArray[z])
         }
       }
 
-      console.log("3 filteredGamesGenre", this.filteredGames)
-
-
       for (var i = 0; i < this.chosenModeFilters.length; i++) {
-        var generateModeFilterArray = finalList.filter(element => element.modeId === this.chosenModeFilters[i])
-        for (var z = 0; z < generateModeFilterArray.length; z++) {
-          if (this.filteredGames.indexOf(generateModeFilterArray[z]) == -1)
-            this.filteredGames.push(generateModeFilterArray[z])
+        if (generateGenreFilterArray.length > 0) {
+          generateModeFilterArray = generateGenreFilterArray.filter(element => element.modeId === this.chosenModeFilters[i])
+
+          this.filteredGames = [];
+          generateModeFilterArray.forEach(element => this.filteredGames.push(element))
+        } else {
+          this.filteredGames = finalList;
         }
       }
 
-      console.log("4 filteredGamesGenre", this.filteredGames)
-
-
       finalList = this.filteredGames;
-
-      console.log("5", finalList)
+    } else {
+      finalList;
     }
 
-    // console.log("6", finalList)
+    if (this.cardsOrder == 41) {
+      finalList.sort((a, b) => a.price - b.price);
+
+    } else if (this.cardsOrder == 42) {
+      finalList.sort((a, b) => b.price - a.price);
+
+    } else {
+      finalList.sort((a, b) => b.stars - a.stars);
+    }
 
     while (finalList.length > 0) {
       var page = finalList.slice(0, this.gamesPerPage);
