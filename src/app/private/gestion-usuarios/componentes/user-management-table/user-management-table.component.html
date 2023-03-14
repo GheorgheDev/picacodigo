@@ -1,7 +1,8 @@
 <div class="users-box">
   <mat-form-field appearance="standard">
     <mat-label>Filtrar</mat-label>
-    <input class="title-xs filter-text"
+    <input
+      class="title-xs filter-text"
       matInput
       (keyup)="applyFilter($event)"
       #input
@@ -9,31 +10,60 @@
   </mat-form-field>
   <div class="table-paginator-container">
     <table mat-table [dataSource]="dataSourceUser">
-      <ng-container matColumnDef="userID" >
-        <mat-header-cell *matHeaderCellDef class="white-text text-regular-s mat-header-id">ID</mat-header-cell>
-        <mat-cell *matCellDef="let user" class="text-regular-s">
-          {{ user.userID }}
-        </mat-cell>
+      <ng-container matColumnDef="userID">
+        <mat-header-cell
+          *matHeaderCellDef
+          class="white-text text-regular-s mat-header-id"
+          >ID</mat-header-cell
+        >
+        <mat-cell
+          *matCellDef="let user"
+          class="text-regular-s"
+          [ngClass]="{ inactive: user.status == 'inactive' }"
+          >{{ user.userID }}</mat-cell
+        >
       </ng-container>
 
       <ng-container matColumnDef="username">
-        <mat-header-cell *matHeaderCellDef class="text-regular-s">UserName</mat-header-cell>
-        <mat-cell *matCellDef="let user" class="text-regular-s">{{ user.userUsername }}</mat-cell>
+        <mat-header-cell *matHeaderCellDef class="text-regular-s"
+          >UserName</mat-header-cell
+        >
+        <mat-cell
+          *matCellDef="let user"
+          class="text-regular-s"
+          [ngClass]="{ inactive: user.status == 'inactive' }"
+          >{{ user.userUsername }}</mat-cell
+        >
       </ng-container>
 
       <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef class="text-regular-s">Nombre</mat-header-cell>
-        <mat-cell *matCellDef="let user" class="text-regular-s">{{ user.name }}</mat-cell>
+        <mat-header-cell *matHeaderCellDef class="text-regular-s"
+          >Nombre</mat-header-cell
+        >
+        <mat-cell
+          *matCellDef="let user"
+          class="text-regular-s"
+          [ngClass]="{ inactive: user.status == 'inactive' }"
+          >{{ user.name }}</mat-cell
+        >
       </ng-container>
 
       <ng-container matColumnDef="actions">
-        <mat-header-cell *matHeaderCellDef class="text-regular-s">Acciones</mat-header-cell>
-        <mat-cell *matCellDef="let user" class="mat-cell-actions">
-          <a class="banToggle-btn title-xxs" (click)="banUserToggle(user.userID)">
-            <span *ngIf="user.status=='active'">Banear</span> 
-            <span *ngIf="user.status=='inactive'">Desbanear</span> 
+        <mat-header-cell *matHeaderCellDef class="text-regular-s"
+          >Acciones</mat-header-cell
+        >
+        <mat-cell
+          *matCellDef="let user"
+          class="mat-cell-actions"
+          [ngClass]="{ inactive: user.status == 'inactive' }"
+        >
+          <a
+            class="banToggle-btn title-xxs"
+            (click)="banUserToggle(user.userID)"
+          >
+            <span *ngIf="user.status == 'active'">Banear</span>
+            <span *ngIf="user.status == 'inactive'">Desbanear</span>
           </a>
-          
         </mat-cell>
       </ng-container>
 
@@ -47,7 +77,8 @@
         </td>
       </tr>
     </table>
-    <mat-paginator class="text-regular-xs white-text"
+    <mat-paginator
+      class="text-regular-xs white-text"
       #userPaginator
       [pageSizeOptions]="[5, 10, 25, 100]"
       aria-label="Select page of users"

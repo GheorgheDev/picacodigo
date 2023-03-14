@@ -50,7 +50,7 @@ export class UserManagementPageComponent implements OnInit {
     },
     {
       userID: 6,
-      userUsername: 'MichelleM',
+      userUsername: 'MichelleM88',
       name: 'Michelle Masias',
       email: 'string',
       status: 'active',
