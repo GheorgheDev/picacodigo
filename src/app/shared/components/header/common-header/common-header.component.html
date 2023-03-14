@@ -1,4 +1,24 @@
-<div class="menu-desktop grey-background">
+<mat-toolbar class="dark-gray-background">
+  
+    <span class="navbar-logo logo-s green-text">PICKAGAME</span>
+  
+
+  <span *ngIf="burgerMenuToggle == 'off' ; else burgerMenu" class="navbar-elements">
+    <a routerLink="/" class="white-text title-xs">Inicio</a>
+    <a routerLink="/" class="white-text title-xs">Mis productos</a>
+    <span class="variable-navbar">
+      <app-public-header></app-public-header>
+    </span>
+  </span>
+  <ng-template #burgerMenu>
+    <span class="menuBurger-container">
+      <i *ngIf="burgerMenuToggle == 'on'" class="fa-solid fa-bars white-text burgerMenu-icon"></i>
+    </span>
+  </ng-template>
+  
+</mat-toolbar>
+
+<!-- <div class="menu-desktop grey-background">
   <div>
     <a href="#">
       <p class="logoPick logo-s green-text">PICK<span class="logo-s">A</span>GAME</p>
@@ -6,9 +26,7 @@
     <a routerLink="/" class="white-text title-xs">Inicio</a>
     <a routerLink="/" class="white-text title-xs">Mis productos</a>
   </div>
-  <div class="search-bar">
-    <app-search-bar></app-search-bar>
-  </div>
+
   <div class="notifications">
     <button class="grey-background">
       <a routerLink="/">
@@ -20,4 +38,4 @@
       </a>
     </button>
   </div>
-</div>
+</div> -->

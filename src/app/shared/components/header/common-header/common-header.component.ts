@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-common-header',
@@ -6,7 +6,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./common-header.component.scss'],
 })
 export class CommonHeaderComponent implements OnInit {
+
+  userIsLogged:boolean = false;
+
+  burgerMenuToggle: string = 'off';
+  ScreenWidth:number
+
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.onWindowResize();
+  }
+  
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    this.ScreenWidth = window.innerWidth;
+    if (this.ScreenWidth < 769) {
+      this.burgerMenuToggle = 'on';
+    } else {
+      this.burgerMenuToggle = 'off';
+    }
+  }
 }

@@ -8,7 +8,7 @@ $font-logo: "04B_30__.TTF";
 $background-color_dark:#0f130c;
 $background-color_transparent: transparent;
 $background-color_grey: #536162;
-$background-color_dark-grey: #292F33;
+$background-color_dark-grey: #292F33; 
 $border-color_green: #57E309;
 $border-color_transparent: transparent;
 
@@ -73,6 +73,7 @@ body{
 	padding-top: 8px !important;
 	display: flex;
 	align-items: start;
+	cursor: pointer;
 
 	&:hover,
 	&:focus{
@@ -191,26 +192,31 @@ a {
 .title-l {
 	font-family: $font-title;
 	font-size: 32px;
+	padding-top: 10px;
 }
 
 .title-m {
 	font-family: $font-title;
 	font-size: 24px;
+	padding-top: 10px;
 }
 
 .title-s {
 	font-family: $font-title;
 	font-size: 16px;
+	padding-top: 10px;
 }
 
 .title-xs {
 	font-family: $font-title;
 	font-size: 12px;
+	padding-top: 10px;
 }
 
 .title-xxs {
 	font-family: $font-title;
 	font-size: 10px;
+	padding-top: 10px;
 }
 
 .logo-l {
