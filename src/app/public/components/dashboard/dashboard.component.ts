@@ -2,7 +2,7 @@ import { OrdinationComponent } from './../../../shared/components/ordination/ord
 import { SelectedFilter } from '../../../shared/models/filter-element';
 import { FiltersComponent } from '../../../shared/components/filters/filters.component';
 import { Router } from '@angular/router';
-import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { Component, OnInit, Input, HostListener, EventEmitter, Output } from '@angular/core';
 import { ProductData } from 'src/app/shared/models/product-data';
 
 @Component({
@@ -17,147 +17,168 @@ export class DashboardComponent implements OnInit {
       stars: 1,
       price: 13.59,
       genreId: 10,
-      modeId: 30
+      modeId: 30,
+      status: 'sold'
     },
     {
       title: 'Los Sims',
       stars: 3,
       price: 8.99,
       genreId: 11,
-      modeId: 31
+      modeId: 31,
+      status: 'sale'
     },
     {
       title: 'Tetris',
       stars: 4,
       price: 6.69,
       genreId: 12,
-      modeId: 30
+      modeId: 30,
+      status: 'bought'
     },
     {
       title: 'Resident Evil 4',
       stars: 1,
       price: 36.99,
       genreId: 13,
-      modeId: 31
+      modeId: 31,
+      status: 'sold'
     },
     {
       title: 'Warcraft',
       stars: 2,
       price: 13.59,
       genreId: 14,
-      modeId: 30
+      modeId: 30,
+      status: 'sale'
     },
     {
       title: 'Buscaminas',
       stars: 5,
       price: 13.59,
       genreId: 15,
-      modeId: 31
+      modeId: 31,
+      status: 'bought'
     },
     {
       title: 'Prince of Persia',
       stars: 1,
       price: 13.59,
       genreId: 20,
-      modeId: 30
+      modeId: 30,
+      status: 'sold'
     },
     {
       title: 'Los Sims',
       stars: 3,
       price: 8.99,
       genreId: 20,
-      modeId: 31
+      modeId: 31,
+      status: 'sale'
     },
     {
       title: 'Tetris',
       stars: 4,
       price: 6.69,
       genreId: 12,
-      modeId: 30
+      modeId: 30,
+      status: 'bought'
     },
     {
       title: 'Resident Evil 4',
       stars: 1,
       price: 36.99,
       genreId: 13,
-      modeId: 30
+      modeId: 30,
+      status: 'sold'
     },
     {
       title: 'Warcraft',
       stars: 2,
       price: 13.59,
       genreId: 14,
-      modeId: 31
+      modeId: 31,
+      status: 'sale'
     },
     {
       title: 'Buscaminas',
       stars: 5,
       price: 13.59,
       genreId: 15,
-      modeId: 30
+      modeId: 30,
+      status: 'bought'
     },
     {
       title: 'Prince of Persia',
       stars: 1,
       price: 13.59,
       genreId: 20,
-      modeId: 30
+      modeId: 30,
+      status: 'sold'
     },
     {
       title: 'Los Sims',
       stars: 3,
       price: 8.99,
       genreId: 20,
-      modeId: 30
+      modeId: 30,
+      status: 'sale'
     },
     {
       title: 'Tetris',
       stars: 4,
       price: 6.69,
       genreId: 12,
-      modeId: 30
+      modeId: 30,
+      status: 'bought'
     },
     {
       title: 'Resident Evil 4',
       stars: 1,
       price: 36.99,
       genreId: 14,
-      modeId: 30
+      modeId: 30,
+      status: 'sold'
     },
     {
       title: 'Warcraft',
       stars: 2,
       price: 13.59,
       genreId: 13,
-      modeId: 30
+      modeId: 30,
+      status: 'sale'
     },
     {
       title: 'Buscaminas',
       stars: 5,
       price: 13.59,
       genreId: 14,
-      modeId: 30
+      modeId: 30,
+      status: 'bought'
     },
     {
       title: 'Prince of Persia',
       stars: 1,
       price: 13.59,
       genreId: 15,
-      modeId: 30
+      modeId: 30,
+      status: 'sold'
     },
     {
       title: 'Los Sims',
       stars: 3,
       price: 8.99,
       genreId: 14,
-      modeId: 31
+      modeId: 31,
+      status: 'sale'
     },
     {
       title: 'Tetris',
       stars: 4,
       price: 6.69,
       genreId: 20,
-      modeId: 30
+      modeId: 30,
+      status: 'bought'
     }
   ];
 
@@ -193,6 +214,11 @@ export class DashboardComponent implements OnInit {
 
   @Input() orderInfo: OrdinationComponent;
   chosenOrder: number;
+
+  @Output() userProducts = new EventEmitter<ProductData[]>();
+  sendProducts() {
+    this.userProducts.emit(this.originalProducts);
+  }
 
   filterCards() {
     this.pages = [];
