@@ -4,6 +4,7 @@ $border-color_green: #57e309;
 .form-container {
   background-color: $background-color_grey;
   width: 100%;
+  height: 480px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,6 +42,10 @@ $border-color_green: #57e309;
 }
 .mat-input-element.message-text {
   color: #fff;
+  font-family: "Rokkit-Regular.ttf" !important;
+  padding: 10px 0;
+
+  /* revisar scroll */
 }
 
 button {
@@ -51,6 +56,8 @@ button {
   justify-content: center;
   padding: 5px 2px;
 }
+
+
 
 /* tablet */
 @media (max-width: 768px) {
