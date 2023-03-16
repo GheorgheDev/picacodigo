@@ -1,10 +1,17 @@
 $background-color_dark-grey: #292F33;
+$background-color_grey: #536162;
 $color_green: #57e309;
 
+.header-container{
+  height: 64px;
+  display: flex;
+  justify-content: center;
+}
 .mat-toolbar{
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
+  max-width: 1350px;
 }
 
 .mat-toolbar{
@@ -17,22 +24,7 @@ $color_green: #57e309;
 
 .navbar-elements{
   grid-column: 3/13;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  align-items: center;
 
-  a{
-    cursor: pointer;
-    padding-top: 5px;
-    
-  }
-  a:hover{
-    filter: brightness(90%);
-    color: $color_green;
-  }
-  a:first-child{
-    padding-right: 20px;
-  }
 }
 
 .title-xs{
@@ -52,6 +44,14 @@ $color_green: #57e309;
 
 .burgerMenu-icon{
   font-size: 2rem;
+}
+
+
+::ng-deep.mat-menu-content{
+  background-color: $background-color_dark-grey;
+  border: 3px solid $background-color-grey;
+  padding-top:0 !important;
+  padding-bottom:0 !important;
 }
 
 /* tablet */

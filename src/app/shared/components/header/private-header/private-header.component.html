@@ -1,74 +1,31 @@
-<mat-toolbar class="navbar grey-background" style="width: 100%">
-  <!-- public component -->
-  <div class="menu-desktop">
-    <app-common-header></app-common-header>
-  </div>
+<div class="private-header">
+  <i
+    matBadge="1"
+    matBadgeSize="large"
+    class="material-symbols-outlined white-text"
+    >shopping_cart</i
+  >
+  <i
+    matBadge="10"
+    matBadgeSize="large"
+    class="material-symbols-outlined white-text"
+    >notifications</i
+  >
+  <button *ngIf="profileButtonToggle == 'on'"
+    mat-button
+    class="title-xs white-text profile-btn" [matMenuTriggerFor]="profileMenu"
+    [ngStyle]="{'background-image': 'url(' + user[0].img + ')'}"
+  >
+  <mat-menu #profileMenu="matMenu" xPosition="before" class="profile-menu">
+    <span class="white-text title-xs profile-menu_option">Mi perfil</span>
+    <span class="white-text title-xs profile-menu_option">Cerrar sesión</span>
+  </mat-menu>
+</button>
 
-  <!-- private component escritorio-->
-  <div class="menu_esc_Login grey-background">
-    <button
-      mat-button
-      [matMenuTriggerFor]="menu_esc_Login"
-      class="grey-background"
-    >
-      <img
-        src=".././../../../assets/images/img-perfil.png"
-        width="38px"
-        alt="button init sesion"
-      />
-    </button>
-    <mat-menu
-      #menu_esc_Login="matMenu"
-      class="menu_esc_priv_desp grey-background"
-    >
-      <button mat-menu-item class="grey-background">
-        <a class="white-text title-xs" href="#">Mi perfil</a>
-      </button>
-      <button mat-menu-item class="grey-background">
-        <a class="white-text title-xs" href="#">Mis productos</a>
-      </button>
-      <button mat-menu-item class="grey-background">
-        <a class="white-text title-xs" href="#">Cerrar sesión</a>
-      </button>
-    </mat-menu>
-  </div>
-
-  <!-- menu hamburguer -->
-  <div class="menu-hamburguer">
-    <button
-      mat-button
-      [matMenuTriggerFor]="IconHamburguer"
-      class="grey-background"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="38"
-        height="38"
-        fill="white"
-        class="bi bi-list"
-        viewBox="0 0 16 16"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-        />
-      </svg>
-    </button>
-
-    <mat-menu
-      #IconHamburguer="matMenu"
-      class="menu_burguer_desp grey-background"
-    >
-      <button mat-menu-item class="grey-background">
-        <a href="#" class="white-text title-xs">Mi perfil</a>
-      </button>
-      <button mat-menu-item class="grey-background">
-        <a href="#" class="white-text title-xs">Mis productos</a>
-      </button>
-      <button mat-menu-item class="grey-background">
-        <a href="#" class="white-text title-xs">Cerrar sesión</a>
-      </button>
-    </mat-menu>
-  </div>
-</mat-toolbar>
-<div></div>
+<button *ngIf="profileButtonToggle == 'off'"
+    mat-button
+    class="title-xs white-text profile-btn"
+    [ngStyle]="{'background-image': 'url(' + user[0].img + ')'}" (click)="prueba()"
+  >
+</button>
+</div>

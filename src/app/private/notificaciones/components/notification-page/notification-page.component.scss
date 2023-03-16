@@ -1,6 +1,11 @@
 $color_green: #57e309;
 $font-title: "Minecraftia-Regular.ttf";
 
+app-common-header{
+    position: sticky;
+    top: 0;
+}
+
 .notif-container{
     width: 100%;
     display: flex;

@@ -6,18 +6,25 @@ import { PublicHeaderComponent } from './public-header/public-header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { HeaderContentComponent } from './header-content/header-content.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
     PrivateHeaderComponent,
     PublicHeaderComponent,
     CommonHeaderComponent,
+    HeaderContentComponent,
+    
   ],
   imports: [
     CommonModule, 
     MatToolbarModule, 
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatDividerModule,
+    MatBadgeModule
   ],
   exports: [
     PrivateHeaderComponent,

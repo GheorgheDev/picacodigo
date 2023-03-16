@@ -7,11 +7,8 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class CommonHeaderComponent implements OnInit {
 
-  userIsLogged:boolean = false;
-
   burgerMenuToggle: string = 'off';
   ScreenWidth:number
-
 
   constructor() {}
 
