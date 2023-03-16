@@ -1,5 +1,7 @@
 $background-color_grey: #536162;
 $border-color_green: #57e309;
+$background-color_dark-grey: #292F33;
+$background-color_dark-grey-transparent: #2f3538;
 
 .green-text{
     color: $border-color_green;
@@ -16,6 +18,9 @@ $border-color_green: #57e309;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto;
     padding: 20px 10px;
+}
+.title-m{
+    padding: 0;
 }
 
 .mat-card-title{
@@ -61,6 +66,16 @@ button{
     text-align: center;
     margin-bottom: 10px;
     display: block;
+}
+
+::ng-deep.mat-option {
+    color: white;
+    background-color: $background-color_dark-grey;
+    font-family:"Minecraftia-Regular.ttf";
+}
+
+::ng-deep.mat-autocomplete-panel {
+    background: $background-color_dark-grey-transparent;
 }
 
 /* tablet */
