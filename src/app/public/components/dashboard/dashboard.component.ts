@@ -2,7 +2,7 @@ import { OrdinationComponent } from './../../../shared/components/ordination/ord
 import { SelectedFilter } from '../../../shared/models/filter-element';
 import { FiltersComponent } from '../../../shared/components/filters/filters.component';
 import { Router } from '@angular/router';
-import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { Component, OnInit, Input, HostListener, EventEmitter, Output } from '@angular/core';
 import { ProductData } from 'src/app/shared/models/product-data';
 
 @Component({
@@ -194,6 +194,11 @@ export class DashboardComponent implements OnInit {
   @Input() orderInfo: OrdinationComponent;
   chosenOrder: number;
 
+  @Output() userProducts = new EventEmitter<ProductData[]>();
+  personalProducts() {
+    this.userProducts.emit(this.originalProducts);
+  }
+
   filterCards() {
     this.pages = [];
     this.filteredGames = [];
@@ -203,8 +208,6 @@ export class DashboardComponent implements OnInit {
 
   orderCardsElements(chosenOrder: number) {
     this.cardsOrder = chosenOrder;
-
-    console.log("0", this.cardsOrder)
 
     this.paginarResultados(false)
   }
@@ -216,8 +219,10 @@ export class DashboardComponent implements OnInit {
     this.pages = [];
 
     if (this.chosenGenreFilters.length > 0 || this.chosenModeFilters.length > 0) {
+      console.log("1", this.chosenGenreFilters.length)
       var generateGenreFilterArray: ProductData[] = [];
       var generateModeFilterArray: ProductData[] = [];
+      console.log("2", this.chosenModeFilters.length)
 
       for (var i = 0; i < this.chosenGenreFilters.length; i++) {
         generateGenreFilterArray = finalList.filter(element => element.genreId === this.chosenGenreFilters[i]);
@@ -231,17 +236,18 @@ export class DashboardComponent implements OnInit {
         if (generateGenreFilterArray.length > 0) {
           generateModeFilterArray = generateGenreFilterArray.filter(element => element.modeId === this.chosenModeFilters[i])
 
-          this.filteredGames = [];
-          generateModeFilterArray.forEach(element => this.filteredGames.push(element))
         } else {
-          this.filteredGames = finalList;
+          generateModeFilterArray = finalList.filter(element => element.modeId === this.chosenModeFilters[i])
         }
+        this.filteredGames = [];
+        generateModeFilterArray.forEach(element => this.filteredGames.push(element))
       }
-
       finalList = this.filteredGames;
+
     } else {
-      finalList;
+      finalList
     }
+
 
     if (this.cardsOrder == 41) {
       finalList.sort((a, b) => a.price - b.price);
@@ -252,6 +258,7 @@ export class DashboardComponent implements OnInit {
     } else {
       finalList.sort((a, b) => b.stars - a.stars);
     }
+
 
     while (finalList.length > 0) {
       var page = finalList.slice(0, this.gamesPerPage);
@@ -288,11 +295,13 @@ export class DashboardComponent implements OnInit {
     if (newOptions.genres.length > 0 || newOptions.modes.length > 0) {
       this.chosenGenreFilters = newOptions.genres;
       this.chosenModeFilters = newOptions.modes;
+    } else {
+      this.chosenGenreFilters.length = 0;
+      this.chosenModeFilters.length = 0;
     }
 
     this.paginarResultados(false)
   }
-
 
   previousPage() {
     this.selectedPage--
