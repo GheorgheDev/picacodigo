@@ -1,3 +1,4 @@
+import { DetallesProductoMainComponent } from './public/components/detalles-producto-main/detalles-producto-main.component';
 import { DashboardComponent } from './public/components/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -6,8 +7,9 @@ import { RegisterComponent } from './auth/register/register.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent}
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'detalles-producto', component: DetallesProductoMainComponent }
 ];
 
 @NgModule({

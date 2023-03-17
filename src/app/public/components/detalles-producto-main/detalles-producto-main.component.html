@@ -1,7 +1,10 @@
 <div class="contenedor white-text">
-  <div class="fondo-gris"></div>
-  <div class="carrusel">
-    <div class="carrusel__imagenes"></div>
+  <div class="fondo-gris" #fondoGris></div>
+  <div class="carousel" #carrusel>
+    <button (click)="cambiarImagenAnterior()" class="carousel__button carousel__button--left"><</button>
+    <button (click)="cerrarCarrusel()" class="carousel__button">X</button>
+    <img src="{{ obtenerImagen() }}" alt="slide" class="carousel__img" />
+    <button (click)="cambiarImagenSiguiente()" class="carousel__button carousel__button--right">></button>
   </div>
   <header>HEADER</header>
   <main class="main">
@@ -11,26 +14,26 @@
           src="./assets/game.jpg"
           alt=""
           class="producto__imagen producto__imagen--principal"
-          (click)="mostrarCarrusel()"
+          (click)="mostrarCarrusel(0)"
         />
         <div class="producto__contenedor-imagenes-secundarias">
           <img
             src="./assets/1.jpg"
             alt=""
             class="producto__imagen producto__imagen--secundaria"
-            (click)="mostrarCarrusel()"
+            (click)="mostrarCarrusel(1)"
           />
           <img
             src="./assets/2.jpg"
             alt=""
             class="producto__imagen producto__imagen--secundaria"
-            (click)="mostrarCarrusel()"
+            (click)="mostrarCarrusel(2)"
           />
           <img
             src="./assets/3.jpg"
             alt=""
             class="producto__imagen producto__imagen--secundaria"
-            (click)="mostrarCarrusel()"
+            (click)="mostrarCarrusel(3)"
           />
         </div>
       </div>

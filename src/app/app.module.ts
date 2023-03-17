@@ -1,4 +1,3 @@
-import { DetallesProductoMainComponent } from './public/components/detalles-producto-main/detalles-producto-main.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -18,7 +17,6 @@ import { SharedModule } from './shared/shared.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +26,7 @@ import { MatMenuModule } from '@angular/material/menu';
     PublicHeaderComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
     
   ],
   imports: [
@@ -39,7 +37,8 @@ import { MatMenuModule } from '@angular/material/menu';
     SharedModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

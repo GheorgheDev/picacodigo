@@ -14,25 +14,47 @@
   opacity: 0.7;
   display: none;
 
-  .show {
+  &.show {
     display: block;
   }
 }
 
-.carrusel {
-  background-color: #fff;
-  height: 200px;
-  z-index: 10;
-  padding: 0.4rem;
+.carousel {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  align-items: baseline;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: none;
 
-  &__imagenes {
-    background-color: black;
-    height: 200px;
+  &.show {
+    display: block;
   }
 
-  .show {
-    display: block;
+  &__img {
+    width: 100%;
+  }
+
+  &__button {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    color: #57e309;
+    font-size: 5em;
+    cursor: pointer;
+
+    &--left {
+      left: 0;
+      top: 240px;
+    }
+
+    &--right {
+      right: 0;
+      top: 240px;
+    }
   }
 }
 

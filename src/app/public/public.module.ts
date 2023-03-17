@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     PublicRoutingModule,
-    SharedModule
+    SharedModule,
   ],
   exports: [
   ]
