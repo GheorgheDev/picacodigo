@@ -7,9 +7,14 @@ import { AuthModule } from './auth/auth.module';
 import { PrivateModule } from './private/private.module';
 import { PublicModule } from './public/public.module';
 import { SharedModule } from './shared/shared.module';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -17,7 +22,8 @@ import { SharedModule } from './shared/shared.module';
     PrivateModule,
     SharedModule,
     BrowserAnimationsModule,
-    AuthModule
+    MatToolbarModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent],

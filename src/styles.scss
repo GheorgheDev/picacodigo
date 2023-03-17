@@ -5,7 +5,7 @@ $font-regular: "Rokkit-Regular.ttf";
 $font-medium: "Rokkit-Medium.ttf";
 $font-title: "Minecraftia-Regular.ttf";
 $font-logo: "04B_30__.TTF";
-$background-color_dark:#0f130c;
+$background-color_dark: #0f130c;
 $background-color_transparent: transparent;
 $background-color_grey: #536162;
 $background-color_dark-grey: #292F33; 
@@ -25,42 +25,41 @@ body {
 }
 
 @font-face {
-	font-family: "Rokkit-Light.ttf";
-	src: url(./assets/fonts/Rokkitt-Light.ttf);
+  font-family: "Rokkit-Light.ttf";
+  src: url(./assets/fonts/Rokkitt-Light.ttf);
 }
 
 @font-face {
-	font-family: "Rokkit-Medium.ttf";
-	src: url(./assets/fonts/Rokkitt-Medium.ttf);
+  font-family: "Rokkit-Medium.ttf";
+  src: url(./assets/fonts/Rokkitt-Medium.ttf);
 }
 
 @font-face {
-	font-family: "Rokkit-Regular.ttf";
-	src: url(./assets/fonts/Rokkitt-Regular.ttf);
+  font-family: "Rokkit-Regular.ttf";
+  src: url(./assets/fonts/Rokkitt-Regular.ttf);
 }
 
 @font-face {
-	font-family: "Minecraftia-Regular.ttf";
-	src: url(./assets/fonts/Minecraftia-Regular.ttf);
+  font-family: "Minecraftia-Regular.ttf";
+  src: url(./assets/fonts/Minecraftia-Regular.ttf);
 }
 
 @font-face {
-	font-family: "04B_30__.TTF";
-	src: url(./assets/fonts/04B_30__.TTF);
+  font-family: "04B_30__.TTF";
+  src: url(./assets/fonts/04B_30__.TTF);
 }
 
 @keyframes bounce {
-	from {
-		transform: translate3d(0, 0, 0);
-	}
-
-	to {
-		transform: translate3d(0, 5px, 0);
-	}
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 5px, 0);
+  }
 }
 
 .dark-background {
-	background-color: $background-color_dark;
+  background-color: $background-color_dark;
 }
 
 .dark-gray-background {
@@ -68,7 +67,7 @@ body {
 }
 
 .grey-background {
-	background-color: $background-color_grey;
+  background-color: $background-color_grey;
 }
 
 .btn-green {
@@ -84,22 +83,26 @@ body {
 		box-shadow: 0 0 5px #57e309;
 	}
 }
-
 .icon__color {
-	color: $color_green;
-	font-size: xx-large;
+  color: $color_green;
+  font-size: xx-large;
 }
 
 .btn-grey {
-	background-color: $background-color_grey;
-	border-color: $border-color_transparent;
-
-	&:hover,
-	:focus,
-	:active {
-		box-shadow: 5px 10px 20px #536162;
-		background-color: $background-color_transparent;
-	}
+  background-color: $background-color_grey;
+  border-color: $border-color_transparent;
+  &:hover {
+    box-shadow: 5px 10px 20px #536162;
+    background-color: $background-color_transparent;
+  }
+  &:focus {
+    box-shadow: 5px 10px 20px #536162;
+    background-color: $background-color_transparent;
+  }
+  &:active {
+    box-shadow: 5px 10px 20px #536162;
+    background-color: $background-color_transparent;
+  }
 }
 
 a {
@@ -111,86 +114,86 @@ a {
 }
 
 .white-text {
-	color: $color_white;
+  color: $color_white;
 }
 
 .green-text {
-	color: $color_green;
+  color: $color_green;
 }
 
 .text-light-xl {
-	font-family: $font-light;
-	font-size: 46px;
+  font-family: $font-light;
+  font-size: 46px;
 }
 
 .text-light-l {
-	font-family: $font-light;
-	font-size: 32px;
+  font-family: $font-light;
+  font-size: 32px;
 }
 
 .text-light-m {
-	font-family: $font-light;
-	font-size: 24px;
+  font-family: $font-light;
+  font-size: 24px;
 }
 
 .text-light-s {
-	font-family: $font-light;
-	font-size: 16px;
+  font-family: $font-light;
+  font-size: 16px;
 }
 
 .text-light-xs {
-	font-family: $font-light;
-	font-size: 12px;
+  font-family: $font-light;
+  font-size: 12px;
 }
 
 .text-regular-xl {
-	font-family: $font-regular;
-	font-size: 46px;
+  font-family: $font-regular;
+  font-size: 46px;
 }
 
 .text-regular-l {
-	font-family: $font-regular;
-	font-size: 32px;
+  font-family: $font-regular;
+  font-size: 32px;
 }
 
 .text-regular-m {
-	font-family: $font-regular;
-	font-size: 24px;
+  font-family: $font-regular;
+  font-size: 24px;
 }
 
 .text-regular-s {
-	font-family: $font-regular;
-	font-size: 16px;
+  font-family: $font-regular;
+  font-size: 16px;
 }
 
 .text-regular-xs {
-	font-family: $font-regular;
-	font-size: 12px;
+  font-family: $font-regular;
+  font-size: 12px;
 }
 
 .text-medium-xl {
-	font-family: $font-medium;
-	font-size: 46px;
+  font-family: $font-medium;
+  font-size: 46px;
 }
 
 .text-medium-l {
-	font-family: $font-medium;
-	font-size: 32px;
+  font-family: $font-medium;
+  font-size: 32px;
 }
 
 .text-medium-m {
-	font-family: $font-medium;
-	font-size: 24px;
+  font-family: $font-medium;
+  font-size: 24px;
 }
 
 .text-medium-s {
-	font-family: $font-medium;
-	font-size: 16px;
+  font-family: $font-medium;
+  font-size: 16px;
 }
 
 .text-medium-xs {
-	font-family: $font-medium;
-	font-size: 12px;
+  font-family: $font-medium;
+  font-size: 12px;
 }
 
 .title-l {
@@ -224,66 +227,66 @@ a {
 }
 
 .logo-l {
-	font-family: $font-logo;
-	font-size: 36px;
+  font-family: $font-logo;
+  font-size: 36px;
 }
 
 .logo-m {
-	font-family: $font-logo;
-	font-size: 24px;
+  font-family: $font-logo;
+  font-size: 24px;
 }
 
 .logo-s {
-	font-family: $font-logo;
-	font-size: 16px;
+  font-family: $font-logo;
+  font-size: 16px;
 }
 
 .dropdown-toggle {
-	&::after {
-		display: none;
-	}
+  &::after {
+    display: none;
+  }
 }
 
 .dropdown-icon {
-	color: $color_green;
-	animation: bounce 0.6s;
-	animation-direction: alternate;
-	animation-iteration-count: infinite;
+  color: $color_green;
+  animation: bounce 0.6s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
 }
 
 .dropdown-menu {
-	background-color: $background-color_transparent;
-	border-color: $border-color_green;
-	border-style: dashed;
+  background-color: $background-color_transparent;
+  border-color: $border-color_green;
+  border-style: dashed;
 }
 
 .card-body {
-	width: 75%;
+  width: 75%;
 }
 
 .products__distribution {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-gap: 30px;
-	justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  justify-items: center;
 }
 
 .pagination {
-	justify-content: center;
+  justify-content: center;
 }
 
 .page-item {
-	background-color: $background-color_transparent;
-	border-color: $border-color_green;
-	border-style: dashed;
-	border-width: 2px;
+  background-color: $background-color_transparent;
+  border-color: $border-color_green;
+  border-style: dashed;
+  border-width: 2px;
 }
 
 .page-link {
-	background-color: $background-color_transparent;
-	color: $color_green;
-	border: transparent;
-	padding-top: 8px;
+  background-color: $background-color_transparent;
+  color: $color_green;
+  border: transparent;
+  padding-top: 8px;
 }
 
 .filter-option {
