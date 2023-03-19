@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'notification', component: NotificationPageComponent },
   { path: 'user-management', component: UserManagementPageComponent },
-  { path: 'detalles-producto', component: DetallesProductoMainComponent }
+  { path: 'product-detail', component: DetallesProductoMainComponent }
 ];
 
 @NgModule({

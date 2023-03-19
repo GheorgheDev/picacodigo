@@ -91,18 +91,12 @@ body {
 .btn-grey {
   background-color: $background-color_grey;
   border-color: $border-color_transparent;
-  &:hover {
-    box-shadow: 5px 10px 20px #536162;
-    background-color: $background-color_transparent;
-  }
-  &:focus {
-    box-shadow: 5px 10px 20px #536162;
-    background-color: $background-color_transparent;
-  }
-  &:active {
-    box-shadow: 5px 10px 20px #536162;
-    background-color: $background-color_transparent;
-  }
+  &:hover,
+	:focus,
+	:active {
+		box-shadow: 5px 10px 20px #536162;
+		background-color: $background-color_transparent;
+	}
 }
 
 a {

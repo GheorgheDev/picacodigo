@@ -7,8 +7,8 @@ import { AuthModule } from './auth/auth.module';
 import { PrivateModule } from './private/private.module';
 import { PublicModule } from './public/public.module';
 import { SharedModule } from './shared/shared.module';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatMenuModule } from '@angular/material/menu';
+/* import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu'; */
 
 
 @NgModule({
@@ -22,8 +22,7 @@ import { MatMenuModule } from '@angular/material/menu';
     PrivateModule,
     SharedModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatMenuModule
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent],
