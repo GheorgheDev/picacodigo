@@ -230,8 +230,6 @@ export class DashboardComponent implements OnInit {
   orderCardsElements(chosenOrder: number) {
     this.cardsOrder = chosenOrder;
 
-    console.log("0", this.cardsOrder)
-
     this.paginarResultados(false)
   }
 
@@ -257,17 +255,18 @@ export class DashboardComponent implements OnInit {
         if (generateGenreFilterArray.length > 0) {
           generateModeFilterArray = generateGenreFilterArray.filter(element => element.modeId === this.chosenModeFilters[i])
 
-          this.filteredGames = [];
-          generateModeFilterArray.forEach(element => this.filteredGames.push(element))
         } else {
-          this.filteredGames = finalList;
+          generateModeFilterArray = finalList.filter(element => element.modeId === this.chosenModeFilters[i])
         }
+        this.filteredGames = [];
+        generateModeFilterArray.forEach(element => this.filteredGames.push(element))
       }
-
       finalList = this.filteredGames;
+
     } else {
-      finalList;
+      finalList
     }
+
 
     if (this.cardsOrder == 41) {
       finalList.sort((a, b) => a.price - b.price);
@@ -278,6 +277,7 @@ export class DashboardComponent implements OnInit {
     } else {
       finalList.sort((a, b) => b.stars - a.stars);
     }
+
 
     while (finalList.length > 0) {
       var page = finalList.slice(0, this.gamesPerPage);
@@ -314,11 +314,13 @@ export class DashboardComponent implements OnInit {
     if (newOptions.genres.length > 0 || newOptions.modes.length > 0) {
       this.chosenGenreFilters = newOptions.genres;
       this.chosenModeFilters = newOptions.modes;
+    } else {
+      this.chosenGenreFilters.length = 0;
+      this.chosenModeFilters.length = 0;
     }
 
     this.paginarResultados(false)
   }
-
 
   previousPage() {
     this.selectedPage--

@@ -1,5 +1,4 @@
 import { MatTabsModule } from '@angular/material/tabs';
-import { ProductCarouselComponent } from './components/product-carousel/product-carousel.component';
 import { OrdinationComponent } from './components/ordination/ordination.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -20,8 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CardProductComponent,
     FooterComponent,
     FiltersComponent,
-    OrdinationComponent,
-    ProductCarouselComponent
+    OrdinationComponent
   ],
   imports: [
     CommonModule,
@@ -51,8 +49,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    HeaderModule,
-    ProductCarouselComponent
+    HeaderModule
   ]
 })
 export class SharedModule { }

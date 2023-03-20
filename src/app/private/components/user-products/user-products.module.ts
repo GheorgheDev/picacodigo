@@ -1,3 +1,4 @@
+import { CardSliderComponent } from './components/card-slider/card-slider.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HeaderModule } from 'src/app/shared/components/header/header.module';
 import { UserProductsComponent } from './user-products.component';
@@ -6,7 +7,8 @@ import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
-    UserProductsComponent
+    UserProductsComponent,
+    CardSliderComponent
   ],
   imports: [
     CommonModule,
@@ -14,7 +16,8 @@ import { CommonModule } from '@angular/common';
     SharedModule
   ],
   exports: [
-    UserProductsComponent
+    UserProductsComponent,
+    CardSliderComponent
   ]
 })
 export class UserProductsModule { }

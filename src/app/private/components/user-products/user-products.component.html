@@ -1,7 +1,19 @@
 <app-private-header></app-private-header>
 
-<div>
-    <app-product-carousel></app-product-carousel>
+<div class="dark-background distribution__user__products">
+    <div *ngFor="let product of groupSale">
+        <app-card-slider [product]="product"></app-card-slider>
+    </div>
+
+    <!-- <div *ngFor="let product of groupSold">
+        <app-card-slider [product]="product"></app-card-slider>
+    </div>
+
+    <div *ngFor="let product of groupBought">
+        <app-card-slider [product]="product"></app-card-slider>
+    </div> -->
 </div>
 
-<app-footer></app-footer>
+<div class="distribution__user_product__footer">
+    <app-footer></app-footer>
+</div>
