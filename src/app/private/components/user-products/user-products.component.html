@@ -1,15 +1,40 @@
 <app-private-header></app-private-header>
 
 <div class="dark-background distribution__user__products">
-    <div *ngFor="let product of groupSale">
-        <app-card-slider [product]="product"></app-card-slider>
+    <div>
+        <button mat-button type="button" (click)="previousPage()" *ngIf="showPrevious"
+            class="btn__page__pass__left icon__color">
+            <span class="fa fa-chevron-left"></span>
+        </button>
+
+        <div *ngFor="let groupSale of cardGroups[selectedPage]">
+            <app-card-slider [product]="groupSale" class="product__organization"></app-card-slider>
+        </div>
+
+        <button mat-button type="button" (click)="nextPage()" *ngIf="showNext"
+            class="btn__page__pass__right icon__color">
+            <span class="fa fa-chevron-right"></span>
+        </button>
     </div>
 
-    <!-- <div *ngFor="let product of groupSold">
-        <app-card-slider [product]="product"></app-card-slider>
+    <div>
+        <button mat-button type="button" (click)="previousPage()" *ngIf="showPrevious"
+            class="btn__page__pass__left icon__color">
+            <span class="fa fa-chevron-left"></span>
+        </button>
+
+        <div *ngFor="let groupSold of cardGroups[selectedPage]">
+            <app-card-slider [product]="groupSold" class="product__organization"></app-card-slider>
+        </div>
+
+        <button mat-button type="button" (click)="nextPage()" *ngIf="showNext"
+            class="btn__page__pass__right icon__color">
+            <span class="fa fa-chevron-right"></span>
+        </button>
     </div>
 
-    <div *ngFor="let product of groupBought">
+
+    <!-- <div *ngFor="let product of groupBought">
         <app-card-slider [product]="product"></app-card-slider>
     </div> -->
 </div>

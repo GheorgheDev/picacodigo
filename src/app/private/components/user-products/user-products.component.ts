@@ -180,12 +180,14 @@ export class UserProductsComponent implements OnInit {
     }
   ];
 
+
+
   originalProducts: ProductData[] = [];
   cardGroups: ProductData[][] = [];
   selectedPage: number = 0;
   showNext: boolean = true;
   showPrevious: boolean = false;
-  gamesPerPage: number = 12;
+  gamesPerPage: number = 4;
   cardsOrder: number;
   groupSale: ProductData[] = [];
   groupSold: ProductData[] = [];
@@ -200,43 +202,46 @@ export class UserProductsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.paginarResultados(true);
+    this.paginarResultados()
   }
 
-  private groupSeparator() {
+
+  private paginarResultados() {
+
     let groupList: ProductData[] = [];
     this.products.forEach(element => groupList.push(element));
 
     var groupByStatus = _.groupBy(groupList, 'status')
 
-    this.groupSale = groupByStatus.sale
-    this.groupSold = groupByStatus.sold
-    this.groupBought = groupByStatus.bought
-  }
+    groupByStatus.sale.forEach(element => this.groupSale.push(element))
+    groupByStatus.sold.forEach(element => this.groupSold.push(element))
+    groupByStatus.bought.forEach(element => this.groupBought.push(element))
 
-  private paginarResultados(sobreescribirOriginales: boolean) {
     let finalList: ProductData[] = [];
-    this.products.forEach(element => finalList.push(element))
-
-    this.groupSeparator()
-
-    // this.groupSale = _.first(groupByStatus)
-
+    this.groupSale.forEach(element => finalList.push(element))
 
     this.cardGroups = [];
 
     while (finalList.length > 0) {
-      var page = finalList.slice(0, this.gamesPerPage);
-      finalList.splice(0, this.gamesPerPage);
+      var pageSale = groupByStatus.sale.slice(0, this.gamesPerPage);
+      var pageSold = groupByStatus.sold.slice(0, this.gamesPerPage);
+      var pageBought = groupByStatus.bought.slice(0, this.gamesPerPage);
 
-      this.cardGroups.push(page);
+
+      finalList.splice(0, this.gamesPerPage)
+      this.cardGroups.push(pageSale)
+      this.cardGroups.push(pageSold)
+      this.cardGroups.push(pageBought)
+
+
+      console.log("1", finalList)
+      console.log("2", this.cardGroups)
+
       if (this.cardGroups.length > 1)
         this.showNext = true;
       else
         this.showNext = false;
 
-      if (sobreescribirOriginales)
-        page.forEach(product => this.originalProducts.push(product));
     };
   }
 

@@ -1,8 +1,3 @@
-.distribution__user__products {
-    display: flex;
-    flex-direction: column;
-}
-
 .distribution__product {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -26,4 +21,9 @@
 
 .distribution__user__products__footer {
     margin: 32px 0 0 0;
+}
+
+.product__organization {
+    display: flex;
+    flex-direction: row;
 }
