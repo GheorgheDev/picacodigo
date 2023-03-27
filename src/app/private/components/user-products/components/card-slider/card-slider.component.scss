@@ -19,6 +19,7 @@ $color_green: #57e309;
 .distribution__card__slider {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 .distribution__card__slider__cards {
@@ -55,15 +56,15 @@ $color_green: #57e309;
 @media (min-width: 769px) {
     .btn__page__pass__left,
     .btn__page__pass__right {
-        top: 40%;
+        top: 87%;
     }
 
     .btn__page__pass__right {
-        left: 85%;
+        left: 77%;
     }
 
     .btn__page__pass__left {
-        right: 85%;
+        right: 77%;
     }
 }
 
@@ -78,11 +79,11 @@ $color_green: #57e309;
     }
 
     .btn__page__pass__right {
-        left: 85%;
+        left: 77%;
     }
 
     .btn__page__pass__left {
-        right: 85%;
+        right: 77%;
     }
 }
 
@@ -97,10 +98,10 @@ $color_green: #57e309;
     }
 
     .btn__page__pass__left {
-        right: 84%;
+        right: 77%;
     }
 
     .btn__page__pass__right {
-        left: 84%;
+        left: 77%;
     }
 }
