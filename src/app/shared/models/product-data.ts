@@ -4,5 +4,4 @@ export interface ProductData {
   price: number;
   genreId: number;
   modeId: number;
-  status: string
 }
