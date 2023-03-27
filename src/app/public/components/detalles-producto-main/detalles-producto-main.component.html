@@ -1,29 +1,39 @@
 <div class="contenedor white-text">
   <div class="fondo-gris" #fondoGris></div>
   <div class="carousel" #carrusel>
-    <button (click)="cambiarImagenAnterior()" class="carousel__button carousel__button--left"><</button>
-    <button (click)="cerrarCarrusel()" class="carousel__button">X</button>
+    <button (click)="cambiarImagenAnterior()" class="carousel__button carousel__button--left"><span class="material-symbols-outlined">
+      chevron_left
+      </span></button>
+    <button (click)="cerrarCarrusel()" class="carousel__button"><span class="material-symbols-outlined">
+      close
+      </span></button>
     <img src="{{ obtenerImagen() }}" alt="slide" class="carousel__img" />
-    <button (click)="cambiarImagenSiguiente()" class="carousel__button carousel__button--right">></button>
+    <button (click)="cambiarImagenSiguiente()" class="carousel__button carousel__button--right"><span class="material-symbols-outlined">
+      chevron_right
+      </span></button>
   </div>
-  <header>HEADER</header>
+<app-common-header></app-common-header>
   <main class="main dark-background">
     <div class="producto">
-      <div class="producto__imagenes">
+      <!--  -->
+      <div class="producto__imagenes" >
         <img
-          src="./assets/game.jpg"
+          [src]="selectedGamePictures[0].picture"
           alt=""
           class="producto__imagen producto__imagen--principal"
           (click)="mostrarCarrusel(0)"
         />
         <div class="producto__contenedor-imagenes-secundarias">
-          <img
-            src="./assets/1.jpg"
+
+            <img *ngFor="let selectedGamePicture of selectedGamePictures; let i = index"
+            [src]="selectedGamePicture.picture"
             alt=""
             class="producto__imagen producto__imagen--secundaria"
-            (click)="mostrarCarrusel(1)"
+            (click)="mostrarCarrusel(i)"
           />
-          <img
+
+          
+          <!-- <img
             src="./assets/2.jpg"
             alt=""
             class="producto__imagen producto__imagen--secundaria"
@@ -34,30 +44,52 @@
             alt=""
             class="producto__imagen producto__imagen--secundaria"
             (click)="mostrarCarrusel(3)"
-          />
+          /> -->
         </div>
       </div>
       <div class="producto__detalles">
-        <h2 class="title-m">Red Dead Redemption 2</h2>
+        <h2 class="title-s">{{game.name}}</h2>
+        <span class="stars-container">
+          <span class="stars material-symbols-outlined white-text" *ngFor="let i of [].constructor(game.stars); let j = index">
+              star
+          </span>
+        </span>
+      
         <p class="text-medium-s">
-          Red Dead Redemption 2, estilizado Red Dead Redemption II, es un
-          videojuego de acción-aventura western basado en el drama, en un mundo
-          abierto y en perspectiva de primera y tercera persona, con componentes
-          para un jugador y multijugador. Fue desarrollado por Rockstar Games.
+          {{game.description}}
         </p>
-        <span class="text-light-l">$ 54.00</span>
-        <form class="producto__form">
-          <input
-            type="text"
-            name="cantidad"
+        <p class="text-medium-s">
+          Distribuido por: {{game.distributor}}
+        </p>
+        <p class="text-medium-s">
+          Modo de juego: {{game.mode_id}}
+        </p>
+        <p class="text-medium-s">
+          Género: {{game.genre_id}}
+        </p>
+        <p class="text-medium-s">
+          {{game.pegi_id}}
+        </p>
+        <span class="text-regular-l">€ {{game.price}}</span>
+        <form [formGroup]="addToKartForm" class="producto__form">
+          <span class="item_quantity">
+            <input formControlName="game_quantity"
+            type="number"
+            name="game_quantity"
             value="1"
-            class="producto__cantidad text-light-l"
+            max={{game.stock}}
+            min="1"
+            class="producto__cantidad dark-gray-background text-light-l white-text"
           />
-          <button type="submit" class="btn-green">Comprar</button>
+          <span class="text-regular-s game-stock"> ({{game.stock}} disponibles)</span>
+          </span>
+          
+          <button type="submit" class="btn-green title-xs" (click)="addToKart()">Comprar</button>
         </form>
       </div>
     </div>
-    <div class="resenias">
+
+    <!-- <div class="resenias">
       <div class="resenias__resenia">
         <div class="resenias__cabecera">
           <div class="resenias__contenedor-logo-usuario">
@@ -105,7 +137,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </main>
-  <footer>FOOTER</footer>
+
+
+  <app-footer></app-footer>
 </div>
