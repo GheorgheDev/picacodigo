@@ -8,12 +8,11 @@ $font-title: "Minecraftia-Regular.ttf";
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-bottom: 25px;
+    padding-bottom: 50px;
 }
 .user-management-title{
-    padding: 20px 0 10px 0;
     font-family: $font-title;
-    margin: 0;
+    margin: 50px 0;
 }
 
 .user-management-table-container{
@@ -23,9 +22,26 @@ $font-title: "Minecraftia-Regular.ttf";
     max-width: 1200px;
     height: 100%;
     padding-bottom: 30px;
+    min-height: 450px;
 }
 
 ::ng-deep .mat-tab-label{
     color: #fff;
     font-family: "Rokkit-Regular.ttf" !important;
+}
+::ng-deep.mat-tab-group.mat-primary .mat-ink-bar{
+    background-color: $color_green;
+}
+/* tablet */
+@media (max-width: 768px) {
+    .user-management-title{
+        margin: 40px 0;
+    }    
+    
+}
+
+@media (max-width: 480px) {
+    .user-management-title{
+        margin: 30px 0;
+    }    
 }

@@ -3,22 +3,32 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrivateHeaderComponent } from './private-header/private-header.component';
 import { PublicHeaderComponent } from './public-header/public-header.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { HeaderContentComponent } from './header-content/header-content.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
     PrivateHeaderComponent,
     PublicHeaderComponent,
-    SearchBarComponent,
     CommonHeaderComponent,
+    HeaderContentComponent,
+    
   ],
-  imports: [CommonModule, MatToolbarModule, MatMenuModule],
+  imports: [
+    CommonModule, 
+    MatToolbarModule, 
+    MatMenuModule,
+    MatIconModule,
+    MatDividerModule,
+    MatBadgeModule
+  ],
   exports: [
     PrivateHeaderComponent,
     PublicHeaderComponent,
-    SearchBarComponent,
     CommonHeaderComponent,
   ],
 })

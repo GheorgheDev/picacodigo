@@ -45,6 +45,14 @@ button {
   display: block;
 }
 
+.card_game-link{
+  height: 20px;
+  display: inline-block;
+  padding-top: 0;
+  
+  vertical-align: bottom;
+}
+
 /* PReguntar andrea */
 .card__title:hover {
   filter: brightness(90%);
