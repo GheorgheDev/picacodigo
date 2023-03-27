@@ -1,9 +1,9 @@
 export interface FilterElement {
-    id: number,
+    id: string,
     name: string
 }
 
 export interface SelectedFilter {
-    genres: number[],
-    modes: number[]
+    genres: string[],
+    modes: string[]
 }

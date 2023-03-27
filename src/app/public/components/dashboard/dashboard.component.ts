@@ -2,7 +2,7 @@ import { OrdinationComponent } from './../../../shared/components/ordination/ord
 import { SelectedFilter } from '../../../shared/models/filter-element';
 import { FiltersComponent } from '../../../shared/components/filters/filters.component';
 import { Router } from '@angular/router';
-import { Component, OnInit, Input, HostListener, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { ProductData } from 'src/app/shared/models/product-data';
 
 @Component({
@@ -16,148 +16,148 @@ export class DashboardComponent implements OnInit {
       title: 'Prince of Persia',
       stars: 1,
       price: 13.59,
-      genreId: 10,
-      modeId: 30
+      genreId: '10',
+      modeId: '30'
     },
     {
       title: 'Los Sims',
       stars: 3,
       price: 8.99,
-      genreId: 11,
-      modeId: 31
+      genreId: '11',
+      modeId: '31'
     },
     {
       title: 'Tetris',
       stars: 4,
       price: 6.69,
-      genreId: 12,
-      modeId: 30
+      genreId: '12',
+      modeId: '30'
     },
     {
       title: 'Resident Evil 4',
       stars: 1,
       price: 36.99,
-      genreId: 13,
-      modeId: 31
+      genreId: '13',
+      modeId: '31'
     },
     {
       title: 'Warcraft',
       stars: 2,
       price: 13.59,
-      genreId: 14,
-      modeId: 30
+      genreId: '14',
+      modeId: '30'
     },
     {
       title: 'Buscaminas',
       stars: 5,
       price: 13.59,
-      genreId: 15,
-      modeId: 31
+      genreId: '15',
+      modeId: '31'
     },
     {
       title: 'Prince of Persia',
       stars: 1,
       price: 13.59,
-      genreId: 20,
-      modeId: 30
+      genreId: '20',
+      modeId: '30'
     },
     {
       title: 'Los Sims',
       stars: 3,
       price: 8.99,
-      genreId: 20,
-      modeId: 31
+      genreId: '20',
+      modeId: '31'
     },
     {
       title: 'Tetris',
       stars: 4,
       price: 6.69,
-      genreId: 12,
-      modeId: 30
+      genreId: '12',
+      modeId: '30'
     },
     {
       title: 'Resident Evil 4',
       stars: 1,
       price: 36.99,
-      genreId: 13,
-      modeId: 30
+      genreId: '13',
+      modeId: '30'
     },
     {
       title: 'Warcraft',
       stars: 2,
       price: 13.59,
-      genreId: 14,
-      modeId: 31
+      genreId: '14',
+      modeId: '31'
     },
     {
       title: 'Buscaminas',
       stars: 5,
       price: 13.59,
-      genreId: 15,
-      modeId: 30
+      genreId: '15',
+      modeId: '30'
     },
     {
       title: 'Prince of Persia',
       stars: 1,
       price: 13.59,
-      genreId: 20,
-      modeId: 30
+      genreId: '20',
+      modeId: '30'
     },
     {
       title: 'Los Sims',
       stars: 3,
       price: 8.99,
-      genreId: 20,
-      modeId: 30
+      genreId: '20',
+      modeId: '30'
     },
     {
       title: 'Tetris',
       stars: 4,
       price: 6.69,
-      genreId: 12,
-      modeId: 30
+      genreId: '12',
+      modeId: '30'
     },
     {
       title: 'Resident Evil 4',
       stars: 1,
       price: 36.99,
-      genreId: 14,
-      modeId: 30
+      genreId: '14',
+      modeId: '30'
     },
     {
       title: 'Warcraft',
       stars: 2,
       price: 13.59,
-      genreId: 13,
-      modeId: 30
+      genreId: '13',
+      modeId: '30'
     },
     {
       title: 'Buscaminas',
       stars: 5,
       price: 13.59,
-      genreId: 14,
-      modeId: 30
+      genreId: '14',
+      modeId: '30'
     },
     {
       title: 'Prince of Persia',
       stars: 1,
       price: 13.59,
-      genreId: 15,
-      modeId: 30
+      genreId: '15',
+      modeId: '30'
     },
     {
       title: 'Los Sims',
       stars: 3,
       price: 8.99,
-      genreId: 14,
-      modeId: 31
+      genreId: '14',
+      modeId: '31'
     },
     {
       title: 'Tetris',
       stars: 4,
       price: 6.69,
-      genreId: 20,
-      modeId: 30
+      genreId: '20',
+      modeId: '30'
     }
   ];
 
@@ -187,8 +187,8 @@ export class DashboardComponent implements OnInit {
   }
 
   @Input() filterInfo: FiltersComponent;
-  chosenGenreFilters: number[] = [];
-  chosenModeFilters: number[] = [];
+  chosenGenreFilters: string[] = [];
+  chosenModeFilters: string[] = [];
   newOptions: number;
 
   @Input() orderInfo: OrdinationComponent;
