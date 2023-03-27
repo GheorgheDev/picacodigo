@@ -1,96 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  
-  <!-- <link rel="stylesheet" href="style.css"> -->
-  
-  
-  <title>Document</title>
-</head>
-
-<body>
-  <div class="form-foto">
-      </div>
-
-  <div class="container">
-
-    <div class="card card-body card-body--fullheight card--black">
-      <h3 class="logo-l center-title">PICK A GAME</h3>
-      <p class="text-muted m-b-30 font-13"> Regístrate ahora y disfruta </p>
-      <div class="row">
-        <div class="col-sm-12 col-xs-12">
-          <form class="form-horizonal"
-          id="loginform"
-          autocomplete="off"
-          [formGroup]="registerForm"
-          (ngSubmit)="crearUsuario()">
-            <div class="form-group">
-              <label for="exampleInputEmail1"></label>
-              <input type="text" class="title-xs form-input" 
-              id="exampleInputEmail1" 
-              placeholder="Nombre"
-              formControlName="nombre">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1"></label>
-              <input type="email" class="title-xs form-input" 
-              id="exampleInputEmail1" 
-              placeholder="Email"
-              formControlName="email">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1"></label>
-              <input type="password" class="form-input" 
-              id="exampleInputPassword1" 
-              placeholder="Contraseña"
-              formControlName="password">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1"></label>
-              <input type="password" class="form-input" 
-              id="exampleInputPassword1" 
-              placeholder="Confirmar contraseña"
-              formControlName="password2">
-            </div>
-            <div class="form-group">
-              <div class="check-conditions">
-                <input class="check-green" id="checkbox1" 
-                type="checkbox"
-                formControlName="terminos">
-
-                <label for="checkbox1" class="title-xs"> Acepta las condiciones </label>
-              </div>
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn-green white-text title-xs btn-register">Regístrate</button>
-            </div>
-
-            <div class="row">
-              <div class="col text-danger">
-                <p *ngIf="campoNoValido('nombre')">* El nombre es obligatorio</p>
-                <p *ngIf="campoNoValido('email')">* El email es obligatorio y tiene que ser válido</p>
-                <p *ngIf="contrasenasNoValidas()">* Las contraseñas deben de ser iguales</p>
-                <p *ngIf="aceptaTerminos()">* Debe de aceptar los términos de uso</p>
-              </div>
-            </div>
-          </form>
+<div class="container card">
+  <div class="box-title logo-l green-text">PICK A GAME</div>
+  <div class="row">
+    <div class="col-sm-12 col-xs-12">
+      <form class="form-horizontal" id="loginform" autocomplete="off" [formGroup]="registerForm"
+        (ngSubmit)="crearUsuario()">
+        <div class="form-group">
+          <label for="exampleInputEmail1"></label>
+          <input type="text" class="title-xs form-input" id="exampleInputEmail1" placeholder="Nombre"
+            formControlName="nombre">
         </div>
-      </div>
-      </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1"></label>
+          <input type="email" class="title-xs form-input" id="exampleInputEmail1" placeholder="Email"
+            formControlName="email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1"></label>
+          <input type="password" class="title-xs form-input" id="exampleInputPassword1" placeholder="Contraseña"
+            formControlName="password">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1"></label>
+          <input type="password" class="title-xs form-input" id="exampleInputPassword1" placeholder="Repetir contraseña"
+            formControlName="password2">
+        </div>
+        <div class="form-group">
+          <div class="check-conditions">
+            <input class="check-green" id="checkbox1" type="checkbox" formControlName="terminos">
+
+            <label for="checkbox1" class="title-xs white-text"> Aceptar las condiciones</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn-green white-text title-xs btn-register">Registrarse</button>
+        </div>
+
+        <div class="col text-danger">
+          <p *ngIf="campoNoValido('nombre')" class="red-text">* El nombre es obligatorio</p>
+          <p *ngIf="campoNoValido('email')" class="red-text">* El email es obligatorio</p>
+          <p *ngIf="contrasenasNoValidas()" class="red-text">* Las contraseñas deben coincidir</p>
+          <p *ngIf="aceptaTerminos()" class="red-text">* Acepta las condiciones de uso</p>
+        </div>
+      </form>
+    </div>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
-
-</body>
-
-</html>
+</div>

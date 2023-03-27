@@ -1,5 +1,6 @@
 $color_white: #f9f9f9;
 $color_green: #57e309;
+$color_red: #C41E3D;
 $font-light: "Rokkit-Light.ttf";
 $font-regular: "Rokkit-Regular.ttf";
 $font-medium: "Rokkit-Medium.ttf";
@@ -68,6 +69,11 @@ body {
 
 .grey-background {
   background-color: $background-color_grey;
+}
+
+.red-text {
+  color: $color_red;
+  margin-top: 16px !important;
 }
 
 .btn-green {
