@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 export interface UserData {
@@ -17,6 +17,9 @@ export interface UserData {
 })
 
 export class DialogPasswordChangeComponent {
+
+  hasError: boolean = false;
+
   usuarios: UserData =
     {
       user_id: 'a12',
@@ -37,23 +40,32 @@ export class DialogPasswordChangeComponent {
     validators: this.passwordsIguales('password1', 'password2')
   });
 
-  ngOnInit() { }
+  userPassword: string
+
 
   coincidenciaAntiguaPassword() {
-    const userPassword = this.cambioPasswordForm.get('password0')?.value;
+    this.userPassword = this.cambioPasswordForm.get('password0')?.value;
 
-    if ((this.usuarios.password !== userPassword))
+    if (this.usuarios.password !== this.userPassword) {
       return true
+    }
     else
       return false
+    
+
   }
 
   crearPassword() {
     this.cambioPasswordForm.markAllAsTouched()
-    if(!this.contrasenasNoValidas() && this.cambioPasswordForm.valid) {
+    if (!this.contrasenasNoValidas() && this.cambioPasswordForm.valid) {
+
+      // AQUI HACER EL POST CON LA CONTRASEÑA NUEVA
+      this.usuarios.password = this.cambioPasswordForm.get('password2')?.value
       this.openSnackBar()
     }
-    console.log(this.cambioPasswordForm.value)
+
+    console.log("1", this.usuarios.password)
+
   }
 
   contrasenasNoValidas() {
