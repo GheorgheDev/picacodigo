@@ -18,14 +18,16 @@
 
         <div class="distribution__config">
           <i class="fa-sharp fa-solid fa-user-lock icon__color"></i>
-          <button mat-button (click)="openDialog()" class="text-regular-s white-text">
+          <button mat-button (click)="openPasswordDialog()" class="text-regular-s white-text">
             Cambiar contraseña
           </button>
         </div>
 
         <div class="distribution__config">
           <i class="fa-sharp fa-solid fa-pen icon__color"></i>
-          <p class="text-regular-s white-text">Editar información personal</p>
+          <button mat-button (click)="openUserInfoDialog()" class="text-regular-s white-text">
+            Editar información personal
+          </button>
         </div>
       </div>
     </mat-card>

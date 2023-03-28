@@ -17,9 +17,6 @@ export interface UserData {
 })
 
 export class DialogPasswordChangeComponent {
-
-  hasError: boolean = false;
-
   usuarios: UserData =
     {
       user_id: 'a12',
@@ -51,7 +48,7 @@ export class DialogPasswordChangeComponent {
     }
     else
       return false
-    
+
 
   }
 

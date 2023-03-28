@@ -1,3 +1,4 @@
+import { DialogUserDataChangeComponent } from './components/dialog-user-data-change/dialog-user-data-change.component';
 import { DialogPasswordChangeComponent } from './components/dialog-password-change/dialog-password-change.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -37,7 +38,11 @@ export class MyProfilePrivComponent implements OnInit {
 
   stateUser = true;
 
-  openDialog() {
+  openPasswordDialog() {
     this.dialog.open(DialogPasswordChangeComponent);
+  }
+
+  openUserInfoDialog() {
+    this.dialog.open(DialogUserDataChangeComponent);
   }
 }
