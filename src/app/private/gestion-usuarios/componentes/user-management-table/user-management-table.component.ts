@@ -12,12 +12,12 @@ export class UserManagementTableComponent implements OnInit {
   @Input() userData: UserData[];
 
   @Output() banUsersToggle = new EventEmitter<string>();
-  banUserToggle(userid:string){
-    this.banUsersToggle.emit(userid)
+  banUserToggle(user_id:string){
+    this.banUsersToggle.emit(user_id)
   
   }
 
-  displayedColumns: string[] = ['userID', 'username', 'name', 'actions'];
+  displayedColumns: string[] = ['user_id', 'username', 'name', 'actions'];
 
   dataSourceUser: any;
 

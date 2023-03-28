@@ -9,100 +9,112 @@ import { UserData } from 'src/app/shared/models/user-data';
 export class UserManagementPageComponent implements OnInit {
   usersData: UserData[] = [
     {
-      userID: "1",
-      userUsername: 'AndreaC',
+      user_id: "1",
+      user_username: 'AndreaC',
       name: 'Andrea Cebrian',
       email: 'string',
       status: 'active',
       role: 'admin',
+      img: 'ruta'
     },
     {
-      userID: "2",
-      userUsername: 'JuanJo',
+      user_id: "2",
+      user_username: 'JuanJo',
       name: 'Juan Sevilla',
       email: 'string',
       status: 'active',
       role: 'admin',
+      img: 'ruta'
     },
     {
-      userID: "3",
-      userUsername: 'SalvadorS',
+      user_id: "3",
+      user_username: 'SalvadorS',
       name: 'Salvador Santo',
       email: 'string',
       status: 'active',
       role: 'admin',
+      img: 'ruta'
     },
     {
-      userID: "4",
-      userUsername: 'GheorgheB',
+      user_id: "4",
+      user_username: 'GheorgheB',
       name: 'Gheorghe Bucurici',
       email: 'string',
       status: 'active',
       role: 'admin',
+      img: 'ruta'
     },
     {
-      userID: "5",
-      userUsername: 'BarbaraR',
+      user_id: "5",
+      user_username: 'BarbaraR',
       name: 'Barbara Rodriguez',
       email: 'string',
       status: 'active',
       role: 'admin',
+      img: 'ruta'
     },
     {
-      userID: "6",
-      userUsername: 'MichelleM88',
+      user_id: "6",
+      user_username: 'MichelleM88',
       name: 'Michelle Masias',
       email: 'string',
       status: 'active',
       role: 'user',
+      img: 'ruta'
     },
     {
-      userID: "7",
-      userUsername: 'Gabi',
+      user_id: "7",
+      user_username: 'Gabi',
       name: 'José Gabriel',
       email: 'string',
       status: 'active',
       role: 'user',
+      img: 'ruta'
     },
     {
-      userID: "8",
-      userUsername: 'Tomy',
+      user_id: "8",
+      user_username: 'Tomy',
       name: 'Tomas Algo',
       email: 'string',
       status: 'active',
       role: 'user',
+      img: 'ruta'
     },
     {
-      userID: "9",
-      userUsername: 'Paco',
+      user_id: "9",
+      user_username: 'Paco',
       name: 'Francisco Jose',
       email: 'string',
       status: 'active',
       role: 'user',
+      img: 'ruta'
     },
     {
-      userID: "10",
-      userUsername: 'SergioP',
+      user_id: "10",
+      user_username: 'SergioP',
       name: 'Sergio Piedas',
       email: 'string',
       status: 'inactive',
       role: 'user',
+      img: 'ruta'
     },
     {
-      userID: "11",
-      userUsername: 'JuanJe',
+      user_id: "11",
+      user_username: 'JuanJe',
       name: 'Juan Jesús',
       email: 'string',
       status: 'inactive',
       role: 'user',
+      img: 'ruta'
     },
     {
-      userID: "12",
-      userUsername: 'Mario',
+      user_id: "12",
+      user_username: 'Mario',
       name: 'Mario Bros',
       email: 'string',
       status: 'active',
       role: 'admin',
+      img: 'ruta'
     },
   ];
 
@@ -116,8 +128,8 @@ export class UserManagementPageComponent implements OnInit {
   }
 
   ngAfterViewInit() {}
-  changeUserStatus(userid: string) {
-    let userToBan = this.usersData.find((user) => user.userID == userid);
+  changeUserStatus(user_id: string) {
+    let userToBan = this.usersData.find((user) => user.user_id == user_id);
     if (!!userToBan) {
       if(userToBan.status == 'inactive')
         userToBan.status = 'active';

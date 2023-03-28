@@ -343,7 +343,6 @@ export class DetallesProductoMainComponent implements OnInit {
     for (let i = 0; i < this.gamePictures.length; i++) {
       if (this.gamePictures[i].game_id == idGame) {
         this.selectedGamePictures.push(this.gamePictures[i]);
-        console.log(this.gamePictures[i]);
       }
     }
     this.initSlides()
@@ -368,7 +367,8 @@ export class DetallesProductoMainComponent implements OnInit {
 
   selectGame(idGame: string) {
     let gameSelected = this.games.find((game) => game.game_id == idGame);
-    if (!!gameSelected) this.game = gameSelected;
+    if (!!gameSelected) 
+      this.game = gameSelected;
     this.replacePegi(this.game.pegi_id);
     this.replaceGenre(this.game.genre_id);
     this.replaceMode(this.game.mode_id);

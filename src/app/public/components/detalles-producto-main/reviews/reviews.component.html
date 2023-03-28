@@ -1,5 +1,7 @@
-<p class="title-l">Reseñas</p>
+<div class="reviews-page">
+  <p class="title-l">Reseñas</p>
 
-<div class="reviews">
-    
+  <div class="reviews">
+    <app-review-card *ngFor="let completeReview of completeReviews" class="review-card"></app-review-card>
+  </div>
 </div>

@@ -8,6 +8,7 @@ $font-title: "Minecraftia-Regular.ttf";
 
 .fondo-gris {
   background-color: #536162;
+  z-index: 95;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -27,9 +28,10 @@ $font-title: "Minecraftia-Regular.ttf";
   display: flex;
   align-items: baseline;
   position: absolute;
-  top: 40%;
+  top: 80px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0px);
+  z-index: 100;
   display: none;
 
   &.show {
@@ -65,7 +67,7 @@ $font-title: "Minecraftia-Regular.ttf";
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-  padding: 5rem 0.3rem;
+  padding: 5rem 0.3rem 2rem 0.3rem;
 }
 
 .producto {
@@ -127,55 +129,7 @@ $font-title: "Minecraftia-Regular.ttf";
 }
 
 
-.resenias {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 
-  &__resenia {
-    background-color: #536162;
-    border-radius: 0.3rem;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    max-width: 356px;
-  }
-
-  &__cabecera {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-  }
-
-  &__contenedor-logo-usuario {
-    width: 4.9rem;
-  }
-
-  &__logo-usuario {
-    border-radius: 50%;
-    aspect-ratio: 1 / 1;
-    width: 100%;
-  }
-
-  &__contenido {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: justify;
-    gap: 0.5rem;
-  }
-
-  &__contenedor-imagen-producto {
-    width: 9rem;
-  }
-
-  &__imagen-producto {
-    border-radius: 0.3rem;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-  }
-}
 
 .btn-green {
   color: #fff;
@@ -225,11 +179,6 @@ input::-webkit-inner-spin-button {
     padding: 2rem;
   }
 
-  .resenias__resenia {
-    width: 100%;
-    max-width: 33rem;
-  }
-
   .resenias__contenido {
     flex-direction: row;
     justify-content: space-between;
@@ -246,6 +195,9 @@ input::-webkit-inner-spin-button {
     max-width: 1232.4px;
     gap: 2rem;
     padding: 15px;
+  }
+  .reviews-container{
+    max-width:1232.4px ;
   }
 
   .producto__imagenes {
@@ -264,8 +216,10 @@ input::-webkit-inner-spin-button {
   }
   .carousel {
     width: 80%;
-    top: 50%;
-  }
+    top: 100px;
+    /* transform: translate(-50%, -70vh); */
+    }
+    
 }
 @media (min-width: 1200px) {
 

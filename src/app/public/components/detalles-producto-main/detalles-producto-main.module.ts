@@ -6,19 +6,24 @@ import { InvalidAddtokartComponent } from './invalid-addtokart/invalid-addtokart
 import {MatDialogModule} from '@angular/material/dialog';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ReviewsComponent } from './reviews/reviews.component';
+import {MatCardModule} from '@angular/material/card';
+import { ReviewCardComponent } from './review-card/review-card.component';
+
 
 @NgModule({
     declarations: [
         DetallesProductoMainComponent,
         InvalidAddtokartComponent,
-        ReviewsComponent
+        ReviewsComponent,
+        ReviewCardComponent
     ],
     imports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
         MatDialogModule,
-        SharedModule
+        SharedModule,
+        MatCardModule
     ],
     exports: [
         DetallesProductoMainComponent
