@@ -8,6 +8,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ReviewsComponent } from './reviews/reviews.component';
 import {MatCardModule} from '@angular/material/card';
 import { ReviewCardComponent } from './review-card/review-card.component';
+import { AddReviewComponent } from './add-review/add-review.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ReviewCardComponent } from './review-card/review-card.component';
         DetallesProductoMainComponent,
         InvalidAddtokartComponent,
         ReviewsComponent,
-        ReviewCardComponent
+        ReviewCardComponent,
+        AddReviewComponent
     ],
     imports: [
         CommonModule,

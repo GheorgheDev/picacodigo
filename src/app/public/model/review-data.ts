@@ -4,3 +4,6 @@ export interface ReviewData{
     game_id: string 
     user_id: string
   }
+
+
+export type NewReviewData = Omit<ReviewData, 'review_id'>

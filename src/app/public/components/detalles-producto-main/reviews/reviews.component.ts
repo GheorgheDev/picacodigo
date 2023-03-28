@@ -1,7 +1,10 @@
+import { NeedLoginComponent } from './../../need-login/need-login.component';
 import { GameReview } from './../../../model/game-review';
 import { ReviewData } from './../../../model/review-data';
 import { UserData } from 'src/app/shared/models/user-data';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddReviewComponent } from '../add-review/add-review.component';
 
 @Component({
   selector: 'app-reviews',
@@ -9,6 +12,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reviews.component.scss'],
 })
 export class ReviewsComponent implements OnInit {
+
+  userIsLogged:boolean = true;
   
   users: UserData[] = [
     {
@@ -89,36 +94,32 @@ export class ReviewsComponent implements OnInit {
       user_id: 'rty89jkl',
     },
   ];
-  constructor() {
+  constructor(public dialog: MatDialog) {
 
   }
 
-  ngOnInit(): void {
-    console.log("antes de la funcion")
+  ngOnInit() {
     this.completeAllReviews();
-    console.log("despues de la funcion")
   }
 
-  completeReviews: GameReview[] = [] 
-  completeReview: GameReview = {} as GameReview;
+  completeReviews: GameReview[] = [] as GameReview[]
+  
 
   userThatMadeTheReview: UserData;
 
   completeAllReviews() {
     for (let i = 0; i < this.reviews.length; i++) {
+      let completeReview: GameReview = {} as GameReview;
       this.userThatMadeTheReview = {} as UserData
       this.findUserThatMadeTheReview(this.reviews[i].user_id);
       if(!!this.userThatMadeTheReview){
-        this.completeReview.content = this.reviews[i].content;
-        this.completeReview.user_username = this.userThatMadeTheReview.user_username;
-        this.completeReview.user_img = this.userThatMadeTheReview.img;
-        console.log("aqui termina de asignar datos", this.completeReview)
-        this.completeReviews.push(this.completeReview);
-        console.log(this.completeReviews)
-      }
-      
+        completeReview.content = this.reviews[i].content;
+        completeReview.user_username = this.userThatMadeTheReview.user_username;
+        completeReview.user_img = this.userThatMadeTheReview.img;
+        console.log("aqui termina de asignar datos", completeReview)
+        this.completeReviews.push(completeReview);
+      }    
     }
-
     console.log('1', this.completeReviews);
   }
 
@@ -127,5 +128,12 @@ export class ReviewsComponent implements OnInit {
     if (!!userReview) {
       this.userThatMadeTheReview = userReview;
     }
+  }
+
+  openAddAReviewDialog(){
+    if(this.userIsLogged)
+      this.dialog.open(AddReviewComponent);
+    else
+    this.dialog.open(NeedLoginComponent);
   }
 }

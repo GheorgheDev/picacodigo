@@ -16,7 +16,7 @@ import { InvalidAddtokartComponent } from '../invalid-addtokart/invalid-addtokar
 })
 export class DetallesProductoMainComponent implements OnInit {
 
-  userIsLogged:boolean = true;
+  userIsLogged:boolean = false;
 
   constructor(private _fb: FormBuilder, public dialog: MatDialog) {}
   games: GameData[] = [

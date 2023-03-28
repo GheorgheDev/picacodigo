@@ -2,6 +2,8 @@
   <p class="title-l">Reseñas</p>
 
   <div class="reviews">
-    <app-review-card *ngFor="let completeReview of completeReviews" class="review-card"></app-review-card>
+    <app-review-card *ngFor="let completeReview of completeReviews" [completeReview]="completeReview" class="review-card"></app-review-card>
   </div>
+
+  <button class="btn-green title-xs white-text" (click)="openAddAReviewDialog()">Añadir una reseña</button>
 </div>

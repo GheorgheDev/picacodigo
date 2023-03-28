@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { GameReview } from './../../../model/game-review';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-review-card',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./review-card.component.scss'],
 })
 export class ReviewCardComponent implements OnInit {
+
+  @Input() completeReview: GameReview;
   ngOnInit(): void {
       
   }
