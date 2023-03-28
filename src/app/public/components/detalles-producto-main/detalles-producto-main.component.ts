@@ -1,3 +1,4 @@
+import { NeedLoginComponent } from './../need-login/need-login.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ModeData } from './../../model/mode-data';
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
@@ -14,6 +15,9 @@ import { InvalidAddtokartComponent } from './invalid-addtokart/invalid-addtokart
   styleUrls: ['./detalles-producto-main.component.scss'],
 })
 export class DetallesProductoMainComponent implements OnInit {
+
+  userIsLogged:boolean = true;
+
   constructor(private _fb: FormBuilder, public dialog: MatDialog) {}
   games: GameData[] = [
     {
@@ -371,15 +375,19 @@ export class DetallesProductoMainComponent implements OnInit {
   }
 
   addToKart() {
-    if (this.addToKartForm.invalid) {
-      this.addToKartForm.markAllAsTouched();
-      console.log('todo mal');
-      this.dialog.open(InvalidAddtokartComponent);
-    } else {
-      let cantidad = this.addToKartForm.get('game_quantity')?.value;
-      console.log('Cantidad:', cantidad);
-      this.addToKartForm.reset();
+    if (this.userIsLogged){
+      if (this.addToKartForm.invalid) {
+        this.addToKartForm.markAllAsTouched();
+        this.dialog.open(InvalidAddtokartComponent);
+      } else {
+        let cantidad = this.addToKartForm.get('game_quantity')?.value;
+        console.log('Cantidad:', cantidad);
+        this.addToKartForm.reset();
+      }
+    }else{
+      this.dialog.open(NeedLoginComponent);
     }
+    
   }
 
   /* carrusel */
