@@ -122,6 +122,10 @@ $font-title: "Minecraftia-Regular.ttf";
   }
 }
 
+.producto__imagen--secundaria:first-child{
+  display: none;
+}
+
 
 .resenias {
   box-sizing: border-box;

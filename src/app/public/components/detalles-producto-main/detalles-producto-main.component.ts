@@ -14,9 +14,7 @@ import { InvalidAddtokartComponent } from './invalid-addtokart/invalid-addtokart
   styleUrls: ['./detalles-producto-main.component.scss'],
 })
 export class DetallesProductoMainComponent implements OnInit {
-  constructor(private _fb: FormBuilder, public dialog: MatDialog) {
-    
-  }
+  constructor(private _fb: FormBuilder, public dialog: MatDialog) {}
   games: GameData[] = [
     {
       game_id: '1',
@@ -42,7 +40,7 @@ export class DetallesProductoMainComponent implements OnInit {
       genre_id: '11',
       mode_id: '2',
       price: 45.0,
-      stock: 200,
+      stock: 0,
     },
     {
       game_id: '3',
@@ -194,8 +192,6 @@ export class DetallesProductoMainComponent implements OnInit {
     },
   ];
 
-  
-
   genres: GenreData[] = [
     {
       genre_id: '10',
@@ -258,98 +254,95 @@ export class DetallesProductoMainComponent implements OnInit {
     },
   ];
 
-  gamePictures: GamePictureData[]=[
+  gamePictures: GamePictureData[] = [
     {
       game_picture_id: '2',
       picture: '/assets/game.jpg',
-      game_id: "1"
+      game_id: '1',
     },
-     {
+    {
       game_picture_id: '1',
       picture: '/assets/1.jpg',
-      game_id: "1"
+      game_id: '1',
     },
     {
       game_picture_id: '3',
       picture: '/assets/2.jpg',
-      game_id: "1"
+      game_id: '1',
     },
     {
       game_picture_id: '4',
       picture: '/assets/3.jpg',
-      game_id: "1"
+      game_id: '1',
     },
     {
       game_picture_id: '5',
       picture: '/assets/key-kong-2.png',
-      game_id: "2"
+      game_id: '2',
     },
     {
       game_picture_id: '6',
       picture: '/assets/donkey-kong-1.png',
-      game_id: "2"
+      game_id: '2',
     },
     {
       game_picture_id: '7',
       picture: '/assets/donkey-kong-3.png',
-      game_id: "2"
+      game_id: '2',
     },
     {
       game_picture_id: '8',
       picture: '/assets/donkey-kong-4.png',
-      game_id: "2"
+      game_id: '2',
     },
     {
       game_picture_id: '9',
       picture: '/assets/3.jpg',
-      game_id: "3"
+      game_id: '3',
     },
     {
       game_picture_id: '10',
       picture: '/assets/game.jpg',
-      game_id: "3"
+      game_id: '3',
     },
     {
       game_picture_id: '11',
       picture: '/assets/donkey-kong-4.png',
-      game_id: "4"
+      game_id: '4',
     },
     {
       game_picture_id: '12',
       picture: '/assets/donkey-kong-1.png',
-      game_id: "4"
-    }
-  ]
-
-
+      game_id: '4',
+    },
+  ];
 
   addToKartForm: FormGroup;
 
-  idGame: string = '1';
-  selectedGamePictures: GamePictureData[] = []
+  idGame: string = '2';
+  selectedGamePictures: GamePictureData[] = [];
   game: GameData;
 
   ngOnInit(): void {
     this.selectGame(this.idGame);
-    this.selectPictures(this.idGame)
-    this.createForm()
+    this.selectPictures(this.idGame);
+    this.createForm();
   }
 
-  createForm(){
+  createForm() {
     this.addToKartForm = this._fb.group({
       game_quantity: ['1', [Validators.required]],
     });
   }
 
-  selectPictures(idGame: string){
-    for( let i = 0 ; i < this.gamePictures.length ; i++){
-      if(this.gamePictures[i].game_id == idGame){
-        this.selectedGamePictures.push(this.gamePictures[i])
-        console.log(this.gamePictures[i])
-        
+  selectPictures(idGame: string) {
+    for (let i = 0; i < this.gamePictures.length; i++) {
+      if (this.gamePictures[i].game_id == idGame) {
+        this.selectedGamePictures.push(this.gamePictures[i]);
+        console.log(this.gamePictures[i]);
       }
-        
-    }console.log(this.selectedGamePictures[0].picture)
+    }
+    this.initSlides()
   }
 
   replacePegi(game_pegi_id: string) {
@@ -371,8 +364,7 @@ export class DetallesProductoMainComponent implements OnInit {
 
   selectGame(idGame: string) {
     let gameSelected = this.games.find((game) => game.game_id == idGame);
-    if (!!gameSelected) 
-      this.game = gameSelected;
+    if (!!gameSelected) this.game = gameSelected;
     this.replacePegi(this.game.pegi_id);
     this.replaceGenre(this.game.genre_id);
     this.replaceMode(this.game.mode_id);
@@ -384,8 +376,8 @@ export class DetallesProductoMainComponent implements OnInit {
       console.log('todo mal');
       this.dialog.open(InvalidAddtokartComponent);
     } else {
-      let cantidad = this.addToKartForm.get('game_quantity')?.value
-      console.log('Cantidad:' , cantidad);
+      let cantidad = this.addToKartForm.get('game_quantity')?.value;
+      console.log('Cantidad:', cantidad);
       this.addToKartForm.reset();
     }
   }
@@ -395,13 +387,14 @@ export class DetallesProductoMainComponent implements OnInit {
   @ViewChild('fondoGris') fondoGris: ElementRef;
   @ViewChild('carrusel') carrusel: ElementRef;
 
-  slides: string[] = [
-    './assets/game.jpg',
-    './assets/1.jpg',
-    './assets/2.jpg',
-    './assets/3.jpg',
-  ];
+  slides: string[] = [];
   i = 0;
+
+  initSlides() {
+    for (let j = 0; j < this.selectedGamePictures.length; j++) {
+      this.slides.push(this.selectedGamePictures[j].picture);
+    }
+  }
 
   obtenerImagen(): string {
     return this.slides[this.i];
