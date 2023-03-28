@@ -1,10 +1,13 @@
+import { DialogPasswordChangeComponent } from './components/dialog-password-change/dialog-password-change.component';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-my-profile-priv',
   templateUrl: './my-profile-priv.component.html',
   styleUrls: ['./my-profile-priv.component.scss'],
 })
+
 export class MyProfilePrivComponent implements OnInit {
   users = [
     {
@@ -15,7 +18,6 @@ export class MyProfilePrivComponent implements OnInit {
       Telefono: '666-666-666',
       Fecha_de_nacimiento: '10/05/1998',
       Direccion_fisica: 'Calle de la piruleta nº 42',
-      Direccion_fiscal: 'Papelillos S.A',
       Imagen: '/assets/images/img_user.jpg',
     },
     {
@@ -26,13 +28,16 @@ export class MyProfilePrivComponent implements OnInit {
       Telefono: '666-666-666',
       Fecha_de_nacimiento: '10/05/1998',
       Direccion_fisica: 'Calle del zapato nº 15',
-      Direccion_fiscal: 'Cafelillos S.A',
       Imagen: '../images/img_user.jpg',
     },
   ];
-  constructor() {}
+  constructor(public dialog: MatDialog) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   stateUser = true;
+
+  openDialog() {
+    this.dialog.open(DialogPasswordChangeComponent);
+  }
 }

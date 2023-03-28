@@ -1,4 +1,4 @@
-import { MyProfilePrivComponent } from './my-profile-priv/my-profile-priv.component';
+import { MyProfilePrivComponent } from './private/my-profile-priv/my-profile-priv.component';
 import { UserProductsComponent } from './private/components/user-products/user-products.component';
 import { UserManagementPageComponent } from './private/gestion-usuarios/componentes/user-management-page/user-management-page.component';
 import { NotificationPageComponent } from './private/notificaciones/components/notification-page/notification-page.component';

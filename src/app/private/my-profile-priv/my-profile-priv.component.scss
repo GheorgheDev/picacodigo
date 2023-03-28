@@ -1,3 +1,5 @@
+$background-color_grey: #536162;
+
 .container {
   display: flex;
   flex-flow: column;
@@ -64,4 +66,10 @@
 div.change_config_dates>a {
   text-decoration: none;
   margin-left: 3%;
+}
+
+::ng-deep .mat-dialog-container {
+  background-color: #292F33;
+  box-shadow: 5px 10px 20px $background-color_grey;
+  border: 3px solid #536162;
 }

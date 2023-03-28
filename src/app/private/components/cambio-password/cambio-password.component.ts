@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -60,7 +60,6 @@ export class CambioPasswordComponent {
     return!this.cambioPasswordForm.get('terminos')?.value && this.formSubmitted;
   }
 
-
   passwordsIguales(pass1Name: string, pass2Name: string ) {
 
     return ( formGroup: FormGroup) => {
@@ -73,9 +72,6 @@ export class CambioPasswordComponent {
       } else {
         pass2Control?.setErrors({ noEsIgual: true })
       }
-
     }
-
   }
-
 }

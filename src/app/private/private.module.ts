@@ -1,4 +1,7 @@
-import { MyProfilePrivModule } from './../my-profile-priv/my-profile-priv.module';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogUserDataChangeComponent } from './my-profile-priv/components/dialog-user-data-change/dialog-user-data-change.component';
+import { DialogPasswordChangeComponent } from './my-profile-priv/components/dialog-password-change/dialog-password-change.component';
+import { MyProfilePrivComponent } from './my-profile-priv/my-profile-priv.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HeaderModule } from './../shared/components/header/header.module';
 import { NgModule } from '@angular/core';
@@ -14,9 +17,12 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GestionUsuariosModule } from './gestion-usuarios/gestion-usuarios.module';
 import { UserProductsModule } from './components/user-products/user-products.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
-  declarations: [CambioPasswordComponent],
+  declarations: [MyProfilePrivComponent, CambioPasswordComponent, DialogPasswordChangeComponent, DialogUserDataChangeComponent
+  ],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -32,7 +38,9 @@ import { UserProductsModule } from './components/user-products/user-products.mod
     GestionUsuariosModule,
     UserProductsModule,
     SharedModule,
-    MyProfilePrivModule
-  ]
+    MatDialogModule,
+    MatSnackBarModule
+  ],
+  exports: [MyProfilePrivComponent]
 })
-export class PrivateModule {}
+export class PrivateModule { }

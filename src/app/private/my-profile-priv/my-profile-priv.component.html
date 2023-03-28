@@ -18,7 +18,9 @@
 
         <div class="distribution__config">
           <i class="fa-sharp fa-solid fa-user-lock icon__color"></i>
-          <p class="text-regular-s white-text">Cambiar contraseña</p>
+          <button mat-button (click)="openDialog()" class="text-regular-s white-text">
+            Cambiar contraseña
+          </button>
         </div>
 
         <div class="distribution__config">
@@ -37,8 +39,6 @@
         {{ users[0].Fecha_de_nacimiento }}</mat-card-content>
       <mat-card-content class="white-text title-xs">Dirección física:&nbsp;
         {{ users[0].Direccion_fisica }}</mat-card-content>
-      <mat-card-content class="white-text title-xs">Dirección fiscal:&nbsp;
-        {{ users[0].Direccion_fiscal }}</mat-card-content>
     </mat-card>
   </div>
 </div>
