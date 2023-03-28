@@ -12,7 +12,7 @@ export class PrivateHeaderComponent implements OnInit {
 
   user: UserData[] = [
     {
-      userID: 1,
+      userID: "1",
       userUsername: 'AndreaC',
       name: 'Andrea Cebrian',
       img: 'assets/media/example-photo.jpg',

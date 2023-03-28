@@ -1,4 +1,4 @@
-import { DetallesProductoMainComponent } from './components/detalles-producto-main/detalles-producto-main.component';
+import { DetallesProductoMainComponent } from './components/detalles-producto-main/detalles-producto-component/detalles-producto-main.component';
 import { Routes, RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";

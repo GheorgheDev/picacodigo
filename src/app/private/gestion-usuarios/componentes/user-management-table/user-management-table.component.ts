@@ -11,8 +11,8 @@ import { UserData } from 'src/app/shared/models/user-data';
 export class UserManagementTableComponent implements OnInit {
   @Input() userData: UserData[];
 
-  @Output() banUsersToggle = new EventEmitter<number>();
-  banUserToggle(userid:number){
+  @Output() banUsersToggle = new EventEmitter<string>();
+  banUserToggle(userid:string){
     this.banUsersToggle.emit(userid)
   
   }

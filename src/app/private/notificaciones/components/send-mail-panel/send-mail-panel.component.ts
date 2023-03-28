@@ -22,37 +22,37 @@ export class SendMailPanelComponent implements OnInit {
 
   users: UserData[] = [
     {
-      userID: 1,
+      userID: "1",
       userUsername: 'AndreaC',
       name: 'Andrea Cebrian',
     },
     {
-      userID: 2,
+      userID: "2",
       userUsername: 'JuanS',
       name: 'Juan Sevilla',
     },
     {
-      userID: 3,
+      userID: "3",
       userUsername: 'SalvadorS',
       name: 'Salvador Santos',
     },
     {
-      userID: 4,
+      userID: "4",
       userUsername: 'GheorgheB',
       name: 'Gheorghe Bucurici',
     },
     {
-      userID: 5,
+      userID: "5",
       userUsername: 'BarbaraR',
       name: 'Barbara Rodriguez',
     },
     {
-      userID: 6,
+      userID: "6",
       userUsername: 'MichelleM',
       name: 'Michelle Masias',
     },
     {
-      userID: 6,
+      userID: "6",
       userUsername: 'MichelleM',
       name: 'Michelle Masias',
     },

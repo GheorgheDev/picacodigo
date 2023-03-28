@@ -9,7 +9,7 @@ import { UserData } from 'src/app/shared/models/user-data';
 export class UserManagementPageComponent implements OnInit {
   usersData: UserData[] = [
     {
-      userID: 1,
+      userID: "1",
       userUsername: 'AndreaC',
       name: 'Andrea Cebrian',
       email: 'string',
@@ -17,7 +17,7 @@ export class UserManagementPageComponent implements OnInit {
       role: 'admin',
     },
     {
-      userID: 2,
+      userID: "2",
       userUsername: 'JuanJo',
       name: 'Juan Sevilla',
       email: 'string',
@@ -25,7 +25,7 @@ export class UserManagementPageComponent implements OnInit {
       role: 'admin',
     },
     {
-      userID: 3,
+      userID: "3",
       userUsername: 'SalvadorS',
       name: 'Salvador Santo',
       email: 'string',
@@ -33,7 +33,7 @@ export class UserManagementPageComponent implements OnInit {
       role: 'admin',
     },
     {
-      userID: 4,
+      userID: "4",
       userUsername: 'GheorgheB',
       name: 'Gheorghe Bucurici',
       email: 'string',
@@ -41,7 +41,7 @@ export class UserManagementPageComponent implements OnInit {
       role: 'admin',
     },
     {
-      userID: 5,
+      userID: "5",
       userUsername: 'BarbaraR',
       name: 'Barbara Rodriguez',
       email: 'string',
@@ -49,7 +49,7 @@ export class UserManagementPageComponent implements OnInit {
       role: 'admin',
     },
     {
-      userID: 6,
+      userID: "6",
       userUsername: 'MichelleM88',
       name: 'Michelle Masias',
       email: 'string',
@@ -57,7 +57,7 @@ export class UserManagementPageComponent implements OnInit {
       role: 'user',
     },
     {
-      userID: 7,
+      userID: "7",
       userUsername: 'Gabi',
       name: 'José Gabriel',
       email: 'string',
@@ -65,7 +65,7 @@ export class UserManagementPageComponent implements OnInit {
       role: 'user',
     },
     {
-      userID: 8,
+      userID: "8",
       userUsername: 'Tomy',
       name: 'Tomas Algo',
       email: 'string',
@@ -73,7 +73,7 @@ export class UserManagementPageComponent implements OnInit {
       role: 'user',
     },
     {
-      userID: 9,
+      userID: "9",
       userUsername: 'Paco',
       name: 'Francisco Jose',
       email: 'string',
@@ -81,7 +81,7 @@ export class UserManagementPageComponent implements OnInit {
       role: 'user',
     },
     {
-      userID: 10,
+      userID: "10",
       userUsername: 'SergioP',
       name: 'Sergio Piedas',
       email: 'string',
@@ -89,7 +89,7 @@ export class UserManagementPageComponent implements OnInit {
       role: 'user',
     },
     {
-      userID: 11,
+      userID: "11",
       userUsername: 'JuanJe',
       name: 'Juan Jesús',
       email: 'string',
@@ -97,7 +97,7 @@ export class UserManagementPageComponent implements OnInit {
       role: 'user',
     },
     {
-      userID: 12,
+      userID: "12",
       userUsername: 'Mario',
       name: 'Mario Bros',
       email: 'string',
@@ -116,7 +116,7 @@ export class UserManagementPageComponent implements OnInit {
   }
 
   ngAfterViewInit() {}
-  changeUserStatus(userid: number) {
+  changeUserStatus(userid: string) {
     let userToBan = this.usersData.find((user) => user.userID == userid);
     if (!!userToBan) {
       if(userToBan.status == 'inactive')

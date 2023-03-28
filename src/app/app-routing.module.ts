@@ -1,6 +1,6 @@
 import { UserManagementPageComponent } from './private/gestion-usuarios/componentes/user-management-page/user-management-page.component';
 import { NotificationPageComponent } from './private/notificaciones/components/notification-page/notification-page.component';
-import { DetallesProductoMainComponent } from './public/components/detalles-producto-main/detalles-producto-main.component';
+import { DetallesProductoMainComponent } from './public/components/detalles-producto-main/detalles-producto-component/detalles-producto-main.component';
 import { DashboardComponent } from './public/components/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';

@@ -1,13 +1,13 @@
-import { NeedLoginComponent } from './../need-login/need-login.component';
+import { NeedLoginComponent } from '../../need-login/need-login.component';
 import { MatDialog } from '@angular/material/dialog';
-import { ModeData } from './../../model/mode-data';
+import { ModeData } from '../../../model/mode-data';
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
-import { GameData } from '../../model/game-data';
-import { PegiData } from '../../model/pegi-data';
-import { GenreData } from '../../model/genre-data';
-import { GamePictureData } from '../../model/game-picture-data';
+import { GameData } from '../../../model/game-data';
+import { PegiData } from '../../../model/pegi-data';
+import { GenreData } from '../../../model/genre-data';
+import { GamePictureData } from '../../../model/game-picture-data';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { InvalidAddtokartComponent } from './invalid-addtokart/invalid-addtokart.component';
+import { InvalidAddtokartComponent } from '../invalid-addtokart/invalid-addtokart.component';
 
 @Component({
   selector: 'app-detalles-producto-main',
