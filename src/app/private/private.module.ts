@@ -1,3 +1,4 @@
+import { DialogProfilePhotoChangeComponent } from './my-profile-priv/components/dialog-profile-photo-change/dialog-profile-photo-change.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogUserDataChangeComponent } from './my-profile-priv/components/dialog-user-data-change/dialog-user-data-change.component';
 import { DialogPasswordChangeComponent } from './my-profile-priv/components/dialog-password-change/dialog-password-change.component';
@@ -21,7 +22,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
-  declarations: [MyProfilePrivComponent, CambioPasswordComponent, DialogPasswordChangeComponent, DialogUserDataChangeComponent
+  declarations: [MyProfilePrivComponent, CambioPasswordComponent, DialogPasswordChangeComponent, DialogUserDataChangeComponent, DialogProfilePhotoChangeComponent
   ],
   imports: [
     CommonModule,

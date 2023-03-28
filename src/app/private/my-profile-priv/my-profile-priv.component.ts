@@ -1,3 +1,4 @@
+import { DialogProfilePhotoChangeComponent } from './components/dialog-profile-photo-change/dialog-profile-photo-change.component';
 import { DialogUserDataChangeComponent } from './components/dialog-user-data-change/dialog-user-data-change.component';
 import { DialogPasswordChangeComponent } from './components/dialog-password-change/dialog-password-change.component';
 import { Component, OnInit } from '@angular/core';
@@ -37,6 +38,10 @@ export class MyProfilePrivComponent implements OnInit {
   ngOnInit(): void { }
 
   stateUser = true;
+
+  openNewProfilePhotoDialog() {
+    this.dialog.open(DialogProfilePhotoChangeComponent);
+  }
 
   openPasswordDialog() {
     this.dialog.open(DialogPasswordChangeComponent);

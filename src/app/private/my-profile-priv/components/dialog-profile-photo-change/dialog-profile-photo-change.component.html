@@ -1,0 +1,19 @@
+<div class="distribution__password__change">
+    <mat-dialog-actions>
+        <button mat-button [mat-dialog-close]="true" class="btn__close__dialog">
+            <i class="fa-regular fa-xmark icon__color"></i>
+        </button>
+    </mat-dialog-actions>
+
+    <div>
+        <p class="title-s white-text">Elige una nueva foto</p>
+    </div>
+
+    <form class="form-horizontal" id="userPhotoChangeForm" autocomplete="off">
+
+        <div class="form-group">
+            <label for="exampleInputNewProfilePhoto"></label>
+            <input type="file" class="title-xs form-input" id="exampleInputNewProfilePhoto" formControlName="new_photo">
+        </div>
+    </form>
+</div>
