@@ -52,6 +52,8 @@ export class NotificationPageComponent implements OnInit {
     }
   ]
 
+  user_id = 1
+
   changeReadStatus(index: number) {
     let foundNotification = this.notifications.find(elem=> elem.id == index)
     if(!!foundNotification)

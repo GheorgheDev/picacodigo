@@ -25,7 +25,7 @@ import { UserManagementTableComponent } from './componentes/user-management-tabl
     MatPaginatorModule,
     MatExpansionModule,
     MatIconModule,
-    MatTabsModule
+    MatTabsModule,
   ]
 })
 export class GestionUsuariosModule { }
