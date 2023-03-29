@@ -7,7 +7,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class HeaderContentComponent implements OnInit {
 
-  userIsLogged: string = '2';
+  userType: string = '1';
 
   logOutToggle: string = 'off';
   ScreenWidth: number;
@@ -22,7 +22,7 @@ export class HeaderContentComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onWindowResize() {
     this.ScreenWidth = window.innerWidth;
-    if (this.ScreenWidth < 769 && this.userIsLogged) {
+    if (this.ScreenWidth < 769 && this.userType) {
       this.logOutToggle = 'on';
     } else {
       this.logOutToggle = 'off';
