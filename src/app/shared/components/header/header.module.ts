@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { CommonHeaderComponent } from './common-header/common-header.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -25,7 +26,8 @@ import { AdminHeaderComponent } from './admin-header/admin-header.component';
     MatMenuModule,
     MatIconModule,
     MatDividerModule,
-    MatBadgeModule
+    MatBadgeModule,
+    RouterModule
   ],
   exports: [
     PrivateHeaderComponent,

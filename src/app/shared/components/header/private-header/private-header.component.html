@@ -17,9 +17,9 @@
     [ngStyle]="{'background-image': 'url(' + user[0].img + ')'}"
   >
   <mat-menu #profileMenu="matMenu" xPosition="before" class="profile-menu">
-    <span class="white-text title-xs profile-menu_option">Mi perfil</span>
-    <span class="white-text title-xs profile-menu_option">Mis juegos</span>
-    <span class="white-text title-xs profile-menu_option">Cerrar sesión</span>
+    <a [routerLink]="['/private/profile']" class="white-text title-xs profile-menu_option">Mi perfil</a>
+    <a [routerLink]="['/private/user-product']" class="white-text title-xs profile-menu_option">Mis juegos</a>
+    <a [routerLink]="['/auth/login']" class="white-text title-xs profile-menu_option">Cerrar sesión</a>
   </mat-menu>
 </button>
 

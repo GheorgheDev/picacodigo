@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { CardSliderComponent } from './components/card-slider/card-slider.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HeaderModule } from 'src/app/shared/components/header/header.module';
@@ -15,7 +16,8 @@ import { MatCardModule } from '@angular/material/card';
     CommonModule,
     HeaderModule,
     SharedModule,
-    MatCardModule
+    MatCardModule,
+    RouterModule
   ],
   exports: [
     UserProductsComponent,

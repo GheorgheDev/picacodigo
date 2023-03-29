@@ -10,7 +10,7 @@
                 <mat-card class="card__style">
                     <img mat-card-image src="../../../../../assets/media/example-photo.jpg">
                     <mat-card-title>
-                        <a mat-raised-button href="#" target="_blank"
+                        <a mat-raised-button [routerLink]="['#']" target="_blank"
                             class="white-text title-xs card__title">{{product.title}}</a>
                     </mat-card-title>
                     <mat-card-subtitle class="star__points">{{showStars(product.stars)}}</mat-card-subtitle>

@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { HeaderModule } from './../../../shared/components/header/header.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -42,7 +43,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     FormsModule,
     MatDialogModule,
     SharedModule,
-    HeaderModule
+    HeaderModule,
+    RouterModule
   ],
   exports: [
     NotificationPageComponent,
