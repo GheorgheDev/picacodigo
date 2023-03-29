@@ -4,6 +4,7 @@ import { HeaderModule } from 'src/app/shared/components/header/header.module';
 import { UserProductsComponent } from './user-products.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     HeaderModule,
-    SharedModule
+    SharedModule,
+    MatCardModule
   ],
   exports: [
     UserProductsComponent,

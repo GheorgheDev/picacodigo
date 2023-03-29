@@ -16,7 +16,6 @@ import {MatBadgeModule} from '@angular/material/badge';
     PublicHeaderComponent,
     CommonHeaderComponent,
     HeaderContentComponent,
-    
   ],
   imports: [
     CommonModule, 
@@ -30,6 +29,7 @@ import {MatBadgeModule} from '@angular/material/badge';
     PrivateHeaderComponent,
     PublicHeaderComponent,
     CommonHeaderComponent,
+    HeaderContentComponent,
   ],
 })
 export class HeaderModule {}

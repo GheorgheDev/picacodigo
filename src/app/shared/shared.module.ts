@@ -37,21 +37,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatSelectModule,
     MatFormFieldModule,
-    // MatCardModule,
     MatInputModule,
     FormsModule,
-    MatTabsModule
+    MatTabsModule,
   ],
   exports: [
     CardProductComponent,
     FooterComponent,
     FiltersComponent,
     OrdinationComponent,
-    MatCardModule,
-    MatInputModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HeaderModule,
     NotPermissionComponent
   ]
 })

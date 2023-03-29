@@ -1,3 +1,4 @@
+import { HeaderModule } from './../../../shared/components/header/header.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotificationPageComponent } from './components/notification-page/notification-page.component';
@@ -40,7 +41,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     TextFieldModule,
     FormsModule,
     MatDialogModule,
-    SharedModule
+    SharedModule,
+    HeaderModule
   ],
   exports: [
     NotificationPageComponent,
