@@ -66,11 +66,13 @@
             max={{game.stock}}
             min="1"
             class="producto__cantidad dark-gray-background text-light-l white-text"
+            [disabled]="userType=='2'"
           />
           <span class="text-regular-s game-stock"> ({{game.stock}} disponibles)</span>
           </span>
           
-          <button type="submit" class="btn-green title-xs" (click)="addToKart()">Añadir al carrito</button>
+          <button *ngIf="userType!='2'" type="submit" class="btn-green title-xs" (click)="addToKart()">Añadir al carrito</button>
+          <button *ngIf="userType=='2'" class="btn-green title-xs"  (click)="editGame()">Editar</button>
         </form>
       </div>
     </div>

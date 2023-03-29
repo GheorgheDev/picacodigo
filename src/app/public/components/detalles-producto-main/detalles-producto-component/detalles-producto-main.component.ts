@@ -1,3 +1,4 @@
+import { EditGameComponent } from './../edit-game/edit-game.component';
 import { NeedLoginComponent } from '../../need-login/need-login.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ModeData } from '../../../model/mode-data';
@@ -9,6 +10,7 @@ import { GamePictureData } from '../../../model/game-picture-data';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InvalidAddtokartComponent } from '../invalid-addtokart/invalid-addtokart.component';
 
+
 @Component({
   selector: 'app-detalles-producto-main',
   templateUrl: './detalles-producto-main.component.html',
@@ -16,7 +18,10 @@ import { InvalidAddtokartComponent } from '../invalid-addtokart/invalid-addtokar
 })
 export class DetallesProductoMainComponent implements OnInit {
 
-  userIsLogged:boolean = false;
+  /* usertype= 1 es un usuario logeado */
+  /* usertype= 2 es un admin */
+
+  userType:string = '2';
 
   constructor(private _fb: FormBuilder, public dialog: MatDialog) {}
   games: GameData[] = [
@@ -375,7 +380,7 @@ export class DetallesProductoMainComponent implements OnInit {
   }
 
   addToKart() {
-    if (this.userIsLogged){
+    if (this.userType=='1'){
       if (this.addToKartForm.invalid) {
         this.addToKartForm.markAllAsTouched();
         this.dialog.open(InvalidAddtokartComponent);
@@ -388,6 +393,11 @@ export class DetallesProductoMainComponent implements OnInit {
       this.dialog.open(NeedLoginComponent);
     }
     
+  }
+
+  editGame(){
+    this.dialog.open(EditGameComponent);
+
   }
 
   /* carrusel */

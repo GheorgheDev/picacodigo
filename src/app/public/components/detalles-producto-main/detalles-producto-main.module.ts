@@ -10,6 +10,7 @@ import {MatCardModule} from '@angular/material/card';
 import { ReviewCardComponent } from './review-card/review-card.component';
 import { AddReviewComponent } from './add-review/add-review.component';
 import {TextFieldModule} from '@angular/cdk/text-field';
+import { EditGameComponent } from './edit-game/edit-game.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {TextFieldModule} from '@angular/cdk/text-field';
         InvalidAddtokartComponent,
         ReviewsComponent,
         ReviewCardComponent,
-        AddReviewComponent
+        AddReviewComponent,
+        EditGameComponent
     ],
     imports: [
         CommonModule,

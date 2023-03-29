@@ -13,7 +13,7 @@ import { AddReviewComponent } from '../add-review/add-review.component';
 })
 export class ReviewsComponent implements OnInit {
 
-  userIsLogged:boolean = true;
+  userType:string = '1';
   
   users: UserData[] = [
     {
@@ -131,7 +131,7 @@ export class ReviewsComponent implements OnInit {
   }
 
   openAddAReviewDialog(){
-    if(this.userIsLogged)
+    if(this.userType=='1')
       this.dialog.open(AddReviewComponent);
     else
     this.dialog.open(NeedLoginComponent);
