@@ -5,6 +5,7 @@ import { NotificacionesModule } from './components/notificaciones/notificaciones
 import { GestionUsuariosModule } from './components/gestion-usuarios/gestion-usuarios.module';
 import { UserProductsModule } from './components/user-products/user-products.module';
 import { PrivateRoutingModule } from './private.routing';
+import { GenerarNuevoJuegoModule } from './components/generar-nuevo-juego/generar-nuevo-juego.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PrivateRoutingModule } from './private.routing';
     GestionUsuariosModule,
     MyProfilePrivModule,
     NotificacionesModule,
-    UserProductsModule
+    UserProductsModule,
+    GenerarNuevoJuegoModule
   ],
 })
 export class PrivateModule { }

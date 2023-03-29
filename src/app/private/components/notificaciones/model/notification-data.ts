@@ -1,5 +1,5 @@
 export interface NotificationData{
-    id: number,
+    id: string,
     from: string,
     content: string,
     where: string,

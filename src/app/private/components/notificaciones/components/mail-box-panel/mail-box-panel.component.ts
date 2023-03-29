@@ -9,12 +9,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class MailBoxPanelComponent implements OnInit {
 
   @Input() mailboxMessage: MailBoxData;
-  @Output() markMailsAsRead = new EventEmitter<number>();
-  markMailAsRead(value:number){
+  @Output() markMailsAsRead = new EventEmitter<string>();
+  markMailAsRead(value:string){
     this.markMailsAsRead.emit(value);
   }
-  @Output() deleteMessage = new EventEmitter<number>();
-  deleteMailBoxMessage(value:number){
+  @Output() deleteMessage = new EventEmitter<string>();
+  deleteMailBoxMessage(value:string){
     this.deleteMessage.emit(value);
   }
 

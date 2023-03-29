@@ -10,7 +10,7 @@
   </mat-form-field>
   <div class="table-paginator-container">
     <table mat-table [dataSource]="dataSourceUser">
-      <ng-container matColumnDef="userID">
+      <ng-container matColumnDef="user_id">
         <mat-header-cell
           *matHeaderCellDef
           class="white-text text-regular-s mat-header-id"
@@ -20,7 +20,7 @@
           *matCellDef="let user"
           class="text-regular-s"
           [ngClass]="{ inactive: user.status == 'inactive' }"
-          >{{ user.userID }}</mat-cell
+          >{{ user.user_id }}</mat-cell
         >
       </ng-container>
 
@@ -32,7 +32,7 @@
           *matCellDef="let user"
           class="text-regular-s"
           [ngClass]="{ inactive: user.status == 'inactive' }"
-          >{{ user.userUsername }}</mat-cell
+          >{{ user.user_username }}</mat-cell
         >
       </ng-container>
 
@@ -59,7 +59,7 @@
         >
           <a
             class="banToggle-btn title-xxs"
-            (click)="banUserToggle(user.userID)"
+            (click)="banUserToggle(user.user_id)"
           >
             <span *ngIf="user.status == 'active'">Banear</span>
             <span *ngIf="user.status == 'inactive'">Desbanear</span>

@@ -9,13 +9,13 @@ import { NotificationData } from '../../model/notification-data';
 export class NotificationsPanelComponent implements OnInit {
 
   @Input() notification: NotificationData;
-  @Output() markAsRead = new EventEmitter<number>();
-  markNotificationAsRead(value:number){
+  @Output() markAsRead = new EventEmitter<string>();
+  markNotificationAsRead(value:string){
     this.markAsRead.emit(value);
   }
 
-  @Output() deleteNotif = new EventEmitter<number>();
-  deleteNotification(value:number){
+  @Output() deleteNotif = new EventEmitter<string>();
+  deleteNotification(value:string){
     this.deleteNotif.emit(value);
   }
   constructor() { }
