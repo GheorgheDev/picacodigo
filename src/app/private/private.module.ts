@@ -13,7 +13,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import { CambioPasswordComponent } from './components/cambio-password/cambio-password.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GestionUsuariosModule } from './gestion-usuarios/gestion-usuarios.module';
@@ -22,7 +21,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
-  declarations: [MyProfilePrivComponent, CambioPasswordComponent, DialogPasswordChangeComponent, DialogUserDataChangeComponent, DialogProfilePhotoChangeComponent
+  declarations: [MyProfilePrivComponent, DialogPasswordChangeComponent, DialogUserDataChangeComponent, DialogProfilePhotoChangeComponent
   ],
   imports: [
     CommonModule,

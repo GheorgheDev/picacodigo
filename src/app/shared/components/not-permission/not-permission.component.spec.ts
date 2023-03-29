@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CambioPasswordComponent } from './cambio-password.component';
+import { NotPermissionComponent } from './not-permission.component';
 
-describe('CambioPasswordComponent', () => {
-  let component: CambioPasswordComponent;
-  let fixture: ComponentFixture<CambioPasswordComponent>;
+describe('NotPermissionComponent', () => {
+  let component: NotPermissionComponent;
+  let fixture: ComponentFixture<NotPermissionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CambioPasswordComponent ]
+      declarations: [ NotPermissionComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CambioPasswordComponent);
+    fixture = TestBed.createComponent(NotPermissionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -33,6 +33,9 @@ export class MyProfilePrivComponent implements OnInit {
       Imagen: '../images/img_user.jpg',
     },
   ];
+
+  user_id = 0
+
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void { }

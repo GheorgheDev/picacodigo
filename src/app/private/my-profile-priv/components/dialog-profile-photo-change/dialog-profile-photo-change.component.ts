@@ -19,6 +19,13 @@ export class DialogProfilePhotoChangeComponent implements OnInit {
 
   updateProfilePhoto() {
     console.log(this.changeDataProfile.value)
+
+    this.openSnackBar()
   }
 
+  openSnackBar() {
+    this._snackBar.open('La foto de perfil se ha cambiado correctamente', '', {
+      duration: 1000
+    });
+  }
 }

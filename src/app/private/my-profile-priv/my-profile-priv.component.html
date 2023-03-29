@@ -1,5 +1,5 @@
 <app-common-header></app-common-header>
-<div class="container dark-background">
+<div class="container dark-background" *ngIf="user_id == 0">
   <div class="welcome_message">
     <div class="white-text title-l">Mi perfil</div>
   </div>
@@ -45,5 +45,9 @@
         {{ users[0].Direccion_fisica }}</mat-card-content>
     </mat-card>
   </div>
+</div>
+
+<div *ngIf="user_id !== 0">
+  <app-not-permission></app-not-permission>
 </div>
 <app-footer></app-footer>

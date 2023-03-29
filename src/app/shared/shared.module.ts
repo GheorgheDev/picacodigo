@@ -1,3 +1,4 @@
+import { NotPermissionComponent } from './components/not-permission/not-permission.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { OrdinationComponent } from './components/ordination/ordination.component';
 import { MatInputModule } from '@angular/material/input';
@@ -19,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CardProductComponent,
     FooterComponent,
     FiltersComponent,
-    OrdinationComponent
+    OrdinationComponent,
+    NotPermissionComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +51,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    HeaderModule
+    HeaderModule,
+    NotPermissionComponent
   ]
 })
 export class SharedModule { }

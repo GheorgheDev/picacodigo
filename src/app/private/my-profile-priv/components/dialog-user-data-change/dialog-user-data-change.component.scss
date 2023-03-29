@@ -4,26 +4,13 @@
     align-items: center;
     justify-content: space-evenly;
     width: 50%px;
-    height: 50%x;
+    height: 50%px;
 }
 
-.form-horizontal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 32px;
-}
-
-.form-input {
+.form-input, .input__birthday {
     width: 100%;
 }
 
-.icon__color {
-    font-size: large;
-}
-
-.btn__close__dialog {
-    background-color: transparent;
-    border-color: transparent;
+.title__modal {
+    margin-bottom: 30px;
 }

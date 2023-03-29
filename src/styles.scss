@@ -9,20 +9,20 @@ $font-logo: "04B_30__.TTF";
 $background-color_dark: #0f130c;
 $background-color_transparent: transparent;
 $background-color_grey: #536162;
-$background-color_dark-grey: #292F33; 
+$background-color_dark-grey: #292F33;
 $border-color_green: #57E309;
 $border-color_transparent: transparent;
 
-body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
 body {
-	margin: 0;
+  margin: 0;
 }
 
 @font-face {
@@ -54,6 +54,7 @@ body {
   from {
     transform: translate3d(0, 0, 0);
   }
+
   to {
     transform: translate3d(0, 5px, 0);
   }
@@ -64,7 +65,7 @@ body {
 }
 
 .dark-gray-background {
-	background-color: $background-color_dark-grey;
+  background-color: $background-color_dark-grey;
 }
 
 .grey-background {
@@ -77,17 +78,17 @@ body {
 }
 
 .btn-green {
-	border: 3px dashed $border-color_green !important;
-	background-color: $background-color_transparent;
-	padding-top: 8px !important;
-	display: flex;
-	align-items: start;
-	cursor: pointer;
+  border: 3px dashed $border-color_green !important;
+  background-color: $background-color_transparent;
+  padding-top: 8px !important;
+  display: flex;
+  align-items: start;
+  cursor: pointer;
 
-	&:hover,
-	&:focus{
-		box-shadow: 0 0 5px #57e309;
-	}
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 5px #57e309;
+  }
 }
 
 .icon__color {
@@ -98,20 +99,21 @@ body {
 .btn-grey {
   background-color: $background-color_grey;
   border-color: $border-color_transparent;
+
   &:hover,
-	:focus,
-	:active {
-		box-shadow: 5px 10px 20px #536162;
-		background-color: $background-color_transparent;
-	}
+  :focus,
+  :active {
+    box-shadow: 5px 10px 20px #536162;
+    background-color: $background-color_transparent;
+  }
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .star__points {
-	color: $color_green;
+  color: $color_green;
 }
 
 .white-text {
@@ -198,33 +200,33 @@ a {
 }
 
 .title-l {
-	font-family: $font-title;
-	font-size: 32px;
-	padding-top: 10px;
+  font-family: $font-title;
+  font-size: 32px;
+  padding-top: 10px;
 }
 
 .title-m {
-	font-family: $font-title;
-	font-size: 24px;
-	padding-top: 10px;
+  font-family: $font-title;
+  font-size: 24px;
+  padding-top: 10px;
 }
 
 .title-s {
-	font-family: $font-title;
-	font-size: 16px;
-	padding-top: 10px;
+  font-family: $font-title;
+  font-size: 16px;
+  padding-top: 10px;
 }
 
 .title-xs {
-	font-family: $font-title;
-	font-size: 12px;
-	padding-top: 10px;
+  font-family: $font-title;
+  font-size: 12px;
+  padding-top: 10px;
 }
 
 .title-xxs {
-	font-family: $font-title;
-	font-size: 10px;
-	padding-top: 10px;
+  font-family: $font-title;
+  font-size: 10px;
+  padding-top: 10px;
 }
 
 .logo-l {
@@ -291,16 +293,41 @@ a {
 }
 
 .filter-option {
-	color: $color_green;
-	background-color: $background-color_dark;
-	border-color: $border-color_transparent;
+  color: $color_green;
+  background-color: $background-color_dark;
+  border-color: $border-color_transparent;
 }
 
 .notif-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-bottom: 25px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 25px;
+}
+
+.close__icon {
+  color: $color_green;
+  font-size: x-large;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 30px;
+  margin-left: 260px;
+}
+
+.distribution__modal__change {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.form-horizontal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 32px;
 }

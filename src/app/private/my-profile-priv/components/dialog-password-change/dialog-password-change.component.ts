@@ -43,26 +43,20 @@ export class DialogPasswordChangeComponent {
   coincidenciaAntiguaPassword() {
     this.userPassword = this.cambioPasswordForm.get('password0')?.value;
 
-    if (this.usuarios.password !== this.userPassword) {
+    if (this.usuarios.password !== this.userPassword && !!this.userPassword) {
       return true
     }
     else
       return false
-
-
   }
 
   crearPassword() {
     this.cambioPasswordForm.markAllAsTouched()
     if (!this.contrasenasNoValidas() && this.cambioPasswordForm.valid) {
-
-      // AQUI HACER EL POST CON LA CONTRASEÑA NUEVA
       this.usuarios.password = this.cambioPasswordForm.get('password2')?.value
       this.openSnackBar()
+      this.cambioPasswordForm.reset()
     }
-
-    console.log("1", this.usuarios.password)
-
   }
 
   contrasenasNoValidas() {

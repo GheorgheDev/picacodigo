@@ -29,7 +29,7 @@ export class DialogUserDataChangeComponent implements OnInit {
 
     console.log(this.userDataChangeForm.valid)
     if (this.userDataChangeForm.valid)
-      this.openSnackBar
+      this.openSnackBar()
   }
 
   openSnackBar() {
