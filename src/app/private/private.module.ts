@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GestionUsuariosModule } from './gestion-usuarios/gestion-usuarios.module';
 import { UserProductsModule } from './components/user-products/user-products.module';
+import { GenerarNuevoJuegoModule } from './generar-nuevo-juego/generar-nuevo-juego.module';
 
 @NgModule({
   declarations: [MyProfilePrivComponent, CambioPasswordComponent],
@@ -29,7 +30,8 @@ import { UserProductsModule } from './components/user-products/user-products.mod
     FormsModule,
     ReactiveFormsModule,
     GestionUsuariosModule,
-    UserProductsModule
+    UserProductsModule,
+    GenerarNuevoJuegoModule
   ],
   exports: [MyProfilePrivComponent],
 })
