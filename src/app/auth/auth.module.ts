@@ -1,7 +1,8 @@
-import { LoginModule } from './login/login.module';
+import { LoginModule } from './components/login/login.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RegisterModule } from './register/register.module';
+import { RegisterModule } from './components/register/register.module';
+import { AuthRoutingModule } from './auth.routing';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import { RegisterModule } from './register/register.module';
   imports: [
     CommonModule,
     LoginModule,
-    RegisterModule
+    RegisterModule,
+    AuthRoutingModule
   ],
   exports: [
   ]

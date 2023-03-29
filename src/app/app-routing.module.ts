@@ -6,12 +6,12 @@ import { DetallesProductoMainComponent } from './public/components/detalles-prod
 import { DashboardComponent } from './public/components/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RegisterComponent } from './auth/register/register.component';
+import { RegisterComponent } from './auth/components/register/register.component';
 
 
 //Modulos
 import { AuthRoutingModule } from './auth/auth.routing';
-import { LoginComponent } from './auth/login/login.component';
+import { LoginComponent } from './auth/components/login/login.component';
 import { PrivateRoutingModule } from './private/private.routing';
 
 

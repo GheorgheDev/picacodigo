@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
         DetallesProductoMainComponent
     ],
     imports: [
-        CommonModule,
+        CommonModule
     ],
     exports: [
         DetallesProductoMainComponent
