@@ -1,4 +1,8 @@
-<form class="form-horizontal" [formGroup]="AddGameForm">
+<form
+  class="form-horizontal"
+  [formGroup]="AddGameForm"
+  (ngSubmit)="newGameDataChange()"
+>
   <p>Crea nuevo juego</p>
 
   <div class="form-group">
@@ -100,8 +104,8 @@
   <div class="form-group">
     <label for="precio">Precio:</label>
     <input
-    class="form-input title-xs"
-    type="text"
+      class="form-input title-xs"
+      type="text"
       formControlName="precio"
       name="precio"
       id="precio"

@@ -27,12 +27,16 @@ export class GenerarNuevoJuegoComponent implements OnInit {
     precio: ['', [Validators.required]],
   });
 
+  newGameDataChange() {
+    let valores = this.AddGameForm.value;
+    console.log(valores);
+  }
+
   sendMessageAddGame() {
     if (this.AddGameForm.invalid) {
       this.AddGameForm.markAllAsTouched();
       this.dialog.open(InvalidGameFormComponent);
     } else {
-      this.AddGameForm.reset();
       this.dialog.open(ValidGameFormComponent);
     }
   }
