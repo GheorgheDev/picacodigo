@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -7,13 +8,9 @@ import { AuthModule } from './auth/auth.module';
 import { PrivateModule } from './private/private.module';
 import { PublicModule } from './public/public.module';
 import { SharedModule } from './shared/shared.module';
-/* import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatMenuModule } from '@angular/material/menu'; */
-
-
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -22,9 +19,11 @@ import { MatMenuModule } from '@angular/material/menu'; */
     PrivateModule,
     SharedModule,
     BrowserAnimationsModule,
-    AuthModule
+    AuthModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

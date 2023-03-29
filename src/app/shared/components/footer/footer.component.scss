@@ -1,3 +1,9 @@
+$background-color_dark-grey: #292F33;
+
+.dark-gray-background {
+    background-color: $background-color_dark-grey;
+}
+
 .distribution__footer__elements {
     padding: 24px 0 24px 0;
     display: flex;

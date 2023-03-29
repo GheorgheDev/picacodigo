@@ -1,3 +1,5 @@
+import { MyProfilePrivComponent } from './private/my-profile-priv/my-profile-priv.component';
+import { UserProductsComponent } from './private/components/user-products/user-products.component';
 import { UserManagementPageComponent } from './private/gestion-usuarios/componentes/user-management-page/user-management-page.component';
 import { NotificationPageComponent } from './private/notificaciones/components/notification-page/notification-page.component';
 import { DetallesProductoMainComponent } from './public/components/detalles-producto-main/detalles-producto-component/detalles-producto-main.component';
@@ -20,7 +22,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'notification', component: NotificationPageComponent },
   { path: 'user-management', component: UserManagementPageComponent },
-  { path: 'product-detail', component: DetallesProductoMainComponent }
+  { path: 'product-detail', component: DetallesProductoMainComponent },
+  { path: 'user-product', component: UserProductsComponent },
+  { path: 'profile', component: MyProfilePrivComponent }
 ];
 
 @NgModule({
