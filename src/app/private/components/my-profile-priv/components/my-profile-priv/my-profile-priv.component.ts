@@ -1,6 +1,6 @@
-import { DialogProfilePhotoChangeComponent } from './components/dialog-profile-photo-change/dialog-profile-photo-change.component';
-import { DialogUserDataChangeComponent } from './components/dialog-user-data-change/dialog-user-data-change.component';
-import { DialogPasswordChangeComponent } from './components/dialog-password-change/dialog-password-change.component';
+import { DialogProfilePhotoChangeComponent } from '../dialog-profile-photo-change/dialog-profile-photo-change.component';
+import { DialogUserDataChangeComponent } from '../dialog-user-data-change/dialog-user-data-change.component';
+import { DialogPasswordChangeComponent } from '../dialog-password-change/dialog-password-change.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 

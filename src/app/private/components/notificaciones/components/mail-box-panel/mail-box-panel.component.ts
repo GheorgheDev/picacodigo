@@ -1,4 +1,4 @@
-import { MailBoxData } from './../../model/mailbox-data';
+import { MailBoxData } from '../../model/mailbox-data';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({

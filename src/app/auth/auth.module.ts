@@ -9,9 +9,9 @@ import { AuthRoutingModule } from './auth.routing';
   ],
   imports: [
     CommonModule,
+    AuthRoutingModule,
     LoginModule,
-    RegisterModule,
-    AuthRoutingModule
+    RegisterModule
   ],
   exports: [
   ]
