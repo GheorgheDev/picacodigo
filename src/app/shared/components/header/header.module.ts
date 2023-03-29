@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HeaderContentComponent } from './header-content/header-content.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatBadgeModule} from '@angular/material/badge';
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {MatBadgeModule} from '@angular/material/badge';
     PublicHeaderComponent,
     CommonHeaderComponent,
     HeaderContentComponent,
+    AdminHeaderComponent,
     
   ],
   imports: [
