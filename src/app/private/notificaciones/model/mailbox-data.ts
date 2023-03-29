@@ -1,5 +1,5 @@
 export interface MailBoxData{
-    id: number,
+    id: string,
     from: string,
     to: string,
     content: string,

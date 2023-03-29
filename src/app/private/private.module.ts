@@ -19,6 +19,7 @@ import { GestionUsuariosModule } from './gestion-usuarios/gestion-usuarios.modul
 import { UserProductsModule } from './components/user-products/user-products.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+import { GenerarNuevoJuegoModule } from './generar-nuevo-juego/generar-nuevo-juego.module';
 
 @NgModule({
   declarations: [MyProfilePrivComponent, DialogPasswordChangeComponent, DialogUserDataChangeComponent, DialogProfilePhotoChangeComponent
@@ -39,7 +40,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     UserProductsModule,
     SharedModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    GenerarNuevoJuegoModule
   ],
   exports: [MyProfilePrivComponent]
 })

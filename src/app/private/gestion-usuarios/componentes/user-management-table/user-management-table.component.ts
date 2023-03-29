@@ -11,13 +11,13 @@ import { UserData } from 'src/app/shared/models/user-data';
 export class UserManagementTableComponent implements OnInit {
   @Input() userData: UserData[];
 
-  @Output() banUsersToggle = new EventEmitter<number>();
-  banUserToggle(userid:number){
-    this.banUsersToggle.emit(userid)
+  @Output() banUsersToggle = new EventEmitter<string>();
+  banUserToggle(user_id:string){
+    this.banUsersToggle.emit(user_id)
   
   }
 
-  displayedColumns: string[] = ['userID', 'username', 'name', 'actions'];
+  displayedColumns: string[] = ['user_id', 'username', 'name', 'actions'];
 
   dataSourceUser: any;
 

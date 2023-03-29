@@ -11,7 +11,7 @@ import { MailBoxData } from '../../model/mailbox-data';
 export class NotificationPageComponent implements OnInit { 
   notifications: NotificationData[] = [
     {
-      id: 1,
+      id: "1",
       from: "Andrea C.",
       content: "ha comentado",
       where: "en tu publicacion",
@@ -19,7 +19,7 @@ export class NotificationPageComponent implements OnInit {
       read: false
     },
     {
-      id: 2,
+      id: "2",
       from: "JuanJo G.",
       content: "ha comentado",
       where: "en tu publicacion",
@@ -27,7 +27,7 @@ export class NotificationPageComponent implements OnInit {
       read: true
     },
     {
-      id: 3,
+      id: "3",
       from: "Salvador S.",
       content: " le dió like a tu comentario",
       where: "en la publicacion",
@@ -35,7 +35,7 @@ export class NotificationPageComponent implements OnInit {
       read: false
     },
     {
-      id: 4,
+      id: "4",
       from: "Gheorghe B.",
       content: "ha publicado",
       where: "a la venta",
@@ -43,7 +43,7 @@ export class NotificationPageComponent implements OnInit {
       read: false
     },
     {
-      id: 5,
+      id: "5",
       from: "Barbara R.",
       content: "ha comentado",
       where: "en tu publicacion sobre",
@@ -54,13 +54,13 @@ export class NotificationPageComponent implements OnInit {
 
   user_id = 1
 
-  changeReadStatus(index: number) {
+  changeReadStatus(index: string) {
     let foundNotification = this.notifications.find(elem=> elem.id == index)
     if(!!foundNotification)
       foundNotification.read=true;
   }
 
-  deleteNotifi(notifID: number) {
+  deleteNotifi(notifID: string) {
     let foundNotificationIndex = this.notifications.findIndex(elem=> elem.id === notifID)
     this.notifications.splice(foundNotificationIndex, 1)
   }
@@ -70,7 +70,7 @@ export class NotificationPageComponent implements OnInit {
 
   mailboxMessages: MailBoxData[] = [
     {
-      id: 1,
+      id: "1",
       from: "Barbara",
       to: "Gheorghe",
       content: "Hola Gheorghe necesito ayuda",
@@ -78,7 +78,7 @@ export class NotificationPageComponent implements OnInit {
       read: false
     },
     {
-      id: 2,
+      id: "2",
       from: "Gheorghe",
       to: "Bárbara",
       content: "no",
@@ -86,7 +86,7 @@ export class NotificationPageComponent implements OnInit {
       read: true
     },
     {
-      id: 3,
+      id: "3",
       from: "Andrea",
       to: "Gheorghe",
       content: "Hola Gheorghe yo tambien",
@@ -94,7 +94,7 @@ export class NotificationPageComponent implements OnInit {
       read: false
     },
     {
-      id: 4,
+      id: "4",
       from: "Gheorghe",
       to: "Andrea",
       content: "no tampoco no tampoco no tampoco no tampoco no tampoco no tampoco no tampoco no tampoco no tampoco ",
@@ -102,7 +102,7 @@ export class NotificationPageComponent implements OnInit {
       read: false
     },
     {
-      id: 5,
+      id: "5",
       from: "Juanjo",
       to: "Gheorghe",
       content: "Hola yo tambien",
@@ -110,7 +110,7 @@ export class NotificationPageComponent implements OnInit {
       read: false
     },
     {
-      id: 6,
+      id: "6",
       from: "Gheorghe",
       to: "Juanjo",
       content: "bueno ok",
@@ -118,7 +118,7 @@ export class NotificationPageComponent implements OnInit {
       read: false
     },
     {
-      id: 7,
+      id: "7",
       from: "Salvador",
       to: "Gheorghe",
       content: "Hola como estas, soy un bombero",
@@ -126,7 +126,7 @@ export class NotificationPageComponent implements OnInit {
       read: false
     },
     {
-      id: 8,
+      id: "8",
       from: "Gheorghe",
       to: "Salvador",
       content: "Hola pos ok bien x ti",
@@ -136,13 +136,15 @@ export class NotificationPageComponent implements OnInit {
     
   ]
 
-  changeMailsReadStatus(index: number) {
+
+  
+  changeMailsReadStatus(index: string) {
     let foundMail = this.mailboxMessages.find(elem=> elem.id == index)
     if(!!foundMail)
     foundMail.read=true;
   }
 
-  deleteMBMessage(mesID: number) {
+  deleteMBMessage(mesID: string) {
     let foundMessageIndex = this.mailboxMessages.findIndex(elem=> elem.id === mesID)
     this.mailboxMessages.splice(foundMessageIndex, 1)
     console.log(foundMessageIndex)

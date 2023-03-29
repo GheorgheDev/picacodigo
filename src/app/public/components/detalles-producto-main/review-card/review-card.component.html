@@ -1,0 +1,18 @@
+<mat-card class="dark-gray-background">
+  <mat-card-header>
+
+      <img
+      mat-card-avatar
+        [src]="completeReview.user_img"
+        alt="Photo of a Shiba Inu"
+      />
+
+    <mat-card-title class="white-text title-xs">{{completeReview.user_username}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="white-text">
+      {{completeReview.content}}
+    </p>
+  </mat-card-content>
+
+</mat-card>

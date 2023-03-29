@@ -1,10 +1,10 @@
 <div class="navbar-content">
     <a routerLink="/" class="white-text title-xs">Inicio</a>
-    <a routerLink="/" class="white-text title-xs">Mis productos</a>
     <mat-divider></mat-divider>
     <span class="variable-navbar">
-      <app-public-header *ngIf="!userIsLogged"></app-public-header>
-      <app-private-header *ngIf="userIsLogged"></app-private-header>
+      <app-public-header *ngIf="userType=='0'"></app-public-header>
+      <app-private-header *ngIf="userType=='1'"></app-private-header>
+      <app-admin-header *ngIf="userType=='2'"></app-admin-header>
     </span>
     <mat-divider class="logout-divider"></mat-divider>
     <a routerLink="/" class="white-text title-xs" *ngIf="logOutToggle == 'on'">Cerrar sesión</a>
