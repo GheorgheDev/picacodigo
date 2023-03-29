@@ -1,5 +1,6 @@
 $background-color_dark-grey: #292F33;
 $font-title: "Minecraftia-Regular.ttf";
+$border-color_green: #57e309;
 
 ::ng-deep .mat-dialog-container{
     background-color: $background-color_dark-grey ;
@@ -10,8 +11,32 @@ $font-title: "Minecraftia-Regular.ttf";
     display: flex;
     justify-content: center;
     padding: 5px 0;
+    margin-top: 10px;
 }
 
 ::ng-deep.mat-dialog-title{
     font-family: $font-title !important;
 }
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mat-input-element.review_text{
+    color: #fff;
+}
+
+
+::ng-deep .mat-form-field-label {
+    color: $border-color_green !important;
+  }
+  
+  ::ng-deep .mat-focused .mat-form-field-label {
+    color: $border-color_green !important;
+  }
+  
+  ::ng-deep.mat-form-field-ripple {
+    background-color: $border-color_green !important;
+  }

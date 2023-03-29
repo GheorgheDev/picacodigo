@@ -55,7 +55,7 @@ export class ReviewsComponent implements OnInit {
   ];
 
   reviews: ReviewData[] = [
-    {
+    /* {
       review_id: '79sd67f',
       content: 'Este es el mejor juego que existe',
       game_id: '2',
@@ -92,7 +92,7 @@ export class ReviewsComponent implements OnInit {
         'Me gustó la trama del juego, aunque tuve algunos problemas técnicos',
       game_id: '2',
       user_id: 'rty89jkl',
-    },
+    }, */
   ];
   constructor(public dialog: MatDialog) {
 

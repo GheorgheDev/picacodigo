@@ -9,6 +9,7 @@ import { ReviewsComponent } from './reviews/reviews.component';
 import {MatCardModule} from '@angular/material/card';
 import { ReviewCardComponent } from './review-card/review-card.component';
 import { AddReviewComponent } from './add-review/add-review.component';
+import {TextFieldModule} from '@angular/cdk/text-field';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AddReviewComponent } from './add-review/add-review.component';
         ReactiveFormsModule,
         MatDialogModule,
         SharedModule,
-        MatCardModule
+        MatCardModule,
+        TextFieldModule
     ],
     exports: [
         DetallesProductoMainComponent

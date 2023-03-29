@@ -323,7 +323,7 @@ export class DetallesProductoMainComponent implements OnInit {
 
   addToKartForm: FormGroup;
 
-  idGame: string = '2';
+  idGame: string = '1';
   selectedGamePictures: GamePictureData[] = [];
   game: GameData;
 

@@ -1,6 +1,8 @@
 import { NewReviewData } from './../../../model/review-data';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CdkTextareaAutosize } from '@angular/cdk/text-field';
+
 
 @Component({
   selector: 'app-add-review',
@@ -13,6 +15,8 @@ export class AddReviewComponent implements OnInit {
   game_id = '2'
 
   newReview: NewReviewData
+
+  @ViewChild('autosize') autosize: CdkTextareaAutosize;
 
   constructor(private _fb: FormBuilder) { }
 

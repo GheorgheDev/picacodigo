@@ -5,5 +5,7 @@
     <app-review-card *ngFor="let completeReview of completeReviews" [completeReview]="completeReview" class="review-card"></app-review-card>
   </div>
 
+  <div *ngIf="completeReviews.length<1" class="text-regular-s no-reviews"> No hay reseñas aún para este juego</div>
+
   <button class="btn-green title-xs white-text" (click)="openAddAReviewDialog()">Añadir una reseña</button>
 </div>
