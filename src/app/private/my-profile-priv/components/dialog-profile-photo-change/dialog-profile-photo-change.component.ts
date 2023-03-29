@@ -1,4 +1,6 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-dialog-profile-photo-change',
@@ -6,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dialog-profile-photo-change.component.scss']
 })
 export class DialogProfilePhotoChangeComponent implements OnInit {
-
-  constructor() { }
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
   }
 
-  /* CREAR EL NUEVO FORMGROUP QUE RECOJA EL ATRIBUTO QUE CONTIENE LA IMAGEN Y CREAR UN EVENTO ASOCIADO A UN BOTÓN EN EL QUE ME CARGUE LA IMAGEN(URL) EN LA CONSOLA */
+  public changeDataProfile: FormGroup = this.fb.group({
+    new_photo: ['', Validators.required]
+  })
+
+  updateProfilePhoto() {
+    console.log(this.changeDataProfile.value)
+  }
 
 }
