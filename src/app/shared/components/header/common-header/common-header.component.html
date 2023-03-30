@@ -1,6 +1,6 @@
 <div class="header-container dark-gray-background">
   <mat-toolbar class="dark-gray-background">
-  <span class="navbar-logo logo-s green-text">PICKAGAME</span>
+  <a [routerLink]="['/']" class="navbar-logo logo-s green-text">PICKAGAME</a>
 
   <span
     *ngIf="burgerMenuToggle == 'off'; else burgerMenu"

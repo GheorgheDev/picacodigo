@@ -7,7 +7,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class HeaderContentComponent implements OnInit {
 
-  userType: string = '2';
+  userType: string = '1';
 
   logOutToggle: string = 'off';
   ScreenWidth: number;
