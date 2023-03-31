@@ -1,0 +1,39 @@
+<div class="shopping-cart__header">
+  <app-common-header></app-common-header>
+</div>
+
+<div class="shopping-cart-container dark-background white-text">
+  <h1 class="shopping-cart-title title-l white-text">Carrito de compras</h1>
+
+  <div class="shopping-items-container">
+    <app-shopping-cart-card 
+      *ngFor="let completeShoppingCartItems of completeShoppingCartItems"
+      [completeShoppingCartItems]="completeShoppingCartItems"  (deleteItemFromShoppingCartSSEvent)="deleteItemFromShoppingCartSS($event)"
+    ></app-shopping-cart-card>
+    <div class="no-shopping-items text-regular-m" *ngIf="completeShoppingCartItems.length==0">
+      Uy! Parece que no hay nada por aqui aun
+    </div>
+  </div>
+
+  <div class="final-price-container white-text">
+    <mat-card>
+      <mat-card-content class="text-regular-m matcard-content__message white-text">
+
+      <div>
+          <span>TOTAL: </span>
+          <span  class="green-text">€ {{totalAllShoppigCartItems}}</span>
+      </div>
+   
+    <mat-card-actions>
+      <i matBadge="1" matBadgeSize="large" class="material-symbols-outlined green-text delete-btn">delete</i>
+
+    </mat-card-actions>
+  </mat-card-content>
+    </mat-card>
+    
+  </div>
+</div>
+
+<div class="shopping-cart__footer">
+  <app-footer></app-footer>
+</div>

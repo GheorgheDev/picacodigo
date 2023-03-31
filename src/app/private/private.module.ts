@@ -18,7 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GestionUsuariosModule } from './gestion-usuarios/gestion-usuarios.module';
 import { UserProductsModule } from './components/user-products/user-products.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
 import { GenerarNuevoJuegoModule } from './generar-nuevo-juego/generar-nuevo-juego.module';
 
 @NgModule({
@@ -41,7 +41,8 @@ import { GenerarNuevoJuegoModule } from './generar-nuevo-juego/generar-nuevo-jue
     SharedModule,
     MatDialogModule,
     MatSnackBarModule,
-    GenerarNuevoJuegoModule
+    GenerarNuevoJuegoModule,
+    ShoppingCartModule
   ],
   exports: [MyProfilePrivComponent]
 })

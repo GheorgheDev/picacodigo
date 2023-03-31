@@ -8,9 +8,11 @@
       />
 
     <mat-card-title class="white-text title-xs">{{completeReview.user_username}}</mat-card-title>
+  
+    <i *ngIf="userType=='2'" class="fa-regular fa-solid fa-xmark" (click)="deleteReview(completeReview.review_id)" ></i>
   </mat-card-header>
   <mat-card-content>
-    <p class="white-text">
+    <p class="white-text review-content">
       {{completeReview.content}}
     </p>
   </mat-card-content>

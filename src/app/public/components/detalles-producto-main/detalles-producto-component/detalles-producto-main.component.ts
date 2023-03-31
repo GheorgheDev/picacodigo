@@ -1,3 +1,4 @@
+import { ShoppingCartItemData } from './../../../model/shopping-cart-item-data';
 import { EditGameComponent } from './../edit-game/edit-game.component';
 import { NeedLoginComponent } from '../../need-login/need-login.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -9,6 +10,7 @@ import { GenreData } from '../../../model/genre-data';
 import { GamePictureData } from '../../../model/game-picture-data';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InvalidAddtokartComponent } from '../invalid-addtokart/invalid-addtokart.component';
+import { ShoppingCartService } from 'src/app/private/services/shopping-cart.service';
 
 
 @Component({
@@ -21,9 +23,9 @@ export class DetallesProductoMainComponent implements OnInit {
   /* usertype= 1 es un usuario logeado */
   /* usertype= 2 es un admin */
 
-  userType:string = '2';
+  userType:string = '1';
 
-  constructor(private _fb: FormBuilder, public dialog: MatDialog) {}
+  constructor(private _fb: FormBuilder, public dialog: MatDialog, private shoppingItems: ShoppingCartService) {}
   games: GameData[] = [
     {
       game_id: '1',
@@ -31,7 +33,7 @@ export class DetallesProductoMainComponent implements OnInit {
       distributor: 'Rockstar Games',
       stars: 5,
       description:
-        'Red Dead Redemption II, estilizado Red Dead Redemption II, es un videojuego de acción-aventura western basado en el drama, en un mundo abierto y en perspectiva de primera y tercera persona, con componentes para un jugador y multijugador.',
+        'Space invaders	Arcade	Si	No	Midway Games	Space Invaders es un videojuego arcade de disparos desarrollado por Taito y lanzado en 1978. El juego presenta una serie de alienígenas que se mueven de un lado a otro en la pantalla, mientras el jugador controla un cañón situado en la parte inferior de la pantalla para dispararles y defenderse. A medida que el juego avanza, la velocidad y la dificultad aumentan, y los alienígenas se mueven más rápido y atacan con mayor frecuencia. \n Space Invaders fue uno de los primeros juegos arcade en alcanzar un gran éxito comercial y es considerado uno de los juegos más influyentes de la historia de los videojuegos. Su mecánica simple y adictiva, así como su diseño de personajes y efectos de sonido icónicos, lo han convertido en un símbolo de la cultura popular. El juego ha sido portado a numerosas consolas y dispositivos, y ha inspirado una gran cantidad de secuelas y adaptaciones.',
       pegi_id: '3',
       genre_id: '10',
       mode_id: '1',
@@ -49,7 +51,7 @@ export class DetallesProductoMainComponent implements OnInit {
       genre_id: '11',
       mode_id: '2',
       price: 45.0,
-      stock: 0,
+      stock: 206,
     },
     {
       game_id: '3',
@@ -326,15 +328,19 @@ export class DetallesProductoMainComponent implements OnInit {
     },
   ];
 
+  
+
   addToKartForm: FormGroup;
 
-  idGame: string = '1';
+  game_id: string = '1';
+  user_id: string = '7814dfa';
   selectedGamePictures: GamePictureData[] = [];
+  shoppingCartItems: ShoppingCartItemData[] = [] as ShoppingCartItemData[]
   game: GameData;
 
   ngOnInit(): void {
-    this.selectGame(this.idGame);
-    this.selectPictures(this.idGame);
+    this.selectGame(this.game_id);
+    this.selectPictures(this.game_id);
     this.createForm();
   }
 
@@ -344,9 +350,9 @@ export class DetallesProductoMainComponent implements OnInit {
     });
   }
 
-  selectPictures(idGame: string) {
+  selectPictures(game_id: string) {
     for (let i = 0; i < this.gamePictures.length; i++) {
-      if (this.gamePictures[i].game_id == idGame) {
+      if (this.gamePictures[i].game_id == game_id) {
         this.selectedGamePictures.push(this.gamePictures[i]);
       }
     }
@@ -370,8 +376,8 @@ export class DetallesProductoMainComponent implements OnInit {
     if (!!modeSelected) this.game.mode_id = modeSelected.name;
   }
 
-  selectGame(idGame: string) {
-    let gameSelected = this.games.find((game) => game.game_id == idGame);
+  selectGame(game_id: string) {
+    let gameSelected = this.games.find((game) => game.game_id == game_id);
     if (!!gameSelected) 
       this.game = gameSelected;
     this.replacePegi(this.game.pegi_id);
@@ -386,7 +392,15 @@ export class DetallesProductoMainComponent implements OnInit {
         this.dialog.open(InvalidAddtokartComponent);
       } else {
         let cantidad = this.addToKartForm.get('game_quantity')?.value;
-        console.log('Cantidad:', cantidad);
+        let shoppingCartItem: ShoppingCartItemData = {} as ShoppingCartItemData
+        shoppingCartItem.game_id = this.game_id
+        shoppingCartItem.user_id = this.user_id
+        shoppingCartItem.game_quantity = cantidad
+        console.log(shoppingCartItem)
+
+        this.shoppingItems.addToShoppingCart(shoppingCartItem);
+        
+        
         this.addToKartForm.reset();
       }
     }else{
