@@ -1,4 +1,4 @@
 export interface GenreData{
-    genre_id: string
+    category_id: string
     name: string
 }

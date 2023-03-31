@@ -27,7 +27,7 @@ export class GenerarNuevoJuegoComponent implements OnInit {
     precio: ['', [Validators.required]],
   });
 
-  newGameDataChange() {
+  newProductDataChange() {
     let valores = this.AddGameForm.value;
     console.log(valores);
   }
