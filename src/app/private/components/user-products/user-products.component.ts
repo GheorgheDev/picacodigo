@@ -11,81 +11,81 @@ import * as _ from 'lodash';
 export class UserProductsComponent implements OnInit {
   products: ProductData[] = [
     {
-      title: 'Prince of Persia',
+      name: 'Prince of Persia',
       stars: 1,
       price: 13.59,
-      genreId: '10',
-      modeId: '30'
+      category_id: '10',
+      mode_id: '30'
     },
     {
-      title: 'Los Sims',
+      name: 'Los Sims',
       stars: 3,
       price: 8.99,
-      genreId: '11',
-      modeId: '31'
+      category_id: '11',
+      mode_id: '31'
     },
     {
-      title: 'Tetris',
+      name: 'Tetris',
       stars: 4,
       price: 6.69,
-      genreId: '12',
-      modeId: '30'
+      category_id: '12',
+      mode_id: '30'
     },
     {
-      title: 'Resident Evil 4',
+      name: 'Resident Evil 4',
       stars: 1,
       price: 36.99,
-      genreId: '13',
-      modeId: '31'
+      category_id: '13',
+      mode_id: '31'
     },
     {
-      title: 'Warcraft',
+      name: 'Warcraft',
       stars: 2,
       price: 13.59,
-      genreId: '14',
-      modeId: '30'
+      category_id: '14',
+      mode_id: '30'
     },
     {
-      title: 'Buscaminas',
+      name: 'Buscaminas',
       stars: 5,
       price: 13.59,
-      genreId: '15',
-      modeId: '31'
+      category_id: '15',
+      mode_id: '31'
     },
     {
-      title: 'Prince of Persia',
+      name: 'Prince of Persia',
       stars: 1,
       price: 13.59,
-      genreId: '20',
-      modeId: '30'
+      category_id: '20',
+      mode_id: '30'
     },
     {
-      title: 'Los Sims',
+      name: 'Los Sims',
       stars: 3,
       price: 8.99,
-      genreId: '20',
-      modeId: '31'
+      category_id: '20',
+      mode_id: '31'
     },
     {
-      title: 'Tetris',
+      name: 'Tetris',
       stars: 4,
       price: 6.69,
-      genreId: '12',
-      modeId: '30'
+      category_id: '12',
+      mode_id: '30'
     },
     {
-      title: 'Resident Evil 4',
+      name: 'Resident Evil 4',
       stars: 1,
       price: 36.99,
-      genreId: '13',
-      modeId: '30'
+      category_id: '13',
+      mode_id: '30'
     },
     {
-      title: 'Warcraft',
+      name: 'Warcraft',
       stars: 2,
       price: 13.59,
-      genreId: '14',
-      modeId: '31'
+      category_id: '14',
+      mode_id: '31'
     }
   ];
 
