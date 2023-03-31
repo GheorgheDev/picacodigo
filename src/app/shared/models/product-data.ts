@@ -1,12 +1,12 @@
 export interface ProductData {
   game_id?: string,
   name: string;
-  // distributor: string,
+  distributor?: string,
   stars: number,
-  // description?: string,
+  description?: string,
   price: number,
-  // stock?: number,
-  // pegi_id?: string, 
+  stock?: number,
+  pegi_id?: string, 
   category_id: string,
   mode_id: string,
 }
