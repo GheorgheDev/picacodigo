@@ -120,7 +120,7 @@ export class UserManagementPageComponent implements OnInit {
 
   filteredUsers: UserData[];
   filteredAdmin: UserData[];
-  user_id = 1
+  userType = 1
 
   ngOnInit(): void {
     this.filteredUsers = this.usersData.filter((user) => user.rol === 'user');

@@ -1,5 +1,5 @@
 <app-common-header></app-common-header>
-<div class="container dark-background" *ngIf="user_id !== 0">
+<div class="container dark-background" *ngIf="userType !== 0">
   <div class="welcome_message">
     <div class="white-text title-l">Mi perfil</div>
   </div>
@@ -47,7 +47,7 @@
   </div>
 </div>
 
-<div *ngIf="user_id == 0">
+<div *ngIf="userType == 0">
   <app-not-permission></app-not-permission>
 </div>
 <app-footer></app-footer>

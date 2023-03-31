@@ -2,7 +2,7 @@
   <app-common-header></app-common-header>
 </div>
 
-<div class="user-management-container dark-background" *ngIf="user_id !== 0">
+<div class="user-management-container dark-background" *ngIf="userType !== 0">
   <h1 class="user-management-title title-l white-text">Gestion de usuarios</h1>
 
   <div class="user-management-table-container dark-gray-background">
@@ -19,7 +19,7 @@
   </div>
 </div>
 
-<div *ngIf="user_id == 0">
+<div *ngIf="userType == 0">
   <app-not-permission></app-not-permission>
 </div>
 

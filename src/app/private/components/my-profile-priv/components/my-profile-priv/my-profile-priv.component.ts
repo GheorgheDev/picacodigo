@@ -34,7 +34,7 @@ export class MyProfilePrivComponent implements OnInit {
     },
   ];
 
-  user_id = 1
+  userType = 1
 
   constructor(public dialog: MatDialog) { }
 
