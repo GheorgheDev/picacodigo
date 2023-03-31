@@ -6,6 +6,7 @@ import { GestionUsuariosModule } from './components/gestion-usuarios/gestion-usu
 import { UserProductsModule } from './components/user-products/user-products.module';
 import { PrivateRoutingModule } from './private.routing';
 import { GenerarNuevoJuegoModule } from './components/generar-nuevo-juego/generar-nuevo-juego.module';
+import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { GenerarNuevoJuegoModule } from './components/generar-nuevo-juego/genera
     MyProfilePrivModule,
     NotificacionesModule,
     UserProductsModule,
-    GenerarNuevoJuegoModule
+    GenerarNuevoJuegoModule,
+    ShoppingCartModule
   ],
 })
 export class PrivateModule { }

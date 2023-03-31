@@ -1,6 +1,6 @@
+import { HeaderModule } from 'src/app/shared/components/header/header.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ShoppingCartRoutingModule } from './shopping-cart-routing.module';
 import { ShoppingCartPageComponent } from './shopping-cart-page/shopping-cart-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -17,7 +17,8 @@ import {MatCardModule} from '@angular/material/card';
     CommonModule,
     ShoppingCartRoutingModule,
     SharedModule,
-    MatCardModule
+    MatCardModule,
+    HeaderModule
   ]
 })
 export class ShoppingCartModule { }

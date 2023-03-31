@@ -1,3 +1,4 @@
+import { ShoppingCartPageComponent } from './shopping-cart/shopping-cart-page/shopping-cart-page.component';
 import { UserProductsComponent } from './components/user-products/user-products.component';
 import { NotificationPageComponent } from './components/notificaciones/components/notification-page/notification-page.component';
 import { MyProfilePrivComponent } from './components/my-profile-priv/components/my-profile-priv/my-profile-priv.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
     { path: 'profile', component: MyProfilePrivComponent },
     { path: 'notification', component: NotificationPageComponent },
     { path: 'user-product', component: UserProductsComponent },
+    { path: 'shopping-cart', component: ShoppingCartPageComponent },
 ];
 
 @NgModule({
