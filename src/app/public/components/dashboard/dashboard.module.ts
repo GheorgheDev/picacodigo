@@ -14,6 +14,9 @@ import { HeaderModule } from 'src/app/shared/components/header/header.module';
     MatCardModule,
     SharedModule,
     HeaderModule
+  ],
+  exports: [
+    DashboardComponent
   ]
 })
 export class DashboardModule { }

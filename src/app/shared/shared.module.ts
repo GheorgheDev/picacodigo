@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NotPermissionComponent } from './components/not-permission/not-permission.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { OrdinationComponent } from './components/ordination/ordination.component';
@@ -37,21 +38,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatSelectModule,
     MatFormFieldModule,
-    // MatCardModule,
     MatInputModule,
     FormsModule,
-    MatTabsModule
+    MatTabsModule,
+    RouterModule
   ],
   exports: [
     CardProductComponent,
     FooterComponent,
     FiltersComponent,
     OrdinationComponent,
-    MatCardModule,
-    MatInputModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HeaderModule,
     NotPermissionComponent
   ]
 })

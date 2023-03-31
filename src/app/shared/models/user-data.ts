@@ -1,12 +1,13 @@
 export interface UserData {
   user_id: string,
-  user_username: string,
-  name: string,
-  email?: string,
+  username: string,
+  fullname: string,
   password?: string,
-  img: string,
+  birthdate?: Date,
+  email?: string,
+  phone?: string,
+  login?: boolean,
+  rol?: 'admin' | 'user' | 'guest',
+  picture: string,
   status?: 'active' | 'inactive',
-  google?: boolean,
-  role?: 'admin' | 'user'
 }
-

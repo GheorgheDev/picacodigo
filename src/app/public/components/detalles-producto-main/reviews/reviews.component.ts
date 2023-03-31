@@ -18,39 +18,39 @@ export class ReviewsComponent implements OnInit {
   users: UserData[] = [
     {
       user_id: 'qubrf21n',
-      user_username: 'SaraM',
-      name: 'Sara Molina',
-      img: '/assets/chica.jpg',
+      username: 'SaraM',
+      fullname: 'Sara Molina',
+      picture: '/assets/chica.jpg',
     },
     {
       user_id: 'fhd28sgj',
-      user_username: 'JohnDoe',
-      name: 'John Doe',
-      img: '/assets/manolo.jpg',
+      username: 'JohnDoe',
+      fullname: 'John Doe',
+      picture: '/assets/manolo.jpg',
     },
     {
       user_id: 'skt39qxc',
-      user_username: 'EmilyJ',
-      name: 'Emily Johnson',
-      img: '/assets/1.jpg',
+      username: 'EmilyJ',
+      fullname: 'Emily Johnson',
+      picture: '/assets/1.jpg',
     },
     {
       user_id: 'mjf75zty',
-      user_username: 'MaxW',
-      name: 'Max Williams',
-      img: '/assets/2.jpg',
+      username: 'MaxW',
+      fullname: 'Max Williams',
+      picture: '/assets/2.jpg',
     },
     {
       user_id: 'nhs64dpl',
-      user_username: 'LauraC',
-      name: 'Laura Chen',
-      img: '/assets/gato.jpg',
+      username: 'LauraC',
+      fullname: 'Laura Chen',
+      picture: '/assets/gato.jpg',
     },
     {
       user_id: 'rty89jkl',
-      user_username: 'DavidG',
-      name: 'David Garcia',
-      img: '/assets/3.jpg',
+      username: 'DavidG',
+      fullname: 'David Garcia',
+      picture: '/assets/3.jpg',
     },
   ];
 
@@ -115,8 +115,8 @@ export class ReviewsComponent implements OnInit {
       if(!!this.userThatMadeTheReview){
         completeReview.review_id = this.reviews[i].review_id;
         completeReview.content = this.reviews[i].content;
-        completeReview.user_username = this.userThatMadeTheReview.user_username;
-        completeReview.user_img = this.userThatMadeTheReview.img;
+        completeReview.username = this.userThatMadeTheReview.username;
+        completeReview.picture = this.userThatMadeTheReview.picture;
         this.completeReviews.push(completeReview);
       }    
     }
