@@ -1,0 +1,123 @@
+<form
+  class="form-horizontal"
+  [formGroup]="AddGameForm"
+  (ngSubmit)="newGameDataChange()"
+>
+  <p>Crea nuevo juego</p>
+
+  <div class="form-group">
+    <label for="game_name">Nombre del juego:</label>
+    <input
+      class="title-xs form-input"
+      type="text"
+      formControlName="game_name"
+      id="game_name"
+      name="game_name"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="distribuidor">distribuidor:</label>
+    <input
+      class="form-input title-xs"
+      type="text"
+      formControlName="distribuidor"
+      name="distribuidor"
+      id="distribuidor"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="stars">Stars:</label>
+    <input
+      class="form-input title-xs"
+      type="text"
+      formControlName="stars"
+      name="stars"
+      id="stars"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="descripcion">Descripción:</label>
+    <input
+      class="form-input title-xs"
+      type="text"
+      formControlName="descripcion"
+      name="descripcion"
+      id="descripcion"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="pegi">Pegi:</label>
+    <input
+      class="form-input title-xs"
+      type="text"
+      formControlName="pegi"
+      name="pegi"
+      id="pegi"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label class="">Categoría:</label>
+    <input
+      class="form-input title-xs"
+      type="text"
+      formControlName="categoria"
+      name="categoria"
+      id="categoria"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="modo">Modo:</label>
+    <input
+      class="form-input title-xs"
+      type="text"
+      formControlName="modo"
+      name="modo"
+      id="modo"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label id="stock">Stock:</label>
+    <input
+      class="form-input title-xs"
+      type="text"
+      formControlName="stock"
+      name="stock"
+      id="stock"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="precio">Precio:</label>
+    <input
+      class="form-input title-xs"
+      type="text"
+      formControlName="precio"
+      name="precio"
+      id="precio"
+      required
+    />
+  </div>
+
+  <button
+    type="submit"
+    class="btn-green title-xs"
+    (click)="sendMessageAddGame()"
+  >
+    Enviar
+  </button>
+</form>

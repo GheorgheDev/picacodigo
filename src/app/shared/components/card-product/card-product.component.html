@@ -1,0 +1,8 @@
+<mat-card class="card__style">
+    <img mat-card-image src="../../../../../assets/media/example-photo.jpg">
+    <mat-card-title>
+        <a mat-raised-button [routerLink]="['/product-detail']" target="_blank" class="white-text title-xs card__title">{{product.name}}</a>
+    </mat-card-title>
+    <mat-card-subtitle class="star__points">{{showStars(product.stars)}}</mat-card-subtitle>
+    <button mat-button class="btn-green white-text title-xs card__price">{{product.price}} €</button>
+</mat-card>

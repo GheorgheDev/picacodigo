@@ -1,0 +1,22 @@
+<div class="private-header">
+  <a [routerLink]="['']">
+    <i [matBadge]="ShoppingCartItemsQuantity" matBadgeSize="large" class="material-symbols-outlined white-text">shopping_cart</i>
+  </a>
+
+  <a [routerLink]="['/notification']">
+    <i matBadge="10" matBadgeSize="large" class="material-symbols-outlined white-text">mail</i>
+  </a>
+
+  <button *ngIf="profileButtonToggle == 'on'" mat-button class="title-xs white-text profile-btn"
+    [matMenuTriggerFor]="profileMenu" [ngStyle]="{'background-image': 'url(' + user[0].picture + ')'}">
+    <mat-menu #profileMenu="matMenu" xPosition="before" class="profile-menu">
+      <a [routerLink]="['/private/profile']" class="white-text title-xs profile-menu_option">Mi perfil</a>
+      <a [routerLink]="['/private/user-product']" class="white-text title-xs profile-menu_option">Mis juegos</a>
+      <a [routerLink]="['/auth/login']" class="white-text title-xs profile-menu_option">Cerrar sesión</a>
+    </mat-menu>
+  </button>
+
+  <button *ngIf="profileButtonToggle == 'off'" mat-button class="title-xs white-text profile-btn"
+    [ngStyle]="{'background-image': 'url(' + user[0].picture + ')'}" >
+  </button>
+</div>

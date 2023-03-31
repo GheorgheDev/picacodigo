@@ -1,0 +1,62 @@
+$background-color_dark-grey: #292F33;
+
+.dark-gray-background {
+    background-color: $background-color_dark-grey;
+}
+
+.distribution__footer__elements {
+    padding: 24px 0 24px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.distribution__footer__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.distribution__footer__icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.distribution__footer__icon span {
+    padding: 0;
+}
+
+.distribution__footer__rights {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.distribution__footer__rrss {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__list__item text {
+    display: flex;
+    justify-content: center;
+}
+
+::ng-deep.mat-list-item-content {
+    justify-content: center;
+}
+
+::ng-deep .footer-text {
+    color: #f9f9f9 !important;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .distribution__footer__list {
+        flex-direction: column !important;
+    }
+}

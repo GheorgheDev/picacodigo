@@ -1,0 +1,30 @@
+<app-common-header></app-common-header>
+
+<div class="dark-background distribution__dashboard">
+    <div class="distribution__dashboard__filters">
+        <app-filters (filterIdList)="addNewOptions($event)" class="distribution__dashboard__filters__btn"></app-filters>
+        <app-ordination (orderInfo)="orderCardsElements($event)"></app-ordination>
+    </div>
+
+    <div class="distribution__dashboard__cards">
+        <button mat-button type="button" (click)="previousPage()" *ngIf="showPrevious"
+            class="btn__page__pass__left icon__color">
+            <span class="fa fa-chevron-left"></span>
+        </button>
+
+        <div class="distribution__product">
+            <div *ngFor="let product of pages[selectedPage]">
+                <app-card-product [product]="product"></app-card-product>
+            </div>
+        </div>
+
+        <button mat-button type="button" (click)="nextPage()" *ngIf="showNext"
+            class="btn__page__pass__right icon__color">
+            <span class="fa fa-chevron-right"></span>
+        </button>
+    </div>
+
+    <div class="distribution__dashboard__footer">
+        <app-footer></app-footer>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+$background-color_grey: #536162;
+$color_green: #57e309;
+
+.card__style {
+    background-color: $background-color_grey;
+    box-shadow: 5px 10px 20px $background-color_grey;
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+        width: 70%;
+        border-radius: 5px;
+        margin-top: 8px;
+    }
+}
+
+.card__title {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+
+    &:hover,
+    :focus,
+    :active {
+        color: $color_green;
+        box-shadow: none;
+    }
+}
+
+.card__price {
+    cursor: unset;
+}

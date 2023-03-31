@@ -1,0 +1,85 @@
+<div class="contenedor white-text">
+  <div class="fondo-gris" #fondoGris></div>
+  <div class="carousel" #carrusel>
+    <button (click)="cambiarImagenAnterior()" class="carousel__button carousel__button--left"><span
+        class="material-symbols-outlined">
+        chevron_left
+      </span></button>
+    <button (click)="cerrarCarrusel()" class="carousel__button"><span class="material-symbols-outlined">
+        close
+      </span></button>
+    <img src="{{ obtenerImagen() }}" alt="slide" class="carousel__img" />
+    <button (click)="cambiarImagenSiguiente()" class="carousel__button carousel__button--right"><span
+        class="material-symbols-outlined">
+        chevron_right
+      </span></button>
+  </div>
+
+  <app-common-header></app-common-header>
+
+  <main class="main dark-background">
+    <div class="producto">
+      <!--  -->
+      <div class="producto__imagenes">
+        <img [src]="selectedGamePictures[0].picture" alt="" class="producto__imagen producto__imagen--principal"
+          (click)="mostrarCarrusel(0)" />
+        <div class="producto__contenedor-imagenes-secundarias">
+
+          <img *ngFor="let selectedGamePicture of selectedGamePictures; let i = index"
+            [src]="selectedGamePicture.picture" alt="" class="producto__imagen producto__imagen--secundaria"
+            (click)="mostrarCarrusel(i)" />
+        </div>
+      </div>
+      <div class="producto__detalles">
+        <h2 class="title-s">{{game.name}}</h2>
+        <span class="stars-container">
+          <span class="stars material-symbols-outlined white-text"
+            *ngFor="let i of [].constructor(game.stars); let j = index">
+            star
+          </span>
+        </span>
+
+        <p class="text-medium-s">
+          {{game.description}}
+        </p>
+        <p class="text-medium-s">
+          Distribuido por: {{game.distributor}}
+        </p>
+        <p class="text-medium-s">
+          Modo de juego: {{game.mode_id}}
+        </p>
+        <p class="text-medium-s">
+          Género: {{game.genre_id}}
+        </p>
+        <p class="text-medium-s">
+          {{game.pegi_id}}
+        </p>
+        <span class="text-regular-l">€ {{game.price}}</span>
+        <form [formGroup]="addToKartForm" class="producto__form">
+          <span class="item_quantity">
+            <input *ngIf="userType!='2'" formControlName="game_quantity"
+            type="number"
+            name="game_quantity"
+            value="1"
+            max={{game.stock}}
+            min="1"
+            class="producto__cantidad dark-gray-background text-light-l white-text"
+
+          />
+          <span class="text-regular-s game-stock"> ({{game.stock}} disponibles)</span>
+          </span>
+
+          <button *ngIf="userType!='2'" type="submit" class="btn-green title-xs" (click)="addToKart()">Añadir al
+            carrito</button>
+          <button *ngIf="userType=='2'" class="btn-green title-xs" (click)="editGame()">Editar</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="reviews-container">
+      <app-reviews></app-reviews>
+    </div>
+  </main>
+
+  <app-footer></app-footer>
+</div>

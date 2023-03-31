@@ -1,0 +1,79 @@
+$background-color_grey: #536162;
+
+.container {
+  display: flex;
+  flex-flow: column;
+}
+
+.welcome_message {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2%;
+  margin-top: 6%;
+}
+
+.card_picture {
+  background-color: transparent;
+  border: 3px dashed #57e309;
+  border-radius: 15px;
+  margin: 0;
+  padding: 24px;
+  height: fit-content;
+  width: 35%;
+}
+
+.card_picture img {
+  border-radius: 15px;
+  width: 100%;
+}
+
+.cards_desk {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 10%;
+  margin-top: 3%;
+  background-color: transparent !important;
+}
+
+.icon__color {
+  font-size: large;
+  padding: 16px;
+}
+
+.distribution__config {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+.card_info_user {
+  border-radius: 10px;
+  margin: 3%;
+  width: 35%;
+}
+
+.change_config_dates {
+  display: flex;
+  justify-content: start;
+  align-items: end;
+  margin-top: 5%;
+  width: 112%;
+}
+
+div.change_config_dates>a {
+  text-decoration: none;
+  margin-left: 3%;
+}
+
+::ng-deep .mat-dialog-container {
+  background-color: #292F33;
+  box-shadow: 5px 10px 20px $background-color_grey;
+  border: 3px solid #536162;
+}
+
+button {
+  background-color: transparent !important;
+}

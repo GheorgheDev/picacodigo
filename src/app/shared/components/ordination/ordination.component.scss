@@ -1,0 +1,21 @@
+.ordination__style {
+    width: 150px;
+    border: none;
+    line-height: 2.5;
+    padding-top: 0px !important;
+    height: 61px;
+}
+
+::ng-deep .mat-form-field-infix {
+    padding-bottom: 0px !important;
+}
+
+::ng-deep .mat-select-arrow {
+    color: #57e309 !important;
+    margin-bottom: 0px !important;
+    margin-right: 12px !important;
+}
+
+::ng-deep .mat-form-field-underline {
+    display: none !important;
+}

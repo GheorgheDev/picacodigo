@@ -1,0 +1,47 @@
+<div class="container card">
+  <div class="box-title logo-l green-text">PICK A GAME</div>
+  <div class="row">
+    <div class="col-sm-12 col-xs-12">
+      <form class="form-horizontal" id="loginform" autocomplete="off" [formGroup]="registerForm"
+        (ngSubmit)="crearUsuario()">
+        <div class="form-group">
+          <label for="exampleInputEmail1"></label>
+          <input type="text" class="title-xs form-input" id="exampleInputEmail1" placeholder="Nombre"
+            formControlName="nombre">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1"></label>
+          <input type="email" class="title-xs form-input" id="exampleInputEmail1" placeholder="Email"
+            formControlName="email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1"></label>
+          <input type="password" class="title-xs form-input" id="exampleInputPassword1" placeholder="Contraseña"
+            formControlName="password">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1"></label>
+          <input type="password" class="title-xs form-input" id="exampleInputPassword1" placeholder="Repetir contraseña"
+            formControlName="password2">
+        </div>
+        <div class="form-group">
+          <div class="check-conditions">
+            <input class="check-green" id="checkbox1" type="checkbox" formControlName="terminos">
+
+            <label for="checkbox1" class="title-xs white-text"> Aceptar las condiciones</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn-green white-text title-xs btn-register">Registrarse</button>
+        </div>
+
+        <div class="col text-danger">
+          <p *ngIf="campoNoValido('nombre')" class="red-text">* El nombre es obligatorio</p>
+          <p *ngIf="campoNoValido('email')" class="red-text">* El email es obligatorio</p>
+          <p *ngIf="contrasenasNoValidas()" class="red-text">* Las contraseñas deben coincidir</p>
+          <p *ngIf="aceptaTerminos()" class="red-text">* Acepta las condiciones de uso</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
