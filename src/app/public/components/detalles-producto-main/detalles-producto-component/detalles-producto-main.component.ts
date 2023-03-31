@@ -12,20 +12,22 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InvalidAddtokartComponent } from '../invalid-addtokart/invalid-addtokart.component';
 import { ShoppingCartService } from 'src/app/private/services/shopping-cart.service';
 
-
 @Component({
   selector: 'app-detalles-producto-main',
   templateUrl: './detalles-producto-main.component.html',
   styleUrls: ['./detalles-producto-main.component.scss'],
 })
 export class DetallesProductoMainComponent implements OnInit {
-
   /* usertype= 1 es un usuario logeado */
   /* usertype= 2 es un admin */
 
-  userType:string = '1';
+  userType: string = '1';
 
-  constructor(private _fb: FormBuilder, public dialog: MatDialog, private shoppingItems: ShoppingCartService) {}
+  constructor(
+    private _fb: FormBuilder,
+    public dialog: MatDialog,
+    private shoppingItems: ShoppingCartService
+  ) {}
   games: GameData[] = [
     {
       game_id: '1',
@@ -328,14 +330,12 @@ export class DetallesProductoMainComponent implements OnInit {
     },
   ];
 
-  
-
   addToKartForm: FormGroup;
 
-  game_id: string = '1';
+  game_id: string = '4';
   user_id: string = '7814dfa';
   selectedGamePictures: GamePictureData[] = [];
-  shoppingCartItems: ShoppingCartItemData[] = [] as ShoppingCartItemData[]
+  shoppingCartItems: ShoppingCartItemData[] = [] as ShoppingCartItemData[];
   game: GameData;
 
   ngOnInit(): void {
@@ -356,7 +356,7 @@ export class DetallesProductoMainComponent implements OnInit {
         this.selectedGamePictures.push(this.gamePictures[i]);
       }
     }
-    this.initSlides()
+    this.initSlides();
   }
 
   replacePegi(game_pegi_id: string) {
@@ -378,40 +378,81 @@ export class DetallesProductoMainComponent implements OnInit {
 
   selectGame(game_id: string) {
     let gameSelected = this.games.find((game) => game.game_id == game_id);
-    if (!!gameSelected) 
-      this.game = gameSelected;
+    if (!!gameSelected) this.game = gameSelected;
     this.replacePegi(this.game.pegi_id);
     this.replaceGenre(this.game.genre_id);
     this.replaceMode(this.game.mode_id);
   }
 
   addToKart() {
-    if (this.userType=='1'){
+    if (this.userType == '1') {
       if (this.addToKartForm.invalid) {
         this.addToKartForm.markAllAsTouched();
         this.dialog.open(InvalidAddtokartComponent);
       } else {
-        let cantidad = this.addToKartForm.get('game_quantity')?.value;
-        let shoppingCartItem: ShoppingCartItemData = {} as ShoppingCartItemData
-        shoppingCartItem.game_id = this.game_id
-        shoppingCartItem.user_id = this.user_id
-        shoppingCartItem.game_quantity = cantidad
-        console.log(shoppingCartItem)
-
-        this.shoppingItems.addToShoppingCart(shoppingCartItem);
+        if(this.checkShoppingCartHasSpace()){
+          if (this.checkGameIsNotInTheShoppingCartAlready()) {
+            let cantidad = this.addToKartForm.get('game_quantity')?.value;
+            let shoppingCartItem: ShoppingCartItemData =
+              {} as ShoppingCartItemData;
+            shoppingCartItem.game_id = this.game_id;
+            shoppingCartItem.user_id = this.user_id;
+            shoppingCartItem.game_quantity = cantidad;
+            console.log(shoppingCartItem);
+  
+            this.shoppingItems.addToShoppingCart(shoppingCartItem);
+  
+            this.addToKartForm.reset();
+          } else {
+            alert(
+              'El juego ya está en tu carrito de compras, para modificarlo dirigete allí, eliminalo y vuelve! :)'
+            );
+          }
+        }else {
+          alert(
+            'Solo puedes hacer compras de hasta 5 juegos distintos! Finaliza tu compra y vuelve! :)'
+          );
+        }
         
-        
-        this.addToKartForm.reset();
       }
-    }else{
+    } else {
       this.dialog.open(NeedLoginComponent);
     }
-    
   }
 
-  editGame(){
-    this.dialog.open(EditGameComponent);
+  checkShoppingCartHasSpace(): boolean {
+    let shoppingCartList: ShoppingCartItemData[] = this.shoppingItems.getShoppingCart();
+    let permitir: boolean = true;
+    console.log("espacio: ", shoppingCartList.length)
+    if (shoppingCartList.length > 4) {
+      permitir = false;
+    }
+    return permitir;
+  }
 
+  checkGameIsNotInTheShoppingCartAlready(): boolean {
+    let shoppingCartList: ShoppingCartItemData[] =
+      this.shoppingItems.getShoppingCart();
+    console.log('0:', shoppingCartList.length);
+    if (shoppingCartList.length > 0) {
+      console.log('entro en el primer if');
+      let permitir: boolean = true;
+      shoppingCartList.forEach((shoppingCartElement) => {
+        console.log('1:', shoppingCartElement.game_id);
+        console.log('2:', this.game_id);
+        if (shoppingCartElement.game_id == this.game_id) {
+          console.log('son iguales');
+          permitir = false;
+        }
+      });
+      return permitir;
+    } else {
+      return true;
+    }
+  }
+
+  editGame() {
+    this.dialog.open(EditGameComponent);
   }
 
   /* carrusel */

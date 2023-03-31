@@ -1,6 +1,6 @@
 <div class="private-header">
   <i
-    matBadge="1"
+    [matBadge]="ShoppingCartItemsQuantity"
     matBadgeSize="large"
     class="material-symbols-outlined white-text"
     >shopping_cart</i
@@ -26,7 +26,7 @@
 <button *ngIf="profileButtonToggle == 'off'"
     mat-button
     class="title-xs white-text profile-btn"
-    [ngStyle]="{'background-image': 'url(' + user[0].img + ')'}" (click)="prueba()"
+    [ngStyle]="{'background-image': 'url(' + user[0].img + ')'}"
   >
 </button>
 </div>
