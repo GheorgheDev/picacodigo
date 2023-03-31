@@ -8,7 +8,7 @@
   </a>
 
   <button *ngIf="profileButtonToggle == 'on'" mat-button class="title-xs white-text profile-btn"
-    [matMenuTriggerFor]="profileMenu" [ngStyle]="{'background-image': 'url(' + user[0].img + ')'}">
+    [matMenuTriggerFor]="profileMenu" [ngStyle]="{'background-image': 'url(' + user[0].picture + ')'}">
     <mat-menu #profileMenu="matMenu" xPosition="before" class="profile-menu">
       <a [routerLink]="['/private/profile']" class="white-text title-xs profile-menu_option">Mi perfil</a>
       <a [routerLink]="['/private/user-product']" class="white-text title-xs profile-menu_option">Mis juegos</a>
@@ -17,6 +17,6 @@
   </button>
 
   <button *ngIf="profileButtonToggle == 'off'" mat-button class="title-xs white-text profile-btn"
-    [ngStyle]="{'background-image': 'url(' + user[0].img + ')'}" (click)="prueba()">
+    [ngStyle]="{'background-image': 'url(' + user[0].picture + ')'}" (click)="prueba()">
   </button>
 </div>

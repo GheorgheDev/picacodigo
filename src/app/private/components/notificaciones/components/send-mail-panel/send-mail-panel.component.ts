@@ -23,45 +23,45 @@ export class SendMailPanelComponent implements OnInit {
   users: UserData[] = [
     {
       user_id: "1",
-      user_username: 'AndreaC',
-      name: 'Andrea Cebrian',
-      img: 'ruta'
+      username: 'AndreaC',
+      fullname: 'Andrea Cebrian',
+      picture: 'ruta'
     },
     {
       user_id: "2",
-      user_username: 'JuanS',
-      name: 'Juan Sevilla',
-      img: 'ruta'
+      username: 'JuanS',
+      fullname: 'Juan Sevilla',
+      picture: 'ruta'
     },
     {
       user_id: "3",
-      user_username: 'SalvadorS',
-      name: 'Salvador Santos',
-      img: 'ruta'
+      username: 'SalvadorS',
+      fullname: 'Salvador Santos',
+      picture: 'ruta'
     },
     {
       user_id: "4",
-      user_username: 'GheorgheB',
-      name: 'Gheorghe Bucurici',
-      img: 'ruta'
+      username: 'GheorgheB',
+      fullname: 'Gheorghe Bucurici',
+      picture: 'ruta'
     },
     {
       user_id: "5",
-      user_username: 'BarbaraR',
-      name: 'Barbara Rodriguez',
-      img: 'ruta'
+      username: 'BarbaraR',
+      fullname: 'Barbara Rodriguez',
+      picture: 'ruta'
     },
     {
       user_id: "6",
-      user_username: 'MichelleM',
-      name: 'Michelle Masias',
-      img: 'ruta'
+      username: 'MichelleM',
+      fullname: 'Michelle Masias',
+      picture: 'ruta'
     },
     {
       user_id: "6",
-      user_username: 'MichelleM',
-      name: 'Michelle Masias',
-      img: 'ruta'
+      username: 'MichelleM',
+      fullname: 'Michelle Masias',
+      picture: 'ruta'
     },
   ];
 
@@ -82,24 +82,24 @@ export class SendMailPanelComponent implements OnInit {
     this.filteredUsersOptions = this.messageForm.valueChanges.pipe(
       startWith(''),
       map((value) => {
-        const user_username =
-          typeof value === 'string' ? value : value?.user_username;
-        return user_username
-          ? this._filter(user_username as string)
+        const username =
+          typeof value === 'string' ? value : value?.username;
+        return username
+          ? this._filter(username as string)
           : this.users.slice();
       })
     );
   }
 
   displayFn(userData: UserData): string {
-    return userData && userData.user_username ? userData.user_username : '';
+    return userData && userData.username ? userData.username : '';
   }
 
-  private _filter(user_username: string): UserData[] {
-    const filterValue = user_username.toLowerCase();
+  private _filter(username: string): UserData[] {
+    const filterValue = username.toLowerCase();
 
     return this.users.filter((user) =>
-      user.user_username.toLowerCase().includes(filterValue)
+      user.username.toLowerCase().includes(filterValue)
     );
   }
 

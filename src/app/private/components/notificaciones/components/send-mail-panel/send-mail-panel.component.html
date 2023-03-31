@@ -12,7 +12,7 @@
         *ngFor="let usersOption of filteredUsersOptions | async"
         [value]="usersOption"
       >
-        {{ usersOption.user_username }}
+        {{ usersOption.username }}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
