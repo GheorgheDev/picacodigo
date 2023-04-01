@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import { ShoppingCartItemData } from 'src/app/public/model/shopping-cart-item-data';
+import { Observable } from 'rxjs';
+import { ProductData } from 'src/app/public/model/game-data';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +11,7 @@ import { ShoppingCartItemData } from 'src/app/public/model/shopping-cart-item-da
 export class ShoppingCartService {
   shoppingItems: ShoppingCartItemData[] = [] as ShoppingCartItemData[];
 
-  constructor() {
+  constructor(private http:HttpClient) {
   }
 
   getShoppingCart(): ShoppingCartItemData[]{
@@ -27,6 +31,11 @@ export class ShoppingCartService {
     let itemToDeleteFromShoppingCartIndex =  SHOPPING_CART.findIndex(item=> item.game_id == game_id)
     SHOPPING_CART.splice(itemToDeleteFromShoppingCartIndex,1)
     sessionStorage.setItem('shoppingItems', JSON.stringify(SHOPPING_CART))
+  }
+
+
+  getAllGames(): Observable<ProductData[]> {
+    return this.http.get<ProductData[]>('/api/games/all')
   }
   
 

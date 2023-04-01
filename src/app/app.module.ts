@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { PrivateModule } from './private/private.module';
 import { PublicModule } from './public/public.module';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -17,6 +19,7 @@ import { PublicModule } from './public/public.module';
     PublicModule,
     PrivateModule,
     AuthModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -30,7 +30,7 @@ export class DetallesProductoMainComponent implements OnInit {
   ) {}
   games: ProductData[] = [
     {
-      game_id: '1',
+      game_id: 'fa6ca618-2851-47d4-930f-0b510b40fed2',
       name: 'Red Dead Redemption II',
       distributor: 'Rockstar Games',
       stars: 5,
@@ -271,22 +271,22 @@ export class DetallesProductoMainComponent implements OnInit {
     {
       game_picture_id: '2',
       picture: '/assets/game.jpg',
-      game_id: '1',
+      game_id: 'fa6ca618-2851-47d4-930f-0b510b40fed2',
     },
     {
       game_picture_id: '1',
       picture: '/assets/1.jpg',
-      game_id: '1',
+      game_id: 'fa6ca618-2851-47d4-930f-0b510b40fed2',
     },
     {
       game_picture_id: '3',
       picture: '/assets/2.jpg',
-      game_id: '1',
+      game_id: 'fa6ca618-2851-47d4-930f-0b510b40fed2',
     },
     {
       game_picture_id: '4',
       picture: '/assets/3.jpg',
-      game_id: '1',
+      game_id: 'fa6ca618-2851-47d4-930f-0b510b40fed2',
     },
     {
       game_picture_id: '5',
@@ -332,7 +332,7 @@ export class DetallesProductoMainComponent implements OnInit {
 
   addToKartForm: FormGroup;
 
-  game_id: string = '1';
+  game_id: string = 'fa6ca618-2851-47d4-930f-0b510b40fed2';
   user_id: string = '7814dfa';
   selectedGamePictures: GamePictureData[] = [];
   shoppingCartItems: ShoppingCartItemData[] = [] as ShoppingCartItemData[];

@@ -13,7 +13,7 @@ import { NewSaleData} from '../../models/sale-data';
 })
 export class ShoppingCartPageComponent implements OnInit {
 
-  games: ProductData[] = [
+  /* games: ProductData[] = [
     {
       game_id: '1',
       name: 'Red Dead Redemption II',
@@ -161,7 +161,7 @@ export class ShoppingCartPageComponent implements OnInit {
       price: 45,
       stock: 120,
     },
-  ];
+  ]; */
 
   userType='1'
   user_id = '1'
@@ -172,6 +172,8 @@ export class ShoppingCartPageComponent implements OnInit {
   gameFromShoppingItem: ProductData
   totalAllShoppigCartItems: number = 0
 
+  allGames: ProductData[] = [] as ProductData[]
+  games: ProductData[] = [] as ProductData[]
   
   
 
@@ -182,7 +184,24 @@ export class ShoppingCartPageComponent implements OnInit {
   constructor(private shoppingItems: ShoppingCartService ) { }
 
   ngOnInit(): void {
-    this.getShoppingCartFromSS()
+    this.getAllGames()
+    
+  }
+
+  getAllGames() {
+    this.shoppingItems.getAllGames().subscribe({
+      next: games => {
+        this.allGames = games
+        /* console.log(this.allGames) */
+      },
+      error: error => {
+        console.log(error);
+      },
+      complete: () => {
+        this.games = this.allGames
+        this.getShoppingCartFromSS()
+      }
+    });
   }
 
   getShoppingCartFromSS(){
@@ -245,6 +264,8 @@ export class ShoppingCartPageComponent implements OnInit {
     })
     console.log(this.sales)
   }
+
+  
 
 
 }
