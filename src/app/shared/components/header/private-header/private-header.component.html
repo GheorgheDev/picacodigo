@@ -4,7 +4,7 @@
   </a>
 
   <a [routerLink]="['/notification']">
-    <i matBadge="10" matBadgeSize="large" class="material-symbols-outlined white-text">mail</i>
+    <i [matBadge]="mailboxMessages.length" matBadgeSize="large" class="material-symbols-outlined white-text">mail</i>
   </a>
 
   <button *ngIf="profileButtonToggle == 'on'" mat-button class="title-xs white-text profile-btn"

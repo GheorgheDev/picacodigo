@@ -2,18 +2,18 @@
   <app-common-header></app-common-header>
 </div>
 
-<div class="notif-container dark-background white-text-notif" *ngIf="userType !== 0">
+<div class="notif-container dark-background white-text-notif" *ngIf="userType == 1">
   <h1 class="notif-title title-l white-text">Mensajería</h1>
 
   <mat-tab-group class="dark-gray-background">
 
     <mat-tab label="Buzon de entrada" class="white-text-notif">
 
-      <div *ngIf="mailboxMessages.length>0; then FoundMeBlock; else notFoundMeBlock"></div>
+      <div *ngIf="completeMailboxMessages.length>0; then FoundMeBlock; else notFoundMeBlock"></div>
 
       <ng-template #FoundMeBlock>
-        <div *ngFor="let mailboxMessage of mailboxMessages">
-          <app-mail-box-panel [mailboxMessage]="mailboxMessage" (markMailsAsRead)="changeMailsReadStatus($event)"
+        <div *ngFor="let completeMailboxMessage of completeMailboxMessages">
+          <app-mail-box-panel [completeMailboxMessage]="completeMailboxMessage" (markMailsAsRead)="changeMailsReadStatus($event)"
             (deleteMessage)="deleteMBMessage($event)"></app-mail-box-panel>
         </div>
       </ng-template>
@@ -28,7 +28,7 @@
   </mat-tab-group>
 </div>
 
-<div *ngIf="userType == 0">
+<div *ngIf="userType != 1">
   <app-not-permission></app-not-permission>
 </div>
 

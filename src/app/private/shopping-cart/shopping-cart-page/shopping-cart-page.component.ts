@@ -3,6 +3,8 @@ import { ProductData } from './../../../public/model/game-data';
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { ShoppingCartItemData } from 'src/app/public/model/shopping-cart-item-data';
+import * as moment from 'moment'
+import { NewSaleData} from '../../models/sale-data';
 
 @Component({
   selector: 'app-shopping-cart-page',
@@ -161,13 +163,21 @@ export class ShoppingCartPageComponent implements OnInit {
     },
   ];
 
+  userType='1'
+  user_id = '1'
+
   shoppingCardItems: ShoppingCartItemData[]
   
   completeShoppingCartItems: ShoppingCartPageData[] = [] as ShoppingCartPageData[]
   gameFromShoppingItem: ProductData
   totalAllShoppigCartItems: number = 0
 
+  
+  
+
   totalPrice: number
+
+  sales: NewSaleData[] = [] as NewSaleData[]
 
   constructor(private shoppingItems: ShoppingCartService ) { }
 
@@ -177,7 +187,6 @@ export class ShoppingCartPageComponent implements OnInit {
 
   getShoppingCartFromSS(){
     let shoppingCart: ShoppingCartItemData[] = this.shoppingItems.getShoppingCart();
-    console.log("desde el sc",shoppingCart)
     this.shoppingCardItems = shoppingCart
     this.completeShoppingCartData()
   }
@@ -218,6 +227,23 @@ export class ShoppingCartPageComponent implements OnInit {
      this.completeShoppingCartItems.splice(itemToDeleteFromShoppingCartIndex,1)
      this.shoppingItems.deleteItemFromShoppingCart(game_id);
      this.calculateTotalPrice()
+  }
+
+  buy(){
+    this.completeShoppingCartItems.forEach(completeShoppingCartItem => {
+      let sale: NewSaleData = {} as NewSaleData
+      let todayDate = new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      });
+      sale.game_id= completeShoppingCartItem.game_id
+      sale.amount = completeShoppingCartItem.game_quantity
+      sale.user_id = this.user_id
+      sale.date = new Date(todayDate)
+      this.sales.push(sale)
+    })
+    console.log(this.sales)
   }
 
 

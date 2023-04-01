@@ -1,83 +1,88 @@
 $color_green: #57e309;
 $font-title: "Minecraftia-Regular.ttf";
-$background-color_dark-grey: #292F33;
+$background-color_dark-grey: #292f33;
 
-.shopping-cart-container{
+.shopping-cart-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 50px;
+
+  & .shopping-items-container {
+    max-width: 1200px;
+    width: 80%;
+  }
+
+  & .no-shopping-items {
+    text-align: center;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 50px;
-    
+  }
 
-    & .shopping-items-container{
-        max-width: 1200px;
-        width: 80%;
-    }
+  & .final-price-container {
+    & .mat-card {
+      background-color: $background-color_dark-grey;
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      margin: 20px 0;
 
-    & .no-shopping-items{
-        text-align: center;
-        width: 100%;
-    }
+      .mat-card-content {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
 
-    & .final-price-container{
-        & .mat-card {
-            background-color: $background-color_dark-grey;
+        & .final-price-box{
             display: flex;
-            flex-direction: column;
-            padding: 30px ;
-            margin: 20px 0;
-          
-            .mat-card-content{
-              display: flex;
-              justify-content: space-around;
-              align-items: center;
-              
-              & div span,
-              mat-card-actions i{
-                margin: 0 10px;
-              }
-          
-              & .mat-card-actions{
-                  padding: 0;
+            align-items: center;
 
-                  & .delete-btn{
-                    cursor: pointer;
-
-                    &:hover{
-                        color: white;
-                      }
-                  }
-                  
-              }
-            }
+            & .buy-btn:hover{
+                color: $color_green;
+                cursor: pointer;
           }
+        }
+
+        & div span,
+        mat-card-actions i {
+          margin: 0 10px;
+
+
+          
+        }
+
+        & .mat-card-actions {
+          padding: 0;
+
+          &:hover {
+            color: white;
+          }
+        }
+      }
     }
+  }
 }
 
-.shopping-cart-title{
-    font-family: $font-title;
-    margin: 50px 0;
+.shopping-cart-title {
+  font-family: $font-title;
+  margin: 50px 0;
 }
 
 @media (max-width: 768px) {
-  
-    
 }
 
 @media (max-width: 480px) {
-    .shopping-items-container,
-    .final-price-container{
-        width: 70%;
-    }
+  .shopping-items-container,
+  .final-price-container {
+    width: 70%;
+  }
 
-    .matcard-content__total div{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+  .matcard-content__total div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-        & span{
-            margin: 5px 0 !important;
-        }
+    & span {
+      margin: 5px 0 !important;
     }
+  }
 }

@@ -8,10 +8,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ReviewCardComponent implements OnInit {
 
-  userType='1'
-
   @Input() completeReview: GameReview;
 
+  userType='1'
 
 
   deleteReview(value:string){

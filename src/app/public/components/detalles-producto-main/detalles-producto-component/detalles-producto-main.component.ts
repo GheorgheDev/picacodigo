@@ -332,7 +332,7 @@ export class DetallesProductoMainComponent implements OnInit {
 
   addToKartForm: FormGroup;
 
-  game_id: string = '4';
+  game_id: string = '1';
   user_id: string = '7814dfa';
   selectedGamePictures: GamePictureData[] = [];
   shoppingCartItems: ShoppingCartItemData[] = [] as ShoppingCartItemData[];

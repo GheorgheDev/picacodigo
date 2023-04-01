@@ -1,8 +1,9 @@
 import { DialogProfilePhotoChangeComponent } from '../dialog-profile-photo-change/dialog-profile-photo-change.component';
 import { DialogUserDataChangeComponent } from '../dialog-user-data-change/dialog-user-data-change.component';
-import { DialogPasswordChangeComponent } from '../dialog-password-change/dialog-password-change.component';
+import { DialogPasswordChangeComponent} from '../dialog-password-change/dialog-password-change.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { UserData } from 'src/app/shared/models/user-data';
 
 @Component({
   selector: 'app-my-profile-priv',
@@ -11,36 +12,29 @@ import { MatDialog } from '@angular/material/dialog';
 })
 
 export class MyProfilePrivComponent implements OnInit {
-  users = [
-    {
-      id: 1,
-      Usuario: 'Manolo25',
-      Nombre: 'Manolo Ortiz López',
-      Email: 'michael.lawson@reqres.in',
-      Telefono: '666-666-666',
-      Fecha_de_nacimiento: '10/05/1998',
-      Direccion_fisica: 'Calle de la piruleta nº 42',
-      Imagen: '/assets/images/img_user.jpg',
-    },
-    {
-      id: 2,
-      Usuario: 'Maria30',
-      Nombre: 'Maria Gutierrez Gómez',
-      Email: 'Maria.lawson@reqres.in',
-      Telefono: '666-666-666',
-      Fecha_de_nacimiento: '10/05/1998',
-      Direccion_fisica: 'Calle del zapato nº 15',
-      Imagen: '../images/img_user.jpg',
-    },
-  ];
-
+  
+  /* esto se adquiera de sessionstorage */
   userType = 1
+  user_id = 1
+
+  /* esto se adquiere de un get userbyID */
+  userLogged: UserData = 
+    {
+      user_id: "1",
+      username: 'Manolo25',
+      fullname: 'Manolo Ortiz López',
+      email: 'michael.lawson@reqres.in',
+      phone: '123-456-789',
+      birthdate:  new Date("1998-01-16"),
+      picture: '/assets/images/img_user.jpg',
+    }
+  ;
+
+
 
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void { }
-
-  stateUser = true;
 
   openNewProfilePhotoDialog() {
     this.dialog.open(DialogProfilePhotoChangeComponent);
