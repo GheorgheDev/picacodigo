@@ -179,7 +179,6 @@ export class ShoppingCartPageComponent implements OnInit {
 
   totalPrice: number
 
-  sales: NewSaleData[] = [] as NewSaleData[]
 
   constructor(private shoppingItems: ShoppingCartService ) { }
 
@@ -251,18 +250,27 @@ export class ShoppingCartPageComponent implements OnInit {
   buy(){
     this.completeShoppingCartItems.forEach(completeShoppingCartItem => {
       let sale: NewSaleData = {} as NewSaleData
-      let todayDate = new Date().toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-      });
       sale.game_id= completeShoppingCartItem.game_id
       sale.amount = completeShoppingCartItem.game_quantity
       sale.user_id = this.user_id
-      sale.date = new Date(todayDate)
-      this.sales.push(sale)
+      sale.date = new Date
+      console.log(sale)
+      this.shoppingItems.addNewSale(sale).subscribe({
+        next: producedSale => {
+          console.log(producedSale);
+          this.deleteItemFromShoppingCartSS(sale.game_id)
+          alert("Compra exitosa")
+          /* DIALOGO COMPRA EXITOSA */
+        },
+        error: error => {
+          console.log(error);
+          console.log("error del add sale")
+        }
+      });
+
+
     })
-    console.log(this.sales)
+
   }
 
   

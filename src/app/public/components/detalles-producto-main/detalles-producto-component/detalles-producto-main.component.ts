@@ -28,7 +28,9 @@ export class DetallesProductoMainComponent implements OnInit {
     public dialog: MatDialog,
     private shoppingItems: ShoppingCartService
   ) {}
-  games: ProductData[] = [
+
+
+   selectedGame: ProductData = 
     {
       game_id: 'fa6ca618-2851-47d4-930f-0b510b40fed2',
       name: 'Red Dead Redemption II',
@@ -41,9 +43,10 @@ export class DetallesProductoMainComponent implements OnInit {
       mode_id: '1',
       price: 54.99,
       stock: 100,
-    },
+    }/*
+    
     {
-      game_id: '2',
+      game_id: '2b3e2e05-4ce9-47ec-9472-6cd0923230ae',
       name: 'Super Mario Odyssey',
       distributor: 'Nintendo',
       stars: 4,
@@ -176,7 +179,49 @@ export class DetallesProductoMainComponent implements OnInit {
       price: 45,
       stock: 120,
     },
-  ];
+  ]; */
+
+/*
+  selectedGame: ProductData=
+   [ 
+    {
+      game_id: "fa6ca618-2851-47d4-930f-0b510b40fed2",
+      name: "Space invaders",
+      distributor: "Midway Games",
+      stars: 3,
+      description: "Space Invaders es un videojuego arcade de disparos desarrollado por Taito y lanzado en 1978. El juego presenta una serie de alienígenas que se mueven de un lado a otro en la pantalla, mientras el jugador controla un cañón situado en la parte inferior de la pantalla para dispararles y defenderse. A medida que el juego avanza, la velocidad y la dificultad aumentan, y los alienígenas se mueven más rápido y atacan con mayor frecuencia. Space Invaders fue uno de los primeros juegos arcade en alcanzar un gran éxito comercial y es considerado uno de los juegos más influyentes de la historia de los videojuegos. Su mecánica simple y adictiva, así como su diseño de personajes y efectos de sonido icónicos, lo han convertido en un símbolo de la cultura popular. El juego ha sido portado a numerosas consolas y dispositivos, y ha inspirado una gran cantidad de secuelas y adaptaciones.",
+      pegi_id: "3",
+      category_id: "1",
+      mode_id: "1",
+      price: 35,
+      stock: 100
+    }
+    /
+      game_id: "2b3e2e05-4ce9-47ec-9472-6cd0923230ae",
+      name: "Tetris",
+      distributor: "Mirrorsoft",
+      stars: 3,
+      description: "Tetris es un juego de puzzle lanzado en 1984 para la consola Electronika 60 en la Unión Soviética. En el juego, el jugador debe manipular piezas geométricas llamadas tetrominós, que caen desde la parte superior de la pantalla, con el objetivo de completar líneas horizontales sin dejar espacios vacíos. A medida que el juego avanza, las piezas caen cada vez más rápido, lo que hace que sea más difícil completar las líneas. Si las piezas se acumulan hasta la parte superior de la pantalla, el jugador pierde. Tetris es conocido por su simplicidad y adictividad, y ha sido portado a numerosas plataformas, desde consolas hasta teléfonos móviles. Es uno de los juegos más populares de todos los tiempos y ha sido aclamado como un clásico de los videojuegos.",
+      pegi_id: "3",
+      category_id: "1",
+      mode_id: "1",
+      price: 29.99,
+      stock: 200
+    },
+    {
+      game_id: "a7d31aea-a51d-46cd-b3d3-38ae2909a66c",
+      name: "Silent hill",
+      distributor: "Konami",
+      stars: 1,
+      description: "Silent Hill es un videojuego de terror y supervivencia lanzado en 1999 para la consola PlayStation. El juego sigue a Harry Mason, quien viaja a la ciudad de Silent Hill en busca de su hija adoptiva, Cheryl. Sin embargo, pronto descubre que la ciudad está envuelta en una niebla sobrenatural y habitada por criaturas aterradoras. A medida que avanza en la búsqueda de su hija, Harry se enfrenta a puzzles desafiantes y a peligrosos enemigos, tanto humanos como monstruos. El juego cuenta con gráficos detallados y una banda sonora inquietante, creando una atmósfera de terror y tensión constante. Silent Hill ha sido aclamado por la crítica y se ha convertido en un clásico de los videojuegos de terror, y ha dado lugar a una exitosa serie de juegos y películas.",
+      pegi_id: "12",
+      category_id: "12",
+      mode_id: "1",
+      price: 38.99,
+      stock: 90
+    } 
+  ]*/
+
 
   pegis: PegiData[] = [
     {
@@ -291,22 +336,22 @@ export class DetallesProductoMainComponent implements OnInit {
     {
       game_picture_id: '5',
       picture: '/assets/key-kong-2.png',
-      game_id: '2',
+      game_id: '2b3e2e05-4ce9-47ec-9472-6cd0923230ae',
     },
     {
       game_picture_id: '6',
       picture: '/assets/donkey-kong-1.png',
-      game_id: '2',
+      game_id: '2b3e2e05-4ce9-47ec-9472-6cd0923230ae',
     },
     {
       game_picture_id: '7',
       picture: '/assets/donkey-kong-3.png',
-      game_id: '2',
+      game_id: '2b3e2e05-4ce9-47ec-9472-6cd0923230ae',
     },
     {
       game_picture_id: '8',
       picture: '/assets/donkey-kong-4.png',
-      game_id: '2',
+      game_id: '2b3e2e05-4ce9-47ec-9472-6cd0923230ae',
     },
     {
       game_picture_id: '9',
@@ -333,13 +378,13 @@ export class DetallesProductoMainComponent implements OnInit {
   addToKartForm: FormGroup;
 
   game_id: string = 'fa6ca618-2851-47d4-930f-0b510b40fed2';
-  user_id: string = '7814dfa';
+  user_id: string = '2';
   selectedGamePictures: GamePictureData[] = [];
   shoppingCartItems: ShoppingCartItemData[] = [] as ShoppingCartItemData[];
   game: ProductData;
 
   ngOnInit(): void {
-    this.selectGame(this.game_id);
+    this.selectGame();
     this.selectPictures(this.game_id);
     this.createForm();
   }
@@ -376,9 +421,8 @@ export class DetallesProductoMainComponent implements OnInit {
     if (!!modeSelected) this.game.mode_id = modeSelected.name;
   }
 
-  selectGame(game_id: string) {
-    let gameSelected = this.games.find((game) => game.game_id == game_id);
-    if (!!gameSelected) this.game = gameSelected;
+  selectGame() {
+    this.game = this.selectedGame;
     this.replacePegi(this.game.pegi_id);
     this.replaceGenre(this.game.category_id);
     this.replaceMode(this.game.mode_id);

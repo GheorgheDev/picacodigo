@@ -1,6 +1,6 @@
 export interface NewSaleData{
-    game_id: string
-    amount: number
     date: Date
+    amount: number
+    game_id: string
     user_id: string
 }
