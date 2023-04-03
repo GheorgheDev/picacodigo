@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MailBoxData } from '../../model/mailbox-data';
 import { UserData } from 'src/app/shared/models/user-data';
+import { ShareService } from 'src/app/shared/services/share.service';
 
 @Component({
   selector: 'app-notification-page',
@@ -12,7 +13,6 @@ export class NotificationPageComponent implements OnInit {
   user_id = '4';
 
   /* Mailbox, get all mails to userid*/
-
   mailboxMessages: MailBoxData[] = [
     {
       message_id: '1',
@@ -81,9 +81,8 @@ export class NotificationPageComponent implements OnInit {
   ];
 
   /* all users */
-
   users: UserData[] = [
-    {
+     {
       user_id: '1',
       username: 'AndreaC',
       fullname: 'Andrea Cebrian',
@@ -115,26 +114,37 @@ export class NotificationPageComponent implements OnInit {
     },
   ];
 
-  completeMailboxMessages: MailBoxData[] = [] as MailBoxData[]
-  userThatSentTheMail: UserData = {} as UserData
+  completeMailboxMessages: MailBoxData[] = [] as MailBoxData[];
+  userThatSentTheMail: UserData = {} as UserData;
+
+  constructor(private userService: ShareService) {}
 
   ngOnInit(): void {
-    this.completeMailboxMessage()
-  }
+    this.completeMailboxMessage();
 
-  completeMailboxMessage(){
-    this.mailboxMessages.forEach(mailboxMessage => {
-      this.findUserThatSentTheMail(mailboxMessage.user_from_id)
-      let completeMailboxMessage: MailBoxData
-      completeMailboxMessage = mailboxMessage
-      completeMailboxMessage.user_from_id = this.userThatSentTheMail.username
-      this.completeMailboxMessages.push(completeMailboxMessage)
+    this.userService.getAllUsers().subscribe((data) => {
+      console.log('data: ', data);
+      this.users = data;
+
+      console.log('user: ', this.users);
     });
   }
 
-  findUserThatSentTheMail(user_id:string){
-    let foundUserIndex = this.users.findIndex((user) => user.user_id === user_id);
-    this.userThatSentTheMail = this.users[foundUserIndex]
+  completeMailboxMessage() {
+    this.mailboxMessages.forEach((mailboxMessage) => {
+      this.findUserThatSentTheMail(mailboxMessage.user_from_id);
+      let completeMailboxMessage: MailBoxData;
+      completeMailboxMessage = mailboxMessage;
+      completeMailboxMessage.user_from_id = this.userThatSentTheMail.username;
+      this.completeMailboxMessages.push(completeMailboxMessage);
+    });
+  }
+
+  findUserThatSentTheMail(user_id: string) {
+    let foundUserIndex = this.users.findIndex(
+      (user) => user.user_id === user_id
+    );
+    this.userThatSentTheMail = this.users[foundUserIndex];
   }
 
   changeMailsReadStatus(index: string) {
@@ -154,8 +164,4 @@ export class NotificationPageComponent implements OnInit {
     console.log(foundMessageIndex);
     /* also do in service */
   }
-
-  constructor() {}
-
-  
 }
