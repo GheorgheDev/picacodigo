@@ -11,6 +11,7 @@ import { GamePictureData } from '../../../model/game-picture-data';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InvalidAddtokartComponent } from '../invalid-addtokart/invalid-addtokart.component';
 import { ShoppingCartService } from 'src/app/private/services/shopping-cart.service';
+import { SharedServicesService } from 'src/app/shared/services/shared-services.service';
 
 @Component({
   selector: 'app-detalles-producto-main',
@@ -26,201 +27,12 @@ export class DetallesProductoMainComponent implements OnInit {
   constructor(
     private _fb: FormBuilder,
     public dialog: MatDialog,
-    private shoppingItems: ShoppingCartService
+    private shoppingItems: ShoppingCartService,
+    public sharedServices: SharedServicesService
   ) {}
 
 
-   selectedGame: ProductData = 
-    {
-      game_id: 'fa6ca618-2851-47d4-930f-0b510b40fed2',
-      name: 'Red Dead Redemption II',
-      distributor: 'Rockstar Games',
-      stars: 5,
-      description:
-        'Space invaders	Arcade	Si	No	Midway Games	Space Invaders es un videojuego arcade de disparos desarrollado por Taito y lanzado en 1978. El juego presenta una serie de alienígenas que se mueven de un lado a otro en la pantalla, mientras el jugador controla un cañón situado en la parte inferior de la pantalla para dispararles y defenderse. A medida que el juego avanza, la velocidad y la dificultad aumentan, y los alienígenas se mueven más rápido y atacan con mayor frecuencia. \n Space Invaders fue uno de los primeros juegos arcade en alcanzar un gran éxito comercial y es considerado uno de los juegos más influyentes de la historia de los videojuegos. Su mecánica simple y adictiva, así como su diseño de personajes y efectos de sonido icónicos, lo han convertido en un símbolo de la cultura popular. El juego ha sido portado a numerosas consolas y dispositivos, y ha inspirado una gran cantidad de secuelas y adaptaciones.',
-      pegi_id: '3',
-      category_id: '10',
-      mode_id: '1',
-      price: 54.99,
-      stock: 100,
-    }/*
-    
-    {
-      game_id: '2b3e2e05-4ce9-47ec-9472-6cd0923230ae',
-      name: 'Super Mario Odyssey',
-      distributor: 'Nintendo',
-      stars: 4,
-      description:
-        'Super Mario Odyssey es un videojuego de plataformas desarrollado y publicado por Nintendo. Fue lanzado mundialmente el 27 de octubre de 2017 para Nintendo Switch. El juego es una continuación de la serie de Super Mario y sigue al fontanero Mario en su búsqueda por salvar a la princesa Peach del malvado Bowser.',
-      pegi_id: '3',
-      category_id: '11',
-      mode_id: '2',
-      price: 45.0,
-      stock: 206,
-    },
-    {
-      game_id: '3',
-      name: "Assassin's Creed Valhalla",
-      distributor: 'Ubisoft',
-      stars: 5,
-      description:
-        "Assassin's Creed Valhalla es un videojuego de acción y aventura desarrollado por Ubisoft Montreal y publicado por Ubisoft. Es el duodécimo título principal de la serie Assassin's Creed y el sucesor de Assassin's Creed Odyssey de 2018.",
-      pegi_id: '4',
-      category_id: '12',
-      mode_id: '1',
-      price: 60.0,
-      stock: 150,
-    },
-    {
-      game_id: '4',
-      name: 'FIFA 22',
-      distributor: 'EA Sports',
-      stars: 4,
-      description:
-        'FIFA 22 es un videojuego de simulación de fútbol desarrollado por EA Sports y publicado por Electronic Arts. Es la vigésima novena entrega de la serie FIFA y fue lanzado en septiembre de 2021 para PlayStation 5, Xbox Series X/S, PlayStation 4, Xbox One, Microsoft Windows y Nintendo Switch.',
-      pegi_id: '3',
-      category_id: '13',
-      mode_id: '2',
-      price: 55.0,
-      stock: 100,
-    },
-    {
-      game_id: '5',
-      name: 'The Legend of Zelda: Breath of the Wild',
-      distributor: 'Nintendo',
-      stars: 5,
-      description:
-        'The Legend of Zelda: Breath of the Wild es un videojuego de acción-aventura desarrollado y publicado por Nintendo. Es el décimo octavo título principal de la serie de The Legend of Zelda y fue lanzado en marzo de 2017 para Nintendo Switch y Wii U.',
-      pegi_id: '3',
-      category_id: '14',
-      mode_id: '1',
-      price: 50.0,
-      stock: 80,
-    },
-    {
-      game_id: '6',
-      name: 'Horizon Zero Dawn',
-      distributor: 'Sony Interactive Entertainment',
-      stars: 4,
-      description:
-        'Horizon Zero Dawn es un videojuego de rol y acción desarrollado por Guerrilla Games y publicado por Sony Interactive Entertainment. Fue lanzado para PlayStation 4 en febrero de 2017 y para Microsoft Windows en agosto de 2020.',
-      pegi_id: '4',
-      category_id: '15',
-      mode_id: '1',
-      price: 39.99,
-      stock: 120,
-    },
-    {
-      game_id: '7',
-      name: 'The Last of Us Part II',
-      distributor: 'Sony Interactive Entertainment',
-      stars: 5,
-      description:
-        'The Last of Us Part II es un videojuego de acción-aventura y supervivencia desarrollado por Naughty Dog y publicado por Sony Interactive Entertainment. Es la secuela de The Last of Us de 2013 y sigue a Ellie en su búsqueda de venganza en un mundo post-apocalíptico lleno de peligros.',
-      pegi_id: '4',
-      category_id: '16',
-      mode_id: '1',
-      price: 50,
-      stock: 100,
-    },
-
-    {
-      game_id: '8',
-      name: 'Cyberpunk 2077',
-      distributor: 'CD Projekt',
-      stars: 3,
-      description:
-        'Cyberpunk 2077 es un videojuego de rol de acción desarrollado y publicado por CD Projekt. Está ambientado en un futuro distópico en la ciudad de Night City, California, y sigue al personaje del jugador en su búsqueda de fama y fortuna en un mundo lleno de peligros y corrupción.',
-      pegi_id: '4',
-      category_id: '21',
-      mode_id: '1',
-      price: 60,
-      stock: 80,
-    },
-
-    {
-      game_id: '9',
-      name: 'Super Smash Bros. Ultimate',
-      distributor: 'Nintendo',
-      stars: 4,
-      description:
-        'Super Smash Bros. Ultimate es un videojuego de lucha desarrollado por Bandai Namco Studios y Sora Ltd. y publicado por Nintendo. Es la quinta entrega de la serie Super Smash Bros. y presenta una lista de personajes jugables ampliada, así como modos de juego mejorados.',
-      pegi_id: '3',
-      category_id: '19',
-      mode_id: '2',
-      price: 50,
-      stock: 150,
-    },
-
-    {
-      game_id: '10',
-      name: 'Death Stranding',
-      distributor: 'Sony Interactive Entertainment',
-      stars: 3,
-      description:
-        'Death Stranding es un videojuego de acción y aventura desarrollado por Kojima Productions y publicado por Sony Interactive Entertainment. El juego sigue al personaje principal, Sam Porter Bridges, en su tarea de conectar ciudades aisladas en un mundo post-apocalíptico lleno de peligros.',
-      pegi_id: '4',
-      category_id: '2',
-      mode_id: '1',
-      price: 45,
-      stock: 100,
-    },
-
-    {
-      game_id: '11',
-      name: 'Animal Crossing: New Horizons',
-      distributor: 'Nintendo',
-      stars: 4,
-      description:
-        'Animal Crossing: New Horizons es un videojuego de simulación de vida desarrollado y publicado por Nintendo. Fue lanzado para Nintendo Switch en marzo de 2020 y permite al jugador construir y personalizar una isla habitada por animales antropomórficos.',
-      pegi_id: '3',
-      category_id: '1',
-      mode_id: '1',
-      price: 45,
-      stock: 120,
-    },
-  ]; */
-
-/*
-  selectedGame: ProductData=
-   [ 
-    {
-      game_id: "fa6ca618-2851-47d4-930f-0b510b40fed2",
-      name: "Space invaders",
-      distributor: "Midway Games",
-      stars: 3,
-      description: "Space Invaders es un videojuego arcade de disparos desarrollado por Taito y lanzado en 1978. El juego presenta una serie de alienígenas que se mueven de un lado a otro en la pantalla, mientras el jugador controla un cañón situado en la parte inferior de la pantalla para dispararles y defenderse. A medida que el juego avanza, la velocidad y la dificultad aumentan, y los alienígenas se mueven más rápido y atacan con mayor frecuencia. Space Invaders fue uno de los primeros juegos arcade en alcanzar un gran éxito comercial y es considerado uno de los juegos más influyentes de la historia de los videojuegos. Su mecánica simple y adictiva, así como su diseño de personajes y efectos de sonido icónicos, lo han convertido en un símbolo de la cultura popular. El juego ha sido portado a numerosas consolas y dispositivos, y ha inspirado una gran cantidad de secuelas y adaptaciones.",
-      pegi_id: "3",
-      category_id: "1",
-      mode_id: "1",
-      price: 35,
-      stock: 100
-    }
-    /
-      game_id: "2b3e2e05-4ce9-47ec-9472-6cd0923230ae",
-      name: "Tetris",
-      distributor: "Mirrorsoft",
-      stars: 3,
-      description: "Tetris es un juego de puzzle lanzado en 1984 para la consola Electronika 60 en la Unión Soviética. En el juego, el jugador debe manipular piezas geométricas llamadas tetrominós, que caen desde la parte superior de la pantalla, con el objetivo de completar líneas horizontales sin dejar espacios vacíos. A medida que el juego avanza, las piezas caen cada vez más rápido, lo que hace que sea más difícil completar las líneas. Si las piezas se acumulan hasta la parte superior de la pantalla, el jugador pierde. Tetris es conocido por su simplicidad y adictividad, y ha sido portado a numerosas plataformas, desde consolas hasta teléfonos móviles. Es uno de los juegos más populares de todos los tiempos y ha sido aclamado como un clásico de los videojuegos.",
-      pegi_id: "3",
-      category_id: "1",
-      mode_id: "1",
-      price: 29.99,
-      stock: 200
-    },
-    {
-      game_id: "a7d31aea-a51d-46cd-b3d3-38ae2909a66c",
-      name: "Silent hill",
-      distributor: "Konami",
-      stars: 1,
-      description: "Silent Hill es un videojuego de terror y supervivencia lanzado en 1999 para la consola PlayStation. El juego sigue a Harry Mason, quien viaja a la ciudad de Silent Hill en busca de su hija adoptiva, Cheryl. Sin embargo, pronto descubre que la ciudad está envuelta en una niebla sobrenatural y habitada por criaturas aterradoras. A medida que avanza en la búsqueda de su hija, Harry se enfrenta a puzzles desafiantes y a peligrosos enemigos, tanto humanos como monstruos. El juego cuenta con gráficos detallados y una banda sonora inquietante, creando una atmósfera de terror y tensión constante. Silent Hill ha sido aclamado por la crítica y se ha convertido en un clásico de los videojuegos de terror, y ha dado lugar a una exitosa serie de juegos y películas.",
-      pegi_id: "12",
-      category_id: "12",
-      mode_id: "1",
-      price: 38.99,
-      stock: 90
-    } 
-  ]*/
+   selectedGame: ProductData = {} as ProductData
 
 
   pegis: PegiData[] = [
@@ -312,81 +124,47 @@ export class DetallesProductoMainComponent implements OnInit {
     },
   ];
 
-  gamePictures: GamePictureData[] = [
-    {
-      game_picture_id: '2',
-      picture: '/assets/game.jpg',
-      game_id: 'fa6ca618-2851-47d4-930f-0b510b40fed2',
-    },
-    {
-      game_picture_id: '1',
-      picture: '/assets/1.jpg',
-      game_id: 'fa6ca618-2851-47d4-930f-0b510b40fed2',
-    },
-    {
-      game_picture_id: '3',
-      picture: '/assets/2.jpg',
-      game_id: 'fa6ca618-2851-47d4-930f-0b510b40fed2',
-    },
-    {
-      game_picture_id: '4',
-      picture: '/assets/3.jpg',
-      game_id: 'fa6ca618-2851-47d4-930f-0b510b40fed2',
-    },
-    {
-      game_picture_id: '5',
-      picture: '/assets/key-kong-2.png',
-      game_id: '2b3e2e05-4ce9-47ec-9472-6cd0923230ae',
-    },
-    {
-      game_picture_id: '6',
-      picture: '/assets/donkey-kong-1.png',
-      game_id: '2b3e2e05-4ce9-47ec-9472-6cd0923230ae',
-    },
-    {
-      game_picture_id: '7',
-      picture: '/assets/donkey-kong-3.png',
-      game_id: '2b3e2e05-4ce9-47ec-9472-6cd0923230ae',
-    },
-    {
-      game_picture_id: '8',
-      picture: '/assets/donkey-kong-4.png',
-      game_id: '2b3e2e05-4ce9-47ec-9472-6cd0923230ae',
-    },
-    {
-      game_picture_id: '9',
-      picture: '/assets/3.jpg',
-      game_id: '3',
-    },
-    {
-      game_picture_id: '10',
-      picture: '/assets/game.jpg',
-      game_id: '3',
-    },
-    {
-      game_picture_id: '11',
-      picture: '/assets/donkey-kong-4.png',
-      game_id: '4',
-    },
-    {
-      game_picture_id: '12',
-      picture: '/assets/donkey-kong-1.png',
-      game_id: '4',
-    },
-  ];
+  gamePictures: GamePictureData[] = [ ] as GamePictureData[];
 
   addToKartForm: FormGroup;
 
-  game_id: string = 'fa6ca618-2851-47d4-930f-0b510b40fed2';
+  game_id: string = 'e68027dc-fa25-4875-86b7-809c565f7735';
+  game_idFromSS: string | null = sessionStorage.getItem('game_id');
   user_id: string = '2';
-  selectedGamePictures: GamePictureData[] = [];
+  selectedGamePictures: GamePictureData[] = [] as GamePictureData[];
   shoppingCartItems: ShoppingCartItemData[] = [] as ShoppingCartItemData[];
   game: ProductData;
 
   ngOnInit(): void {
-    this.selectGame();
-    this.selectPictures(this.game_id);
-    this.createForm();
+    if(!!this.game_idFromSS){
+      this.game_id = this.game_idFromSS
+    }
+    this.bringDataFromDB()
+  }
+
+
+  bringDataFromDB(){
+    this.sharedServices.getAllPicturesByGameId(this.game_id).subscribe({
+      next: allPictures => {
+        this.gamePictures = allPictures
+      },
+      error: error => {
+        console.log(error);
+      }
+    });
+    this.sharedServices.getGameById(this.game_id).subscribe({
+      next: gameSelected => {
+        this.selectedGame = gameSelected
+      },
+      error: error => {
+        console.log(error);
+      },
+      complete: () => {
+        this.selectGame();
+        this.selectPictures();
+        this.createForm();
+      }
+    });
   }
 
   createForm() {
@@ -395,11 +173,9 @@ export class DetallesProductoMainComponent implements OnInit {
     });
   }
 
-  selectPictures(game_id: string) {
+  selectPictures() {
     for (let i = 0; i < this.gamePictures.length; i++) {
-      if (this.gamePictures[i].game_id == game_id) {
-        this.selectedGamePictures.push(this.gamePictures[i]);
-      }
+      this.selectedGamePictures.push(this.gamePictures[i]);
     }
     this.initSlides();
   }
