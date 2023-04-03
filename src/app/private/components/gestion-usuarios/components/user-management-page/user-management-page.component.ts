@@ -36,11 +36,30 @@ export class UserManagementPageComponent implements OnInit {
   ngAfterViewInit() { }
   changeUserStatus(user_id: string) {
     let userToBan = this.usersData.find((user) => user.user_id == user_id);
+
     if (!!userToBan) {
-      if (userToBan.status == 'inactive')
-        userToBan.status = 'active';
-      else
-        userToBan.status = 'inactive';
+      if (userToBan.status == 'inactive') {
+        this.userService.unbanUser(user_id).subscribe(
+          (user) => {
+            userToBan!.status = 'active'
+            user.status = userToBan?.status
+          },
+          (error) => {
+            console.log(error)
+          }
+        )
+      }
+      else {
+        this.userService.banUser(user_id).subscribe(
+          (user) => {
+            userToBan!.status = 'inactive'
+            user.status = userToBan?.status
+          },
+          (error) => {
+            console.log(error)
+          }
+        )
+      }
     }
   }
 }

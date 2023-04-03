@@ -1,4 +1,4 @@
-export interface PegiData{
-    pegi_id: string
-    name: string
-  }
+export interface PegiData {
+  pegi_id: string
+  name: string
+}
