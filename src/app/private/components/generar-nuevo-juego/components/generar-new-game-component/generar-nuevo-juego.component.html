@@ -1,0 +1,132 @@
+<div class="user-management__header">
+  <app-common-header></app-common-header>
+</div>
+
+<div class="dark-background page-container">
+
+  <div class="new-game-form-container dark-background white-text" *ngIf="userType == 1">
+    <h1 class="new-game-form-title title-l white-text">Crear nuevo juego</h1>
+ 
+    <form class="form" [formGroup]="addGameForm" >
+      <div class="form-group">
+        <label for="game_name">Título</label>
+        <input
+          type="text"
+          class="title-xs form-input"
+          id="game_name"
+          formControlName="game_name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="game_stars white-text">Estrellas</label>
+        <select class="game_stars" name="game_stars" id="game_stars" formControlName="game_stars" required>
+          <option value="1">★✩✩✩✩</option>
+          <option value="2">★★✩✩✩</option>
+          <option value="3">★★★✩✩</option>
+          <option value="4">★★★★✩</option>
+          <option value="5">★★★★★</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="game_description white-text">Descripción</label>
+        <textarea
+          type="text"
+          class="text-regular-xs form-input"
+          id="game_description"
+          formControlName="game_description"
+          required
+        ></textarea>
+      </div>
+  
+      <div class="form-group ">
+        <label for="game_distributor white-text">Distribuido por</label>
+        <input
+          type="text"
+          class="title-xs form-input"
+          id="game_distributor"
+          formControlName="game_distributor"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="game_mode white-text">Modo de juego</label>
+        <select class="title-xs" name="game_mode" id="game_mode" formControlName="game_mode" required>
+          <option class="title-xs" *ngFor="let gameMode of gameModes" [value]="gameMode.mode_id">
+            {{ gameMode.name }}
+          </option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="game_category white-text">Genero</label>
+        <select class="title-xs"  name="game_category" id="game_category" formControlName="game_category" required>
+          <option class="title-xs" 
+            *ngFor="let gameGenre of gameGenres"
+            [value]="gameGenre.category_id"
+          >
+            {{ gameGenre.name }}
+          </option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="game_pegi white-text">PEGI</label>
+        <select class="title-xs"  name="game_pegi" id="game_pegi" formControlName="game_pegi" required>
+          <option class="title-xs"  *ngFor="let gamePegi of gamePegis" [value]="gamePegi.pegi_id">
+            {{ gamePegi.name }}
+          </option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="game_price white-text">Precio</label>
+        <input
+          type="number"
+          class="title-xs form-input"
+          id="game_price"
+          formControlName="game_price"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="game_stock white-text">Stock</label>
+        <input
+          type="number"
+          class="title-xs form-input"
+          id="game_stock"
+          formControlName="game_stock"
+          required
+        />
+      </div>
+  
+      <button
+        class="btn-green white-text btn-close text-regular-s"
+        type="submit"
+        mat-button (click)="addGame()">
+        Enviar
+      </button>
+    </form>
+  
+
+  
+  </div>
+</div>
+
+
+
+<div *ngIf="userType != 1">
+  <app-not-permission></app-not-permission>
+</div>
+
+
+
+
+
+
+
+<div class="shopping-cart__footer">
+  <app-footer></app-footer>
+</div>

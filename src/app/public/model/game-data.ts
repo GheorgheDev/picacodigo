@@ -11,4 +11,6 @@ export interface ProductData{
     stock: number
   }
 
+  export type NewProductData = Omit<ProductData, 'game_id'>
+
   /* es en realidad gamedata */

@@ -3,3 +3,5 @@ export interface GamePictureData{
     picture: string
     game_id: string
   }
+
+  export type NewGamePictureData = Omit<GamePictureData, 'game_picture_id'>

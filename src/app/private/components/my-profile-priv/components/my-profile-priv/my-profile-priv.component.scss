@@ -57,8 +57,8 @@ $background-color_grey: #536162;
 
 .change_config_dates {
   display: flex;
-  justify-content: start;
-  align-items: end;
+  justify-content: flex-start;
+  align-items: flex-end;
   margin-top: 5%;
   width: 112%;
 }

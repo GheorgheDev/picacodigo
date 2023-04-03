@@ -22,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     FiltersComponent,
     OrdinationComponent,
-    NotPermissionComponent
+    NotPermissionComponent,
+    
   ],
   imports: [
     CommonModule,

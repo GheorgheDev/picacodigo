@@ -42,9 +42,6 @@ export class ShoppingCartService {
     return this.http.post<NewSaleData>('/api/sales/add', sale )
   }
   
-  /* addNewSale(saleDate: string, saleAmount: number, saleGameId: string, saleUserId: string){
-  return this.http.post<NewSaleData>('/api/sales/add', {'date': saleDate, 'amount': saleAmount, 'game_id': saleGameId, 'user_id':saleUserId } )
-  } */
-
+  
   
 }
