@@ -18,7 +18,6 @@ export class NotificationServiceService {
 
 
 
-
   getAllMessagesByUserId(idUser: string): Observable<any> {
     return this.http.get<any>(`/api/messages/get/all/${idUser}`)
       .pipe(

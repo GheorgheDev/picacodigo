@@ -4,6 +4,8 @@ import { FiltersComponent } from '../../../shared/components/filters/filters.com
 import { Router } from '@angular/router';
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { ProductData } from 'src/app/shared/models/product-data';
+import { SharedServicesService } from 'src/app/shared/services/shared-services.service';
+import { result } from 'lodash';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,174 +14,7 @@ import { ProductData } from 'src/app/shared/models/product-data';
 })
 export class DashboardComponent implements OnInit {
   products: ProductData[] = [
-    {
-      game_id:'1',
-      name: 'Prince of Persia',
-      stars: 1,
-      price: 13.59,
-      category_id: '10',
-      mode_id: '30'
-    },
-    {
-      game_id: '2',
-      name: 'Los Sims',
-      stars: 3,
-      price: 8.99,
-      category_id: '11',
-      mode_id: '31'
-    },
-    {
-      game_id: '3',
-      name: 'Tetris',
-      stars: 4,
-      price: 6.69,
-      category_id: '12',
-      mode_id: '30'
-    },
-    {
-      game_id: '4',
-      name: 'Resident Evil 4',
-      stars: 1,
-      price: 36.99,
-      category_id: '13',
-      mode_id: '31'
-    },
-    {
-      game_id: '5',
-      name: 'Warcraft',
-      stars: 2,
-      price: 13.59,
-      category_id: '14',
-      mode_id: '30'
-    },
-    {
-      game_id: '6',
-      name: 'Buscaminas',
-      stars: 5,
-      price: 13.59,
-      category_id: '15',
-      mode_id: '31'
-    },
-    {
-      game_id: '7',
-      name: 'Prince of Persia',
-      stars: 1,
-      price: 13.59,
-      category_id: '20',
-      mode_id: '30'
-    },
-    {
-      game_id: '8',
-      name: 'Los Sims',
-      stars: 3,
-      price: 8.99,
-      category_id: '20',
-      mode_id: '31'
-    },
-    {
-      game_id: '9',
-      name: 'Tetris',
-      stars: 4,
-      price: 6.69,
-      category_id: '12',
-      mode_id: '30'
-    },
-    {
-      game_id: '10',
-      name: 'Resident Evil 4',
-      stars: 1,
-      price: 36.99,
-      category_id: '13',
-      mode_id: '30'
-    },
-    {
-      game_id: '11',
-      name: 'Warcraft',
-      stars: 2,
-      price: 13.59,
-      category_id: '14',
-      mode_id: '31'
-    },
-    {
-      game_id: '12',
-      name: 'Buscaminas',
-      stars: 5,
-      price: 13.59,
-      category_id: '15',
-      mode_id: '30'
-    },
-    {
-      game_id: '13',
-      name: 'Prince of Persia',
-      stars: 1,
-      price: 13.59,
-      category_id: '20',
-      mode_id: '30'
-    },
-    {
-      game_id: '14',
-      name: 'Los Sims',
-      stars: 3,
-      price: 8.99,
-      category_id: '20',
-      mode_id: '30'
-    },
-    {
-      game_id: '15',
-      name: 'Tetris',
-      stars: 4,
-      price: 6.69,
-      category_id: '12',
-      mode_id: '30'
-    },
-    {
-      game_id: '16',
-      name: 'Resident Evil 4',
-      stars: 1,
-      price: 36.99,
-      category_id: '14',
-      mode_id: '30'
-    },
-    {
-      game_id: '17',
-      name: 'Warcraft',
-      stars: 2,
-      price: 13.59,
-      category_id: '13',
-      mode_id: '30'
-    },
-    {
-      game_id: '18',
-      name: 'Buscaminas',
-      stars: 5,
-      price: 13.59,
-      category_id: '14',
-      mode_id: '30'
-    },
-    {
-      game_id: '19',
-      name: 'Prince of Persia',
-      stars: 1,
-      price: 13.59,
-      category_id: '15',
-      mode_id: '30'
-    },
-    {
-      game_id: '20',
-      name: 'Los Sims',
-      stars: 3,
-      price: 8.99,
-      category_id: '14',
-      mode_id: '31'
-    },
-    {
-      game_id: '21',
-      name: 'Tetris',
-      stars: 4,
-      price: 6.69,
-      category_id: '20',
-      mode_id: '30'
-    }
+    
   ];
 
   originalProducts: ProductData[] = [];
@@ -194,18 +29,32 @@ export class DashboardComponent implements OnInit {
   cardsOrder: number;
 
 
-  constructor(private router: Router) {
-    this.filteredGames = [];
+  constructor(private router: Router,
+              public sharedServices: SharedServicesService ) {
+              this.filteredGames = [];
   }
 
   dashboard() {
     this.router.navigateByUrl('/dashboard')
   }
 
+
+
   ngOnInit() {
-    this.paginarResultados(true);
-    this.onWindowResize();
+    this.sharedServices.getAllGames().subscribe(result => {
+      console.log(result);
+      this.products = result;
+      this.paginarResultados(true);
+      this.onWindowResize();
+    });
+  
+    /* this.sharedServices.getAllGames_picture().subscribe(pictureResult => {
+      console.log(pictureResult);
+      this.toSortList = pictureResult;
+    }); */
   }
+  
+  
 
   @Input() filterInfo: FiltersComponent;
   chosenGenreFilters: string[] = [];
