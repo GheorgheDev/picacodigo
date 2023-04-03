@@ -9,15 +9,18 @@ import { UserData } from 'src/app/shared/models/user-data';
   styleUrls: ['./user-management-table.component.scss'],
 })
 export class UserManagementTableComponent implements OnInit {
-  @Input() userData: UserData[];
+  @Input() set userData(values: UserData[]) {
+    if(!!values && values.length > 0) {
+      this.dataSourceUser.data = values
+    }
+  }
 
   @Output() banUsersToggle = new EventEmitter<string>();
   banUserToggle(user_id:string){
     this.banUsersToggle.emit(user_id)
-  
   }
 
-  displayedColumns: string[] = ['user_id', 'username', 'name', 'actions'];
+  displayedColumns: string[] = ['user_id', 'username', 'fullname', 'actions'];
 
   dataSourceUser: any;
 
@@ -41,6 +44,4 @@ export class UserManagementTableComponent implements OnInit {
       this.dataSourceUser.paginator.firstPage();
     }
   }
-
- 
 }
