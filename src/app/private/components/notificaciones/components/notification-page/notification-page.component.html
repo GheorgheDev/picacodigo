@@ -2,19 +2,29 @@
   <app-common-header></app-common-header>
 </div>
 
-<div class="notif-container dark-background white-text-notif" *ngIf="userType == 1">
+<div
+  class="notif-container dark-background white-text-notif"
+  *ngIf="userType == 1"
+>
   <h1 class="notif-title title-l white-text">Mensajería</h1>
 
   <mat-tab-group class="dark-gray-background">
-
     <mat-tab label="Buzon de entrada" class="white-text-notif">
-
-      <div *ngIf="completeMailboxMessages.length>0; then FoundMeBlock; else notFoundMeBlock"></div>
+      <div
+        *ngIf="
+          completeMailboxMessages.length > 0;
+          then FoundMeBlock;
+          else notFoundMeBlock
+        "
+      ></div>
 
       <ng-template #FoundMeBlock>
         <div *ngFor="let completeMailboxMessage of completeMailboxMessages">
-          <app-mail-box-panel [completeMailboxMessage]="completeMailboxMessage" (markMailsAsRead)="changeMailsReadStatus($event)"
-            (deleteMessage)="deleteMBMessage($event)"></app-mail-box-panel>
+          <app-mail-box-panel
+            [completeMailboxMessage]="completeMailboxMessage"
+            (markMailsAsRead)="changeMailsReadStatus($event)"
+            (deleteMessage)="deleteMBMessage($event)"
+          ></app-mail-box-panel>
         </div>
       </ng-template>
 
@@ -22,7 +32,10 @@
         <app-not-found #notFoundBlock></app-not-found>
       </ng-template>
     </mat-tab>
-    <mat-tab label="Enviar nuevo mensaje" class="white-text-notif text-regular-xs">
+    <mat-tab
+      label="Enviar nuevo mensaje"
+      class="white-text-notif text-regular-xs"
+    >
       <app-send-mail-panel></app-send-mail-panel>
     </mat-tab>
   </mat-tab-group>
