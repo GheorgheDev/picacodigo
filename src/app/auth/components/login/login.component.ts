@@ -28,7 +28,7 @@ export class LoginComponent {
         sessionStorage.setItem('email', email)
 
         console.log(this.userLog.user_id)
-        sessionStorage.setItem('uer_id', this.userLog.user_id)
+        sessionStorage.setItem('user_id', this.userLog.user_id)
 
         this.redirection(this.userLog)
       },
