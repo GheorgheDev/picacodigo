@@ -54,5 +54,10 @@ export class CardProductComponent implements OnInit {
     return ''
   }
 
+  saveGameIdInSS(game_id:string | undefined){
+    if(!!game_id)
+      sessionStorage.setItem('game_id', game_id)
+  }
+
   
 }
