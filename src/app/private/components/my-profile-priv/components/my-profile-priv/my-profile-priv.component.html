@@ -1,5 +1,5 @@
 <app-common-header></app-common-header>
-<div class="container dark-background" *ngIf="user_id !== 0">
+<div class="container dark-background" *ngIf="!!user?.login">
   <div class="welcome_message">
     <div class="white-text title-l">Mi perfil</div>
   </div>
@@ -7,27 +7,28 @@
   <div class="cards_desk">
     <mat-card class="card_picture">
       <div>
-        <img src="{{ users[0].Imagen }}" class="img_user" alt="img_user" />
+        <img src="{{ user.picture }}" class="img_user" alt="img_user" />
       </div>
 
       <div>
         <div class="distribution__config">
-          <i class="fa-sharp fa-solid fa-camera icon__color"></i>
-          <button mat-button (click)="openNewProfilePhotoDialog()" class="text-regular-s white-text btn__close">
-            Cambiar foto de perfil
-          </button>
-        </div>
-
-        <div class="distribution__config">
           <i class="fa-sharp fa-solid fa-user-lock icon__color"></i>
-          <button mat-button (click)="openPasswordDialog()" class="text-regular-s white-text btn__close">
+          <button
+            mat-button
+            (click)="openPasswordDialog()"
+            class="text-regular-s white-text btn__close"
+          >
             Cambiar contraseña
           </button>
         </div>
 
         <div class="distribution__config">
           <i class="fa-sharp fa-solid fa-pen icon__color"></i>
-          <button mat-button (click)="openUserInfoDialog()" class="text-regular-s white-text btn__close">
+          <button
+            mat-button
+            (click)="openUserInfoDialog()"
+            class="text-regular-s white-text btn__close"
+          >
             Editar información personal
           </button>
         </div>
@@ -35,19 +36,26 @@
     </mat-card>
 
     <mat-card class="card_info_user card_picture">
-      <mat-card-content class="white-text white-text title-xs">Usuario:&nbsp; {{ users[0].Usuario }}</mat-card-content>
-      <mat-card-content class="white-text title-xs">Nombre:&nbsp; {{ users[0].Nombre }}</mat-card-content>
-      <mat-card-content class="white-text title-xs">Email:&nbsp; {{ users[0].Email }}</mat-card-content>
-      <mat-card-content class="white-text title-xs">Teléfono:&nbsp; {{ users[0].Telefono }}</mat-card-content>
-      <mat-card-content class="white-text title-xs">Fecha de nacimiento:&nbsp;
-        {{ users[0].Fecha_de_nacimiento }}</mat-card-content>
-      <mat-card-content class="white-text title-xs">Dirección física:&nbsp;
-        {{ users[0].Direccion_fisica }}</mat-card-content>
+      <mat-card-content class="white-text white-text title-xs"
+        >Usuario:&nbsp; {{ user.username }}</mat-card-content
+      >
+      <mat-card-content class="white-text title-xs"
+        >Nombre:&nbsp; {{ user.fullname }}</mat-card-content
+      >
+      <mat-card-content class="white-text title-xs"
+        >Email:&nbsp; {{ user.email }}</mat-card-content
+      >
+      <mat-card-content class="white-text title-xs"
+        >Teléfono:&nbsp; {{ user.phone }}</mat-card-content
+      >
+      <mat-card-content class="white-text title-xs"
+        >Fecha de nacimiento:&nbsp; {{ user.birthdate }}</mat-card-content
+      >
     </mat-card>
   </div>
 </div>
 
-<div *ngIf="user_id == 0">
+<div *ngIf="!user?.login">
   <app-not-permission></app-not-permission>
 </div>
 <app-footer></app-footer>

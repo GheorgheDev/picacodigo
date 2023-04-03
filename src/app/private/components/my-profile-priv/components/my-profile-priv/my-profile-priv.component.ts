@@ -3,6 +3,8 @@ import { DialogUserDataChangeComponent } from '../dialog-user-data-change/dialog
 import { DialogPasswordChangeComponent } from '../dialog-password-change/dialog-password-change.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MyProfilePrivServiceService } from '../../services/my-profile-priv-service.service';
+import { UserData } from 'src/app/shared/models/user-data';
 
 @Component({
   selector: 'app-my-profile-priv',
@@ -11,46 +13,35 @@ import { MatDialog } from '@angular/material/dialog';
 })
 
 export class MyProfilePrivComponent implements OnInit {
-  users = [
-    {
-      id: 1,
-      Usuario: 'Manolo25',
-      Nombre: 'Manolo Ortiz López',
-      Email: 'michael.lawson@reqres.in',
-      Telefono: '666-666-666',
-      Fecha_de_nacimiento: '10/05/1998',
-      Direccion_fisica: 'Calle de la piruleta nº 42',
-      Imagen: '/assets/images/img_user.jpg',
-    },
-    {
-      id: 2,
-      Usuario: 'Maria30',
-      Nombre: 'Maria Gutierrez Gómez',
-      Email: 'Maria.lawson@reqres.in',
-      Telefono: '666-666-666',
-      Fecha_de_nacimiento: '10/05/1998',
-      Direccion_fisica: 'Calle del zapato nº 15',
-      Imagen: '../images/img_user.jpg',
-    },
-  ];
+  user: UserData;
+  user_id = "17" // TODO: esto quitarlo porque lo vamos a obtener del localstorage
 
-  user_id = 1
+  constructor(
+    public dialog: MatDialog,
+    private profileService: MyProfilePrivServiceService
+  ) { }
 
-  constructor(public dialog: MatDialog) { }
-
-  ngOnInit(): void { }
-
-  stateUser = true;
+  ngOnInit(): void {
+    this.profileService.getUserById(this.user_id)
+      .subscribe(userLoggued => {
+        this.user = userLoggued;
+        this.user.picture = '/assets/images/img_user.jpg';
+      })
+  }
 
   openNewProfilePhotoDialog() {
     this.dialog.open(DialogProfilePhotoChangeComponent);
   }
 
   openPasswordDialog() {
-    this.dialog.open(DialogPasswordChangeComponent);
+    this.dialog.open(DialogPasswordChangeComponent, {
+      data: { user: this.user }
+    });
   }
 
   openUserInfoDialog() {
-    this.dialog.open(DialogUserDataChangeComponent);
+    this.dialog.open(DialogUserDataChangeComponent, {
+      data: { user: this.user }
+    });
   }
 }

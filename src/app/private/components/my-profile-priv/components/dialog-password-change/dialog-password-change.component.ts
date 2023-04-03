@@ -1,14 +1,8 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, Inject } from '@angular/core';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
-
-export interface UserData {
-  user_id: string,
-  user_username: string,
-  name: string,
-  password: string,
-}
+import { MyProfilePrivServiceService } from '../../services/my-profile-priv-service.service';
 
 @Component({
   selector: 'app-dialog-password-change',
@@ -16,73 +10,54 @@ export interface UserData {
   styleUrls: ['./dialog-password-change.component.scss']
 })
 
-export class DialogPasswordChangeComponent {
-  usuarios: UserData =
-    {
-      user_id: 'a12',
-      user_username: 'marialopez',
-      name: 'María López',
-      password: '123'
-    }
+export class DialogPasswordChangeComponent implements OnInit {
+  changePasswordForm: FormGroup;
+  submitted: boolean = false;
 
+  constructor(
+    private fb: FormBuilder,
+    private _snackBar: MatSnackBar,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private profileService: MyProfilePrivServiceService
+  ) { }
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar) { }
-
-  public cambioPasswordForm: FormGroup = this.fb.group({
-    password0: ['', Validators.required],
-    password1: ['', Validators.required],
-    password2: ['', Validators.required],
-
-  }, {
-    validators: this.passwordsIguales('password1', 'password2')
-  });
-
-  userPassword: string
-
-
-  coincidenciaAntiguaPassword() {
-    this.userPassword = this.cambioPasswordForm.get('password0')?.value;
-
-    if (this.usuarios.password !== this.userPassword && !!this.userPassword) {
-      return true
-    }
-    else
-      return false
+  get formGroup() {
+    return this.changePasswordForm.controls;
   }
 
-  crearPassword() {
-    this.cambioPasswordForm.markAllAsTouched()
-    if (!this.contrasenasNoValidas() && this.cambioPasswordForm.valid) {
-      this.usuarios.password = this.cambioPasswordForm.get('password2')?.value
-      this.openSnackBar()
-      this.cambioPasswordForm.reset()
+  ngOnInit(): void {
+    this.changePasswordForm = this.fb.group({
+      currentPassword: ['', Validators.required],
+      newPassword: ['', Validators.required],
+      newPasswordRepeat: ['', Validators.required],
+    },
+      {
+        validator: this.checkNewPassword
+      });
+  }
+
+  changePassword() {
+    this.submitted = true;
+
+    if (this.changePasswordForm.valid && this.checkCurrentPassword()) {
+      this.submitted = false;
+      this.data.user.password = (this.changePasswordForm.get('newPassword') as FormControl).value;
+      this.profileService.changePassword(this.data.user)
+        .subscribe(() => {
+          this.openSnackBar();
+          this.changePasswordForm.reset();
+        })
     }
   }
 
-  contrasenasNoValidas() {
-    const pass1 = this.cambioPasswordForm.get('password1')?.value;
-    const pass2 = this.cambioPasswordForm.get('password2')?.value;
-
-    if ((pass1 !== pass2)) {
-      return true;
-    } else {
-      return false;
-    }
+  checkCurrentPassword(): boolean {
+    return this.data.user.password === (this.changePasswordForm.get('currentPassword') as FormControl).value;
   }
 
-  passwordsIguales(pass1Name: string, pass2Name: string) {
-    return (formGroup: FormGroup) => {
-
-      const pass1Control = formGroup.get(pass1Name);
-      const pass2Control = formGroup.get(pass2Name);
-
-      if (pass1Control?.value === pass2Control?.value) {
-        pass2Control?.setErrors(null)
-      } else {
-        pass2Control?.setErrors({ noEsIgual: true })
-      }
-
-    }
+  checkNewPassword(control: FormControl): ValidationErrors | null {
+    const newPassword = (control.get('newPassword') as FormControl).value;
+    const newPasswordRepeat = (control.get('newPasswordRepeat') as FormControl).value;
+    return newPassword !== newPasswordRepeat ? { notSame: true } : null;
   }
 
   openSnackBar() {
