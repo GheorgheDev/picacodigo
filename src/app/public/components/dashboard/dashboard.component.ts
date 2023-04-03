@@ -4,6 +4,8 @@ import { FiltersComponent } from '../../../shared/components/filters/filters.com
 import { Router } from '@angular/router';
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { ProductData } from 'src/app/shared/models/product-data';
+import { DashboardService } from './services/dashboard-service.service';
+import { result } from 'lodash';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +14,7 @@ import { ProductData } from 'src/app/shared/models/product-data';
 })
 export class DashboardComponent implements OnInit {
   products: ProductData[] = [
-    {
+    /* {
       name: 'Prince of Persia',
       stars: 1,
       price: 13.59,
@@ -158,7 +160,7 @@ export class DashboardComponent implements OnInit {
       price: 6.69,
       category_id: '20',
       mode_id: '30'
-    }
+    } */
   ];
 
   originalProducts: ProductData[] = [];
@@ -173,8 +175,9 @@ export class DashboardComponent implements OnInit {
   cardsOrder: number;
 
 
-  constructor(private router: Router) {
-    this.filteredGames = [];
+  constructor(private router: Router,
+              public dasboardService: DashboardService ) {
+              this.filteredGames = [];
   }
 
   dashboard() {
@@ -182,9 +185,21 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.paginarResultados(true);
-    this.onWindowResize();
+    this.dasboardService.getAllGames().subscribe(result => {
+      console.log(result)
+      this.products = result
+
+    this.dasboardService.getAllGames_picture().subscribe(result => {
+      console.log(result)
+      this.products = result
+    })
+
+
+      this.paginarResultados(true);
+      this.onWindowResize();
+    })
   }
+  
 
   @Input() filterInfo: FiltersComponent;
   chosenGenreFilters: string[] = [];

@@ -4,6 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderModule } from 'src/app/shared/components/header/header.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { HeaderModule } from 'src/app/shared/components/header/header.module';
     CommonModule,
     MatCardModule,
     SharedModule,
-    HeaderModule
+    HeaderModule,
+    HttpClientModule
   ],
   exports: [
     DashboardComponent
