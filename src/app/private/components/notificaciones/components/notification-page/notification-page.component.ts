@@ -1,159 +1,161 @@
 import { Component, OnInit } from '@angular/core';
-import { NotificationData } from '../../model/notification-data';
 import { MailBoxData } from '../../model/mailbox-data';
-
+import { UserData } from 'src/app/shared/models/user-data';
 
 @Component({
   selector: 'app-notification-page',
   templateUrl: './notification-page.component.html',
-  styleUrls: ['./notification-page.component.scss']
+  styleUrls: ['./notification-page.component.scss'],
 })
-export class NotificationPageComponent implements OnInit { 
-  notifications: NotificationData[] = [
-    {
-      id: "1",
-      from: "Andrea C.",
-      content: "ha comentado",
-      where: "en tu publicacion",
-      link: "Monopoly",
-      read: false
-    },
-    {
-      id: "2",
-      from: "JuanJo G.",
-      content: "ha comentado",
-      where: "en tu publicacion",
-      link: "MarioBros",
-      read: true
-    },
-    {
-      id: "3",
-      from: "Salvador S.",
-      content: " le dió like a tu comentario",
-      where: "en la publicacion",
-      link: "Sonic",
-      read: false
-    },
-    {
-      id: "4",
-      from: "Gheorghe B.",
-      content: "ha publicado",
-      where: "a la venta",
-      link: "Catan",
-      read: false
-    },
-    {
-      id: "5",
-      from: "Barbara R.",
-      content: "ha comentado",
-      where: "en tu publicacion sobre",
-      link: "matamarcianos",
-      read: false
-    }
-  ]
+export class NotificationPageComponent implements OnInit {
+  userType = 1;
+  user_id = '4';
 
-  user_id = 1
-
-  changeReadStatus(index: string) {
-    let foundNotification = this.notifications.find(elem=> elem.id == index)
-    if(!!foundNotification)
-      foundNotification.read=true;
-  }
-
-  deleteNotifi(notifID: string) {
-    let foundNotificationIndex = this.notifications.findIndex(elem=> elem.id === notifID)
-    this.notifications.splice(foundNotificationIndex, 1)
-  }
-
-
-  /* Mailbox */
+  /* Mailbox, get all mails to userid*/
 
   mailboxMessages: MailBoxData[] = [
     {
-      id: "1",
-      from: "Barbara",
-      to: "Gheorghe",
-      content: "Hola Gheorghe necesito ayuda",
-      date: "05-01-2023",
-      read: false
+      message_id: '1',
+      user_from_id: '1',
+      user_to_id: '4',
+      content: 'Hola Gheorghe soy Andrea',
+      date: new Date('2023-03-04'),
+      read: false,
     },
     {
-      id: "2",
-      from: "Gheorghe",
-      to: "Bárbara",
-      content: "no",
-      date: "05-01-2023",
-      read: true
+      message_id: '1',
+      user_from_id: '2',
+      user_to_id: '4',
+      content: 'Hola Gheorghe soy Juanjo',
+      date: new Date('2023-03-05'),
+      read: false,
     },
     {
-      id: "3",
-      from: "Andrea",
-      to: "Gheorghe",
-      content: "Hola Gheorghe yo tambien",
-      date: "05-01-2023",
-      read: false
+      message_id: '3',
+      user_from_id: '1',
+      user_to_id: '4',
+      content: 'Hola Gheorghe soy Andrea de nuevo',
+      date: new Date('2023-03-05'),
+      read: false,
     },
     {
-      id: "4",
-      from: "Gheorghe",
-      to: "Andrea",
-      content: "no tampoco no tampoco no tampoco no tampoco no tampoco no tampoco no tampoco no tampoco no tampoco ",
-      date: "05-01-2023",
-      read: false
+      message_id: '4',
+      user_from_id: '3',
+      user_to_id: '4',
+      content: 'Hola soy Salva',
+      date: new Date('2023-03-05'),
+      read: false,
     },
     {
-      id: "5",
-      from: "Juanjo",
-      to: "Gheorghe",
-      content: "Hola yo tambien",
-      date: "05-01-2023",
-      read: false
+      message_id: '5',
+      user_from_id: '3',
+      user_to_id: '4',
+      content: 'Hola soy Salva otra vez',
+      date: new Date('2023-03-06'),
+      read: false,
     },
     {
-      id: "6",
-      from: "Gheorghe",
-      to: "Juanjo",
-      content: "bueno ok",
-      date: "05-01-2023",
-      read: false
+      message_id: '6',
+      user_from_id: '5',
+      user_to_id: '4',
+      content: 'Hola soy barbara',
+      date: new Date('2023-03-07'),
+      read: false,
     },
     {
-      id: "7",
-      from: "Salvador",
-      to: "Gheorghe",
-      content: "Hola como estas, soy un bombero",
-      date: "05-01-2023",
-      read: false
+      message_id: '7',
+      user_from_id: '5',
+      user_to_id: '4',
+      content: 'Hola como estas, soy barbara de nuevo',
+      date: new Date('2023-03-07'),
+      read: false,
     },
     {
-      id: "8",
-      from: "Gheorghe",
-      to: "Salvador",
-      content: "Hola pos ok bien x ti",
-      date: "05-01-2023",
-      read: false
-    }
-    
-  ]
+      message_id: '8',
+      user_from_id: '2',
+      user_to_id: '4',
+      content: 'Hola soy juanjo otra vez',
+      date: new Date('2023-03-09'),
+      read: false,
+    },
+  ];
 
+  /* all users */
 
-  
+  users: UserData[] = [
+    {
+      user_id: '1',
+      username: 'AndreaC',
+      fullname: 'Andrea Cebrian',
+      picture: 'ruta',
+    },
+    {
+      user_id: '2',
+      username: 'JuanJo',
+      fullname: 'Juan Sevilla',
+      picture: 'ruta',
+    },
+    {
+      user_id: '3',
+      username: 'SalvadorS',
+      fullname: 'Salvador Santo',
+      picture: 'ruta',
+    },
+    {
+      user_id: '4',
+      username: 'GheorgheB',
+      fullname: 'Gheorghe Bucurici',
+      picture: 'ruta',
+    },
+    {
+      user_id: '5',
+      username: 'BarbaraR',
+      fullname: 'Barbara Rodriguez',
+      picture: 'ruta',
+    },
+  ];
+
+  completeMailboxMessages: MailBoxData[] = [] as MailBoxData[]
+  userThatSentTheMail: UserData = {} as UserData
+
+  ngOnInit(): void {
+    this.completeMailboxMessage()
+  }
+
+  completeMailboxMessage(){
+    this.mailboxMessages.forEach(mailboxMessage => {
+      this.findUserThatSentTheMail(mailboxMessage.user_from_id)
+      let completeMailboxMessage: MailBoxData
+      completeMailboxMessage = mailboxMessage
+      completeMailboxMessage.user_from_id = this.userThatSentTheMail.username
+      this.completeMailboxMessages.push(completeMailboxMessage)
+    });
+  }
+
+  findUserThatSentTheMail(user_id:string){
+    let foundUserIndex = this.users.findIndex((user) => user.user_id === user_id);
+    this.userThatSentTheMail = this.users[foundUserIndex]
+  }
+
   changeMailsReadStatus(index: string) {
-    let foundMail = this.mailboxMessages.find(elem=> elem.id == index)
-    if(!!foundMail)
-    foundMail.read=true;
+    let foundMail = this.completeMailboxMessages.find(
+      (elem) => elem.message_id == index
+    );
+    if (!!foundMail) foundMail.read = true;
+
+    /* also do in service */
   }
 
   deleteMBMessage(mesID: string) {
-    let foundMessageIndex = this.mailboxMessages.findIndex(elem=> elem.id === mesID)
-    this.mailboxMessages.splice(foundMessageIndex, 1)
-    console.log(foundMessageIndex)
+    let foundMessageIndex = this.completeMailboxMessages.findIndex(
+      (elem) => elem.message_id === mesID
+    );
+    this.completeMailboxMessages.splice(foundMessageIndex, 1);
+    console.log(foundMessageIndex);
+    /* also do in service */
   }
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  
 }
-

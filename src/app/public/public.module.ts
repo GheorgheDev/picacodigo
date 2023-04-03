@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardModule } from './components/dashboard/dashboard.module';
 import { NeedLoginComponent } from './components/need-login/need-login.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { NeedLoginComponent } from './components/need-login/need-login.component
     CommonModule,
     PublicRoutingModule,
     DashboardModule,
-    DetallesProductoMainModule
+    DetallesProductoMainModule,
+    MatDialogModule
   ],
   exports: [
   ]

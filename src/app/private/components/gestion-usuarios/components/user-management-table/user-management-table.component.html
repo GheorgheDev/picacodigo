@@ -32,7 +32,7 @@
           *matCellDef="let user"
           class="text-regular-s"
           [ngClass]="{ inactive: user.status == 'inactive' }"
-          >{{ user.user_username }}</mat-cell
+          >{{ user.username }}</mat-cell
         >
       </ng-container>
 
@@ -44,7 +44,7 @@
           *matCellDef="let user"
           class="text-regular-s"
           [ngClass]="{ inactive: user.status == 'inactive' }"
-          >{{ user.name }}</mat-cell
+          >{{ user.fullname }}</mat-cell
         >
       </ng-container>
 
