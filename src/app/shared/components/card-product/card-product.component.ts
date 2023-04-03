@@ -1,3 +1,4 @@
+import { GamePictureData } from './../../../public/model/game-picture-data';
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductData } from '../../models/product-data';
 
@@ -9,11 +10,37 @@ import { ProductData } from '../../models/product-data';
 })
 export class CardProductComponent implements OnInit {
 
+  /* get all pictures of A game */
+  gamePictures: GamePictureData[] = [
+    {
+      game_picture_id: '2',
+      picture: '/assets/game.jpg',
+      game_id: '1',
+    },
+    {
+      game_picture_id: '1',
+      picture: '/assets/1.jpg',
+      game_id: '1',
+    },
+    {
+      game_picture_id: '3',
+      picture: '/assets/2.jpg',
+      game_id: '1',
+    },
+    {
+      game_picture_id: '4',
+      picture: '/assets/3.jpg',
+      game_id: '1',
+    }
+  ];
+
   @Input() product: ProductData;
   constructor() {}
 
+  gamePicture:string= this.gamePictures[0].picture;
+
   ngOnInit(): void {
-    
+
   }
   
   showStars(stars: number | undefined) : string {
@@ -26,4 +53,6 @@ export class CardProductComponent implements OnInit {
     }
     return ''
   }
+
+  
 }

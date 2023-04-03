@@ -1,0 +1,30 @@
+<mat-card class="shopping-cart-item-card" >
+    <mat-card-title>
+      <p class="white-text title-m card__title"> {{completeShoppingCartItems.game_name}}</p>
+    </mat-card-title>
+  
+    <mat-card-content class="text-regular-m matcard-content__message white-text">
+        <div>
+            <span>Cantidad: </span>
+            <span class="green-text">{{completeShoppingCartItems.game_quantity}}</span>
+        </div>
+      
+
+        <div>
+            <span>Precio: </span>
+            <span  class="green-text">€ {{completeShoppingCartItems.game_price}}</span>
+        </div>
+
+        <div>
+            <span>Total: </span>
+            <span  class="green-text">€ {{completeShoppingCartItems.game_total_price}}</span>
+        </div>
+     
+      <mat-card-actions>
+        <i matBadge="1" matBadgeSize="large" class="material-symbols-outlined green-text delete-btn" (click)="deleteItemShoppingCartSS(completeShoppingCartItems.game_id)">delete</i>
+
+      </mat-card-actions>
+    </mat-card-content>
+  
+    
+  </mat-card>

@@ -5,8 +5,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface UserData {
   user_id: string,
-  user_username: string,
-  name: string,
+  username: string,
+  fullname: string,
   password: string,
 }
 
@@ -20,8 +20,8 @@ export class DialogPasswordChangeComponent {
   usuarios: UserData =
     {
       user_id: 'a12',
-      user_username: 'marialopez',
-      name: 'María López',
+      username: 'marialopez',
+      fullname: 'María López',
       password: '123'
     }
 

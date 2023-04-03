@@ -59,7 +59,7 @@
         <select class="title-xs"  name="game_genre" id="game_genre" formControlName="game_genre">
           <option class="title-xs" 
             *ngFor="let gameGenre of gameGenres"
-            [value]="gameGenre.genre_id"
+            [value]="gameGenre.category_id"
           >
             {{ gameGenre.name }}
           </option>

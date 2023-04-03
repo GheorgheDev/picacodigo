@@ -1,10 +1,10 @@
 <div class="private-header">
-  <a [routerLink]="['']">
-    <i matBadge="1" matBadgeSize="large" class="material-symbols-outlined white-text">shopping_cart</i>
+  <a [routerLink]="['/shopping-cart']">
+    <i [matBadge]="ShoppingCartItemsQuantity" matBadgeSize="large" class="material-symbols-outlined white-text">shopping_cart</i>
   </a>
 
   <a [routerLink]="['/notification']">
-    <i matBadge="10" matBadgeSize="large" class="material-symbols-outlined white-text">mail</i>
+    <i [matBadge]="mailboxMessages.length" matBadgeSize="large" class="material-symbols-outlined white-text">mail</i>
   </a>
 
   <button *ngIf="profileButtonToggle == 'on'" mat-button class="title-xs white-text profile-btn"
@@ -17,6 +17,6 @@
   </button>
 
   <button *ngIf="profileButtonToggle == 'off'" mat-button class="title-xs white-text profile-btn"
-    [ngStyle]="{'background-image': 'url(' + user[0].picture + ')'}" (click)="prueba()">
+    [ngStyle]="{'background-image': 'url(' + user[0].picture + ')'}" >
   </button>
 </div>

@@ -1,9 +1,9 @@
 export interface MailBoxData{
-    id: string,
-    from: string,
-    to: string,
+    message_id: string,
+    user_from_id: string,
+    user_to_id: string,
     content: string,
-    date: string,
+    date: Date,
     read: boolean
   }
 
