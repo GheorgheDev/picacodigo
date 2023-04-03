@@ -1,0 +1,62 @@
+$background-color_grey: #536162;
+$border-color_green: #57e309;
+$background-color_dark-grey: #292F33;
+
+.mat-card {
+  background-color: $background-color_dark-grey;
+  display: flex;
+  flex-direction: column;
+  padding: 30px ;
+  margin: 20px 0;
+
+  .mat-card-content{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+
+  
+
+    & .mat-card-actions{
+        padding: 0;
+        & .delete-btn{
+            cursor: pointer;
+            &:hover{
+              color: white;
+            }
+        }
+    }
+  }
+}
+
+/* tablet */
+@media (max-width: 768px) {
+
+  .mat-card {
+    align-items: center;
+
+    & .mat-card-content{
+      flex-direction: column;
+      align-items: center;
+
+      & div,
+      .mat-card-actions{
+        margin: 10px 0;
+      }
+    }
+  }
+
+  .title-m{
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  
+}
+
+@media (max-width: 480px) {
+  .title-m{
+    font-size: 1rem;
+    
+  }
+}

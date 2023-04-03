@@ -1,5 +1,5 @@
 import { GameReview } from './../../../model/game-review';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-review-card',
@@ -9,7 +9,17 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ReviewCardComponent implements OnInit {
 
   @Input() completeReview: GameReview;
+
+  userType='1'
+
+
+  deleteReview(value:string){
+    /* borrar review */
+    console.log(value)
+  }
+
   ngOnInit(): void {
       
   }
+
 }

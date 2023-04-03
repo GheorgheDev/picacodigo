@@ -49,7 +49,7 @@
           Modo de juego: {{game.mode_id}}
         </p>
         <p class="text-medium-s">
-          Género: {{game.genre_id}}
+          Género: {{game.category_id}}
         </p>
         <p class="text-medium-s">
           {{game.pegi_id}}
@@ -57,10 +57,16 @@
         <span class="text-regular-l">€ {{game.price}}</span>
         <form [formGroup]="addToKartForm" class="producto__form">
           <span class="item_quantity">
-            <input formControlName="game_quantity" type="number" name="game_quantity" value="1" max={{game.stock}}
-              min="1" class="producto__cantidad dark-gray-background text-light-l white-text"
-              [disabled]="userType=='2'" />
-            <span class="text-regular-s game-stock"> ({{game.stock}} disponibles)</span>
+            <input *ngIf="userType!='2'" formControlName="game_quantity"
+            type="number"
+            name="game_quantity"
+            value="1"
+            max={{game.stock}}
+            min="1"
+            class="producto__cantidad dark-gray-background text-light-l white-text"
+
+          />
+          <span class="text-regular-s game-stock"> ({{game.stock}} disponibles)</span>
           </span>
 
           <button *ngIf="userType!='2'" type="submit" class="btn-green title-xs" (click)="addToKart()">Añadir al

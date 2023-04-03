@@ -55,7 +55,7 @@ export class ReviewsComponent implements OnInit {
   ];
 
   reviews: ReviewData[] = [
-    /* {
+    {
       review_id: '79sd67f',
       content: 'Este es el mejor juego que existe',
       game_id: '2',
@@ -92,7 +92,7 @@ export class ReviewsComponent implements OnInit {
         'Me gustó la trama del juego, aunque tuve algunos problemas técnicos',
       game_id: '2',
       user_id: 'rty89jkl',
-    }, */
+    },
   ];
   constructor(public dialog: MatDialog) {
 
@@ -113,14 +113,13 @@ export class ReviewsComponent implements OnInit {
       this.userThatMadeTheReview = {} as UserData
       this.findUserThatMadeTheReview(this.reviews[i].user_id);
       if(!!this.userThatMadeTheReview){
+        completeReview.review_id = this.reviews[i].review_id;
         completeReview.content = this.reviews[i].content;
         completeReview.username = this.userThatMadeTheReview.username;
         completeReview.picture = this.userThatMadeTheReview.picture;
-        console.log("aqui termina de asignar datos", completeReview)
         this.completeReviews.push(completeReview);
       }    
     }
-    console.log('1', this.completeReviews);
   }
 
   findUserThatMadeTheReview(user_id: string) {

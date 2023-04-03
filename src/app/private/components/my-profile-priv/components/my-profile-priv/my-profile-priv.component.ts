@@ -15,6 +15,7 @@ import { UserData } from 'src/app/shared/models/user-data';
 export class MyProfilePrivComponent implements OnInit {
   user: UserData;
   user_id = "17" // TODO: esto quitarlo porque lo vamos a obtener del localstorage
+  userType = 1;
 
   constructor(
     public dialog: MatDialog,
