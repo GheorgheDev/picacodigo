@@ -17,7 +17,6 @@ export class NotificationServiceService {
   }
 
 
-  constructor(private http: HttpClient) { }
 
   getAllMessagesByUserId(idUser: string): Observable<any> {
     return this.http.get<any>(`/api/messages/get/all/${idUser}`)
