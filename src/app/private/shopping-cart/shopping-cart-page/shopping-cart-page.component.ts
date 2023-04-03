@@ -3,7 +3,6 @@ import { ProductData } from './../../../public/model/game-data';
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { ShoppingCartItemData } from 'src/app/public/model/shopping-cart-item-data';
-import * as moment from 'moment'
 import { NewSaleData} from '../../models/sale-data';
 
 @Component({

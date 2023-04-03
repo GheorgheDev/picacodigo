@@ -1,5 +1,7 @@
 $background-color_grey: #536162;
 $border-color_green: #57e309;
+$background-color_dark-grey: #292f33;
+$background-color_dark-grey-transparent: #2f3538;
 
 .form-container {
   background-color: $background-color_grey;
@@ -57,14 +59,20 @@ button {
   padding: 5px 2px;
 }
 
+::ng-deep.mat-option {
+  color: white;
+  background-color: $background-color_dark-grey;
+  font-family: "Minecraftia-Regular.ttf";
+}
 
+::ng-deep.mat-autocomplete-panel {
+  background: $background-color_dark-grey-transparent;
+}
 
 /* tablet */
 @media (max-width: 768px) {
-
 }
 
 /* movil */
 @media (max-width: 480px) {
-
 }

@@ -1,3 +1,6 @@
+import { UserData } from 'src/app/shared/models/user-data';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +8,9 @@ import { Injectable } from '@angular/core';
 })
 export class LoginServiceService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  getUserByLogin(email: string, password: string): Observable<UserData> {
+    return this.http.get<UserData>('/api/users/login/'+email+"/"+password)
+  }
 }
