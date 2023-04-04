@@ -14,8 +14,10 @@ import { UserData } from 'src/app/shared/models/user-data';
 
 export class MyProfilePrivComponent implements OnInit {
   user: UserData;
-  user_id = "17" // TODO: esto quitarlo porque lo vamos a obtener del localstorage
-  userType = 1;
+  user_id = "0" 
+  user_idFromSS: string | null = sessionStorage.getItem('user_id');
+  userType: string = '0';
+  userTypeFromSS: string | null = sessionStorage.getItem('userType');
 
   constructor(
     public dialog: MatDialog,
@@ -23,6 +25,12 @@ export class MyProfilePrivComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if(!!this.userTypeFromSS){
+      this.userType = this.userTypeFromSS
+    }
+    if(!!this.user_idFromSS){
+      this.user_id = this.user_idFromSS
+    }
     this.profileService.getUserById(this.user_id)
       .subscribe(userLoggued => {
         this.user = userLoggued;

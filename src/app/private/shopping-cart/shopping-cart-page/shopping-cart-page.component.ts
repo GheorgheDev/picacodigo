@@ -162,8 +162,10 @@ export class ShoppingCartPageComponent implements OnInit {
     },
   ]; */
 
-  userType='1'
-  user_id = '1'
+  user_id = "0" 
+  user_idFromSS: string | null = sessionStorage.getItem('user_id');
+  userType: string = '0';
+  userTypeFromSS: string | null = sessionStorage.getItem('userType');
 
   shoppingCardItems: ShoppingCartItemData[]
   
@@ -182,6 +184,12 @@ export class ShoppingCartPageComponent implements OnInit {
   constructor(private shoppingItems: ShoppingCartService ) { }
 
   ngOnInit(): void {
+    if(!!this.userTypeFromSS){
+      this.userType = this.userTypeFromSS
+    }
+    if(!!this.user_idFromSS){
+      this.user_id = this.user_idFromSS
+    }
     this.getAllGames()
     
   }

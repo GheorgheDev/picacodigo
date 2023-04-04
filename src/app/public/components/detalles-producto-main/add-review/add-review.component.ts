@@ -11,8 +11,11 @@ import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 })
 export class AddReviewComponent implements OnInit {
 
-  user_id = '1'
-  game_id = '2'
+  game_id: string = '0';
+  game_idFromSS: string | null = sessionStorage.getItem('game_id');
+
+  user_id = "0" 
+  user_idFromSS: string | null = sessionStorage.getItem('user_id');
 
   newReview: NewReviewData
 
@@ -25,6 +28,12 @@ export class AddReviewComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    if(!!this.user_idFromSS){
+      this.user_id = this.user_idFromSS
+    }
+    if(!!this.game_idFromSS){
+      this.game_id = this.game_idFromSS
+    }
   }
 
   addReview() {  

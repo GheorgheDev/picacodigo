@@ -4,7 +4,7 @@
 
 <div
   class="notif-container dark-background white-text-notif"
-  *ngIf="userType == 1"
+  *ngIf="userType == '1'"
 >
   <h1 class="notif-title title-l white-text">Mensajería</h1>
 
@@ -41,7 +41,7 @@
   </mat-tab-group>
 </div>
 
-<div *ngIf="userType != 1">
+<div *ngIf="userType != '1'">
   <app-not-permission></app-not-permission>
 </div>
 

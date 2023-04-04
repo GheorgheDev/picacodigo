@@ -10,8 +10,10 @@ import { ShareService } from 'src/app/shared/services/share.service';
   styleUrls: ['./notification-page.component.scss'],
 })
 export class NotificationPageComponent implements OnInit {
-  userType = 1;
-  user_id = '1';
+  user_id = "0" 
+  user_idFromSS: string | null = sessionStorage.getItem('user_id');
+  userType: string = '0';
+  userTypeFromSS: string | null = sessionStorage.getItem('userType');
   mailboxMessages: MailBoxData[] = [];
   users: UserData[] = [];
   completeMailboxMessages: MailBoxData[] = [] as MailBoxData[];
@@ -22,6 +24,12 @@ export class NotificationPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if(!!this.userTypeFromSS){
+      this.userType = this.userTypeFromSS
+    }
+    if(!!this.user_idFromSS){
+      this.user_id = this.user_idFromSS
+    }
     this.notificationService.getAllMessagesByUserId(this.user_id)
       .subscribe(messages => {
         this.completeMailboxMessages = messages;

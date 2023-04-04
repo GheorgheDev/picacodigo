@@ -7,7 +7,8 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class HeaderContentComponent implements OnInit {
 
-  userType: string = '1';
+  userType: string = '0';
+  userTypeFromSS: string | null = sessionStorage.getItem('userType');
 
   logOutToggle: string = 'off';
   ScreenWidth: number;
@@ -16,6 +17,9 @@ export class HeaderContentComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    if(!!this.userTypeFromSS){
+      this.userType = this.userTypeFromSS
+    }
     this.onWindowResize();
   }
 
@@ -28,5 +32,7 @@ export class HeaderContentComponent implements OnInit {
       this.logOutToggle = 'off';
     }
   }
+
+  
 
 }

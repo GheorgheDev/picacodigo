@@ -3,6 +3,7 @@ import { ShoppingCartService } from './../../../../private/services/shopping-car
 import { ShoppingCartItemData } from './../../../../public/model/shopping-cart-item-data';
 import { Component, OnInit, HostListener } from '@angular/core';
 import { UserData } from 'src/app/shared/models/user-data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-private-header',
@@ -93,7 +94,7 @@ export class PrivateHeaderComponent implements OnInit {
   ];
 
 
-  constructor(private shoppingItems: ShoppingCartService) {}
+  constructor(private shoppingItems: ShoppingCartService, private router: Router) {}
 
   ngOnInit() {
     this.onWindowResize();
@@ -113,5 +114,10 @@ export class PrivateHeaderComponent implements OnInit {
   getShoppingCartItemsQuantity() {
     let shoppingCartList: ShoppingCartItemData[] = this.shoppingItems.getShoppingCart();
     this.ShoppingCartItemsQuantity = shoppingCartList.length
+  }
+
+  logOut(){
+    sessionStorage.clear()
+    this.router.navigate(['/auth/login'])
   }
 }
