@@ -9,8 +9,8 @@ import { Component, OnInit, Input, HostListener } from '@angular/core';
 })
 export class CardSliderComponent implements OnInit {
   @Input() set product(data: ProductData[]) {
-    this.products = data
-  }
+    this.products = data;
+   }
 
   constructor() { }
 
@@ -31,6 +31,7 @@ export class CardSliderComponent implements OnInit {
   private slider() {
     let salesProducts: ProductData[] = [];
     this.products.forEach(element => salesProducts.push(element));
+
 
     this.pages = [];
 
