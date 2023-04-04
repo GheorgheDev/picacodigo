@@ -10,27 +10,20 @@ import { UserData } from 'src/app/shared/models/user-data';
 export class NotificationServiceService {
   constructor(private http: HttpClient) {}
 
-  getAllgetAllMessagesUsers(id: string): Observable<UserData[]> {
-    return this.http.get<UserData[]>(
-      'http://localhost:3000/api/messages/get/all/' + id
-    );
-  }
-
-
-  constructor(private http: HttpClient) { }
-
   getAllMessagesByUserId(idUser: string): Observable<any> {
-    return this.http.get<any>(`/api/messages/get/all/${idUser}`)
-      .pipe(
-        map((res: any) => res)
-      )
+    return this.http.get<any>(`/api/messages/get/${idUser}`)
+      .pipe(map((res: any) => res));
   }
 
   markMessageAsRead(idMessage: any): Observable<any> {
-    return this.http.patch(`/api/messages/update/message/read`, { idMessage })
+    return this.http.patch(`/api/messages/update/message/read`, { idMessage });
   }
 
   deleteMessage(idMessage: any): Observable<any> {
     return this.http.delete(`/api/messages/delete/message/${idMessage}`);
+  }
+
+  addNewMessage(user: any): Observable<any> {
+    return this.http.post<any>('http://localhost:8532/bros/add', user);
   }
 }

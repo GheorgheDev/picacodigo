@@ -16,6 +16,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InvalidFormDialogComponent } from '../invalid-form-dialog/invalid-form-dialog.component';
 import { ValidMessageformDialogComponent } from '../valid-messageform-dialog/valid-messageform-dialog.component';
 import { ShareService } from 'src/app/shared/services/share.service';
+import { NotificationServiceService } from '../../services/notification-service.service';
 @Component({
   selector: 'app-send-mail-panel',
   templateUrl: './send-mail-panel.component.html',
@@ -26,7 +27,8 @@ export class SendMailPanelComponent implements OnInit {
     private _ngZone: NgZone,
     private _fb: FormBuilder,
     public dialog: MatDialog,
-    private userService: ShareService
+    private userService: ShareService,
+    private notificationService: NotificationServiceService
   ) {}
 
   //Lista de usuarios en enviar nuevo mensaje
@@ -57,7 +59,6 @@ export class SendMailPanelComponent implements OnInit {
       this.users = data;
 
       // console.log('user: ', this.users);
-      //TODO: revisar filter
     });
   }
 
@@ -95,7 +96,28 @@ export class SendMailPanelComponent implements OnInit {
       this.messageForm.markAllAsTouched();
       this.dialog.open(InvalidFormDialogComponent);
     } else {
-      //console.log(this.messageForm.value.mail_to, ' - ', this.messageForm.value.message_text);
+      const message = {
+        content: this.messageForm.value.message_text,
+        date: new Date(),
+        user_from_id: localStorage.getItem('user_id'),
+        user_to_id: this.messageForm.value.mail_to.user_id,
+        read: 0,
+      };
+      //---------------------------------------------------
+      this.notificationService.addNewMessage(this.message).subscribe((msg) => {
+        console.log('Mensaje enviado correctamente'+msg);
+      });
+      /*      console.log('mensaje: ' + this.messageForm.value.message_text);
+       console.log('fecha: ' + new Date());
+      console.log('userLogin: ' + localStorage.getItem('user_id'));
+     console.log('mail_to: ' + this.messageForm.value.mail_to.user_id); */
+
+      //---------------------------------------------------
+      console.log(
+        this.messageForm.value.mail_to.user_id,
+        ' - ',
+        this.messageForm.value.message_text
+      );
       this.messageForm.reset();
       this.dialog.open(ValidMessageformDialogComponent);
     }
