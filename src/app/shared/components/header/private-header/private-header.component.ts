@@ -17,7 +17,7 @@ export class PrivateHeaderComponent implements OnInit {
   ShoppingCartItemsQuantity: number;
 
   user: UserData
-  
+  profilepicture: string =""
 
   user_id = "0" 
   user_idFromSS: string | null = sessionStorage.getItem('user_id');
@@ -48,6 +48,11 @@ export class PrivateHeaderComponent implements OnInit {
         this.user = userLoggued;
         this.user.picture = '/assets/images/img_user.jpg';
       })
+  }
+
+  getUserPictureFromDB(){
+    if(!!this.user.picture)
+    this.profilepicture = this.user.picture
   }
 
   @HostListener('window:resize', ['$event'])

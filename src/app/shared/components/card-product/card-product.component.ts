@@ -23,10 +23,8 @@ export class CardProductComponent implements OnInit {
   gamePicture: string;
 
   ngOnInit(): void {
-    console.log("Estrellas:",this.product.stars)
     if(!!this.product.game_id){
       this.sharedServices.getAllPicturesByGameId(this.product.game_id).subscribe(pictureResult => {
-        console.log('pictureResult:', pictureResult);
         this.gamePictures = pictureResult;
         if (this.gamePictures.length > 0) {
           this.gamePicture = this.gamePictures[0].picture;

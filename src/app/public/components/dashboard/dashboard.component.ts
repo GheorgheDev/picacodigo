@@ -42,7 +42,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.sharedServices.getAllGames().subscribe(result => {
-      console.log(result);
       this.products = result;
       this.paginarResultados(true);
       this.onWindowResize();
