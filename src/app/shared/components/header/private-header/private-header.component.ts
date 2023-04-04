@@ -40,20 +40,16 @@ export class PrivateHeaderComponent implements OnInit {
       this.getUserDataFromDB()
     this.onWindowResize();
     this.getShoppingCartItemsQuantity()
+
   }
 
   getUserDataFromDB(){
     this.sharedServices.getUserById(this.user_id)
       .subscribe(userLoggued => {
         this.user = userLoggued;
-        this.user.picture = '/assets/images/img_user.jpg';
       })
   }
 
-  getUserPictureFromDB(){
-    if(!!this.user.picture)
-    this.profilepicture = this.user.picture
-  }
 
   @HostListener('window:resize', ['$event'])
   onWindowResize() {

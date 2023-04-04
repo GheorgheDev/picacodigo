@@ -5,6 +5,8 @@ import { ModeData } from 'src/app/public/model/mode-data';
 import { PegiData } from 'src/app/public/model/pegi-data';
 import { GenreData } from 'src/app/public/model/genre-data';
 import { SharedServicesService } from 'src/app/shared/services/shared-services.service';
+import { ProductDetailServiceService } from '../services/product-detail-service.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -109,11 +111,11 @@ export class EditGameComponent implements OnInit {
   game_id: string = '0';
   game_idFromSS: string | null = sessionStorage.getItem('game_id');
   
-  editGameForm: FormGroup;
+  public editGameForm: FormGroup;
 
 
 
-  constructor(public sharedServices: SharedServicesService, private _fb: FormBuilder,) { }
+  constructor(public sharedServices: SharedServicesService, private _fb: FormBuilder, public productDetailServices: ProductDetailServiceService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     if(!!this.game_idFromSS){
@@ -122,9 +124,6 @@ export class EditGameComponent implements OnInit {
     this.bringDataFromDB()
     
   }
-
-  
-
 
   bringDataFromDB(){
     console.log(this.game_id)
@@ -145,17 +144,20 @@ export class EditGameComponent implements OnInit {
 
 
   createForm() {
+  
     let gameToEdit: ProductData = this.game 
+
     this.editGameForm = this._fb.group({
-      game_title: [gameToEdit.name, [Validators.required]],
-      game_stars: [gameToEdit.stars, [Validators.required]],
-      game_description: [gameToEdit.description, [Validators.required]],
-      game_distributor: [gameToEdit.distributor, [Validators.required]],
-      game_mode: [gameToEdit.mode_id, [Validators.required]],
-      game_genre: [gameToEdit.category_id, [Validators.required]],
-      game_pegi: [gameToEdit.pegi_id, [Validators.required]],
-      game_price: [gameToEdit.price, [Validators.required]],
-      game_stock: [gameToEdit.stock, [Validators.required]],
+      game_id: [gameToEdit.game_id],
+      game_title: [gameToEdit.name, Validators.required],
+      game_stars: [gameToEdit.stars, Validators.required],
+      game_description: [gameToEdit.description, Validators.required],
+      game_distributor: [gameToEdit.distributor, Validators.required],
+      game_mode: [gameToEdit.mode_id, Validators.required],
+      game_genre: [gameToEdit.category_id, Validators.required],
+      game_pegi: [gameToEdit.pegi_id, Validators.required],
+      game_price: [gameToEdit.price, Validators.required],
+      game_stock: [gameToEdit.stock, Validators.required],
     });
   }
 
@@ -163,6 +165,7 @@ export class EditGameComponent implements OnInit {
   editGame(){
     if(this.editGameForm.valid){
       let gameEdited: ProductData = {} as ProductData
+      gameEdited.game_id = this.game_id
       gameEdited.name = this.editGameForm.value.game_title
       gameEdited.distributor = this.editGameForm.value.game_distributor
       gameEdited.stars = this.editGameForm.value.game_stars
@@ -173,8 +176,27 @@ export class EditGameComponent implements OnInit {
       gameEdited.price = this.editGameForm.value.game_price
       gameEdited.stock = this.editGameForm.value.game_stock
       console.log(gameEdited)
+
+        this.productDetailServices.updateGame(gameEdited).subscribe({
+          next: respuesta => {
+            console.log("esto es el juego editado: ", respuesta);
+          },
+          error: error => {
+            console.log(error);
+          },
+          complete: () => {
+            console.log("terminado")
+          }
+        });
+
     }else{
       alert("Formulario inválido, no se hizo ningún cambio")
+    }}
+
+    openSnackBar() {
+      this._snackBar.open('Los cambios se han guardado correctamente', '', {
+        duration: 1000
+      });
     }
+
   }
-}
