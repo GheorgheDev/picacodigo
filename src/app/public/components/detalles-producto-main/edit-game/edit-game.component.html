@@ -11,11 +11,12 @@
           id="game_title"
           formControlName="game_title"
           required
+          [value]="game.name"
         />
       </div>
       <div class="form-group">
         <label for="game_stars white-text">Estrellas</label>
-        <select class="game_stars" name="game_stars" id="game_stars" formControlName="game_stars">
+        <select class="game_stars" name="game_stars" id="game_stars" formControlName="game_stars" [value]="game.stars" required>
           <option value="1">★✩✩✩✩</option>
           <option value="2">★★✩✩✩</option>
           <option value="3">★★★✩✩</option>
@@ -31,6 +32,7 @@
           id="game_description"
           formControlName="game_description"
           required
+          [value]="game.description"
         ></textarea>
       </div>
 
@@ -56,7 +58,7 @@
 
       <div class="form-group">
         <label for="game_genre white-text">Genero</label>
-        <select class="title-xs"  name="game_genre" id="game_genre" formControlName="game_genre">
+        <select class="title-xs"  name="game_genre" id="game_genre" formControlName="game_genre" required>
           <option class="title-xs" 
             *ngFor="let gameGenre of gameGenres"
             [value]="gameGenre.category_id"

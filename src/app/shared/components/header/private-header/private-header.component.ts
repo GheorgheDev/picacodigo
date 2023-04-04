@@ -17,7 +17,7 @@ export class PrivateHeaderComponent implements OnInit {
   ShoppingCartItemsQuantity: number;
 
   user: UserData
-  
+  profilepicture: string =""
 
   user_id = "0" 
   user_idFromSS: string | null = sessionStorage.getItem('user_id');
@@ -40,6 +40,7 @@ export class PrivateHeaderComponent implements OnInit {
       this.getUserDataFromDB()
     this.onWindowResize();
     this.getShoppingCartItemsQuantity()
+
   }
 
   getUserDataFromDB(){
@@ -49,6 +50,7 @@ export class PrivateHeaderComponent implements OnInit {
         this.user.picture = '/assets/media/michi-default.jpg';
       })
   }
+
 
   @HostListener('window:resize', ['$event'])
   onWindowResize() {

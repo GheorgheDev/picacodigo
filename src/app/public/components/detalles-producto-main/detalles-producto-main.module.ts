@@ -13,6 +13,7 @@ import { EditGameComponent } from './edit-game/edit-game.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HeaderModule } from "../../../shared/components/header/header.module";
 import { MatCardModule } from '@angular/material/card';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { MatCardModule } from '@angular/material/card';
         SharedModule,
         HeaderModule,
         MatDialogModule,
-        MatCardModule
+        MatCardModule,
+        MatSnackBarModule
     ]
 })
 export class DetallesProductoMainModule { }

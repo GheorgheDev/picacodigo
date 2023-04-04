@@ -1,3 +1,4 @@
+import { NotificationServiceService } from './../../services/notification-service.service';
 import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
 import { UserData } from 'src/app/shared/models/user-data';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -10,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InvalidFormDialogComponent } from '../invalid-form-dialog/invalid-form-dialog.component';
 import { ValidMessageformDialogComponent } from '../valid-messageform-dialog/valid-messageform-dialog.component';
 import { SharedServicesService } from 'src/app/shared/services/shared-services.service';
+import { NewMailBoxDataDB } from '../../model/mailbox-data';
 @Component({
   selector: 'app-send-mail-panel',
   templateUrl: './send-mail-panel.component.html',
@@ -20,8 +22,10 @@ export class SendMailPanelComponent implements OnInit {
     private _ngZone: NgZone,
     private _fb: FormBuilder,
     public dialog: MatDialog,
-    public sharedServices: SharedServicesService
-  ) { }
+    public sharedServices: SharedServicesService,
+    public notificationService: NotificationServiceService,
+
+  ) {}
 
   user_id = "0"
   user_idFromSS: string | null = sessionStorage.getItem('user_id');
@@ -90,12 +94,36 @@ export class SendMailPanelComponent implements OnInit {
 
   sendMessage() {
     console.log(this.messageForm.value.mail_to)
+    let newMessage: NewMailBoxDataDB= {} as NewMailBoxDataDB
+    newMessage.content = this.messageForm.value.message_text
+    newMessage.user_to_id = this.messageForm.value.mail_to.user_id
+    newMessage.user_from_id = this.user_id
+    newMessage.date = new Date
+    newMessage.read = 0
+    
     if (this.messageForm.invalid || this.verifyValidUser() == 0) {
       this.messageForm.markAllAsTouched();
       this.dialog.open(InvalidFormDialogComponent);
     } else {
+      //console.log(this.messageForm.value.mail_to, ' - ', this.messageForm.value.message_text);
       this.messageForm.reset();
       this.dialog.open(ValidMessageformDialogComponent);
     }
+  }
+
+  addMessageToDB(newMessage: NewMailBoxDataDB){
+    console.log("esto es el mensaje de nuevo: ", newMessage)
+    this.notificationService.addNewMessage(newMessage).subscribe({
+      next: newMessageID => {
+        console.log("esto es el id del message created: ", newMessageID);
+      },
+      error: error => {
+        console.log(error);
+        console.log("error del add message")
+      },
+      complete: () => {
+        console.log("vete a dormids")
+      }
+    });
   }
 }

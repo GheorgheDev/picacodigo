@@ -1,8 +1,9 @@
-import { Observable } from 'rxjs';
-import { NewReviewData, ReviewData } from './../../../model/review-data';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ProductData } from 'src/app/public/model/game-data';
 import { HttpClient } from '@angular/common/http';
 import { UserData } from 'src/app/shared/models/user-data';
+import { NewReviewData, ReviewData } from 'src/app/public/model/review-data';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,10 @@ export class ProductDetailServiceService {
   deleteReview(review_id: string) {
     return this.http.delete('/api/reviews/delete/'+review_id)
   }
+  
+  updateGame(game: any): Observable<ProductData> {
+    return this.http.patch<ProductData>('/api/games/update', { game } );
+  }  
 
   getUserById(user_id: string): Observable<UserData> {
     return this.http.get<UserData>('/api/users/get/' + user_id)
