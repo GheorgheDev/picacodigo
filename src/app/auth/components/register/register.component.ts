@@ -37,7 +37,9 @@ export class RegisterComponent {
     this.registerService.addNewUser(this.registerForm.value).subscribe(
       (user) => {
         this.userRegister = user
-        console.log('usuario nuevo', user)
+
+        console.log("usuario", this.userRegister)
+
         this.redirection(this.userRegister)
       },
       (error) => {
@@ -60,7 +62,6 @@ export class RegisterComponent {
     } else {
       return false;
     }
-
   }
 
   contrasenasNoValidas() {

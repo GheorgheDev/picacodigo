@@ -26,62 +26,62 @@ export class FiltersComponent implements OnInit {
 
   genreList: FilterElement[] = [
     {
-      id: '10',
+      id: '1',
       name: 'Arcade'
     },
     {
-      id: '11',
+      id: '3',
       name: 'Acción'
     },
     {
-      id: '12',
+      id: '4',
       name: 'Aventura'
     },
     {
-      id: '13',
+      id: '5',
       name: 'Carreras'
     },
     {
-      id: '14',
+      id: '6',
       name: 'Combate'
     },
     {
-      id: '15',
+      id: '7',
       name: 'Deportes'
     },
     {
-      id: '16',
+      id: '8',
       name: 'Estrategia'
     },
     {
-      id: '17',
+      id: '9',
       name: 'Lógica'
     },
     {
-      id: '18',
+      id: '2',
       name: 'Plataformas'
     },
     {
-      id: '19',
+      id: '10',
       name: 'Rol'
     },
     {
-      id: '20',
+      id: '11',
       name: 'Simulación'
     },
     {
-      id: '21',
+      id: '12',
       name: 'Terror'
     }
   ]
 
   modeList: FilterElement[] = [
     {
-      id: '30',
+      id: '1',
       name: 'Individual'
     },
     {
-      id: '31',
+      id: '2',
       name: 'Multijugador'
     }
   ];

@@ -155,6 +155,11 @@ $font-title: "Minecraftia-Regular.ttf";
   text-align: justify;
 }
 
+.reviews-container {
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
 ::ng-deep.mat-typography p{
   margin: 0;
 }

@@ -22,6 +22,10 @@
 	width: 50%;
 }
 
+.form-horizontal {
+	align-items: center;
+}
+
 .card {
 	display: flex;
 	flex-direction: column;
@@ -36,7 +40,6 @@
 .btn1 {
 	display: flex;
 	text-align: center;
-	width: 45%;
 	color: white;
 	text-align: center;
 	justify-content: center;

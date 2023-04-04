@@ -5,66 +5,50 @@
       <form class="form-horizontal" id="loginform" autocomplete="off" [formGroup]="registerForm"
         (ngSubmit)="addNewUser()">
 
-        <!-- INPUT USERNAME -->
         <div class="form-group">
           <label for="inputUsername"></label>
-          <input type="text" class="title-xs form-input" id="inputUsername" placeholder="Nombre de usuario"
+          <input type="text" class="title-xxs form-input" id="inputUsername" placeholder="Nombre de usuario"
             formControlName="username">
         </div>
 
-        <!-- INPUT FULLNAME -->
-
         <div class="form-group">
           <label for="inputFullname"></label>
-          <input type="text" class="title-xs form-input" id="inputFullname" placeholder="Nombre completo"
+          <input type="text" class="title-xxs form-input" id="inputFullname" placeholder="Nombre completo"
             formControlName="fullname">
         </div>
 
-        <!-- INPUT EMAIL -->
         <div class="form-group">
           <label for="inputEmail"></label>
-          <input type="email" class="title-xs form-input" id="inputEmail" placeholder="Email"
-            formControlName="email">
+          <input type="email" class="title-xxs form-input" id="inputEmail" placeholder="Email" formControlName="email">
         </div>
-
-        <!-- INPUT PASSWORD -->
 
         <div class="form-group">
           <label for="inputPassword"></label>
-          <input type="password" class="title-xs form-input" id="inputPassword" placeholder="Contraseña"
+          <input type="password" class="title-xxs form-input" id="inputPassword" placeholder="Contraseña"
             formControlName="password" #password>
         </div>
-        
-        <!-- INPUT PASSWORD2 -->
 
         <div class="form-group">
           <label for="inputPassword2"></label>
-          <input type="password" class="title-xs form-input" id="inputPassword2" placeholder="Repetir contraseña"
+          <input type="password" class="title-xxs form-input" id="inputPassword2" placeholder="Repetir contraseña"
             formControlName="password2">
         </div>
 
-        <!-- INPUT PHONE -->
-
         <div class="form-group">
           <label for="inputPhone"></label>
-          <input type="tel" class="title-xs form-input" id="inputPhone" placeholder="Teléfono"
-            formControlName="phone">
+          <input type="tel" class="title-xxs form-input" id="inputPhone" placeholder="Teléfono" formControlName="phone">
         </div>
 
-        <!-- INPUT BIRTHDATE -->
         <div class="form-group">
           <label for="inputBirthdate"></label>
-          <input type="date" class="title-xs form-input" id="inputBirthdate" placeholder="Fecha de nacimiento"
+          <input type="date" class="title-xxs form-input input__birthdate" id="inputBirthdate" placeholder="Fecha de nacimiento"
             formControlName="birthdate">
         </div>
-
-        <!-- INPUT TERMS -->
 
         <div class="form-group">
           <div class="check-conditions">
             <input class="check-green" id="checkbox1" type="checkbox" formControlName="terms">
-
-            <label for="checkbox1" class="title-xs white-text"> Aceptar las condiciones</label>
+            <label for="checkbox1" class="title-xxs white-text"> Aceptar las condiciones</label>
           </div>
         </div>
 

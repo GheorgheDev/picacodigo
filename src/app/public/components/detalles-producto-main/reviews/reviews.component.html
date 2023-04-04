@@ -7,5 +7,5 @@
 
   <div *ngIf="completeReviews.length<1" class="text-regular-s no-reviews"> No hay reseñas aún para este juego</div>
 
-  <button *ngIf="userType!='2'" class="btn-green title-xs white-text" (click)="openAddAReviewDialog()">Añadir una reseña</button>
+  <button *ngIf="userType!='2'" class="btn-green title-xs white-text review__btn" (click)="openAddAReviewDialog()">Añadir una reseña</button>
 </div>

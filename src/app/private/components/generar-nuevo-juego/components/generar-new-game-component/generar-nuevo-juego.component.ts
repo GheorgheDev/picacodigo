@@ -108,7 +108,7 @@ export class GenerarNuevoJuegoComponent implements OnInit {
       name: 'Multijugador',
     },
   ];
-  
+
   userType: string = '0';
 
   userTypeFromSS: string | null = sessionStorage.getItem('userType');
@@ -119,12 +119,12 @@ export class GenerarNuevoJuegoComponent implements OnInit {
 
   createdGame: NewProductData = {} as NewProductData
 
-  constructor(private _fb: FormBuilder, public dialog: MatDialog, private generateNewGame: GenerateNewGameServiceService) {}
+  constructor(private _fb: FormBuilder, public dialog: MatDialog, private generateNewGame: GenerateNewGameServiceService) { }
 
-  
+
 
   ngOnInit(): void {
-    if(!!this.userTypeFromSS){
+    if (!!this.userTypeFromSS) {
       this.userType = this.userTypeFromSS
     }
   }
@@ -158,23 +158,17 @@ export class GenerarNuevoJuegoComponent implements OnInit {
       this.createdGame.mode_id = this.addGameForm.value['game_mode'];
       this.createdGame.price = this.addGameForm.value['game_price'];
       this.createdGame.stock = this.addGameForm.value['game_stock'];
-      console.log(this.createdGame.name)
       this.addNewGameToDB()
-/*       this.addGameForm.reset()
- */      
     }
   }
 
-  addNewGameToDB(){
-    console.log("esto es game: ", this.createdGame)
+  addNewGameToDB() {
     this.generateNewGame.addNewGame(this.createdGame).subscribe({
       next: createdGameId => {
-        console.log("esto es el id del game created: ", createdGameId);
-        this.createNewGameNotAvailablePictures( createdGameId )
+        this.createNewGameNotAvailablePictures(createdGameId)
       },
       error: error => {
         console.log(error);
-        console.log("error del add game")
       },
       complete: () => {
         this.dialog.open(ValidGameFormComponent);
@@ -182,24 +176,20 @@ export class GenerarNuevoJuegoComponent implements OnInit {
     });
   }
 
-  createNewGameNotAvailablePictures(newGameId:string){
-    const NOT_AVAILABLE_PICTURE:string = '/assets/media/media-products/not-available/Imagen_no_disponible.png'
-    let newNotAvailablePicture: NewGamePictureData ={} as NewGamePictureData
+  createNewGameNotAvailablePictures(newGameId: string) {
+    const NOT_AVAILABLE_PICTURE: string = '/assets/media/media-products/not-available/Imagen_no_disponible.png'
+    let newNotAvailablePicture: NewGamePictureData = {} as NewGamePictureData
     newNotAvailablePicture.game_id = newGameId
     newNotAvailablePicture.picture = NOT_AVAILABLE_PICTURE
-    for(let i = 0 ; i < 2; i++){
+    for (let i = 0; i < 2; i++) {
       this.generateNewGame.addNewGamePicture(newNotAvailablePicture).subscribe({
         next: createdGamePictureId => {
           console.log("esto es el id del picture created: ", createdGamePictureId);
         },
         error: error => {
           console.log(error);
-          console.log("error del add game")
         }
       });
     }
   }
-
-
-
 }

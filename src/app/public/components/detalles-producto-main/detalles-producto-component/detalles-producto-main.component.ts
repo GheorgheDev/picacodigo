@@ -227,7 +227,6 @@ export class DetallesProductoMainComponent implements OnInit {
             shoppingCartItem.game_id = this.game_id;
             shoppingCartItem.user_id = this.user_id;
             shoppingCartItem.game_quantity = cantidad;
-            console.log(shoppingCartItem);
 
             this.shoppingItems.addToShoppingCart(shoppingCartItem);
 
@@ -252,7 +251,7 @@ export class DetallesProductoMainComponent implements OnInit {
   checkShoppingCartHasSpace(): boolean {
     let shoppingCartList: ShoppingCartItemData[] = this.shoppingItems.getShoppingCart();
     let permitir: boolean = true;
-    console.log("espacio: ", shoppingCartList.length)
+
     if (shoppingCartList.length > 4) {
       permitir = false;
     }
@@ -262,15 +261,10 @@ export class DetallesProductoMainComponent implements OnInit {
   checkGameIsNotInTheShoppingCartAlready(): boolean {
     let shoppingCartList: ShoppingCartItemData[] =
       this.shoppingItems.getShoppingCart();
-    console.log('0:', shoppingCartList.length);
     if (shoppingCartList.length > 0) {
-      console.log('entro en el primer if');
       let permitir: boolean = true;
       shoppingCartList.forEach((shoppingCartElement) => {
-        console.log('1:', shoppingCartElement.game_id);
-        console.log('2:', this.game_id);
         if (shoppingCartElement.game_id == this.game_id) {
-          console.log('son iguales');
           permitir = false;
         }
       });
@@ -283,8 +277,6 @@ export class DetallesProductoMainComponent implements OnInit {
   editGame() {
     this.dialog.open(EditGameComponent);
   }
-
-  /* carrusel */
 
   @ViewChild('fondoGris') fondoGris: ElementRef;
   @ViewChild('carrusel') carrusel: ElementRef;

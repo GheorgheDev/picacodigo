@@ -12,7 +12,7 @@ import { GenreData } from 'src/app/public/model/genre-data';
   styleUrls: ['./edit-game.component.scss']
 })
 export class EditGameComponent implements OnInit {
-  game: ProductData = 
+  game: ProductData =
     {
       game_id: '1',
       name: 'Red Dead Redemption II',
@@ -26,95 +26,95 @@ export class EditGameComponent implements OnInit {
       price: 54.99,
       stock: 100,
     }
-  
-    pegis: PegiData[] = [
-      {
-        pegi_id: '1',
-        name: 'PEGI 3',
-      },
-      {
-        pegi_id: '2',
-        name: 'PEGI 7',
-      },
-      {
-        pegi_id: '3',
-        name: 'PEGI 12',
-      },
-      {
-        pegi_id: '4',
-        name: 'PEGI 16',
-      },
-      {
-        pegi_id: '5',
-        name: 'PEGI 18',
-      },
-      {
-        pegi_id: '6',
-        name: 'PEGI OK',
-      },
-    ];
-  
-    genres: GenreData[] = [
-      {
-        category_id: '10',
-        name: 'Arcade',
-      },
-      {
-        category_id: '12',
-        name: 'Aventura',
-      },
-      {
-        category_id: '11',
-        name: 'Acción',
-      },
-      {
-        category_id: '13',
-        name: 'Carreras',
-      },
-      {
-        category_id: '14',
-        name: 'Combate',
-      },
-      {
-        category_id: '15',
-        name: 'Deportes',
-      },
-      {
-        category_id: '16',
-        name: 'Estrategia',
-      },
-      {
-        category_id: '17',
-        name: 'Lógica',
-      },
-      {
-        category_id: '18',
-        name: 'Plataformas',
-      },
-      {
-        category_id: '19',
-        name: 'Rol',
-      },
-      {
-        category_id: '20',
-        name: 'Simulación',
-      },
-      {
-        category_id: '21',
-        name: 'Terror',
-      },
-    ];
-  
-    modes: ModeData[] = [
-      {
-        mode_id: '1',
-        name: 'Individual',
-      },
-      {
-        mode_id: '2',
-        name: 'Multijugador',
-      },
-    ];
+
+  pegis: PegiData[] = [
+    {
+      pegi_id: '1',
+      name: 'PEGI 3',
+    },
+    {
+      pegi_id: '2',
+      name: 'PEGI 7',
+    },
+    {
+      pegi_id: '3',
+      name: 'PEGI 12',
+    },
+    {
+      pegi_id: '4',
+      name: 'PEGI 16',
+    },
+    {
+      pegi_id: '5',
+      name: 'PEGI 18',
+    },
+    {
+      pegi_id: '6',
+      name: 'PEGI OK',
+    },
+  ];
+
+  genres: GenreData[] = [
+    {
+      category_id: '10',
+      name: 'Arcade',
+    },
+    {
+      category_id: '12',
+      name: 'Aventura',
+    },
+    {
+      category_id: '11',
+      name: 'Acción',
+    },
+    {
+      category_id: '13',
+      name: 'Carreras',
+    },
+    {
+      category_id: '14',
+      name: 'Combate',
+    },
+    {
+      category_id: '15',
+      name: 'Deportes',
+    },
+    {
+      category_id: '16',
+      name: 'Estrategia',
+    },
+    {
+      category_id: '17',
+      name: 'Lógica',
+    },
+    {
+      category_id: '18',
+      name: 'Plataformas',
+    },
+    {
+      category_id: '19',
+      name: 'Rol',
+    },
+    {
+      category_id: '20',
+      name: 'Simulación',
+    },
+    {
+      category_id: '21',
+      name: 'Terror',
+    },
+  ];
+
+  modes: ModeData[] = [
+    {
+      mode_id: '1',
+      name: 'Individual',
+    },
+    {
+      mode_id: '2',
+      name: 'Multijugador',
+    },
+  ];
 
   constructor(private _fb: FormBuilder) { }
 
@@ -125,7 +125,7 @@ export class EditGameComponent implements OnInit {
   }
 
   gameToEdit: ProductData = this.game
-  
+
 
   gameModes: ModeData[] = this.modes
   gameGenres: GenreData[] = this.genres
@@ -149,8 +149,8 @@ export class EditGameComponent implements OnInit {
   }
 
 
-  editGame(){
-    if(this.editGameForm.valid){
+  editGame() {
+    if (this.editGameForm.valid) {
       let gameEdited: ProductData = {} as ProductData
       gameEdited.name = this.editGameForm.value.game_title
       gameEdited.distributor = this.editGameForm.value.game_distributor
@@ -161,8 +161,7 @@ export class EditGameComponent implements OnInit {
       gameEdited.mode_id = this.editGameForm.value.game_mode
       gameEdited.price = this.editGameForm.value.game_price
       gameEdited.stock = this.editGameForm.value.game_stock
-      console.log(gameEdited)
-    }else{
+    } else {
       alert("Formulario inválido, no se hizo ningún cambio")
     }
   }

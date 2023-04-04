@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { ProductData } from 'src/app/shared/models/product-data';
 import { SharedServicesService } from 'src/app/shared/services/shared-services.service';
-import { result } from 'lodash';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,9 +12,7 @@ import { result } from 'lodash';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  products: ProductData[] = [
-    
-  ];
+  products: ProductData[] = [];
 
   originalProducts: ProductData[] = [];
   pages: ProductData[][] = [];
@@ -30,31 +27,21 @@ export class DashboardComponent implements OnInit {
 
 
   constructor(private router: Router,
-              public sharedServices: SharedServicesService ) {
-              this.filteredGames = [];
+    public sharedServices: SharedServicesService) {
+    this.filteredGames = [];
   }
 
   dashboard() {
     this.router.navigateByUrl('/dashboard')
   }
 
-
-
   ngOnInit() {
     this.sharedServices.getAllGames().subscribe(result => {
-      console.log(result);
       this.products = result;
       this.paginarResultados(true);
       this.onWindowResize();
     });
-  
-    /* this.sharedServices.getAllGames_picture().subscribe(pictureResult => {
-      console.log(pictureResult);
-      this.toSortList = pictureResult;
-    }); */
   }
-  
-  
 
   @Input() filterInfo: FiltersComponent;
   chosenGenreFilters: string[] = [];
@@ -106,6 +93,8 @@ export class DashboardComponent implements OnInit {
         generateModeFilterArray.forEach(element => this.filteredGames.push(element))
       }
       finalList = this.filteredGames;
+
+      console.log("prueba",finalList)
 
     } else {
       finalList
@@ -162,6 +151,10 @@ export class DashboardComponent implements OnInit {
       this.chosenGenreFilters.length = 0;
       this.chosenModeFilters.length = 0;
     }
+
+    console.log("1",this.chosenGenreFilters)
+    console.log("2",this.chosenModeFilters)
+
 
     this.paginarResultados(false)
   }

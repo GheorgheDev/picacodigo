@@ -26,14 +26,11 @@ export class LoginComponent implements OnInit{
       this.router.navigate(['/'])
   }
 
-
   login(email: string, password: string) {
     this.loginService.getUserByLogin(email, password).subscribe(
       (user) => {
         if(!!user){
           this.userLog = user;
-          console.log(this.userLog.user_id)
-
           sessionStorage.setItem('email', email)
           sessionStorage.setItem('user_id', this.userLog.user_id)
           if(this.userLog.rol == 'user')

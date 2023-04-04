@@ -1,6 +1,6 @@
 import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
 import { UserData } from 'src/app/shared/models/user-data';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
@@ -21,9 +21,9 @@ export class SendMailPanelComponent implements OnInit {
     private _fb: FormBuilder,
     public dialog: MatDialog,
     public sharedServices: SharedServicesService
-  ) {}
+  ) { }
 
-  user_id = "0" 
+  user_id = "0"
   user_idFromSS: string | null = sessionStorage.getItem('user_id');
 
   //Lista de usuarios en enviar nuevo mensaje
@@ -40,15 +40,13 @@ export class SendMailPanelComponent implements OnInit {
   message: Message = {} as Message;
 
   ngOnInit() {
-    if(!!this.user_idFromSS){
+    if (!!this.user_idFromSS) {
       this.user_id = this.user_idFromSS
     }
     this.sharedServices.getAllUsers().subscribe((data) => {
       this.users = data;
-      console.log(this.users)
     });
 
-    /* autocomplete de usuarios */
     this.filteredUsersOptions = this.messageForm.valueChanges.pipe(
       startWith(''),
       map((value) => {
@@ -82,10 +80,10 @@ export class SendMailPanelComponent implements OnInit {
   verifyValidUser() {
     let foundAndUser = 0;
     for (let i = 0; i < this.users.length; i++) {
-      if (this.messageForm.value.mail_to == this.users[i]) 
-        if(this.users[i].user_id != this.user_id){
-          foundAndUser= 1;
-        } 
+      if (this.messageForm.value.mail_to == this.users[i])
+        if (this.users[i].user_id != this.user_id) {
+          foundAndUser = 1;
+        }
     }
     return foundAndUser;
   }
@@ -96,7 +94,6 @@ export class SendMailPanelComponent implements OnInit {
       this.messageForm.markAllAsTouched();
       this.dialog.open(InvalidFormDialogComponent);
     } else {
-      //console.log(this.messageForm.value.mail_to, ' - ', this.messageForm.value.message_text);
       this.messageForm.reset();
       this.dialog.open(ValidMessageformDialogComponent);
     }
