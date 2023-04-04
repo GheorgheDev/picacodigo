@@ -15,6 +15,9 @@ export class PrivateHeaderComponent implements OnInit {
   ScreenWidth: number;
   ShoppingCartItemsQuantity: number;
 
+  user_id = "0" 
+  user_idFromSS: string | null = sessionStorage.getItem('user_id');
+
   user: UserData[] = [
     {
       user_id: "1",
@@ -97,6 +100,9 @@ export class PrivateHeaderComponent implements OnInit {
   constructor(private shoppingItems: ShoppingCartService, private router: Router) {}
 
   ngOnInit() {
+    if(!!this.user_idFromSS){
+      this.user_id = this.user_idFromSS
+    }
     this.onWindowResize();
     this.getShoppingCartItemsQuantity()
   }
