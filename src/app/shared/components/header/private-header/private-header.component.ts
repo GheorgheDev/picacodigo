@@ -46,7 +46,7 @@ export class PrivateHeaderComponent implements OnInit {
     this.sharedServices.getUserById(this.user_id)
       .subscribe(userLoggued => {
         this.user = userLoggued;
-        this.user.picture = '/assets/images/img_user.jpg';
+        this.user.picture = '/assets/media/michi-default.jpg';
       })
   }
 

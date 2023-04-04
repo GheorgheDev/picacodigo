@@ -1,3 +1,4 @@
+import { ProductDetailServiceService } from '../services/product-detail-service.service';
 import { GameReview } from './../../../model/game-review';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -12,17 +13,21 @@ export class ReviewCardComponent implements OnInit {
   userType: string = '0';
   userTypeFromSS: string | null = sessionStorage.getItem('userType');
 
-  /* AQUÍ VA EL SERVICIO DE DELETEREVIEW */
+  constructor(private productDetailService: ProductDetailServiceService) { }
 
-  deleteReview(value: string) {
-    /* borrar review */
-    console.log(value)
+  deleteReview(review_id: string) {
+    this.productDetailService.deleteReview(review_id).subscribe(
+      (review) => {
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
   }
 
   ngOnInit(): void {
-    if(!!this.userTypeFromSS){
+    if (!!this.userTypeFromSS) {
       this.userType = this.userTypeFromSS
     }
   }
-
 }

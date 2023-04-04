@@ -14,12 +14,12 @@ export class ProductDetailServiceService {
     return this.http.get<ReviewData[]>('/api/reviews/get/all/'+game_id)
   }
 
-  addNewReview(newReview: NewReviewData) {
-    return this.http.post<NewReviewData>('/api/reviews/add', { newReview })
+  addNewReview(newReview: NewReviewData): Observable<string>{
+    return this.http.post<string>('/api/reviews/add', newReview)
   }
 
   deleteReview(review_id: string) {
-    return this.http.delete('/api/reviews/delete'+review_id)
+    return this.http.delete('/api/reviews/delete/'+review_id)
   }
 
   getUserById(user_id: string): Observable<UserData> {

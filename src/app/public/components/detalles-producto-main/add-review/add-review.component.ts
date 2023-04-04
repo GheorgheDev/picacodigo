@@ -44,14 +44,9 @@ export class AddReviewComponent implements OnInit {
       game_id: this.game_id
     }
 
-    console.log("prueba contenido", newReview.content)
-    console.log("prueba user", newReview.user_id)
-    console.log("prueba game", newReview.game_id)
-
     this.productDetailService.addNewReview(newReview).subscribe(
       (review) => {
-        console.log("0000000000", review)
-        // location.reload()
+        location.reload()
       },
       (error) => {
         console.log(error)

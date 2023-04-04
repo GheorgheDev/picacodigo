@@ -18,6 +18,8 @@ export class UserManagementPageComponent implements OnInit {
   userTypeFromSS: string | null = sessionStorage.getItem('userType');
 
   ngOnInit(): void {
+    if(!!this.userTypeFromSS)
+      this.userType = this.userTypeFromSS
     this.getUsersForManagement()
   }
 

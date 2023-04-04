@@ -1,4 +1,3 @@
-import { DialogProfilePhotoChangeComponent } from '../dialog-profile-photo-change/dialog-profile-photo-change.component';
 import { DialogUserDataChangeComponent } from '../dialog-user-data-change/dialog-user-data-change.component';
 import { DialogPasswordChangeComponent } from '../dialog-password-change/dialog-password-change.component';
 import { Component, OnInit } from '@angular/core';
@@ -36,12 +35,7 @@ export class MyProfilePrivComponent implements OnInit {
     this.sharedServices.getUserById(this.user_id)
       .subscribe(userLoggued => {
         this.user = userLoggued;
-        this.user.picture = '/assets/images/img_user.jpg';
       })
-  }
-
-  openNewProfilePhotoDialog() {
-    this.dialog.open(DialogProfilePhotoChangeComponent);
   }
 
   openPasswordDialog() {

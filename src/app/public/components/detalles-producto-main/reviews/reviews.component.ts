@@ -39,9 +39,6 @@ export class ReviewsComponent implements OnInit {
   completeAllReviews() {
     this.productDetailService.allReviewsByGameId(this.game_id).subscribe(
       (review) => {
-
-        console.log("111111111", review)
-
         for (let i = 0; i < review.length; i++) {
           this.findUserThatMadeTheReview(review[i]);
         }
