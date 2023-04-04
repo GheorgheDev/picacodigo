@@ -13,8 +13,9 @@ import { AddReviewComponent } from '../add-review/add-review.component';
 })
 export class ReviewsComponent implements OnInit {
 
-  userType:string = '1';
-  
+  userType: string = '0';
+  userTypeFromSS: string | null = sessionStorage.getItem('userType');
+
   users: UserData[] = [
     {
       user_id: 'qubrf21n',
@@ -99,6 +100,9 @@ export class ReviewsComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(!!this.userTypeFromSS){
+      this.userType = this.userTypeFromSS
+    }
     this.completeAllReviews();
   }
 

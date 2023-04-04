@@ -4,7 +4,7 @@
 
 <div class="dark-background page-container">
 
-  <div class="new-game-form-container dark-background white-text" *ngIf="userType == 1">
+  <div class="new-game-form-container dark-background white-text" *ngIf="userType == '2'">
     <h1 class="new-game-form-title title-l white-text">Crear nuevo juego</h1>
  
     <form class="form" [formGroup]="addGameForm" >
@@ -117,7 +117,7 @@
 
 
 
-<div *ngIf="userType != 1">
+<div *ngIf="userType != '2'">
   <app-not-permission></app-not-permission>
 </div>
 

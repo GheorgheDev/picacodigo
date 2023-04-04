@@ -109,7 +109,9 @@ export class GenerarNuevoJuegoComponent implements OnInit {
     },
   ];
   
-  userType=1
+  userType: string = '0';
+
+  userTypeFromSS: string | null = sessionStorage.getItem('userType');
 
   gameModes: ModeData[] = this.modes
   gameGenres: GenreData[] = this.genres
@@ -121,7 +123,11 @@ export class GenerarNuevoJuegoComponent implements OnInit {
 
   
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if(!!this.userTypeFromSS){
+      this.userType = this.userTypeFromSS
+    }
+  }
 
   //validacion
   addGameForm: FormGroup = this._fb.group({

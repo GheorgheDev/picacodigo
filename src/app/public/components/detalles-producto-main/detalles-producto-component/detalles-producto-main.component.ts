@@ -22,7 +22,7 @@ export class DetallesProductoMainComponent implements OnInit {
   /* usertype= 1 es un usuario logeado */
   /* usertype= 2 es un admin */
 
-  userType: string = '1';
+  
 
   constructor(
     private _fb: FormBuilder,
@@ -35,80 +35,80 @@ export class DetallesProductoMainComponent implements OnInit {
    selectedGame: ProductData = {} as ProductData
 
 
-  pegis: PegiData[] = [
+   pegis: PegiData[] = [
     {
-      pegi_id: '1',
+      pegi_id: '3',
       name: 'PEGI 3',
     },
     {
-      pegi_id: '2',
+      pegi_id: '7',
       name: 'PEGI 7',
     },
     {
-      pegi_id: '3',
+      pegi_id: '12',
       name: 'PEGI 12',
     },
     {
-      pegi_id: '4',
+      pegi_id: '16',
       name: 'PEGI 16',
     },
     {
-      pegi_id: '5',
+      pegi_id: '18',
       name: 'PEGI 18',
     },
     {
-      pegi_id: '6',
+      pegi_id: 'OK',
       name: 'PEGI OK',
     },
   ];
 
   genres: GenreData[] = [
     {
-      category_id: '10',
+      category_id: '1',
       name: 'Arcade',
     },
     {
-      category_id: '12',
+      category_id: '4',
       name: 'Aventura',
     },
     {
-      category_id: '11',
+      category_id: '3',
       name: 'Acción',
     },
     {
-      category_id: '13',
+      category_id: '5',
       name: 'Carreras',
     },
     {
-      category_id: '14',
+      category_id: '6',
       name: 'Combate',
     },
     {
-      category_id: '15',
+      category_id: '7',
       name: 'Deportes',
     },
     {
-      category_id: '16',
+      category_id: '8',
       name: 'Estrategia',
     },
     {
-      category_id: '17',
+      category_id: '9',
       name: 'Lógica',
     },
     {
-      category_id: '18',
+      category_id: '2',
       name: 'Plataformas',
     },
     {
-      category_id: '19',
+      category_id: '10',
       name: 'Rol',
     },
     {
-      category_id: '20',
+      category_id: '11',
       name: 'Simulación',
     },
     {
-      category_id: '21',
+      category_id: '12',
       name: 'Terror',
     },
   ];
@@ -128,14 +128,26 @@ export class DetallesProductoMainComponent implements OnInit {
 
   addToKartForm: FormGroup;
 
-  game_id: string = 'e68027dc-fa25-4875-86b7-809c565f7735';
+  game_id: string = '0';
   game_idFromSS: string | null = sessionStorage.getItem('game_id');
-  user_id: string = '2';
+
+  user_id = "0" 
+  user_idFromSS: string | null = sessionStorage.getItem('user_id');
+  
+  userType: string = '0';
+  userTypeFromSS: string | null = sessionStorage.getItem('userType');
+
   selectedGamePictures: GamePictureData[] = [] as GamePictureData[];
   shoppingCartItems: ShoppingCartItemData[] = [] as ShoppingCartItemData[];
   game: ProductData;
 
   ngOnInit(): void {
+    if(!!this.userTypeFromSS){
+      this.userType = this.userTypeFromSS
+    }
+    if(!!this.user_idFromSS){
+      this.user_id = this.user_idFromSS
+    }
     if(!!this.game_idFromSS){
       this.game_id = this.game_idFromSS
     }

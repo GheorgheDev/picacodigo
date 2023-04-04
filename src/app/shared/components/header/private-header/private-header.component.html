@@ -10,9 +10,9 @@
   <button *ngIf="profileButtonToggle == 'on'" mat-button class="title-xs white-text profile-btn"
     [matMenuTriggerFor]="profileMenu" [ngStyle]="{'background-image': 'url(' + user[0].picture + ')'}">
     <mat-menu #profileMenu="matMenu" xPosition="before" class="profile-menu">
-      <a [routerLink]="['/private/profile']" class="white-text title-xs profile-menu_option">Mi perfil</a>
-      <a [routerLink]="['/private/user-product']" class="white-text title-xs profile-menu_option">Mis juegos</a>
-      <a [routerLink]="['/auth/login']" class="white-text title-xs profile-menu_option">Cerrar sesión</a>
+      <a [routerLink]="['/profile']" class="white-text title-xs profile-menu_option">Mi perfil</a>
+      <a [routerLink]="['/user-product']" class="white-text title-xs profile-menu_option">Mis juegos</a>
+      <a (click)="logOut()" class="white-text title-xs profile-menu_option">Cerrar sesión</a>
     </mat-menu>
   </button>
 

@@ -120,9 +120,14 @@ export class UserManagementPageComponent implements OnInit {
 
   filteredUsers: UserData[];
   filteredAdmin: UserData[];
-  userType = 2
+  userType: string = '0';
+
+  userTypeFromSS: string | null = sessionStorage.getItem('userType');
 
   ngOnInit(): void {
+    if(!!this.userTypeFromSS){
+      this.userType = this.userTypeFromSS
+    }
     this.filteredUsers = this.usersData.filter((user) => user.rol === 'user');
 
     this.filteredAdmin = this.usersData.filter((user) => user.rol === 'admin');
