@@ -11,7 +11,7 @@ import { ShareService } from 'src/app/shared/services/share.service';
 })
 export class NotificationPageComponent implements OnInit {
   userType = 1;
-  user_id = '1';
+  user_id = '2';
   mailboxMessages: MailBoxData[] = [];
   users: UserData[] = [];
   completeMailboxMessages: MailBoxData[] = [] as MailBoxData[];
@@ -35,7 +35,7 @@ export class NotificationPageComponent implements OnInit {
       })
   }
 
-  deleteMBMessage(idMessage: string) {
+  deleteMessage(idMessage: string) {
     this.notificationService.deleteMessage(idMessage)
       .subscribe(() => {
         location.reload();
