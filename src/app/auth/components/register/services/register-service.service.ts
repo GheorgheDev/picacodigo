@@ -10,7 +10,7 @@ export class RegisterServiceService {
   addNewUser(newUser: UserData) {
     newUser.login = true;
     newUser.rol = 'user';
-    newUser.picture = 'src\assets\media\example-photo.jpg';
+    newUser.picture = 'src\assets\media\michi-default.jpg';
     newUser.status = 'active';
     return this.http.post<UserData>('/api/users/add/', { newUser })
   }

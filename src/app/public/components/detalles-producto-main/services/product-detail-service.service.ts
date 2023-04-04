@@ -1,6 +1,8 @@
-import { ReviewData } from './../../../model/review-data';
+import { Observable } from 'rxjs';
+import { NewReviewData, ReviewData } from './../../../model/review-data';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { UserData } from 'src/app/shared/models/user-data';
 
 @Injectable({
   providedIn: 'root'
@@ -8,19 +10,19 @@ import { HttpClient } from '@angular/common/http';
 export class ProductDetailServiceService {
   constructor(private http: HttpClient) { }
 
-  allReviewsByGameId(game_id: string){
-    return this.http.get('/review/get/all/'+game_id)
+  allReviewsByGameId(game_id: string): Observable<ReviewData[]>{
+    return this.http.get<ReviewData[]>('/api/reviews/get/'+game_id)
   }
 
-  addNewReview(newReview: ReviewData){
-    return this.http.post('/review/post', { newReview })
+  addNewReview(newReview: NewReviewData) {
+    return this.http.post<NewReviewData>('/api/reviews/add', { newReview })
   }
 
   deleteReview(review_id: string) {
-    return this.http.delete('/review/delete'+review_id)
+    return this.http.delete('/api/reviews/delete'+review_id)
   }
 
-  getAllUsers() {
-    return this.http.get('/users/all')
+  getUserById(user_id: string): Observable<UserData> {
+    return this.http.get<UserData>('/api/users/get/' + user_id)
   }
 }

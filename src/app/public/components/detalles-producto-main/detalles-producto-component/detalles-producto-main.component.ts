@@ -27,7 +27,7 @@ export class DetallesProductoMainComponent implements OnInit {
     private _fb: FormBuilder,
     public dialog: MatDialog,
     private shoppingItems: ShoppingCartService
-  ) {}
+  ) { }
   games: ProductData[] = [
     {
       game_id: '1',
@@ -390,7 +390,7 @@ export class DetallesProductoMainComponent implements OnInit {
         this.addToKartForm.markAllAsTouched();
         this.dialog.open(InvalidAddtokartComponent);
       } else {
-        if(this.checkShoppingCartHasSpace()){
+        if (this.checkShoppingCartHasSpace()) {
           if (this.checkGameIsNotInTheShoppingCartAlready()) {
             let cantidad = this.addToKartForm.get('game_quantity')?.value;
             let shoppingCartItem: ShoppingCartItemData =
@@ -399,21 +399,21 @@ export class DetallesProductoMainComponent implements OnInit {
             shoppingCartItem.user_id = this.user_id;
             shoppingCartItem.game_quantity = cantidad;
             console.log(shoppingCartItem);
-  
+
             this.shoppingItems.addToShoppingCart(shoppingCartItem);
-  
+
             this.addToKartForm.reset();
           } else {
             alert(
               'El juego ya está en tu carrito de compras, para modificarlo dirigete allí, eliminalo y vuelve! :)'
             );
           }
-        }else {
+        } else {
           alert(
             'Solo puedes hacer compras de hasta 5 juegos distintos! Finaliza tu compra y vuelve! :)'
           );
         }
-        
+
       }
     } else {
       this.dialog.open(NeedLoginComponent);
