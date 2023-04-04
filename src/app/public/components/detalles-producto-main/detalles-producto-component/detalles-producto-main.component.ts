@@ -35,80 +35,80 @@ export class DetallesProductoMainComponent implements OnInit {
    selectedGame: ProductData = {} as ProductData
 
 
-  pegis: PegiData[] = [
+   pegis: PegiData[] = [
     {
-      pegi_id: '1',
+      pegi_id: '3',
       name: 'PEGI 3',
     },
     {
-      pegi_id: '2',
+      pegi_id: '7',
       name: 'PEGI 7',
     },
     {
-      pegi_id: '3',
+      pegi_id: '12',
       name: 'PEGI 12',
     },
     {
-      pegi_id: '4',
+      pegi_id: '16',
       name: 'PEGI 16',
     },
     {
-      pegi_id: '5',
+      pegi_id: '18',
       name: 'PEGI 18',
     },
     {
-      pegi_id: '6',
+      pegi_id: 'OK',
       name: 'PEGI OK',
     },
   ];
 
   genres: GenreData[] = [
     {
-      category_id: '10',
+      category_id: '1',
       name: 'Arcade',
     },
     {
-      category_id: '12',
+      category_id: '4',
       name: 'Aventura',
     },
     {
-      category_id: '11',
+      category_id: '3',
       name: 'Acción',
     },
     {
-      category_id: '13',
+      category_id: '5',
       name: 'Carreras',
     },
     {
-      category_id: '14',
+      category_id: '6',
       name: 'Combate',
     },
     {
-      category_id: '15',
+      category_id: '7',
       name: 'Deportes',
     },
     {
-      category_id: '16',
+      category_id: '8',
       name: 'Estrategia',
     },
     {
-      category_id: '17',
+      category_id: '9',
       name: 'Lógica',
     },
     {
-      category_id: '18',
+      category_id: '2',
       name: 'Plataformas',
     },
     {
-      category_id: '19',
+      category_id: '10',
       name: 'Rol',
     },
     {
-      category_id: '20',
+      category_id: '11',
       name: 'Simulación',
     },
     {
-      category_id: '21',
+      category_id: '12',
       name: 'Terror',
     },
   ];
