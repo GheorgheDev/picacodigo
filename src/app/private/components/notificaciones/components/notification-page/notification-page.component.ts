@@ -44,7 +44,7 @@ export class NotificationPageComponent implements OnInit {
       })
   }
 
-  deleteMBMessage(idMessage: string) {
+  deleteMessage(idMessage: string) {
     this.notificationService.deleteMessage(idMessage)
       .subscribe(() => {
         location.reload();

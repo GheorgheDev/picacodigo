@@ -14,8 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     MatCardModule,
     SharedModule,
-    HeaderModule,
-    HttpClientModule
+    HeaderModule
   ],
   exports: [
     DashboardComponent

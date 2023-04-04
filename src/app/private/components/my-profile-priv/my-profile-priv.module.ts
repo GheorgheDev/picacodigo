@@ -1,18 +1,17 @@
-import { MatCardModule } from '@angular/material/card';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatDialogModule } from '@angular/material/dialog';
-import { DialogUserDataChangeComponent } from './components/dialog-user-data-change/dialog-user-data-change.component';
-import { DialogProfilePhotoChangeComponent } from './components/dialog-profile-photo-change/dialog-profile-photo-change.component';
-import { DialogPasswordChangeComponent } from './components/dialog-password-change/dialog-password-change.component';
-import { MyProfilePrivComponent } from './components/my-profile-priv/my-profile-priv.component';
-import { SharedModule } from 'src/app/shared/shared.module';
 import { HeaderModule } from 'src/app/shared/components/header/header.module';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { DialogPasswordChangeComponent } from './components/dialog-password-change/dialog-password-change.component';
+import { DialogProfilePhotoChangeComponent } from './components/dialog-profile-photo-change/dialog-profile-photo-change.component';
+import { DialogUserDataChangeComponent } from './components/dialog-user-data-change/dialog-user-data-change.component';
+import { MyProfilePrivComponent } from './components/my-profile-priv/my-profile-priv.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    ReactiveFormsModule
   ],
   exports: [
     MyProfilePrivComponent,
