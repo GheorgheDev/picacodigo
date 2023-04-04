@@ -12,6 +12,7 @@ import { UserManagementTableComponent } from './components/user-management-table
 import { HeaderModule } from "../../../shared/components/header/header.module";
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         MatInputModule,
         FormsModule,
         ReactiveFormsModule,
+        MatButtonModule
     ]
 })
 export class GestionUsuariosModule { }

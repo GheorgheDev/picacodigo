@@ -25,6 +25,9 @@ export class DashboardComponent implements OnInit {
   gamesPerPage: number = 12;
   cardsOrder: number;
 
+  userType: string = '0';
+
+  userTypeFromSS: string | null = sessionStorage.getItem('userType');
 
   constructor(private router: Router,
     public sharedServices: SharedServicesService) {
@@ -41,6 +44,10 @@ export class DashboardComponent implements OnInit {
       this.paginarResultados(true);
       this.onWindowResize();
     });
+
+    if (!!this.userTypeFromSS) {
+      this.userType = this.userTypeFromSS
+    }
   }
 
   @Input() filterInfo: FiltersComponent;
@@ -94,7 +101,7 @@ export class DashboardComponent implements OnInit {
       }
       finalList = this.filteredGames;
 
-      console.log("prueba",finalList)
+      console.log("prueba", finalList)
 
     } else {
       finalList
@@ -152,8 +159,8 @@ export class DashboardComponent implements OnInit {
       this.chosenModeFilters.length = 0;
     }
 
-    console.log("1",this.chosenGenreFilters)
-    console.log("2",this.chosenModeFilters)
+    console.log("1", this.chosenGenreFilters)
+    console.log("2", this.chosenModeFilters)
 
 
     this.paginarResultados(false)

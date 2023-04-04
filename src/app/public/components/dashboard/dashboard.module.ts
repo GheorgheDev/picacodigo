@@ -4,17 +4,18 @@ import { MatCardModule } from '@angular/material/card';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderModule } from 'src/app/shared/components/header/header.module';
-import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    DashboardComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,
     MatCardModule,
     SharedModule,
-    HeaderModule
+    HeaderModule,
+    RouterModule
   ],
   exports: [
     DashboardComponent

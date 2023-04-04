@@ -3,6 +3,11 @@
 <div class="dark-background distribution__dashboard">
     <div class="distribution__dashboard__filters">
         <app-filters (filterIdList)="addNewOptions($event)" class="distribution__dashboard__filters__btn"></app-filters>
+        <button mat-button *ngIf="userType == '2'" class="btn-green">
+            <a class="title-xs white-text" [routerLink]="['/private/new-game']">
+                Crear nuevo juego
+            </a>
+        </button>
         <app-ordination (orderInfo)="orderCardsElements($event)"></app-ordination>
     </div>
 
