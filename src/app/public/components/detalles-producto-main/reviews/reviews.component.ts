@@ -13,96 +13,20 @@ import { ProductDetailServiceService } from '../services/product-detail-service.
   styleUrls: ['./reviews.component.scss'],
 })
 export class ReviewsComponent implements OnInit {
-
   userType: string = '0';
+  game_id: string = '0';
+
   userTypeFromSS: string | null = sessionStorage.getItem('userType');
+  game_idFromSS: string | null = sessionStorage.getItem('game_id');
 
-  users: UserData[] = [
-    {
-      user_id: 'qubrf21n',
-      username: 'SaraM',
-      fullname: 'Sara Molina',
-      picture: '/assets/chica.jpg',
-    },
-    {
-      user_id: 'fhd28sgj',
-      username: 'JohnDoe',
-      fullname: 'John Doe',
-      picture: '/assets/manolo.jpg',
-    },
-    {
-      user_id: 'skt39qxc',
-      username: 'EmilyJ',
-      fullname: 'Emily Johnson',
-      picture: '/assets/1.jpg',
-    },
-    {
-      user_id: 'mjf75zty',
-      username: 'MaxW',
-      fullname: 'Max Williams',
-      picture: '/assets/2.jpg',
-    },
-    {
-      user_id: 'nhs64dpl',
-      username: 'LauraC',
-      fullname: 'Laura Chen',
-      picture: '/assets/gato.jpg',
-    },
-    {
-      user_id: 'rty89jkl',
-      username: 'DavidG',
-      fullname: 'David Garcia',
-      picture: '/assets/3.jpg',
-    },
-  ];
-
-  reviews: ReviewData[] = [
-    {
-      review_id: '79sd67f',
-      content: 'Este es el mejor juego que existe',
-      game_id: '2',
-      user_id: 'qubrf21n',
-    },
-    {
-      review_id: '23qw87d',
-      content: 'No me gustó mucho este juego, esperaba más.',
-      game_id: '2',
-      user_id: 'fhd28sgj',
-    },
-    {
-      review_id: '65we92r',
-      content: 'Increíble experiencia de juego, me encantó',
-      game_id: '2',
-      user_id: 'skt39qxc',
-    },
-    {
-      review_id: '09re34t',
-      content:
-        'No soy fanático de los juegos de aventuras, pero este me sorprendió gratamente',
-      game_id: '2',
-      user_id: 'mjf75zty',
-    },
-    {
-      review_id: '17yu45h',
-      content: 'Divertido juego para jugar con amigos, lo recomiendo',
-      game_id: '2',
-      user_id: 'nhs64dpl',
-    },
-    {
-      review_id: '38gh27k',
-      content:
-        'Me gustó la trama del juego, aunque tuve algunos problemas técnicos',
-      game_id: '2',
-      user_id: 'rty89jkl',
-    },
-  ];
-  constructor(public dialog: MatDialog) {
-
-  }
+  constructor(public dialog: MatDialog, private productDetailService: ProductDetailServiceService) { }
 
   ngOnInit() {
-    if(!!this.userTypeFromSS){
+    if (!!this.userTypeFromSS) {
       this.userType = this.userTypeFromSS
+    }
+    if (!!this.game_idFromSS) {
+      this.game_id = this.game_idFromSS
     }
     this.completeAllReviews();
   }
@@ -115,6 +39,9 @@ export class ReviewsComponent implements OnInit {
   completeAllReviews() {
     this.productDetailService.allReviewsByGameId(this.game_id).subscribe(
       (review) => {
+
+        console.log("111111111", review)
+
         for (let i = 0; i < review.length; i++) {
           this.findUserThatMadeTheReview(review[i]);
         }

@@ -12,6 +12,7 @@ export class UserManagementPageComponent implements OnInit {
 
   filteredUsers: UserData[];
   filteredAdmin: UserData[];
+  usersData: UserData[];
   userType: string = '0';
 
   userTypeFromSS: string | null = sessionStorage.getItem('userType');

@@ -19,23 +19,18 @@ import { SharedServicesService } from 'src/app/shared/services/shared-services.s
   styleUrls: ['./detalles-producto-main.component.scss'],
 })
 export class DetallesProductoMainComponent implements OnInit {
-  /* usertype= 1 es un usuario logeado */
-  /* usertype= 2 es un admin */
-
-  
+  // principalPicture: string
 
   constructor(
     private _fb: FormBuilder,
     public dialog: MatDialog,
     private shoppingItems: ShoppingCartService,
     public sharedServices: SharedServicesService
-  ) {}
+  ) { }
 
+  selectedGame: ProductData = {} as ProductData
 
-   selectedGame: ProductData = {} as ProductData
-
-
-   pegis: PegiData[] = [
+  pegis: PegiData[] = [
     {
       pegi_id: '3',
       name: 'PEGI 3',
@@ -124,16 +119,16 @@ export class DetallesProductoMainComponent implements OnInit {
     },
   ];
 
-  gamePictures: GamePictureData[] = [ ] as GamePictureData[];
+  gamePictures: GamePictureData[] = [] as GamePictureData[];
 
   addToKartForm: FormGroup;
 
   game_id: string = '0';
   game_idFromSS: string | null = sessionStorage.getItem('game_id');
 
-  user_id = "0" 
+  user_id = "0"
   user_idFromSS: string | null = sessionStorage.getItem('user_id');
-  
+
   userType: string = '0';
   userTypeFromSS: string | null = sessionStorage.getItem('userType');
 
@@ -142,20 +137,22 @@ export class DetallesProductoMainComponent implements OnInit {
   game: ProductData;
 
   ngOnInit(): void {
-    if(!!this.userTypeFromSS){
+    if (!!this.userTypeFromSS) {
       this.userType = this.userTypeFromSS
     }
-    if(!!this.user_idFromSS){
+    if (!!this.user_idFromSS) {
       this.user_id = this.user_idFromSS
     }
-    if(!!this.game_idFromSS){
+    if (!!this.game_idFromSS) {
       this.game_id = this.game_idFromSS
     }
     this.bringDataFromDB()
+
+    // this.principalPicture = this.selectedGamePictures[0].picture
   }
 
 
-  bringDataFromDB(){
+  bringDataFromDB() {
     this.sharedServices.getAllPicturesByGameId(this.game_id).subscribe({
       next: allPictures => {
         this.gamePictures = allPictures

@@ -7,7 +7,6 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./review-card.component.scss'],
 })
 export class ReviewCardComponent implements OnInit {
-
   @Input() completeReview: GameReview;
 
   userType: string = '0';

@@ -11,11 +11,10 @@ import { ProductDetailServiceService } from '../services/product-detail-service.
   styleUrls: ['./add-review.component.scss']
 })
 export class AddReviewComponent implements OnInit {
-
   game_id: string = '0';
   game_idFromSS: string | null = sessionStorage.getItem('game_id');
 
-  user_id = "0" 
+  user_id = "0"
   user_idFromSS: string | null = sessionStorage.getItem('user_id');
 
   newReview: NewReviewData
@@ -29,10 +28,10 @@ export class AddReviewComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    if(!!this.user_idFromSS){
+    if (!!this.user_idFromSS) {
       this.user_id = this.user_idFromSS
     }
-    if(!!this.game_idFromSS){
+    if (!!this.game_idFromSS) {
       this.game_id = this.game_idFromSS
     }
   }
@@ -44,9 +43,15 @@ export class AddReviewComponent implements OnInit {
       user_id: this.user_id,
       game_id: this.game_id
     }
+
+    console.log("prueba contenido", newReview.content)
+    console.log("prueba user", newReview.user_id)
+    console.log("prueba game", newReview.game_id)
+
     this.productDetailService.addNewReview(newReview).subscribe(
       (review) => {
-        location.reload()
+        console.log("0000000000", review)
+        // location.reload()
       },
       (error) => {
         console.log(error)

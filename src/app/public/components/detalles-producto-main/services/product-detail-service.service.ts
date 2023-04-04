@@ -11,7 +11,7 @@ export class ProductDetailServiceService {
   constructor(private http: HttpClient) { }
 
   allReviewsByGameId(game_id: string): Observable<ReviewData[]>{
-    return this.http.get<ReviewData[]>('/api/reviews/get/'+game_id)
+    return this.http.get<ReviewData[]>('/api/reviews/get/all/'+game_id)
   }
 
   addNewReview(newReview: NewReviewData) {
