@@ -5,6 +5,7 @@ import { MyProfilePrivComponent } from './components/my-profile-priv/components/
 import { UserManagementPageComponent } from './components/gestion-usuarios/components/user-management-page/user-management-page.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { GenerarNuevoJuegoComponent } from './components/generar-nuevo-juego/components/generar-new-game-component/generar-nuevo-juego.component';
 
 
 
@@ -14,6 +15,7 @@ const routes: Routes = [
     { path: 'notification', component: NotificationPageComponent },
     { path: 'user-product', component: UserProductsComponent },
     { path: 'shopping-cart', component: ShoppingCartPageComponent },
+    { path: 'new-game', component: GenerarNuevoJuegoComponent },
 ];
 
 @NgModule({

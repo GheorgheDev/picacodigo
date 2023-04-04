@@ -10,7 +10,8 @@ export class ReviewCardComponent implements OnInit {
 
   @Input() completeReview: GameReview;
 
-  userType = '1'
+  userType: string = '0';
+  userTypeFromSS: string | null = sessionStorage.getItem('userType');
 
   /* AQUÍ VA EL SERVICIO DE DELETEREVIEW */
 
@@ -19,5 +20,10 @@ export class ReviewCardComponent implements OnInit {
     console.log(value)
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    if(!!this.userTypeFromSS){
+      this.userType = this.userTypeFromSS
+    }
+  }
+
 }

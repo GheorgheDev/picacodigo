@@ -3,6 +3,8 @@ import { ShoppingCartService } from './../../../../private/services/shopping-car
 import { ShoppingCartItemData } from './../../../../public/model/shopping-cart-item-data';
 import { Component, OnInit, HostListener } from '@angular/core';
 import { UserData } from 'src/app/shared/models/user-data';
+import { Router } from '@angular/router';
+import { SharedServicesService } from 'src/app/shared/services/shared-services.service';
 
 @Component({
   selector: 'app-private-header',
@@ -14,90 +16,38 @@ export class PrivateHeaderComponent implements OnInit {
   ScreenWidth: number;
   ShoppingCartItemsQuantity: number;
 
-  user: UserData[] = [
-    {
-      user_id: "1",
-      username: 'AndreaC',
-      fullname: 'Andrea Cebrian',
-      picture: 'assets/media/example-photo.jpg',
-    },
-  ];
+  user: UserData
+  
+
+  user_id = "0" 
+  user_idFromSS: string | null = sessionStorage.getItem('user_id');
 
   /* Mailbox, get all mails to userid*/
 
-  mailboxMessages: MailBoxData[] = [
-    {
-      message_id: '1',
-      user_from_id: '1',
-      user_to_id: '4',
-      content: 'Hola Gheorghe soy Andrea',
-      date: new Date('2023-03-04'),
-      read: false,
-    },
-    {
-      message_id: '1',
-      user_from_id: '2',
-      user_to_id: '4',
-      content: 'Hola Gheorghe soy Juanjo',
-      date: new Date('2023-03-05'),
-      read: false,
-    },
-    {
-      message_id: '3',
-      user_from_id: '1',
-      user_to_id: '4',
-      content: 'Hola Gheorghe soy Andrea de nuevo',
-      date: new Date('2023-03-05'),
-      read: false,
-    },
-    {
-      message_id: '4',
-      user_from_id: '3',
-      user_to_id: '4',
-      content: 'Hola soy Salva',
-      date: new Date('2023-03-05'),
-      read: false,
-    },
-    {
-      message_id: '5',
-      user_from_id: '3',
-      user_to_id: '4',
-      content: 'Hola soy Salva otra vez',
-      date: new Date('2023-03-06'),
-      read: false,
-    },
-    {
-      message_id: '6',
-      user_from_id: '5',
-      user_to_id: '4',
-      content: 'Hola soy barbara',
-      date: new Date('2023-03-07'),
-      read: false,
-    },
-    {
-      message_id: '7',
-      user_from_id: '5',
-      user_to_id: '4',
-      content: 'Hola como estas, soy barbara de nuevo',
-      date: new Date('2023-03-07'),
-      read: false,
-    },
-    {
-      message_id: '8',
-      user_from_id: '2',
-      user_to_id: '4',
-      content: 'Hola soy juanjo otra vez',
-      date: new Date('2023-03-09'),
-      read: false,
-    },
-  ];
+  mailboxMessages: MailBoxData[] = [];
 
 
-  constructor(private shoppingItems: ShoppingCartService) {}
+  constructor(private shoppingItems: ShoppingCartService, public sharedServices: SharedServicesService, private router: Router) {}
 
   ngOnInit() {
+    if(!!this.user_idFromSS){
+      this.user_id = this.user_idFromSS
+    }
+    this.sharedServices.getAllMessagesByUserId(this.user_id)
+      .subscribe(messages => {
+        this.mailboxMessages = messages;
+      })
+      this.getUserDataFromDB()
     this.onWindowResize();
     this.getShoppingCartItemsQuantity()
+  }
+
+  getUserDataFromDB(){
+    this.sharedServices.getUserById(this.user_id)
+      .subscribe(userLoggued => {
+        this.user = userLoggued;
+        this.user.picture = '/assets/images/img_user.jpg';
+      })
   }
 
   @HostListener('window:resize', ['$event'])
@@ -113,5 +63,10 @@ export class PrivateHeaderComponent implements OnInit {
   getShoppingCartItemsQuantity() {
     let shoppingCartList: ShoppingCartItemData[] = this.shoppingItems.getShoppingCart();
     this.ShoppingCartItemsQuantity = shoppingCartList.length
+  }
+
+  logOut(){
+    sessionStorage.clear()
+    this.router.navigate(['/auth/login'])
   }
 }

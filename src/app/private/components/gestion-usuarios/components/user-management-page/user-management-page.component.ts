@@ -10,10 +10,11 @@ import { UserManagementServiceService } from '../../services/user-management-ser
 export class UserManagementPageComponent implements OnInit {
   constructor(private userService: UserManagementServiceService) { }
 
-  usersData: UserData[] = [];
-  filteredUsers: UserData[] = [];
-  filteredAdmin: UserData[] = [];
-  userType = 2
+  filteredUsers: UserData[];
+  filteredAdmin: UserData[];
+  userType: string = '0';
+
+  userTypeFromSS: string | null = sessionStorage.getItem('userType');
 
   ngOnInit(): void {
     this.getUsersForManagement()

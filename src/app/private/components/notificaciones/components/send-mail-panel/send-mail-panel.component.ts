@@ -1,92 +1,59 @@
 import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
 import { UserData } from 'src/app/shared/models/user-data';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 import { take } from 'rxjs/operators';
 import { Message } from '../../model/message-data';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { InvalidFormDialogComponent } from '../invalid-form-dialog/invalid-form-dialog.component';
 import { ValidMessageformDialogComponent } from '../valid-messageform-dialog/valid-messageform-dialog.component';
-
-
+import { SharedServicesService } from 'src/app/shared/services/shared-services.service';
 @Component({
   selector: 'app-send-mail-panel',
   templateUrl: './send-mail-panel.component.html',
   styleUrls: ['./send-mail-panel.component.scss'],
 })
 export class SendMailPanelComponent implements OnInit {
+  constructor(
+    private _ngZone: NgZone,
+    private _fb: FormBuilder,
+    public dialog: MatDialog,
+    public sharedServices: SharedServicesService
+  ) {}
 
-  constructor(private _ngZone: NgZone, private _fb: FormBuilder, public dialog: MatDialog) {}
+  user_id = "0" 
+  user_idFromSS: string | null = sessionStorage.getItem('user_id');
 
-  users: UserData[] = [
-    {
-      user_id: "1",
-      username: 'AndreaC',
-      fullname: 'Andrea Cebrian',
-      picture: 'ruta'
-    },
-    {
-      user_id: "2",
-      username: 'JuanS',
-      fullname: 'Juan Sevilla',
-      picture: 'ruta'
-    },
-    {
-      user_id: "3",
-      username: 'SalvadorS',
-      fullname: 'Salvador Santos',
-      picture: 'ruta'
-    },
-    {
-      user_id: "4",
-      username: 'GheorgheB',
-      fullname: 'Gheorghe Bucurici',
-      picture: 'ruta'
-    },
-    {
-      user_id: "5",
-      username: 'BarbaraR',
-      fullname: 'Barbara Rodriguez',
-      picture: 'ruta'
-    },
-    {
-      user_id: "6",
-      username: 'MichelleM',
-      fullname: 'Michelle Masias',
-      picture: 'ruta'
-    },
-    {
-      user_id: "6",
-      username: 'MichelleM',
-      fullname: 'Michelle Masias',
-      picture: 'ruta'
-    },
-  ];
+  //Lista de usuarios en enviar nuevo mensaje
+  users: UserData[] = [];
 
   filteredUsersOptions: Observable<UserData[]>;
 
-
   messageForm: FormGroup = this._fb.group({
     mail_to: ['', [Validators.required]],
-    message_text: ['', [Validators.required]]
-  })
+    message_text: ['', [Validators.required]],
+  });
 
   fData: FormData = new FormData();
   message: Message = {} as Message;
 
   ngOnInit() {
+    if(!!this.user_idFromSS){
+      this.user_id = this.user_idFromSS
+    }
+    this.sharedServices.getAllUsers().subscribe((data) => {
+      this.users = data;
+      console.log(this.users)
+    });
 
     /* autocomplete de usuarios */
     this.filteredUsersOptions = this.messageForm.valueChanges.pipe(
       startWith(''),
       map((value) => {
-        const username =
-          typeof value === 'string' ? value : value?.username;
-        return username
-          ? this._filter(username as string)
-          : this.users.slice();
+        const username = typeof value === 'string' ? value : value?.username;
+        return username ? this._filter(username as string) : this.users.slice();
       })
     );
   }
@@ -103,8 +70,6 @@ export class SendMailPanelComponent implements OnInit {
     );
   }
 
-  
-
   @ViewChild('autosize') autosize: CdkTextareaAutosize;
 
   triggerResize() {
@@ -114,34 +79,26 @@ export class SendMailPanelComponent implements OnInit {
       .subscribe(() => this.autosize.resizeToFitContent(true));
   }
 
- 
-  verifyValidUser(){
-    for(let i=0; i<this.users.length; i++){
-      if(this.messageForm.value.mail_to == this.users[i])
-        return true; 
-      else
-       return false;  
-      }
-      return false
+  verifyValidUser() {
+    let foundAndUser = 0;
+    for (let i = 0; i < this.users.length; i++) {
+      if (this.messageForm.value.mail_to == this.users[i]) 
+        if(this.users[i].user_id != this.user_id){
+          foundAndUser= 1;
+        } 
     }
+    return foundAndUser;
+  }
 
   sendMessage() {
-    
-    if (this.messageForm.invalid || this.verifyValidUser() == false) {
+    console.log(this.messageForm.value.mail_to)
+    if (this.messageForm.invalid || this.verifyValidUser() == 0) {
       this.messageForm.markAllAsTouched();
       this.dialog.open(InvalidFormDialogComponent);
     } else {
       //console.log(this.messageForm.value.mail_to, ' - ', this.messageForm.value.message_text);
       this.messageForm.reset();
       this.dialog.open(ValidMessageformDialogComponent);
-      };
-
     }
-
-
-
   }
-  
-  
-  
-
+}

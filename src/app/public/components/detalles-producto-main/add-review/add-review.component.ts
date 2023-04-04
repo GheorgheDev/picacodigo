@@ -12,8 +12,11 @@ import { ProductDetailServiceService } from '../services/product-detail-service.
 })
 export class AddReviewComponent implements OnInit {
 
-  user_id = '340b0117-7df9-4f38-985e-7accc8712eb8'
-  game_id = '0aeeb46d-d233-4649-94aa-91559537af21'
+  game_id: string = '0';
+  game_idFromSS: string | null = sessionStorage.getItem('game_id');
+
+  user_id = "0" 
+  user_idFromSS: string | null = sessionStorage.getItem('user_id');
 
   newReview: NewReviewData
 
@@ -26,6 +29,12 @@ export class AddReviewComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    if(!!this.user_idFromSS){
+      this.user_id = this.user_idFromSS
+    }
+    if(!!this.game_idFromSS){
+      this.game_id = this.game_idFromSS
+    }
   }
 
   addReview() {

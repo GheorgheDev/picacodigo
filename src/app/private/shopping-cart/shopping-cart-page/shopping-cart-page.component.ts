@@ -12,7 +12,7 @@ import { NewSaleData} from '../../models/sale-data';
 })
 export class ShoppingCartPageComponent implements OnInit {
 
-  games: ProductData[] = [
+  /* games: ProductData[] = [
     {
       game_id: '1',
       name: 'Red Dead Redemption II',
@@ -160,10 +160,12 @@ export class ShoppingCartPageComponent implements OnInit {
       price: 45,
       stock: 120,
     },
-  ];
+  ]; */
 
-  userType='1'
-  user_id = '1'
+  user_id = "0" 
+  user_idFromSS: string | null = sessionStorage.getItem('user_id');
+  userType: string = '0';
+  userTypeFromSS: string | null = sessionStorage.getItem('userType');
 
   shoppingCardItems: ShoppingCartItemData[]
   
@@ -171,17 +173,41 @@ export class ShoppingCartPageComponent implements OnInit {
   gameFromShoppingItem: ProductData
   totalAllShoppigCartItems: number = 0
 
+  allGames: ProductData[] = [] as ProductData[]
+  games: ProductData[] = [] as ProductData[]
   
   
 
   totalPrice: number
 
-  sales: NewSaleData[] = [] as NewSaleData[]
 
   constructor(private shoppingItems: ShoppingCartService ) { }
 
   ngOnInit(): void {
-    this.getShoppingCartFromSS()
+    if(!!this.userTypeFromSS){
+      this.userType = this.userTypeFromSS
+    }
+    if(!!this.user_idFromSS){
+      this.user_id = this.user_idFromSS
+    }
+    this.getAllGames()
+    
+  }
+
+  getAllGames() {
+    this.shoppingItems.getAllGames().subscribe({
+      next: games => {
+        this.allGames = games
+        /* console.log(this.allGames) */
+      },
+      error: error => {
+        console.log(error);
+      },
+      complete: () => {
+        this.games = this.allGames
+        this.getShoppingCartFromSS()
+      }
+    });
   }
 
   getShoppingCartFromSS(){
@@ -231,19 +257,30 @@ export class ShoppingCartPageComponent implements OnInit {
   buy(){
     this.completeShoppingCartItems.forEach(completeShoppingCartItem => {
       let sale: NewSaleData = {} as NewSaleData
-      let todayDate = new Date().toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-      });
       sale.game_id= completeShoppingCartItem.game_id
       sale.amount = completeShoppingCartItem.game_quantity
       sale.user_id = this.user_id
-      sale.date = new Date(todayDate)
-      this.sales.push(sale)
+      sale.date = new Date
+      console.log(sale)
+      this.shoppingItems.addNewSale(sale).subscribe({
+        next: producedSale => {
+          console.log(producedSale);
+          this.deleteItemFromShoppingCartSS(sale.game_id)
+          alert("Compra exitosa")
+          /* DIALOGO COMPRA EXITOSA */
+        },
+        error: error => {
+          console.log(error);
+          console.log("error del add sale")
+        }
+      });
+
+
     })
-    console.log(this.sales)
+
   }
+
+  
 
 
 }

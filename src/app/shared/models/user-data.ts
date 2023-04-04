@@ -7,7 +7,7 @@ export interface UserData {
   email?: string,
   phone?: string,
   login?: boolean,
-  rol?: 'admin' | 'user' | 'guest',
+  rol?: 'admin' | 'user' ,
   picture: string,
   status?: 'active' | 'inactive',
 }
