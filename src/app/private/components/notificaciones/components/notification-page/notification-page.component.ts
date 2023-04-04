@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MailBoxData } from '../../model/mailbox-data';
 import { UserData } from 'src/app/shared/models/user-data';
 import { NotificationServiceService } from '../../services/notification-service.service';
-import { ShareService } from 'src/app/shared/services/share.service';
+import { SharedServicesService } from 'src/app/shared/services/shared-services.service';
 
 @Component({
   selector: 'app-notification-page',
@@ -20,7 +20,8 @@ export class NotificationPageComponent implements OnInit {
   userThatSentTheMail: UserData = {} as UserData;
 
   constructor(
-    private notificationService: NotificationServiceService
+    private notificationService: NotificationServiceService,
+    public sharedServices: SharedServicesService
   ) { }
 
   ngOnInit(): void {
@@ -30,7 +31,7 @@ export class NotificationPageComponent implements OnInit {
     if(!!this.user_idFromSS){
       this.user_id = this.user_idFromSS
     }
-    this.notificationService.getAllMessagesByUserId(this.user_id)
+    this.sharedServices.getAllMessagesByUserId(this.user_id)
       .subscribe(messages => {
         this.completeMailboxMessages = messages;
       })

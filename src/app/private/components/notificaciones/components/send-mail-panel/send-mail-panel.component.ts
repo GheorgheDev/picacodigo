@@ -1,12 +1,6 @@
 import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
 import { UserData } from 'src/app/shared/models/user-data';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  NgForm,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
@@ -15,7 +9,7 @@ import { Message } from '../../model/message-data';
 import { MatDialog } from '@angular/material/dialog';
 import { InvalidFormDialogComponent } from '../invalid-form-dialog/invalid-form-dialog.component';
 import { ValidMessageformDialogComponent } from '../valid-messageform-dialog/valid-messageform-dialog.component';
-import { ShareService } from 'src/app/shared/services/share.service';
+import { SharedServicesService } from 'src/app/shared/services/shared-services.service';
 @Component({
   selector: 'app-send-mail-panel',
   templateUrl: './send-mail-panel.component.html',
@@ -26,8 +20,11 @@ export class SendMailPanelComponent implements OnInit {
     private _ngZone: NgZone,
     private _fb: FormBuilder,
     public dialog: MatDialog,
-    private userService: ShareService
+    public sharedServices: SharedServicesService
   ) {}
+
+  user_id = "0" 
+  user_idFromSS: string | null = sessionStorage.getItem('user_id');
 
   //Lista de usuarios en enviar nuevo mensaje
   users: UserData[] = [];
@@ -43,6 +40,14 @@ export class SendMailPanelComponent implements OnInit {
   message: Message = {} as Message;
 
   ngOnInit() {
+    if(!!this.user_idFromSS){
+      this.user_id = this.user_idFromSS
+    }
+    this.sharedServices.getAllUsers().subscribe((data) => {
+      this.users = data;
+      console.log(this.users)
+    });
+
     /* autocomplete de usuarios */
     this.filteredUsersOptions = this.messageForm.valueChanges.pipe(
       startWith(''),
@@ -51,14 +56,6 @@ export class SendMailPanelComponent implements OnInit {
         return username ? this._filter(username as string) : this.users.slice();
       })
     );
-
-    this.userService.getAllUsers().subscribe((data) => {
-      // console.log('data: ', data);
-      this.users = data;
-
-      // console.log('user: ', this.users);
-      //TODO: revisar filter
-    });
   }
 
   displayFn(userData: UserData): string {
@@ -83,15 +80,19 @@ export class SendMailPanelComponent implements OnInit {
   }
 
   verifyValidUser() {
+    let foundAndUser = 0;
     for (let i = 0; i < this.users.length; i++) {
-      if (this.messageForm.value.mail_to == this.users[i]) return true;
-      else return false;
+      if (this.messageForm.value.mail_to == this.users[i]) 
+        if(this.users[i].user_id != this.user_id){
+          foundAndUser= 1;
+        } 
     }
-    return false;
+    return foundAndUser;
   }
 
   sendMessage() {
-    if (this.messageForm.invalid || this.verifyValidUser() == false) {
+    console.log(this.messageForm.value.mail_to)
+    if (this.messageForm.invalid || this.verifyValidUser() == 0) {
       this.messageForm.markAllAsTouched();
       this.dialog.open(InvalidFormDialogComponent);
     } else {

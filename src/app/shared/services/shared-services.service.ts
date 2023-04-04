@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductData } from 'src/app/public/model/game-data';
 import { GamePictureData } from 'src/app/public/model/game-picture-data';
-
+import { map } from 'rxjs/operators';
+import { UserData } from '../models/user-data';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +28,23 @@ export class SharedServicesService {
 
   getGameById(game_id: string):Observable<ProductData>{
     return this.http.get<ProductData>(`/api/games/get/${game_id}`);
+  }
+
+  getAllMessagesByUserId(idUser: string): Observable<any> {
+    return this.http.get<any>(`/api/messages/get/all/${idUser}`)
+      .pipe(
+        map((res: any) => res)
+      )
+  }
+
+  getAllUsers(): Observable<UserData[]> {
+    return this.http.get<UserData[]>('http://localhost:3000/api/users/all');
+  }
+
+  getUserById(idUser: string): Observable<UserData> {
+    return this.http.get<UserData>(`/api/users/get/${idUser}`)
+      .pipe(
+        map((userLoggued: UserData) => userLoggued)
+      )
   }
 }

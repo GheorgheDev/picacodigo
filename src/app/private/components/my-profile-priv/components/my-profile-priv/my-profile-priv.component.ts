@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MyProfilePrivServiceService } from '../../services/my-profile-priv-service.service';
 import { UserData } from 'src/app/shared/models/user-data';
+import { SharedServicesService } from 'src/app/shared/services/shared-services.service';
 
 @Component({
   selector: 'app-my-profile-priv',
@@ -21,7 +22,8 @@ export class MyProfilePrivComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private profileService: MyProfilePrivServiceService
+    private profileService: MyProfilePrivServiceService,
+    public sharedServices: SharedServicesService
   ) { }
 
   ngOnInit(): void {
@@ -31,7 +33,7 @@ export class MyProfilePrivComponent implements OnInit {
     if(!!this.user_idFromSS){
       this.user_id = this.user_idFromSS
     }
-    this.profileService.getUserById(this.user_id)
+    this.sharedServices.getUserById(this.user_id)
       .subscribe(userLoggued => {
         this.user = userLoggued;
         this.user.picture = '/assets/images/img_user.jpg';
