@@ -1,0 +1,190 @@
+$background-color_dark-grey: #292F33;
+$background-color_grey: #536162;
+$color_green: #57e309;
+
+.header-container{
+  height: 64px;
+  display: flex;
+  justify-content: center;
+}
+.mat-toolbar{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  max-width: 1350px;
+}
+
+.mat-toolbar{
+  grid-column: 1/3;
+}
+
+.navbar-logo{
+  cursor: pointer;
+}
+
+.navbar-elements{
+  grid-column: 3/13;
+
+}
+
+.title-xs{
+  padding: 0;
+  
+}
+
+.variable-navbar{
+  grid-column: 6 / 11;
+}
+
+.menuBurger-container{
+  grid-column: 11 / 13;
+  display: flex;
+  justify-content: center;
+}
+
+.burgerMenu-icon{
+  font-size: 2rem;
+}
+
+
+::ng-deep.mat-menu-content{
+  background-color: $background-color_dark-grey;
+  border: 3px solid $background-color-grey;
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+}
+
+/* tablet */
+@media (max-width: 768px) {
+  .navbar-logo{
+    grid-column: 2 / 3; /* por que no de 1 a 3? */
+  }
+  
+}
+
+@media (max-width: 480px) {
+  .menuBurger-container{
+    grid-column: 10 / 13;
+
+  }
+  
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .menu-desktop {
+//   width: 100%;
+
+//   box-sizing: border-box;
+//   display: flex;
+//   justify-content: space-between;
+//   margin-left: 1%;
+//   /* background-color: red; */
+// }
+
+// div.menu-desktop > div {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+
+//   /* border: 1px solid black; */
+// }
+
+// div > div:nth-child(1) {
+//   /* background-color: green; */
+//   width: 20%;
+// }
+
+// div > div:nth-child(1) > a:nth-child(1) {
+//   /* background-color: green; */
+//   display: flex;
+//   margin-right: 8%;
+// }
+
+// div > div:nth-child(1) > a {
+//   /* color: white; */
+//   text-decoration: none;
+//   cursor: pointer;
+// }
+
+//  p.logoPick{
+//   /* background-color: blue; */
+// margin: auto;
+// }
+
+// /* img.logo {
+//   width: 58px;
+// } */
+
+// div.menu-desktop > div:nth-child(1) > a:nth-child(2),
+// div.menu-desktop > div:nth-child(1) > a:nth-child(3) {
+//   display: none;
+// }
+
+
+// .notifications button {
+//   /* background-color: grey; */
+//   border: 0;
+//   cursor: pointer;
+
+// }
+
+// @media screen and (min-width: 600px) {
+//   div.menu-desktop {
+//     width: 95%;
+//     /* background-color: yellow; */
+//     margin-right: 1rem;
+//   }
+
+//   div > div:nth-child(1) {
+//     /* background-color: blue; */
+//     width: 28%;
+//     margin-right: 8%;
+//   }
+
+//   div.menu-desktop > div:nth-child(1) > a:nth-child(2),
+//   div.menu-desktop > div:nth-child(1) > a:nth-child(3) {
+//     display: flex;
+//     margin-right: 8%;
+//     align-items: center;
+//     height: 100%;
+//     padding-top: 7px;
+//     /* background-color: green; */
+//   }
+
+//   div.menu-hamburguer > button,
+//   ::ng-deep .menu_burguer_desp {
+//     display: none;
+//   }
+
+  /* fin media query */
+// }
+/* Fin del Header */
+/* -------------------------------------------------------------------- */

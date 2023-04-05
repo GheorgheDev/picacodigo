@@ -1,0 +1,57 @@
+.reviews-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & .title-l{
+    margin-bottom: 40px;
+  }
+
+  & .reviews {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+
+    & .review-card {
+      width: 30% !important;
+      margin-bottom: 40px;
+    }
+  }
+  & .btn-green{
+    width: 230px;
+    display: flex;
+    justify-content: center;
+  }
+
+  & .no-reviews{
+    padding-bottom: 50px;
+  }
+}
+
+.review__btn {
+  margin-top: 48px;
+}
+
+@media (max-width: 768px) {
+  .reviews-page {
+    & .reviews {
+        & .review-card {
+            width: 48% !important;
+            margin-bottom: 30px;
+        }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+    .reviews-page {
+        & .reviews {
+            & .review-card {
+                width: 98% !important;
+                margin-bottom: 30px;
+            }
+        }
+    }
+}

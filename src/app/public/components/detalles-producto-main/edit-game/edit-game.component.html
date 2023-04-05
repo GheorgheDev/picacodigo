@@ -1,0 +1,112 @@
+<mat-dialog-content class="edit-game-container">
+    <i class="fa-regular fa-solid fa-xmark close__icon" [mat-dialog-close]="true"></i>
+  <h1 mat-dialog-title class="white-text title-m">Editar Juego</h1>
+
+    <form class="form" [formGroup]="editGameForm">
+      <div class="form-group">
+        <label for="game_title">Título</label>
+        <input
+          type="text"
+          class="title-xs form-input"
+          id="game_title"
+          formControlName="game_title"
+          required
+          [value]="game.name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="game_stars white-text">Estrellas</label>
+        <select class="game_stars" name="game_stars" id="game_stars" formControlName="game_stars" [value]="game.stars" required>
+          <option value="1">★✩✩✩✩</option>
+          <option value="2">★★✩✩✩</option>
+          <option value="3">★★★✩✩</option>
+          <option value="4">★★★★✩</option>
+          <option value="5">★★★★★</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="game_description white-text">Descripción</label>
+        <textarea
+          type="text"
+          class="text-regular-xs form-input"
+          id="game_description"
+          formControlName="game_description"
+          required
+          [value]="game.description"
+        ></textarea>
+      </div>
+
+      <div class="form-group ">
+        <label for="game_distributor white-text">Distribuido por</label>
+        <input
+          type="text"
+          class="title-xs form-input"
+          id="game_distributor"
+          formControlName="game_distributor"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="game_mode white-text">Modo de juego</label>
+        <select class="title-xs" name="game_mode" id="game_mode" formControlName="game_mode">
+          <option class="title-xs" *ngFor="let gameMode of gameModes" [value]="gameMode.mode_id">
+            {{ gameMode.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="game_genre white-text">Genero</label>
+        <select class="title-xs"  name="game_genre" id="game_genre" formControlName="game_genre" required>
+          <option class="title-xs" 
+            *ngFor="let gameGenre of gameGenres"
+            [value]="gameGenre.category_id"
+          >
+            {{ gameGenre.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="game_pegi white-text">PEGI</label>
+        <select class="title-xs"  name="game_pegi" id="game_pegi" formControlName="game_pegi">
+          <option class="title-xs"  *ngFor="let gamePegi of gamePegis" [value]="gamePegi.pegi_id">
+            {{ gamePegi.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="game_price white-text">Precio</label>
+        <input
+          type="number"
+          class="title-xs form-input"
+          id="game_price"
+          formControlName="game_price"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="game_stock white-text">Stock</label>
+        <input
+          type="number"
+          class="title-xs form-input"
+          id="game_stock"
+          formControlName="game_stock"
+          required
+        />
+      </div>
+
+      <button
+        class="btn-green white-text btn-close text-regular-s"
+        (click)="editGame()"
+        mat-button
+        mat-dialog-close
+      >
+        Enviar
+      </button>
+    </form>
+
+</mat-dialog-content>

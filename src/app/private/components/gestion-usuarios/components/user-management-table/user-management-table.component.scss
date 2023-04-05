@@ -1,0 +1,122 @@
+$background-color_grey: #536162;
+$border-color_green: #57e309;
+$font-regular: "Rokkit-Regular.ttf";
+$background-color_dark-grey: #292f33;
+
+.mat-table {
+  width: 100%;
+  background-color: $background-color_grey;
+}
+
+.users-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $background-color_grey;
+}
+
+.mat-paginator {
+  background-color: $background-color_grey;
+}
+
+::ng-deep .mat-select-value-text {
+  color: white;
+  font-family: $font-regular;
+}
+
+div.table-paginator-container {
+  width: 100%;
+}
+
+.mat-cell-actions {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.mat-form-field {
+  width: 250px;
+}
+
+.banToggle-btn:hover {
+  filter: brightness(90%);
+  cursor: pointer;
+}
+
+.mat-header-cell,
+.mat-cell {
+  justify-content: center;
+  padding: 0px;
+  width: 25%;
+  text-align: center;
+  border-bottom: 1px solid $border-color_green;
+  color: #fff; /* preguntar si lo arreglo mejor por class="white-text" */
+}
+
+
+.mat-header-id {
+  flex-shrink: 2;
+}
+
+/* filtro */
+::ng-deep .mat-form-field-label {
+  color: $border-color_green !important;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  color: $border-color_green !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  background-color: $border-color_green !important;
+}
+
+.mat-input-element.filter-text {
+  font-family: "Minecraftia-Regular.ttf" !important;
+  width: 100%;
+  border-radius: 5px;
+  padding-top: 0.5rem;
+  height: 1rem;
+  color: #fff;
+}
+
+/* paginador y su select */
+::ng-deep.mat-select-arrow {
+  color: $border-color_green;
+}
+::ng-deep.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: $border-color_green;
+}
+
+::ng-deep.mat-select-panel {
+  background: $background-color_dark-grey;
+}
+::ng-deep.mat-primary .mat-option {
+  color: white;
+  font-family: $font-regular;
+}
+::ng-deep.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: $border-color_green;
+}
+
+.inactive{
+  background-color: rgba(44, 44, 44, 0.648);
+}
+
+/* tablet */
+@media (max-width: 768px) {
+}
+
+/* movil */
+@media (max-width: 480px) {
+  .mat-form-field {
+    width: 180px;  
+  }
+
+  ::ng-deep.mat-header-cell:first-of-type,
+  ::ng-deep.mat-cell:first-of-type,
+  ::ng-deep.mat-footer-cell:first-of-type {
+    padding-right: 0px;
+    max-width: 30px !important;
+  }
+}

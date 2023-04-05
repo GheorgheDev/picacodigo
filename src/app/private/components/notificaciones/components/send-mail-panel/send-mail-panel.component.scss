@@ -1,0 +1,78 @@
+$background-color_grey: #536162;
+$border-color_green: #57e309;
+$background-color_dark-grey: #292f33;
+$background-color_dark-grey-transparent: #2f3538;
+
+.form-container {
+  background-color: $background-color_grey;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mat-form-field {
+  width: 80%;
+  border-radius: 10px;
+  margin: 10px 20px;
+}
+
+::ng-deep .mat-form-field-label {
+  color: $border-color_green !important;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  color: $border-color_green !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  background-color: $border-color_green !important;
+}
+
+.mat-hint {
+  color: $border-color_green;
+}
+
+.mat-input-element.message-mailto {
+  font-family: "Minecraftia-Regular.ttf" !important;
+  width: 100%;
+  border-radius: 5px;
+  padding-top: 0.5rem;
+  height: 1rem;
+  color: #fff;
+}
+.mat-input-element.message-text {
+  color: #fff;
+  font-family: "Rokkit-Regular.ttf" !important;
+  padding: 10px 0;
+
+  /* revisar scroll */
+}
+
+button {
+  width: 150px;
+  text-align: center;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 5px 2px;
+}
+
+::ng-deep.mat-option {
+  color: white;
+  background-color: $background-color_dark-grey;
+  font-family: "Minecraftia-Regular.ttf";
+}
+
+::ng-deep.mat-autocomplete-panel {
+  background: $background-color_dark-grey-transparent;
+}
+
+/* tablet */
+@media (max-width: 768px) {
+}
+
+/* movil */
+@media (max-width: 480px) {
+}

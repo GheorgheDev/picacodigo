@@ -1,0 +1,27 @@
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { NotificationData } from '../../model/notification-data';
+
+@Component({
+  selector: 'app-notifications-panel',
+  templateUrl: './notifications-panel.component.html',
+  styleUrls: ['./notifications-panel.component.scss']
+})
+export class NotificationsPanelComponent implements OnInit {
+
+  @Input() notification: NotificationData;
+  @Output() markAsRead = new EventEmitter<string>();
+  markNotificationAsRead(value:string){
+    this.markAsRead.emit(value);
+  }
+
+  @Output() deleteNotif = new EventEmitter<string>();
+  deleteNotification(value:string){
+    this.deleteNotif.emit(value);
+  }
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+ 
+}

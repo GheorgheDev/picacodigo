@@ -1,0 +1,89 @@
+$background-color_dark-grey: #292f33;
+$font-title: "Minecraftia-Regular.ttf";
+$font-regular: "Rokkit-Regular.ttf";
+$border-color_green: #57e309;
+
+::ng-deep .mat-dialog-container {
+  background-color: $background-color_dark-grey;
+}
+
+.btn-close {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  padding: 5px 0;
+  margin-top: 10px;
+}
+
+::ng-deep.mat-typography h1 {
+  font-family: $font-title !important;
+  margin-bottom: 0 !important;
+  padding: 0;
+}
+
+.mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+
+  & .fa-xmark{
+    color: $border-color_green;
+    align-self: flex-end;
+    cursor: pointer;
+  }
+
+  & .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+
+    & div.form-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      & label {
+        color: white;
+        font-family: $font-regular;
+      }
+
+      & .game_stars {
+        color: #57e309;
+      }
+
+      & .form-input,
+      & select {
+        width: 100%;
+        text-align: center;
+        margin: 1px 0 5px 0;
+      }
+
+      & textarea {
+        resize: none;
+        height: 5rem;
+      }
+    }
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@media (max-width:768px){
+    .edit-game-container {
+
+        width: 300px;
+    }
+}
+@media (max-width:480px){
+    .edit-game-container {
+        width: 200px;
+    }
+}

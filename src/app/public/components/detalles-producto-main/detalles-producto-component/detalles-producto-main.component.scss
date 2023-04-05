@@ -1,0 +1,249 @@
+$font-title: "Minecraftia-Regular.ttf";
+
+.contenedor {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  position: relative;
+}
+
+.fondo-gris {
+  background-color: #536162;
+  z-index: 95;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.7;
+  display: none;
+
+  &.show {
+    display: block;
+  }
+}
+
+.carousel {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: baseline;
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translate(-50%, 0px);
+  z-index: 100;
+  display: none;
+
+  &.show {
+    display: block;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__button {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    padding-top:10px ;
+    color: white;
+    cursor: pointer;
+
+    &--left {
+      left: 0;
+      top: 50%;
+    }
+
+    &--right {
+      right: 0;
+      top: 50%;
+    }
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding: 5rem 0.3rem 2rem 0.3rem;
+}
+
+.producto {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 10px ;
+
+  &__imagenes {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__imagen {
+    border-radius: 0.3rem;
+    cursor: pointer;
+  }
+
+  &__imagen--principal {
+    width: 100%;
+  }
+
+  &__contenedor-imagenes-secundarias {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__imagen--secundaria {
+    width: 30%;
+  }
+
+  &__detalles {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    & .btn-green{
+      align-self: center;
+    }
+  }
+
+  &__cantidad {
+    width: 45%;
+    max-width: 92.15px;
+    text-align: end;
+    padding: 0.4rem;
+    border-radius: 0.3rem;
+    border: 1px solid transparent;
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+}
+
+.producto__imagen--secundaria:first-child{
+  display: none;
+}
+
+
+
+
+.btn-green {
+  color: #fff;
+  padding-top: 10px;
+  align-items: center;
+  cursor: pointer;
+  width: 230px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.title-s {
+  margin: 0;
+  font-size: 1.4em;
+  font-family: $font-title;
+}
+
+.text-medium-s {
+  text-align: justify;
+}
+
+.reviews-container {
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+::ng-deep.mat-typography p{
+  margin: 0;
+}
+
+.stars-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.stars{
+  font-variation-settings:
+  'FILL' 1;
+  color: #57e309;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@media (min-width: 320px) {
+  .resenias {
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .resenias__contenido {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .text-light-s {
+    width: 58%;
+  }
+  .btn-green {
+    align-self: flex-start;
+  }
+  .reviews-container{
+    padding: 0 15px ;
+  }
+}
+
+
+
+@media (min-width: 768px) {
+  .producto {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1232.4px;
+    gap: 2rem;
+    padding: 15px 40px;
+  }
+  .reviews-container{
+    max-width:1232.4px ;
+    padding: 15px 40px;
+  }
+
+  .producto__imagenes {
+    width: 50%;
+  }
+
+  .producto__detalles {
+    width: 40%;
+  }
+  
+
+  .resenias {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1142.4px;
+  }
+  .carousel {
+    width: 80%;
+    top: 100px;
+    /* transform: translate(-50%, -70vh); */
+    }
+    
+}
+@media (min-width: 1200px) {
+
+  .carousel {
+    width: 60%;
+  }
+}

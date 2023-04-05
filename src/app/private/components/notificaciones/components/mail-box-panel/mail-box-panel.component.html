@@ -1,0 +1,44 @@
+<mat-card
+  class="notif-card"
+  [ngClass]="{ read: !!+completeMailboxMessage.read }"
+>
+  <mat-card-title>
+    <a
+      mat-raised-button
+      [routerLink]="['#']"
+      target="_blank"
+      class="white-text title-m card__title"
+      >{{ completeMailboxMessage.username }}</a
+    >
+    <span class="text-regular-s matcard-title__sentmessage white-text">
+      te envió un mensaje:</span
+    >
+  </mat-card-title>
+
+  <mat-card-content class="text-regular-m matcard-content__message">
+    <div>
+      <span class="white-text">{{ completeMailboxMessage.content }}</span
+      ><br />
+      <span class="text-regular-xs green-text">{{
+        completeMailboxMessage.date | date : "dd-MM-yyyy"
+      }}</span>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button
+      (click)="deleteMailBoxMessage(completeMailboxMessage.message_id)"
+      class="btn-green title-xs white-text btn-delete"
+    >
+      Eliminar
+    </button>
+    <button
+      *ngIf="!!!+completeMailboxMessage.read"
+      class="btn-green title-xs white-text btn-read"
+      (click)="markMailAsRead(completeMailboxMessage.message_id)"
+    >
+      Marcar como leido
+    </button>
+  </mat-card-actions>
+</mat-card>
+<br />

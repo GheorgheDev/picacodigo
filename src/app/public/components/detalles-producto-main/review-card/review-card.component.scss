@@ -1,0 +1,33 @@
+$color_green: #57e309;
+
+.mat-card{
+    height: 100%;
+    padding: 12px;
+
+    & .mat-card-header{
+        height: 3rem;
+        display: flex;
+        justify-content: space-around;
+    
+        & .mat-card-avatar{
+            border-radius: 50%;
+        }
+    
+        & .mat-card-title{
+            margin-top: 10px;
+        }
+
+        & .fa-xmark{
+            color: $color_green;
+            padding-top: 10px;
+            cursor: pointer;
+        }
+    }
+
+    & .mat-card-content{
+         & .review-content{
+            padding: 2px 15px;
+         }
+    }
+}
+

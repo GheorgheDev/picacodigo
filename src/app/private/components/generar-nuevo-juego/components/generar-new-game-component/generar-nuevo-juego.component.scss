@@ -1,0 +1,83 @@
+$color_green: #57e309;
+$font-title: "Minecraftia-Regular.ttf";
+$font-regular: "Rokkit-Regular.ttf";
+
+.page-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.new-game-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    padding-bottom: 50px;
+
+    & .new-game-form-title{
+        font-family: $font-title;
+        margin: 50px 0;
+    }
+  
+    & .fa-xmark{
+      color: $color_green;
+      align-self: flex-end;
+      cursor: pointer;
+    }
+  
+    & .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80%;
+  
+      & div.form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+  
+        & label {
+          color: white;
+          font-family: $font-regular;
+        }
+  
+        & .game_stars {
+          color: #57e309;
+        }
+  
+        & .form-input,
+        & select {
+          width: 100%;
+          text-align: center;
+          margin: 1px 0 5px 0;
+        }
+  
+        & textarea {
+          resize: none;
+          height: 5rem;
+        }
+      }
+    }
+  }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* tablet */
+@media (max-width: 768px) {
+    .new-game-form-title{
+        margin: 40px 0;
+    }    
+    
+}
+
+@media (max-width: 480px) {
+    .new-game-form-title{
+        margin: 30px 0;
+    }    
+}

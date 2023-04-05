@@ -1,0 +1,17 @@
+$background-color_dark-grey: #292F33;
+$font-title: "Minecraftia-Regular.ttf";
+
+::ng-deep .mat-dialog-container{
+    background-color: $background-color_dark-grey ;
+}
+
+.btn-close{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    padding: 5px 0;
+}
+
+::ng-deep.mat-dialog-title{
+    font-family: $font-title !important;
+}

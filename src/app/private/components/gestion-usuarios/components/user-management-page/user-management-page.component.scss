@@ -1,0 +1,48 @@
+$color_green: #57e309;
+$font-title: "Minecraftia-Regular.ttf";
+
+
+.user-management-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 70px;
+    padding-bottom: 150px;
+}
+.user-management-title{
+    font-family: $font-title;
+    margin: 50px 0;
+}
+
+.user-management-table-container{
+    max-width: 1200px;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 1200px;
+    height: 100%;
+    padding-bottom: 30px;
+    min-height: 450px;
+}
+
+::ng-deep .mat-tab-label{
+    color: #fff;
+    font-family: "Rokkit-Regular.ttf" !important;
+}
+::ng-deep.mat-tab-group.mat-primary .mat-ink-bar{
+    background-color: $color_green;
+}
+/* tablet */
+@media (max-width: 768px) {
+    .user-management-title{
+        margin: 40px 0;
+    }    
+    
+}
+
+@media (max-width: 480px) {
+    .user-management-title{
+        margin: 30px 0;
+    }    
+}

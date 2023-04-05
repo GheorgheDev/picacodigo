@@ -1,0 +1,87 @@
+<div class="users-box">
+  <mat-form-field appearance="standard">
+    <mat-label>Filtrar</mat-label>
+    <input
+      class="title-xs filter-text"
+      matInput
+      (keyup)="applyFilter($event)"
+      #input
+    />
+  </mat-form-field>
+  <div class="table-paginator-container">
+    <table mat-table [dataSource]="dataSourceUser">
+      <ng-container matColumnDef="user_id">
+        <mat-header-cell
+          *matHeaderCellDef
+          class="white-text text-regular-s mat-header-id"
+          >ID</mat-header-cell
+        >
+        <mat-cell
+          *matCellDef="let user"
+          class="text-regular-s"
+          [ngClass]="{ inactive: user.status == 'inactive' }"
+          >{{ user.user_id }}</mat-cell
+        >
+      </ng-container>
+
+      <ng-container matColumnDef="username">
+        <mat-header-cell *matHeaderCellDef class="text-regular-s"
+          >UserName</mat-header-cell
+        >
+        <mat-cell
+          *matCellDef="let user"
+          class="text-regular-s"
+          [ngClass]="{ inactive: user.status == 'inactive' }"
+          >{{ user.username }}</mat-cell
+        >
+      </ng-container>
+
+      <ng-container matColumnDef="fullname">
+        <mat-header-cell *matHeaderCellDef class="text-regular-s"
+          >Nombre</mat-header-cell
+        >
+        <mat-cell
+          *matCellDef="let user"
+          class="text-regular-s"
+          [ngClass]="{ inactive: user.status == 'inactive' }"
+          >{{ user.fullname }}</mat-cell
+        >
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef class="text-regular-s"
+          >Acciones</mat-header-cell
+        >
+        <mat-cell
+          *matCellDef="let user"
+          class="mat-cell-actions"
+          [ngClass]="{ inactive: user.status == 'inactive' }"
+        >
+          <a
+            class="banToggle-btn title-xxs"
+            (click)="banUserToggle(user.user_id)"
+          >
+            <span *ngIf="user.status == 'active'">Banear</span>
+            <span *ngIf="user.status == 'inactive'">Desbanear</span>
+          </a>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell text-regular-xs" colspan="4">
+          No se encontraron datos para el filtro.
+        </td>
+      </tr>
+    </table>
+    <mat-paginator
+      class="text-regular-xs white-text"
+      #userPaginator
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      aria-label="Select page of users"
+    ></mat-paginator>
+  </div>
+</div>

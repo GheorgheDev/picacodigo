@@ -1,0 +1,41 @@
+<div class="shopping-cart__header">
+  <app-common-header></app-common-header>
+</div>
+
+<div class="shopping-cart-container dark-background white-text" *ngIf="userType == '1'">
+  <h1 class="shopping-cart-title title-l white-text">Carrito de compras</h1>
+
+  <div class="shopping-items-container">
+    <app-shopping-cart-card 
+      *ngFor="let completeShoppingCartItems of completeShoppingCartItems"
+      [completeShoppingCartItems]="completeShoppingCartItems"  (deleteItemFromShoppingCartSSEvent)="deleteItemFromShoppingCartSS($event)"
+    ></app-shopping-cart-card>
+    <div class="no-shopping-items text-regular-m" *ngIf="completeShoppingCartItems.length==0">
+      ¡Ups...! Parece que no hay nada por aquí aún
+    </div>
+  </div>
+
+  <div class="final-price-container white-text">
+    <mat-card>
+      <mat-card-content class="text-regular-m matcard-content__total white-text">
+
+      <div class="final-price-box">
+          <span>TOTAL: </span>
+          <span  class="green-text">€ {{totalAllShoppigCartItems}}</span>
+          <span *ngIf="totalAllShoppigCartItems!=0" class="title-s buy-btn" (click)="buy()">Comprar</span>
+      </div>
+   
+
+  </mat-card-content>
+    </mat-card>
+    
+  </div>
+</div>
+
+<div *ngIf="userType != '1'">
+  <app-not-permission></app-not-permission>
+</div>
+
+<div class="shopping-cart__footer">
+  <app-footer></app-footer>
+</div>

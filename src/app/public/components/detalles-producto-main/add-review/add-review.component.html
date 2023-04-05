@@ -1,0 +1,37 @@
+<h1 mat-dialog-title class="white-text title-m">Añade una reseña</h1>
+
+<div mat-dialog-actions>
+  <form class="form-container" [formGroup]="reviewForm">
+    <mat-form-field appearance="fill">
+      <mat-label class="text-regular-s">Tu reseña:</mat-label>
+      <textarea
+        class="review_text white-text"
+        #content
+        matInput
+        maxlength="100"
+        cdkTextareaAutosize
+        #autosize="cdkTextareaAutosize"
+        cdkAutosizeMinRows="7"
+        cdkAutosizeMaxRows="14"
+        formControlName="content"
+        name="content"
+        required
+      ></textarea>
+      <mat-hint align="end" class="text-regular-xs"
+        >{{ content.value.length }} / 100</mat-hint
+      >
+    </mat-form-field>
+
+    <div class="text-regular-s white-text">
+      * No puedes enviar una reseña vacia
+    </div>
+
+    <button
+      class="btn-green white-text btn-close text-regular-s"
+      mat-button mat-dialog-close  [disabled]="content.value.length<1"
+      (click)="addReview()"
+    >
+      Enviar
+    </button>
+  </form>
+</div>

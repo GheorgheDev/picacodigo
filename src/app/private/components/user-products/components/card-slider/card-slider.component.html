@@ -1,0 +1,27 @@
+<div class="distribution__card__slider">
+    <div class="distribution__card__slider__cards">
+        <button mat-button type="button" (click)="previousPage()" *ngIf="showPrevious"
+            class="btn__page__pass__left icon__color">
+            <span class="fa fa-chevron-left"></span>
+        </button>
+
+        <div class="distribution__product">
+            <div *ngFor="let product of pages[selectedPage]">
+                <mat-card class="card__style">
+                    <img mat-card-image src="./assets/media/example-photo.jpg">
+                    <mat-card-title>
+                        <a mat-raised-button [routerLink]="['#']" target="_blank"
+                            class="white-text title-xs card__title">{{product.name}}</a>
+                    </mat-card-title>
+                    <mat-card-subtitle class="star__points">{{showStars(product.stars)}}</mat-card-subtitle>
+                    <button mat-button class="btn-green white-text title-xs card__price">{{product.price}} €</button>
+                </mat-card>
+            </div>
+        </div>
+
+        <button mat-button type="button" (click)="nextPage()" *ngIf="showNext"
+            class="btn__page__pass__right icon__color">
+            <span class="fa fa-chevron-right"></span>
+        </button>
+    </div>
+</div>
