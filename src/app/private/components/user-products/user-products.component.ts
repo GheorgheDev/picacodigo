@@ -23,8 +23,16 @@ export class UserProductsComponent implements OnInit {
   groupSold: ProductData[] = [];
   groupBought: ProductData[] = [];
 
+  user_id = "0"
+  user_idFromSS: string | null = sessionStorage.getItem('user_id');
+
+
   ngOnInit() {
-    this.userProductService.getAllGamesByUserId('1')
+    if (!!this.user_idFromSS) {
+      this.user_id = this.user_idFromSS
+    }
+
+    this.userProductService.getAllGamesByUserId(this.user_id)
       .subscribe(result => {
         this.products = result;
       })

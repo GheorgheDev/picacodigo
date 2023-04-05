@@ -105,7 +105,7 @@ export class SendMailPanelComponent implements OnInit {
       this.messageForm.markAllAsTouched();
       this.dialog.open(InvalidFormDialogComponent);
     } else {
-      //console.log(this.messageForm.value.mail_to, ' - ', this.messageForm.value.message_text);
+      this.addMessageToDB(newMessage)
       this.messageForm.reset();
       this.dialog.open(ValidMessageformDialogComponent);
     }
